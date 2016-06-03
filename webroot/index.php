@@ -13,8 +13,10 @@
  */
 define('WP_USE_THEMES', true);
 
-phpinfo();die; //netbeans-xdebug
-//xdebug.idekey="netbeans-xdebug"
+
+$test = 'Hello';
+
+
 /** Loads the WordPress Environment and Template */
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 
