@@ -1,0 +1,26 @@
+[
+   {
+      "id":"123abc",
+      "name":"Sewing needles",
+      "priceGbp":3.99,
+      "description":"Three stainless steel needles in 3, 5, 7cm",
+      "review":4.5,
+      "imageUrl":"http://ibiza.com/assets/images/needles_123abc.jpg"
+   },
+   {
+      "id":"456abc",
+      "name":"Sewing machine",
+      "priceGbp":299.99,
+      "description":"Sewing machine",
+      "review":4.7,
+      "imageUrl":"http://ibiza.com/assets/images/machine_123abc.jpg"
+   },
+   {
+      "id":"789abc",
+      "name":"sewing lamp",
+      "priceGbp":14.99,
+      "description":"12cm sewing desk lamp",
+      "review":3.5,
+      "imageUrl":"http://ibiza.com/assets/images/light_123abc.jpg"
+   }
+]

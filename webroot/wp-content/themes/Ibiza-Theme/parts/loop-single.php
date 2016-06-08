@@ -1,3 +1,4 @@
+<?php if(is_front_page())return; ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 						
 	<header class="article-header">	

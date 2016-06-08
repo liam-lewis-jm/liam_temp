@@ -1,0 +1,36 @@
+<?php
+/*
+Template Name: Products List
+*/
+
+
+$jsonPath   =   get_template_directory() .  '/assets/json/data.json';
+$jsonData   =   file_get_contents($jsonPath);
+$data      =   json_decode($jsonData);
+
+print_r($data);
+
+
+?>
+
+<?php get_header(); ?>
+			
+	<div id="content">
+	
+		<div id="inner-content" class="row">
+	
+		    <main id="main" class="large-12 medium-12 columns" role="main">
+				
+				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+					<?php get_template_part( 'parts/loop', 'page' ); ?>
+					
+				<?php endwhile; endif; ?>							
+
+			</main> <!-- end #main -->
+		    
+		</div> <!-- end #inner-content -->
+	
+	</div> <!-- end #content -->
+
+<?php get_footer(); ?>

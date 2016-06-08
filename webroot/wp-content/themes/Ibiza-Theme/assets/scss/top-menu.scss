@@ -1,0 +1,137 @@
+/******************************************************************
+
+Stylesheet: Login Stylesheet
+
+This stylesheet is loaded is only on the login page. This way you can style
+the login page. It won't affect any other page, admin or front-end.
+
+Make sure functions/admin.php is activated in your functions.php file.
+
+This stylesheet is turned off by default.
+
+For more info, check out the codex:
+http://codex.wordpress.org/Creating_Admin_Themes
+
+******************************************************************/
+
+.top-bar {
+    padding: 0!important;
+
+}
+
+
+.top-bar .menu {
+    &:first-child {
+        a{
+            &:hover + .ibiza-menu {
+                
+                display: block;
+                z-index: 4101;
+            }
+
+            &:hover {
+                position: relative;
+                background:white;
+                z-index: 4100;
+            }
+        }
+
+    }
+}
+
+
+.top-bar ul.menu li:hover > a {
+    background-color: #fff;
+
+}
+
+
+
+
+
+.top-bar, .top-bar ul {
+    background-color: #fff!important;
+}
+.ibiza-menu  ul{
+
+    list-style: none;
+    margin-left:0;
+
+
+    ul  a{
+        font-weight:normal!important;
+        font-size:14px;
+
+    }     
+
+    .menu-item-has-children{
+
+        a{
+            font-weight:bold;
+            color:#000;
+        }
+
+        a:hover {
+            text-decoration: underline;
+
+        }
+    }
+
+
+
+
+
+}
+
+
+.ibiza-menu {
+
+
+    box-shadow: 0 7px 7px -7px #313131 inset;
+    display: none;
+    background: #fff none repeat scroll 0 0;
+    position: absolute;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial;
+    left:0;
+
+    li.large-3 , li.medium-3 {
+        width:15%;
+    }
+    .row.menus{
+        padding:30px 0 30px 0;  
+    }    
+}
+
+.ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child)
+{
+    float:left;
+}
+
+
+.ibiza-menu:hover {
+    display:block;
+}
+
+.top-bar .ibiza-menu .row{
+    margin: 0 auto !important;
+    max-width: 75rem;
+}
+
+.main-nav__backdrop {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 3999;
+}
+
+#content{
+    box-shadow: 0 7px 7px -7px #313131 inset;
+}

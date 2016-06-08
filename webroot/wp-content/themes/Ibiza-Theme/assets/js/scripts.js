@@ -9,6 +9,21 @@ jQuery(document).ready(function() {
     // Remove empty P tags created by WP inside of Accordion and Orbit
     jQuery('.accordion p:empty, .orbit p:empty').remove();
 
+    
+           
+       
+//
+    
+        jQuery( ".top-bar .menu-item" )
+          .mouseover(function() {
+
+                jQuery('.main-nav__backdrop').css('visibility' , 'visible')
+          })
+          .mouseout(function() {
+                jQuery('.main-nav__backdrop').css('visibility' , 'hidden')
+          });    
+    
+
 	 // Makes sure last grid item floats left
 	jQuery('.archive-grid .columns').last().addClass( 'end' );
 

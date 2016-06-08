@@ -31,6 +31,7 @@
 
 		<!-- Drop Google Analytics here -->
 		<!-- end analytics -->
+                
 
 	</head>
 	
@@ -46,10 +47,10 @@
 				
 				<div class="off-canvas-content" data-off-canvas-content>
 					
-					<header class="header" role="banner">
+					<nav class="header row" role="banner">
 							
 						 <!-- This navs will be applied to the topbar, above all content 
 							  To see additional nav styles, visit the /parts directory -->
 						 <?php get_template_part( 'parts/nav', 'offcanvas-topbar' ); ?>
 		 	
-					</header> <!-- end .header -->
+					</nav> <!-- end .header -->

@@ -7,7 +7,7 @@
 			<li><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
 		</ul>
 	</div>
-	<div class="top-bar-right show-for-medium">
+	<div class="top-bar show-for-medium">
 		<?php joints_top_nav(); ?>	
 	</div>
 	<div class="top-bar-right float-right show-for-small-only">
