@@ -40,3 +40,43 @@ require_once(get_template_directory().'/assets/translation/translation.php');
 
 // Customize the WordPress admin
 // require_once(get_template_directory().'/assets/functions/admin.php'); 
+
+
+
+add_action('init','wpse71305_register_types');
+
+function wpse71305_register_types(){
+
+     //You'll need to register the country taxonomy here too.
+     //Add 'country' tag.
+     add_rewrite_tag('%products%', '([^&/]+)');
+
+     //Register hotel post type with %country$ tag
+    $args = array(  
+        'has_archive'=>true,  
+        'rewrite' => array(  
+            'slug'=>'products-list/%products%',  
+            'with_front'=> false,  
+            'feed'=> true,  
+            'pages'=> true  
+        )  
+    );  
+    register_post_type('hotel',$args);  
+}
+
+
+add_filter( 'template_include', 'so_13997743_custom_template' );
+
+function so_13997743_custom_template( $template )
+{
+    
+    $hasProduct = get_query_var ( 'products' );
+    
+    if($hasProduct){
+        
+        $template = plugin_dir_path( __FILE__ ) . 'product.php';
+    }
+    
+
+    return $template;
+}

@@ -32,7 +32,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
             &:hover {
                 position: relative;
                 background:white;
-                z-index: 4100;
+                z-index: 9999999;
             }
         }
 
@@ -42,7 +42,8 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 .top-bar ul.menu li:hover > a {
     background-color: #fff;
-
+    position:relative;
+    z-index: 9999999;
 }
 
 
@@ -87,7 +88,8 @@ http://codex.wordpress.org/Creating_Admin_Themes
 .ibiza-menu {
 
 
-    box-shadow: 0 7px 7px -7px #313131 inset;
+      box-shadow: 0 5px 14px 0px #313131;
+
     display: none;
     background: #fff none repeat scroll 0 0;
     position: absolute;
@@ -96,7 +98,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
     margin-right: auto;
     max-width: initial;
     left:0;
-
+    z-index: 999999;
     li.large-3 , li.medium-3 {
         width:15%;
     }
@@ -130,8 +132,22 @@ http://codex.wordpress.org/Creating_Admin_Themes
     visibility: hidden;
     width: 100%;
     z-index: 3999;
+    
 }
 
 #content{
     box-shadow: 0 7px 7px -7px #313131 inset;
 }
+
+.swiper-container-products{
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.large-4.small-6.columns.ng-scope {
+    height: 485px;
+}
+
+

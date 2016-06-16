@@ -12,7 +12,7 @@ Template Name: Home Template
 	
                     <?php if(is_front_page()): ?>
                     
-		    <main id="main" class="large-5 medium-5 columns" role="main">
+		    <main id="main" class="large-6 medium-6 columns" role="main">
 				
                     <?php else:  ?>
                         
@@ -36,13 +36,27 @@ Template Name: Home Template
 					
                                         
                             <!-- Temp style -->
-                            <div style="background: grey;width:100%;height:250px;">
-
-
-                            </div>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/lIdJZXknVM0" frameborder="0" allowfullscreen></iframe>
+                            
+                            <h2>On todays show</h2>
+                            
+                            <ul>
+                                
+                                <li> -------- </li>
+                                <li> -------- </li>
+                                <li> -------- </li>
+                                <li> -------- </li>
+                                
+                            </ul>
+                            
+                            
 		    </main> <!-- end #main -->
 		    
-		    <?php get_sidebar(); ?>
+                    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("homepagesidebar") ) : ?>
+
+                        <?php dynamic_sidebar( 'homepagesidebar' ); ?>
+
+                    <?php endif; ?>
 
 		</div> <!-- end #inner-content -->
 

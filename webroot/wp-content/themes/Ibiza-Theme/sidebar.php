@@ -1,24 +1,24 @@
-<?php if(is_front_page()): ?>
-<div id="sidebar1" class="sidebar large-7 medium-7 columns" role="complementary">
+<?php if (is_front_page()): ?>
+    <div id="sidebar1" class="sidebar large-6 medium-6 columns" role="complementary">
 
-<?php else: ?>    
+    <?php else: ?>    
 
-<div id="sidebar1" class="sidebar large-4 medium-4 columns" role="complementary">
-    
-<?php endif; ?>
-    
-	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+        <div id="sidebar1" class="sidebar large-4 medium-4 columns" role="complementary">
 
-		<?php dynamic_sidebar( 'sidebar1' ); ?>
+        <?php endif; ?>
 
-	<?php else : ?>
+        <?php if (is_active_sidebar('sidebar1')) : ?>
 
-	<!-- This content shows up if there are no widgets defined in the backend. -->
-						
-	<div class="alert help">
-		<p><?php _e( 'Please activate some Widgets.', 'jointswp' );  ?></p>
-	</div>
+            <?php dynamic_sidebar('sidebar1'); ?>
 
-	<?php endif; ?>
+        <?php else : ?>
 
-</div>
+            <!-- This content shows up if there are no widgets defined in the backend. -->
+
+            <div class="alert help">
+                <p><?php _e('Please activate some Widgets.', 'jointswp'); ?></p>
+            </div>
+
+        <?php endif; ?>
+
+    </div>
