@@ -1,9 +1,11 @@
 <?php
 /**
- * Standard ultimate posts widget template
+ * Custom ultimate posts widget template
  *
  * @version     2.0.0
  */
+
+
 ?>
 
 <?php if ($instance['before_posts']) : ?>

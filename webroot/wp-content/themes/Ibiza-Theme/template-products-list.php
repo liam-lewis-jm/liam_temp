@@ -5,6 +5,11 @@
 
 set_time_limit(0);
 
+$facetsJSON = get_meta_values(  'facets-' .  (int)$_GET['cat']);
+
+
+
+$facets = json_decode( $facetsJSON[0] ); 
 
 $jsonPath = get_template_directory() . '/assets/json/data_rc.json';
 $jsonData = file_get_contents($jsonPath);
@@ -20,14 +25,14 @@ $multiHandler   = ClientBuilder::multiHandler();
 
 // Try both the $singleHandler and $multiHandler independently
 $client = \Elasticsearch\ClientBuilder::create()
-    ->setHosts(['http://192.168.50.4'])
+    ->setHosts(['http://localhost'])
     ->setHandler($singleHandler)
     ->build();
 
 
  
     
-
+/*
 
     foreach($dataSet as $id=>$dataIn){
         
@@ -44,7 +49,7 @@ $client = \Elasticsearch\ClientBuilder::create()
     }
 
         
-        
+  */      
          
 
 
@@ -154,6 +159,36 @@ $client = \Elasticsearch\ClientBuilder::create()
                     </header>
                 </section>
 
+                
+                
+                
+                
+                
+                
+                <?php 
+                
+                
+//                foreach($facets as $facet):
+//                    
+//                    echo $facet->name;
+//                    
+//                    echo '<select>';
+//                
+//                    foreach($facet->options as $option ):
+//                        
+//                        echo  '<option>'. $option .'</option>';
+//                        
+//                    endforeach;
+//                
+//                    echo '</select>';    
+//                    
+//                    
+                    
+                   
+//                endforeach;
+                
+               ?>
+                
                 <h3>Search</h3>
                 <eui-searchbox field="'product.base.name'"></eui-searchbox> <!-- ACTION: change to field to search on -->
                 <h3>Price</h3>
@@ -167,9 +202,12 @@ $client = \Elasticsearch\ClientBuilder::create()
                     <option ng-repeat="item in [12, 20, 50, 100, 200]">{{item}}</option>
                 </select>
 
+                
+
+                
             </div>
 
-
+              
 
         </div>
 
@@ -184,8 +222,7 @@ $client = \Elasticsearch\ClientBuilder::create()
         <!-- Thumbnails -->
 
 
-        <?php
-        ?>
+
 
 
         <main id="main" class="large-9 medium-9 columns" role="main">
@@ -215,7 +252,7 @@ $client = \Elasticsearch\ClientBuilder::create()
             </div>
 
             <!-- End Thumbnails -->
-
+         
         </main>
     </div>
 </div>

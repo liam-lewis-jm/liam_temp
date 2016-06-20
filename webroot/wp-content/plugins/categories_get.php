@@ -41,10 +41,11 @@ class Topbar1_Menu_Walker extends Walker_Nav_Menu {
  */
 function get_json() {
 
-    $jsonPath = get_template_directory() . '/assets/json/menu.json';
+    $jsonPath =  'http://productcatalog.localdev/ProductCatalog.Api/api/categorieswithmetadata';  //get_template_directory() . '/assets/json/menu.json';
     $cats = json_decode(file_get_contents($jsonPath));
 
-    return $cats->{TOP_NODE};
+    
+    return $cats[0]->{TOP_NODE};
 }
 /**
  * 
@@ -61,6 +62,7 @@ function update_menu($menu_id, $new_menu_id, $title, $menu_position = 0, $parent
 
     return wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-parent-id' => $parent_menu_id,
+//        'menu-item-db-id'   => $new_menu_id , 
         'menu-item-position' => $menu_position,
         'menu-item-object' => 'page',
         'menu-item-type' => $menu_type,
@@ -81,6 +83,10 @@ function add_menu( $data, $menu_id, $parent_id = 0 ) {
 
         $child_menu_id = update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id);
 
+        //print_r($dataIn->facets);
+        
+        update_post_meta($child_menu_id,  'facets-' . $dataIn->id  , json_encode( $dataIn->facets ) );
+        
         if (count($dataIn->nodes) > 0) {
 
             add_menu($dataIn->nodes, $menu_id, $child_menu_id);
@@ -93,8 +99,9 @@ function add_menu( $data, $menu_id, $parent_id = 0 ) {
  */
 function do_menu() {
 
+    
 
-
+    
     wp_nav_menu(array(
         'echo' => false,
         'fallback_cb' => false, // Fallback function (see below)
@@ -116,5 +123,20 @@ function do_menu() {
     }
 }
 
-add_action('init', 'do_menu');
+
+if( $_GET['refresh_ibiza_menu'] == 1  ){
+    
+    add_action( 'init', 'do_menu' );
+    header( 'Location: /wp-admin/nav-menus.php' );
+    
+}
+
+global $pagenow;
+
+if( $pagenow == 'nav-menus.php' ){
+    
+    wp_enqueue_script( 'menurefresh-js', get_template_directory_uri()  . '/assets/js/admin-scripts.js', array( 'jquery' ), '', true );
+    
+}
+
 ?>
