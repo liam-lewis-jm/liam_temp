@@ -5,6 +5,7 @@
  * @version     2.0.0
  */
 
+$image = '';
 
 ?>
 
@@ -22,17 +23,19 @@
 
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : ''; ?>
 
-        <article <?php post_class($current_post); ?>>
+    
+    
+        <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
+              <article <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>)" >
+        <?php else:?>
+            <article <?php post_class($current_post); ?>>
+        <?php endif; ?>    
+    
+        
 
           <header>
 
-            <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>
-              <div class="entry-image">
-                <a href="<?php the_permalink(); ?>" rel="bookmark">
-                  <?php the_post_thumbnail($instance['thumb_size']); ?>
-                </a>
-              </div>
-            <?php endif; ?>
+
 
             <?php if (get_the_title() && $instance['show_title']) : ?>
               <h4 class="entry-title">

@@ -5,15 +5,18 @@
 
 set_time_limit(0);
 
-$facetsJSON = get_meta_values(  'facets-' .  (int)$_GET['cat']);
+
+
+//$jsonPath   = get_template_directory_uri() . '/assets/json/data_rc.json';
+//$jsonData   = file_get_contents($jsonPath);
+//$dataSet    = json_decode($jsonData);
 
 
 
-$facets = json_decode( $facetsJSON[0] ); 
 
-$jsonPath = get_template_directory() . '/assets/json/data_rc.json';
-$jsonData = file_get_contents($jsonPath);
-$dataSet = json_decode($jsonData);
+$jsonPath   = 'http://52.18.1.60/ProductCatalog.Api/api/webapi/facets/32';
+$facetsJSON = file_get_contents($jsonPath);
+$facets     = json_decode( $facetsJSON ); 
 
 
 use Elasticsearch\ClientBuilder;
@@ -25,130 +28,31 @@ $multiHandler   = ClientBuilder::multiHandler();
 
 // Try both the $singleHandler and $multiHandler independently
 $client = \Elasticsearch\ClientBuilder::create()
-    ->setHosts(['http://localhost'])
+    ->setHosts(['http://productcatalog.localdev/ProductCatalog.Api/api/webapi/search'])
     ->setHandler($singleHandler)
     ->build();
-
-
- 
-    
-/*
-
-    foreach($dataSet as $id=>$dataIn){
-        
-        
-        
-         $params = [
-            'index' => 'my_products_index',
-            'type' => 'my_products_typee',
-            'id' => 'productsX_' . $dataIn->product->productDetailId ,
-            'body' =>  $dataIn
-        ];       
-         
-         $response = $client->index($params);
-    }
-
-        
-  */      
-         
-
-
-
-    /*
-
-    $cats[] =   'Scissors & Cutting Tools';
-    $cats[] =   'Ribbons & Trimmings';
-    $cats[] =   'Zips & Fastenings';
-    $cats[] =   'Threads';
-    $cats[] =   'Needles';
-    $cats[] =   'Binding & Elastics';
-    $cats[] =   'Pins & Pin Cushions';
-    $cats[] =   'Repairs & Alterations';
-    $cats[] =   'Buttons';
-    $cats[] =   'Customising & Decoration';
-    $cats[] =   'Thread';
-
-
-    $nameArr[] =   'Sewing needles';
-    $nameArr[] =   'Sewing machine';
-    $nameArr[] =   'Sewing needles';
-    $nameArr[] =   'Sewing Needle & Thread';
-    $nameArr[] =   'Pins';
-    $nameArr[] =   'Small Butons';
-    $nameArr[] =   'Medium Button';
-    $nameArr[] =   'Large buttons';
-    $nameArr[] =   'Small Cloth';
-    $nameArr[] =   'Large Cloth';
-    $nameArr[] =   'Thimble';
-
-
-
-    $price[] =   '1.99';
-    $price[] =   '5.99';
-    $price[] =   '9.99';
-    $price[] =   '4.55';
-    $price[] =   '9.55';
-    $price[] =   '8.88';
-    $price[] =   '10.99';
-    $price[] =   '50.55';
-    $price[] =   '150.55';
-    $price[] =   '170.99';
-    $price[] =   '17.99';
-
-
-    
- 
-    
-    for($i=0;$i<=100000;$i++)
-    {
-        $id = rand(0, 50000000);
-        $dataRand1 = rand(1,10);
-        $dataRand2 = rand(1,10);
-        $dataRand3 = rand(1,10);
-        $dataRand4 = rand(1,10);
-        
-        $dataSet->id      = $id;
-        $dataSet->name      = $nameArr[ $dataRand1 ];
-        $dataSet->cat       = $cats[ $dataRand2 ];
-        $dataSet->imageUrl  = $dataRand3 . '.jpg';
-        $dataSet->priceGbp     = $price[ $dataRand4 ];;
-        
-        $dataSetArr = (array)$dataSet;
-        
-        $params = [
-            'index' => 'my_products_index',
-            'type' => 'my_products_typee',
-            'id' => 'productsX_' . $id,
-            'body' =>  $dataSetArr
-        ];
-        
-        
-        
-        $response = $client->index($params);
-        
-        
-    }
-    */
 
 
 ?>
 
 <?php get_header(); ?>
 <script src="http://code.angularjs.org/1.2.16/angular.js"></script>
-<script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elasticsearch.angular.js"></script>
-<script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elastic.js"></script>
-<script src="http://rawgit.com/YousefED/ElasticUI/master/dist/elasticui.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/elasticsearch.angular.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/elastic.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/elasticui.js"></script>
 <script>
     angular
-            .module('tutorial', ['elasticui'])
-            .constant('euiHost', 'http://localhost:9200'); // ACTION: change to cluster address
+            .module('ibiza', ['elasticui'])
+            .constant('euiHost', 'http://ibizaschemas.product/ProductCatalog.Api/api/webapi/'); // ACTION: change to cluster address
 </script>
-<div id="content" ng-app="tutorial" eui-index="'my_products_index'">
+<div id="content" ng-app="ibiza" eui-index="'my_products_index'" eui-query="ejs.MatchQuery('category', '<?php echo $_GET['cat']; ?>')" ng-model="querystring" eui-enabled="true"  >
 
     <!-- Side Bar -->
     <div id="inner-content" class="row">
 
-
+        
+        <p><?php echo  implode( ' > ' , breacdcrumbs( 'cat-' . (int)$_GET['cat'] ) ) ; ?></p>
+        
         <div class="sidebar large-3 medium-3 columns" role="complementary">
 
             <div id="side-facets">
@@ -158,45 +62,27 @@ $client = \Elasticsearch\ClientBuilder::create()
                         <p><strong>Filter by</strong></p>
                     </header>
                 </section>
-
-                
-                
-                
-                
-                
-                
-                <?php 
-                
-                
-//                foreach($facets as $facet):
-//                    
-//                    echo $facet->name;
-//                    
-//                    echo '<select>';
-//                
-//                    foreach($facet->options as $option ):
-//                        
-//                        echo  '<option>'. $option .'</option>';
-//                        
-//                    endforeach;
-//                
-//                    echo '</select>';    
-//                    
-//                    
-                    
-                   
-//                endforeach;
-                
-               ?>
                 
                 <h3>Search</h3>
+                
+                
                 <eui-searchbox field="'product.base.name'"></eui-searchbox> <!-- ACTION: change to field to search on -->
-                <h3>Price</h3>
-                <eui-singleselect field="'product.webPrice'" size="5"></eui-singleselect> <!-- ACTION: change to field to use as facet -->                
-                <h3>Gemstone</h3>
-                <eui-singleselect field="'gemstone'" size="5"></eui-singleselect> <!-- ACTION: change to field to use as facet -->
-                <h3>Product Category</h3>
-                <eui-checklist field="'product.base.category'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
+                
+                <!--<h3>Price</h3>
+               <eui-singleselect field="'product.webPrice'" size="5"></eui-singleselect>-->   
+                
+                
+
+                
+                <?php foreach( $facets as $facet): ?>
+                
+                <h3><?php echo ucwords( $facet ); ?></h3>
+                <eui-checklist field="'<?php echo $facet; ?>'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
+                
+                <?php endforeach;?>
+                
+                
+                
                 <h3>Results Per Page</h3>
                 <select ng-model="indexVM.pageSize">
                     <option ng-repeat="item in [12, 20, 50, 100, 200]">{{item}}</option>
@@ -233,15 +119,15 @@ $client = \Elasticsearch\ClientBuilder::create()
 
                 <div class="large-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits">
 
-                    <img src="{{doc._source.product.base.imageUri}}">
+                    <img src="{{doc._source.images[0].url}}">
 
                     <div class="panel">
 
-                        <h5><a href="/products-list/{{doc._source.product.productDetailId}}/{{doc._source.product.base.name}}">{{doc._source.product.base.name}}</a></h5>
+                        <h5><a href="/products-list/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
 
-                        <p style="font-size:12px;">{{doc._source.product.base.name}}</p>
+                        <p style="font-size:12px;">{{doc._source.description}}</p>
 
-                        <h6 class="subheader">&pound;{{doc._source.product.webPrice}}</h6>
+                        <h6 class="subheader">&pound;{{doc._source.price}}</h6>
                         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     </div>
 

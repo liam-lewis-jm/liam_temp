@@ -12,24 +12,25 @@ $multiHandler = ClientBuilder::multiHandler();
 
 // Try both the $singleHandler and $multiHandler independently
 $client = \Elasticsearch\ClientBuilder::create()
-        ->setHosts(['http://192.168.50.4'])
+        ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/webapi/search'])
         ->setHandler($singleHandler)
         ->build();
 
 
 
 
+
 $params = [
-    'index' => 'my_products_index',
-    'type' => 'my_products_typee',
+    'index' => 'documents',
+    'type' => 'document',
     'id' => 'productsX_' . get_query_var('products')
 ];
 
 $response = $client->get($params);
 
 
-//print_r( $response  );
-
+print_r( $response  );
+die;
 ?>
 
 <?php get_header(); ?>

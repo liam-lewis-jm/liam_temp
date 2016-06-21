@@ -83,10 +83,8 @@ function add_menu( $data, $menu_id, $parent_id = 0 ) {
 
         $child_menu_id = update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id);
 
-        //print_r($dataIn->facets);
-        
-        update_post_meta($child_menu_id,  'facets-' . $dataIn->id  , json_encode( $dataIn->facets ) );
-        
+        update_post_meta($child_menu_id,  'cat-' . $dataIn->id  , '1' );
+        // 1 has now use, ignore
         if (count($dataIn->nodes) > 0) {
 
             add_menu($dataIn->nodes, $menu_id, $child_menu_id);
