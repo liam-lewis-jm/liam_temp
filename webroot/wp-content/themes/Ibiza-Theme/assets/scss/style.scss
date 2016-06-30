@@ -74,3 +74,77 @@ CSS file.
 
 // Import your print styles
 @import "print";
+
+#dvVideoHolderHome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+#dvVideoHolderHome_wrapper {
+    height: 0;
+    margin-bottom: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    width: 100%;
+}
+
+#menu-main-1 .ibiza-menu .menu-item-has-children
+{
+    height:400px;
+}
+
+#menu-main-1 {
+    display: flex;
+    
+}
+
+
+#menu-main-1 li{
+    flex-grow: 1;
+   
+}
+
+
+li.menu-item-type-post_type a , li.menu-item-object-custom a {
+     text-align: center;
+}
+
+
+.swiper-container-banner{
+  margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    height:295px;
+}
+
+
+.swiper-container-banner img{
+    width:100%;
+}
+
+.row {
+background:#fff;
+}
+
+.off-canvas-content{
+    background:#ddd;
+}
+
+.swiper-container-banner .info{
+        color: #fff;
+    left: 70px;
+    position: absolute;
+    top: 20px;
+    width: 40%;
+}
+
+.swiper-container {
+    height: 322px!important;
+}
+
+.cq-linkstack a{
+    color:#fff;
+}

@@ -8,6 +8,57 @@
 
 <div id="content">
 
+    
+    <div id="banner-content" class="row">
+        
+        
+        <div class="swiper-container-banner">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" style="transform: translate3d(-600px, 0px, 0px); transition-duration: 0ms;">
+                
+                <div class="swiper-slide" style="background: #ccc">
+                    <img src="http://johnlewis.scene7.com/is/image/JohnLewis/knitting_needles_banner_100516" />
+                    
+                    <div class="info">
+                        <h2>One-kit wonder</h2> 
+                        <p>Needles and hooks at the ready: we have the finest wool to complete your knitting project. Treat your designs with the premium yarns they deserve. Opt for merino wool, cashmere and silk blends for unparalleled comfort in your creations</p> 
+                        <div class="cq-linkstack"> 
+                         <ul> 
+                          <li> <a href="/browse/sport-leisure/haberdashery/knitting-needles-crochet-hooks/_/N-enl?intcmp=cp_spo_wool_fuwi1_top_knittingneedles_x100516">Shop Knitting Needles &amp; Hooks</a> </li> 
+                          <li> <a href="/browse/sport-leisure/haberdashery/knitting-crochet-patterns/_/N-enj?intcmp=cp_spo_wool_fuwi1_top_knittingpatterns_x100516">Shop Knitting &amp; Crochet Patterns</a> </li> 
+                         </ul> 
+                        </div>                    
+                    </div>
+                </div>
+                
+                <div class="swiper-slide" style="background: #333">
+                    <img src="http://johnlewis.scene7.com/is/image/JohnLewis/habysets_bnr_141015" />   
+                    
+                    <div class="info">
+                        <h2>One-kit wonder</h2> 
+                        <p>Needles and hooks at the ready: we have the finest wool to complete your knitting project. Treat your designs with the premium yarns they deserve. Opt for merino wool, cashmere and silk blends for unparalleled comfort in your creations</p> 
+                        <div class="cq-linkstack"> 
+                         <ul> 
+                          <li> <a href="/browse/sport-leisure/haberdashery/knitting-needles-crochet-hooks/_/N-enl?intcmp=cp_spo_wool_fuwi1_top_knittingneedles_x100516">Shop Knitting Needles &amp; Hooks</a> </li> 
+                          <li> <a href="/browse/sport-leisure/haberdashery/knitting-crochet-patterns/_/N-enj?intcmp=cp_spo_wool_fuwi1_top_knittingpatterns_x100516">Shop Knitting &amp; Crochet Patterns</a> </li> 
+                         </ul> 
+                        </div>                    
+                    </div>                    
+                    
+                </div>
+
+            </div>
+            
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>            
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>            
+        </div>
+        
+        
+    </div>
+    
     <div id="inner-content" class="row">
 
         <?php if (is_front_page()): ?>
@@ -36,30 +87,124 @@
 
 
                 <!-- Temp style -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/lIdJZXknVM0" frameborder="0" allowfullscreen></iframe>
+                <div id="dvVideoHolderHome" style="background-color: #000"><img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" /></div>       
 
+                
+                
+
+                
+                
+                
                 <h2>On todays show</h2>
 
-                <ul>
+                <ol>
 
-                    <li> -------- </li>
-                    <li> -------- </li>
-                    <li> -------- </li>
-                    <li> -------- </li>
+                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
+                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
+                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
+                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
 
-                </ul>
+                </ol>
 
 
             </main> <!-- end #main -->
 
-            <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("homepagesidebar")) : ?>
+            
+
+            
+            
+            <?php if (is_active_sidebar('homepagesidebar')) : ?>
 
                 <?php dynamic_sidebar('homepagesidebar'); ?>
 
             <?php endif; ?>
 
     </div> <!-- end #inner-content -->
+ <hr />
+    
+            <div class="row">
+                
+                                <?php 
+                
+                
+                use Elasticsearch\ClientBuilder;
 
+                require 'vendor/autoload.php';
+
+                $singleHandler = ClientBuilder::singleHandler();
+                $multiHandler = ClientBuilder::multiHandler();                
+                
+                
+                
+                $client = \Elasticsearch\ClientBuilder::create()
+                    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/'])
+                    ->setHandler($singleHandler)
+                    ->build();
+
+                $params = [
+                    'index' => 'documents',
+                    'type' => 'document',
+                    'body' => [
+                        'query' => [
+                            'match' => [
+                              
+                            ]
+                        ]
+                    ],
+                    
+                     'client' => [
+                        'curl' => [
+                            CURLOPT_HTTPHEADER => [
+                                'Content-type: application/json',
+                            ]
+                        ]
+                         ]
+                    
+                ];
+
+                $response               = $client->search($params);
+
+                $core['name']           = 1;
+                $core['description']    = 1;
+                $core['productcode']    = 1;
+                $core['legacycode']     = 1;
+                $core['price']          = 1;
+                $core['images']         = 1;
+                $core['review']         = 1;
+                $core['category']       = 1;
+
+                
+                
+                foreach($response['hits']['hits'] as $key =>$productIn ){
+                    
+                    if ($key==6)
+                        break;
+                    ?>
+                
+               
+                
+                <div class="columns large-2">
+                    
+                     
+                    <p style="font-size: 13px; text-align: center; font-weight: bold; margin: 10px 0px 0px;"><?php echo $productIn['_source']['name']; ?></p>
+                    <?php 
+                     echo '<img src="' . $productIn['_source']['images'][0]['url'] . '" />';
+                    ?>
+                    
+                </div>
+                <?php 
+                    
+                }
+                
+                
+ 
+                
+                
+                
+                ?>
+                <div style="clear:both">&nbsp;</div>
+            </div>    
+    
 </div> <!-- end #content -->
 
 <hr />
@@ -67,7 +212,7 @@
 <section class="row" id="second-band">
     <div class="band__inner wrapper">      
         <div class="text-center">
-            <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("homepagebelowmaincontent")) : ?>
+            <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
 
                 <?php dynamic_sidebar('homepagebelowmaincontent'); ?>
 
@@ -75,73 +220,37 @@
         </div>
 
 
-        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
-            <a href="/en-gb/getting-started/">
-                <picture class="responsiveImg learning__item__img">
-                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                    <source media="(min-width: 1024px)" srcset="/global/img/homepage/learning/box3/01-large.jpg"></source>
-                    <source media="(min-width: 768px)" srcset="/global/img/homepage/learning/box3/02-medium.jpg"></source>
-                    <source media="(max-width: 767px)" srcset="/global/img/homepage/learning/box3/03-small.jpg"></source>
-                    <!--[if IE 9]></video><![endif]-->
-                    <img alt="Workshops" class="learning__item__img">
-                    <meta content="/global/img/homepage/learning/box3/01-large.jpg" itemprop="image">
-                </picture>
-                <div class="inner-border">
-                    <div class="inner-border__txt"> 
-                        <h2>Getting Started</h2>
-                        <p>Learn the basics of jewellery making</p>
-                        <div class="rule"></div>
-                        <div class="inner-border--dummylink"><span>Find Out</span> More &gt;</div>
-                    </div> 
-                </div>
-            </a>
-        </article>
-        <article class="learning__item box2--workshops mobile-half tablet-and-up-half large-3 columns">
-            <a href="/en-gb/learning/workshops/">
-                <picture class="responsiveImg learning__item__img">
-                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                    <source media="(min-width: 1024px)" srcset="/global/img/homepage/learning/box2/01-large.jpg"></source>
-                    <source media="(min-width: 768px)" srcset="/global/img/homepage/learning/box2/02-medium.jpg"></source>
-                    <source media="(max-width: 767px)" srcset="/global/img/homepage/learning/box2/03-small.jpg"></source>
-                    <!--[if IE 9]></video><![endif]-->
-                    <img alt="Workshops" class="learning__item__img">
-                    <meta content="/global/img/homepage/learning/box2/01-large.jpg" itemprop="image">
-                </picture>
-                <div class="inner-border">
-                    <div class="inner-border__txt"> 
-                        <h2>Workshops</h2>
-                        <p>Learn a new skill here at the JM studios</p>
-                        <div class="rule"></div>
-                        <div class="inner-border--dummylink"><span>Find Out</span> More &gt;</div>
-                    </div> 
-                </div>
-            </a>          
-        </article>
 
-        <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
-            <a href="/en-gb/learning/video-tutorials/">  
-                <div class="promotional-box accent-color">
-                    <picture class="responsiveImg learning__item__img promotional-box--bg">
-                        <!--[if IE 9]><video style="display: none;"><![endif]-->
-                        <source media="(min-width: 1024px)" srcset="/global/img/homepage/learning/box1/01-large.jpg"></source>
-                        <source media="(min-width: 768px)" srcset="/global/img/homepage/learning/box1/02-medium.jpg"></source>
-                        <source media="(max-width: 767px)" srcset="/global/img/homepage/learning/box1/03-small.jpg"></source>
-                        <!--[if IE 9]></video><![endif]-->
-                        <img alt="Featured Product Video" class="learning__item__img">
-                        <meta content="/global/img/homepage/learning/box1/01-large.jpg" itemprop="image">
-                    </picture>
-                    <div class="inner-border">
-                        <div class="inner-border__txt"> 
-                            <h2>Video Tutorials</h2>
-                            <p>Whatever your level of experience is, learn from our wide range of free video tutorials</p>
-                            <div class="rule"></div>
-                            <div class="inner-border--dummylink"><span>Find Out</span> More &gt;</div>
-                        </div> 
-                    </div>
+        <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
 
-                </div>
-            </a>
-        </article>
+            <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
+
+                <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
+
+            </article>          
+
+        <?php endif; ?>     
+
+
+        <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
+
+            <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
+
+                <?php dynamic_sidebar('homepagebelowmaincontent_left2'); ?>
+
+            </article>          
+
+        <?php endif; ?>  
+
+        <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
+
+            <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
+
+                <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
+
+            </article>         
+
+        <?php endif; ?>  
 
         <article class="learning__item box4 mobile-full tablet-and-up-half  large-6 columns">
 
@@ -199,5 +308,21 @@
     </div>
     <div class="clear"></div>
 </section>        
+<script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/vendor/plugins/jwplayer/jwplayer.js"></script>
+<script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/video.js"></script>
+<script type="text/javascript">
+         jQuery(function () {
 
-<?php get_footer(); ?>
+             jQuery('[id$="dvVideoHolderHome"]').Video({
+                 container: 'dvVideoHolderHome',
+                 channel: 'JEWELLERYMAKER',
+                 autoStart: true,
+                 controls: false,
+                 mute: true,
+                 //quality: 'thumbnail',
+                 pageIdentifier: 'homepage',
+                 edge: '',
+             });
+         });
+</script>
+    <?php get_footer(); ?>

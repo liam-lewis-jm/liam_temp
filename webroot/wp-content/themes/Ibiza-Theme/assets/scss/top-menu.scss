@@ -136,7 +136,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 }
 
 #content{
-    box-shadow: 0 7px 7px -7px #313131 inset;
+/*    box-shadow: 0 7px 7px -7px #313131 inset;*/
 }
 
 .swiper-container-products{
@@ -151,3 +151,12 @@ http://codex.wordpress.org/Creating_Admin_Themes
 }
 
 
+input.search-submit{
+    display:none;
+}
+
+.swiper-slide div{
+    font-weight:bold;
+    text-indent:10px;
+    color:#333;
+}

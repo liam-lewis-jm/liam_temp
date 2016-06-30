@@ -3,6 +3,7 @@
   Template Name: Product Page
  */
 
+
 use Elasticsearch\ClientBuilder;
 
 require 'vendor/autoload.php';
@@ -12,51 +13,67 @@ $multiHandler = ClientBuilder::multiHandler();
 
 // Try both the $singleHandler and $multiHandler independently
 $client = \Elasticsearch\ClientBuilder::create()
-        ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/webapi/search'])
-        ->setHandler($singleHandler)
-        ->build();
-
-
-
-
+    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/'])
+    ->setHandler($singleHandler)
+    ->build();
 
 $params = [
-    'index' => 'documents',
+    'index' => 'product',
     'type' => 'document',
-    'id' => 'productsX_' . get_query_var('products')
+    'id' =>  get_query_var('products') ,
+        'client' => [
+        'curl' => [
+            CURLOPT_HTTPHEADER => [
+                'Content-type: application/json',
+            ]
+        ]
+    ]
 ];
 
-$response = $client->get($params);
+$response               = $client->get($params);
+
+$core['name']           = 1;
+$core['description']    = 1;
+$core['productcode']    = 1;
+$core['legacycode']     = 1;
+$core['price']          = 1;
+$core['images']         = 1;
+$core['review']         = 1;
+$core['category']       = 1;
+
+$schema = json_decode( file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $response['_source']['_schema'] ) );
+
+if( isset( $_GET['json'] ) ){
+    echo json_encode( $response );
+    die;
+}
 
 
-print_r( $response  );
-die;
 ?>
 
 <?php get_header(); ?>
-
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
  
 <div class="row columns">
     <nav aria-label="You are here:" role="navigation">
+        
         <ul class="breadcrumbs">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li class="disabled">Gene Splicing</li>
+            
+            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response['_source']['category'][0]  ) ) ; ?>
+
             <li>
-                <span class="show-for-sr">Current: </span> <?php echo $response['_source']['product']['base']['name']; ?>
+                <span class="show-for-sr">Current: </span> <?php echo $response['_source']['name']; ?>
             </li>
-            
-            
             
         </ul>
     </nav>
 </div>
-<div class="row">
+<div id="result">
+<div class="row" id="prodcut_main">
     <div class="medium-6 columns">
         
-       <a href="<?php echo $response['_source']['product']['base']['imageUri']; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['product']['base']['imageUri']; ?>" src="<?php echo $response['_source']['product']['base']['imageUri']; ?>">
+       <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
         <div class="clear">&nbsp;</div>
         <div class="">
 
@@ -67,26 +84,19 @@ die;
                 <div class="swiper-wrapper">
 
                     
-                    <div class="swiper-slide t">
-                        <a href="<?php echo $response['_source']['product']['base']['imageUri']; ?>"
-                           data-zoom-image="<?php echo $response['_source']['product']['base']['imageUri']; ?>"  
-                           data-image="<?php echo $response['_source']['product']['base']['imageUri']; ?>">                        
-                        <img class="gallery" data-zoom-image="<?php echo $response['_source']['product']['base']['imageUri']; ?>" src="<?php echo $response['_source']['product']['base']['imageUri']; ?>">
+                    <?php foreach( $response['_source']['images'] as $i => $image ): ?>
+                    
+
+                    <div class="swiper-slide">
+                        <a href="<?php echo $image['url']; ?>"
+                           data-zoom-image="<?php echo $image['url']; ?>"  
+                           data-image="<?php echo $image['url']; ?>">                        
+                        <img class="gallery" data-zoom-image="<?php echo $image; ?>" src="<?php echo $image['url']; ?>">
                         </a>
                         
                     </div>
                     
-                    <?php for($i=0;$i<=6;$i++): ?>
-                    
-
-                    <div class="swiper-slide">
-                        <a href="#"  class="elevatezoom-gallery" 
-                           data-zoom-image="https://placeholdit.imgix.net/~text?txtsize=47&txt=Image <?php echo $i?>&w=1000&h=800"  
-                           data-image="https://placeholdit.imgix.net/~text?txtsize=47&txt=Image <?php echo $i?>&w=250&h=200">
-                           <img class="gallery elevatezoom-gallery" src="https://placeholdit.imgix.net/~text?txtsize=47&txt=Image <?php echo $i?>&w=250&h=200" /></a>
-                    </div>
-                    
-                    <?php endfor; ?>
+                    <?php endforeach; ?>
                 </div>
 
 
@@ -96,19 +106,51 @@ die;
 
     </div>
     <div class="medium-6 large-5 columns">
-        <h3><?php echo $response['_source']['product']['base']['name']; ?></h3>
+        <h3 id="product_name"><?php echo $response['_source']['name']; ?></h3>
 
-        <h4>&pound;<?php echo $response['_source']['product']['webPrice']; ?> </h4>
+        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo $response['_source']['price']; ?> </h4>
         
-        <p><?php echo $response['_source']['product']['base']['description']; ?></p>
-        <!--        <label>Size
-                    <select>
-                        <option value="husker">Small</option>
-                        <option value="starbuck">Medium</option>
-                        <option value="hotdog">Large</option>
-                        <option value="apollo">Yeti</option>
-                    </select>
-                </label>-->
+        <p  id="product_description"><?php echo $response['_source']['description']; ?></p>
+        
+        
+        
+        <?php foreach($schema->properties as $key => $property): ?>
+        <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) ): ?>
+        
+        <div class="medium-6 large-6 columns">
+            <p><?php echo $property->title; ?></p>
+        </div>
+        
+        
+        <div class="medium-6 large-6 columns">
+            <p><?php echo  $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
+        </div>         
+                 
+                 
+                 
+        <?php endif; ?>   
+         
+        
+        <?php endforeach; ?>
+
+        
+
+        <?php $variantProducts =  json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/metadata/55873135' ) ); ?>
+        
+        <ul class="inline-list row">
+            
+            <?php  foreach($variantProducts->variants as $product):?>
+                
+            <li style="    display: block;
+    float: left;
+    list-style: outside none none;
+    margin-left: 1.22222rem;"><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img src="<?php echo $product->image ?>" /></a></li>
+            
+            <?php endforeach; ?>
+            
+        </ul>        
+        
+        
         <div class="row">
             <div class="small-3 columns">
                 <label for="middle-label" class="middle">Quantity</label>
@@ -117,10 +159,14 @@ die;
                 <input type="text" id="middle-label" placeholder="One fish two fish">
             </div>
         </div>
+        
+        
+
+        
         <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2">Add to basket</button>
         <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
             <div class="column large-6">
-                <img id="zoom_01" class="thumbnail" data-zoom-image="<?php echo $response['_source']['product']['base']['imageUri']; ?>" src="<?php echo $response['_source']['product']['base']['imageUri']; ?>">
+                <img id="zoom_01" class="thumbnail" data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
             </div>
             <div class="column large-6">
                 <p id="basket-description"><?php echo $response['_source']['product']['base']['name']; ?></p>
@@ -131,6 +177,7 @@ die;
          </div>
 
     </div>
+</div>
 </div>
 <div class="column row">
     <hr>
@@ -226,12 +273,34 @@ die;
 
 <script>
     
-    var zoomConfig = {cursor: 'crosshair', responsive: true ,   zoomType : "inner",}; 
-    var image = jQuery('.elevatezoom-gallery');
-    var zoomImage = jQuery('img#zoom_01');    
+    var zoomConfig      = {cursor: 'crosshair', responsive: true ,   zoomType : "inner",}; 
+    var image           = jQuery('.elevatezoom-gallery');
+    var zoomImage       = jQuery('img#zoom_01');    
     
     
     jQuery( document ).ready(function() {
+
+
+        jQuery('.product_refresh').click( function( e ) { 
+            
+            e.preventDefault();
+            
+            var product_name    = jQuery( this ).attr( 'data-name' );
+            var product_id      = jQuery( this ).attr( 'data-id' );
+            var url             = "/products-list/" + product_id  + "/" + product_name + '?json=1';
+            
+            jQuery.ajax({
+                dataType  : 'json' ,
+                url: url
+            })  .done(function( data ) {
+                if ( console && console.log ) {
+                    console.log(  data );
+                    jQuery('#basket-total').text('£' +  data.BasketTotal );
+                    jQuery('#basket-description').text('£' +  data.Description );
+                }
+              });
+            
+        });
 
         
         jQuery("#zoom").fancybox({
@@ -262,7 +331,7 @@ die;
             
             jQuery.ajax({
                 dataType  : 'json' ,
-                url: 'http://localdev.jewellerymaker.com/proxy.php?auctionID=-1&productCode=<?php echo $response['_source']['product']['productCode']; ?>&productDetailID=<?php echo $response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
+                url: 'http://localdev.jewellerymaker.com/proxy.php?auctionID=-1&productCode=<?php echo 'WTTY01'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '361247'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
             })  .done(function( data ) {
                 if ( console && console.log ) {
                     console.log(  data );

@@ -37,9 +37,9 @@
 
     <!-- Uncomment this line if using the Off-Canvas Menu --> 
 
-    <body <?php body_class(); ?>>
+    <body <?php body_class(); ?> >
 
-        <div class="header" style="margin: 0px;  overflow: hidden; background: rgb(72, 72, 72) none repeat scroll 0% 0%;">
+        <div class="header" style="margin: 0px;  overflow: hidden;">
             <div class="row">
                 <div class="large-6 columns">
                     

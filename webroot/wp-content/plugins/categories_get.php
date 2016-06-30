@@ -41,7 +41,7 @@ class Topbar1_Menu_Walker extends Walker_Nav_Menu {
  */
 function get_json() {
 
-    $jsonPath =  'http://productcatalog.localdev/ProductCatalog.Api/api/categorieswithmetadata';  //get_template_directory() . '/assets/json/menu.json';
+    $jsonPath =  'http://ibizaschemas.product/ProductCatalog.Api/api/categorytree';  //get_template_directory() . '/assets/json/menu.json';
     $cats = json_decode(file_get_contents($jsonPath));
 
     

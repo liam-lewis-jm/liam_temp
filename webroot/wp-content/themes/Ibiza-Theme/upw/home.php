@@ -26,7 +26,8 @@ $image = '';
     
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
-              <article <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>)" >
+              <article <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
+    padding: 17px;" >
         <?php else:?>
             <article <?php post_class($current_post); ?>>
         <?php endif; ?>    

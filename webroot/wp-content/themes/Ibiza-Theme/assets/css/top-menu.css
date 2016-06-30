@@ -115,7 +115,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 /* line 138, ../scss/top-menu.scss */
 #content {
-  box-shadow: 0 7px 7px -7px #313131 inset;
+  /*    box-shadow: 0 7px 7px -7px #313131 inset;*/
 }
 
 /* line 142, ../scss/top-menu.scss */
@@ -129,4 +129,16 @@ http://codex.wordpress.org/Creating_Admin_Themes
 /* line 149, ../scss/top-menu.scss */
 .large-4.small-6.columns.ng-scope {
   height: 485px;
+}
+
+/* line 154, ../scss/top-menu.scss */
+input.search-submit {
+  display: none;
+}
+
+/* line 158, ../scss/top-menu.scss */
+.swiper-slide div {
+  font-weight: bold;
+  text-indent: 10px;
+  color: #333;
 }

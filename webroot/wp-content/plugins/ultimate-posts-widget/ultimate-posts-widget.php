@@ -168,7 +168,7 @@ if (!class_exists('WP_Widget_Ultimate_Posts')) {
             );
 
             if($post_id>0) {
-                $args['post_id'] = $post_id;
+                $args['p'] = $post_id;
                 $args['posts_per_page'] = 1;
             }
             
@@ -619,23 +619,23 @@ if (!class_exists('WP_Widget_Ultimate_Posts')) {
                 </p>        
 
 
-                <p id="showspost_container">
+                <p id="<?php echo $this->get_field_id('showspost_container'); ?>">
 
-                        <?php foreach ($post_types_data as $post_type_key => $post_show_type): ?>
+                    <?php foreach ($post_types_data as $post_type_key => $post_show_type): ?>
 
-                        <select name="<?php echo $this->get_field_name('the_post'); ?>" class="post_type_<?php echo $post_type_key; ?>" style="width:100%;display:none;">
+                    <select name="<?php echo $this->get_field_name('the_post'); ?>" class="post_type_<?php echo $post_type_key; ?>" style="width:100%;display:none;">
 
-                            <option value="">Select Post</option>
+                        <option value="">Select Post</option>
 
-                <?php foreach ($post_show_type as $key_id => $post_show): ?>
+                        <?php foreach ($post_show_type as $key_id => $post_show): ?>
 
-                                <option <?php echo $key_id==$the_post? 'selected="seelcted"' : '' ; ?> value="<?php echo $key_id ?>"><?php echo $post_show; ?></option>
+                        <option <?php echo $key_id==$the_post? 'selected="seelcted"' : '' ; ?> value="<?php echo $key_id ?>"><?php echo $post_show; ?></option>
 
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </select>
+                    </select>
 
-            <?php endforeach; ?>
+                    <?php endforeach; ?>
 
                 </p>
 
@@ -680,9 +680,8 @@ if (!class_exists('WP_Widget_Ultimate_Posts')) {
 
             </div>
 
-            <p class="upw-credits">
-            <?php _e('Enjoy this plugin? Please <a href="http://pomelodesign.com/donate/" target="_blank">donate to support development</a>.', 'upw'); ?>
-            </p>
+
+
 
             <?php if ($instance) { ?>
 
@@ -691,8 +690,8 @@ if (!class_exists('WP_Widget_Ultimate_Posts')) {
 
                     function showThePost(ob , post_type) {
                         
-                        jQuery('#showspost_container select').hide();
-                        jQuery('#showspost_container select').attr('disabled' , 'disabled');
+                        jQuery('#<?php echo $this->get_field_id('showspost_container'); ?> select').hide();
+                        jQuery('#<?php echo $this->get_field_id('showspost_container'); ?> select').attr('disabled' , 'disabled');
                         if (jQuery(ob).attr("checked")) {
                             // checked
                             jQuery('.post_type_' + post_type.val()).show();

@@ -51,6 +51,36 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+	register_sidebar(array(
+		'id' => 'homepagebelowmaincontent_left1',
+		'name' => __('Homepage panel below content first left', 'jointswp'),
+		'description' => __('The search area sidebar.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'homepagebelowmaincontent_left2',
+		'name' => __('Homepage panel below content second left', 'jointswp'),
+		'description' => __('The search area sidebar.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'homepagebelowmaincontent_right',
+		'name' => __('Homepage panel below content on the right', 'jointswp'),
+		'description' => __('The search area sidebar.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
         
         
         

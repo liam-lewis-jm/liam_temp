@@ -9,14 +9,20 @@ jQuery(document).ready(function () {
     // Remove empty P tags created by WP inside of Accordion and Orbit
     jQuery('.accordion p:empty, .orbit p:empty').remove();
 
-    jQuery('#menu-main-2').append('<li class="main-nav__backdrop"></li>');
-
-
+    jQuery('#menu-main-1').append('<li class="main-nav__backdrop"></li>');
 
     //initialize swiper when document ready  
     var mySwiper = new Swiper('.swiper-container', {
         // Optional parameters
         loop: true
+    });
+
+    //initialize swiper when document ready  
+    var mySwiper = new Swiper('.swiper-container-banner', {
+        // Optional parameters
+        loop                : true ,
+        pagination          : '.swiper-pagination',
+        paginationClickable : true
     });
 
 
