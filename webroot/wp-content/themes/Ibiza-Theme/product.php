@@ -8,19 +8,22 @@ use Elasticsearch\ClientBuilder;
 
 require 'vendor/autoload.php';
 
-$singleHandler = ClientBuilder::singleHandler();
-$multiHandler = ClientBuilder::multiHandler();
+$product_type   = sanitize( $_GET['type'] );
+$singleHandler  = ClientBuilder::singleHandler();
+$multiHandler   = ClientBuilder::multiHandler();
 
 // Try both the $singleHandler and $multiHandler independently
 $client = \Elasticsearch\ClientBuilder::create()
-    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/'])
+    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/product/'])
     ->setHandler($singleHandler)
     ->build();
 
+
+/*
 $params = [
     'index' => 'product',
-    'type' => 'document',
-    'id' =>  get_query_var('products') ,
+    'type'  => $product_type ,
+    'id'    =>  get_query_var('products') ,
         'client' => [
         'curl' => [
             CURLOPT_HTTPHEADER => [
@@ -30,8 +33,28 @@ $params = [
     ]
 ];
 
-$response               = $client->get($params);
 
+
+
+
+$response               = $client->get($params);*/
+
+
+$json           = '{"query":{ "ids":{ "values": [ ' . get_query_var('products') . ' ] } } }';
+
+$indexParams    = [
+        'client' => [
+        'curl' => [
+            CURLOPT_HTTPHEADER => [
+                'Content-type: application/json',
+            ]
+        ]
+    ],
+    
+];
+
+$indexParams['body']    = $json;
+$rst                    = $client->search($indexParams);
 $core['name']           = 1;
 $core['description']    = 1;
 $core['productcode']    = 1;
@@ -40,8 +63,17 @@ $core['price']          = 1;
 $core['images']         = 1;
 $core['review']         = 1;
 $core['category']       = 1;
+$core['_mongo']         = 1;
+$core['_schema']        = 1;
+$core['_category']      = 1;
 
-$schema = json_decode( file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $response['_source']['_schema'] ) );
+$response['_source']    = $rst['hits']['hits'][0]['_source'];
+
+
+$schema                 = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $response['_source']['_schema'] ) );
+//$variantProducts        = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products') ) );
+
+
 
 if( isset( $_GET['json'] ) ){
     echo json_encode( $response );
@@ -60,7 +92,7 @@ if( isset( $_GET['json'] ) ){
         
         <ul class="breadcrumbs">
             
-            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response['_source']['category'][0]  ) ) ; ?>
+            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response['_source']['_category'][0]  ) ) ; ?>
 
             <li>
                 <span class="show-for-sr">Current: </span> <?php echo $response['_source']['name']; ?>
@@ -73,7 +105,7 @@ if( isset( $_GET['json'] ) ){
 <div class="row" id="prodcut_main">
     <div class="medium-6 columns">
         
-       <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
+        <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"  data-fancybox-type="iframe"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>_thumb">
         <div class="clear">&nbsp;</div>
         <div class="">
 
@@ -82,16 +114,14 @@ if( isset( $_GET['json'] ) ){
             <div class="swiper-container-products">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-
                     
                     <?php foreach( $response['_source']['images'] as $i => $image ): ?>
                     
-
                     <div class="swiper-slide">
-                        <a href="<?php echo $image['url']; ?>"
+                        <a class="gallery" href="<?php echo $image['url']; ?>"
                            data-zoom-image="<?php echo $image['url']; ?>"  
                            data-image="<?php echo $image['url']; ?>">                        
-                        <img class="gallery" data-zoom-image="<?php echo $image; ?>" src="<?php echo $image['url']; ?>">
+                        <img data-zoom-image="<?php echo $image['url']; ?>" src="<?php echo $image['url']; ?>">
                         </a>
                         
                     </div>
@@ -108,22 +138,24 @@ if( isset( $_GET['json'] ) ){
     <div class="medium-6 large-5 columns">
         <h3 id="product_name"><?php echo $response['_source']['name']; ?></h3>
 
-        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo $response['_source']['price']; ?> </h4>
+        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response['_source']['price'] , 2); ?> </h4>
         
         <p  id="product_description"><?php echo $response['_source']['description']; ?></p>
         
         
         
-        <?php foreach($schema->properties as $key => $property): ?>
-        <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) ): ?>
+        <?php //print_r( $schema->properties );die; ?>
         
-        <div class="medium-6 large-6 columns">
+        <?php foreach($schema->properties as $key => $property): ?>
+        <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) && $response['_source'][$key] && $property->title ): ?>
+        
+        <div class="medium-6 large-6 columns attr_template">
             <p><?php echo $property->title; ?></p>
         </div>
         
         
-        <div class="medium-6 large-6 columns">
-            <p><?php echo  $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
+        <div class="medium-6 large-6 columns attr_template">
+            <p><?php echo $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
         </div>         
                  
                  
@@ -135,23 +167,25 @@ if( isset( $_GET['json'] ) ){
 
         
 
-        <?php $variantProducts =  json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/metadata/55873135' ) ); ?>
-        
-        <ul class="inline-list row">
-            
-            <?php  foreach($variantProducts->variants as $product):?>
-                
-            <li style="    display: block;
-    float: left;
-    list-style: outside none none;
-    margin-left: 1.22222rem;"><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img src="<?php echo $product->image ?>" /></a></li>
-            
-            <?php endforeach; ?>
-            
-        </ul>        
         
         
-        <div class="row">
+            
+            
+            <?php   if($variantProducts): ?>
+            
+            <?php       foreach( $variantProducts->dimensions as $dimension ):?>
+            <ul class="inline-list row">
+            <li><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img width="25" src="<?php echo $product->image ?>" /></a></li>
+            </ul>   
+            <?php       endforeach; ?>
+            
+            
+            <?php endif; ?>
+            
+             
+        
+        
+        <div class="row" id="quantity">
             <div class="small-3 columns">
                 <label for="middle-label" class="middle">Quantity</label>
             </div>
@@ -166,7 +200,7 @@ if( isset( $_GET['json'] ) ){
         <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2">Add to basket</button>
         <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
             <div class="column large-6">
-                <img id="zoom_01" class="thumbnail" data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
+                <img   class="thumbnail" data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
             </div>
             <div class="column large-6">
                 <p id="basket-description"><?php echo $response['_source']['product']['base']['name']; ?></p>
@@ -271,34 +305,373 @@ if( isset( $_GET['json'] ) ){
 <!-- Footer -->
 
 
+<div style="display:none;" id="attr_template">
+
+    <div class="medium-6 large-6 columns attr_template attr_key">
+        <p>Brand</p>
+    </div>
+
+
+    <div class="medium-6 large-6 columns attr_template attr_value">
+        <p>Rowan</p>
+    </div>
+
+</div>
+    
 <script>
     
-    var zoomConfig      = {cursor: 'crosshair', responsive: true ,   zoomType : "inner",}; 
-    var image           = jQuery('.elevatezoom-gallery');
-    var zoomImage       = jQuery('img#zoom_01');    
+    
+    function find_product( data_in  )
+    {
+        
+        var product = null
+        
+        jQuery.each( data_in  , function( key, val ) {
+        
+            if( val.id == currentProductId ) {
+                
+                product = val;
+                return false;
+            }
+        
+        });
+        
+        return product;
+        
+    }
     
     
-    jQuery( document ).ready(function() {
-
-
-        jQuery('.product_refresh').click( function( e ) { 
+    function update_product( el )
+    {
+            var product_name    = 'product-name'; // not needed! jQuery( this ).attr( 'data-name' );
             
-            e.preventDefault();
+            var product_id      = jQuery( el ).attr( 'data-id' );
             
-            var product_name    = jQuery( this ).attr( 'data-name' );
-            var product_id      = jQuery( this ).attr( 'data-id' );
             var url             = "/products-list/" + product_id  + "/" + product_name + '?json=1';
             
             jQuery.ajax({
                 dataType  : 'json' ,
                 url: url
-            })  .done(function( data ) {
+            }).done(function( data ) {
                 if ( console && console.log ) {
                     console.log(  data );
-                    jQuery('#basket-total').text('£' +  data.BasketTotal );
-                    jQuery('#basket-description').text('£' +  data.Description );
+
+                        
+                    mySwiper_products.removeAllSlides();
+                        
+                    for( var image in  data._source.images ){
+                        
+                        var image_link_el_start = '<a data-image="' + data._source.images[image].url + '" data-zoom-image="' + data._source.images[image].url + '" href="' + data._source.images[image].url + '" class="gallery">';
+                        var image_link_el_end   = '</a>';
+                        mySwiper_products.appendSlide('<div class="swiper-slide">' + image_link_el_start + '<img src="'  + data._source.images[image].url  + '" />' + image_link_el_end + '</div>');
+                        
+                    }
+                    
+                    jQuery('.columns .attr_template').remove();
+
+                    for( var d in  data._source ){
+                        
+                        console.log(data._source[d]);
+                        
+                        if( jQuery.inArray( d , core )==-1 && data._source[d] ){
+                            
+                           var el = jQuery( '#attr_template' ).clone();
+                           
+                           jQuery('.attr_key p' , el ).text( schema[d].title );
+                           jQuery('.attr_value p' , el ).text( schema[d].prepend + data._source[d] + schema[d].append );
+                           
+                           jQuery('#quantity').before( el.html() );
+                        }
+                        
+                        
+                        
+                    }
+
+                    jQuery('.zoomContainer').remove();
+                    
+                    zoomImage.removeData('elevateZoom');
+                    // Reinitialize EZ
+                    
+                    jQuery('#product_name').text( data._source.name );
+                    jQuery('#product_description').text( data._source.description );
+                    jQuery('#product_price').text( '<?php echo $schema->properties->price->prepend ?>' + data._source.price.toFixed(2) );
+                    jQuery('#zoom').attr('href' , data._source.images[0].url );
+
+                    // Remove old instance od EZ
+                    jQuery('.zoomContainer').remove();
+                    zoomImage.removeData('elevateZoom');
+                    // Update source for images
+                    zoomImage.attr('src',  data._source.images[0].url );
+                    zoomImage.data('zoom-image',  data._source.images[0].url );
+                    // Reinitialize EZ
+                    zoomImage.elevateZoom(zoomConfig);
+                    
+                    
                 }
-              });
+              });        
+    }
+    
+    function update_current_dimension_text( el , dimension )
+    {
+        jQuery( '#current_' + jQuery( el ).parent().attr( 'id' ) ).text( dimension );
+    }
+    
+    function render_dimension( data , d1 , d2 )
+    {
+        
+        jQuery( '.dimension' ).removeClass('current');
+        jQuery( '.dimension' ).hide();
+        
+        jQuery.each( data  , function( key, val ) {
+            
+            jQuery( '[data-dimension="'+ key +'"]' ).show();
+            // all dimenion one should show
+            var topDKey = key;
+                  
+
+            if( typeof val != 'object' ){
+
+
+                jQuery( '[data-dimension="'+ key +'"]' ).attr( 'data-id' , val );
+                // for 1d only, as we the data we need
+            }                  
+                  
+                  
+            if( key == d1 ){
+                
+                var current_d1_el = jQuery(  '[data-dimension="'+ d1 +'"]' );
+                
+                current_d1_el.addClass('current');
+                
+                update_current_dimension_text( current_d1_el , key );
+                
+                 
+                
+                
+                
+
+
+                if( typeof val == 'object' ){
+                    /// 2d array onoly
+                    
+                    var i = 0;
+                    jQuery.each( val  , function( key, val ) {
+                        if( key == d2 ){
+
+                            jQuery( '[data-dimension="'+ d2 +'"]' ).addClass('current');
+                            update_current_dimension_text( jQuery( '[data-dimension="'+ d2 +'"]' ) , key );
+                        }
+
+                        if( i == 0 ){
+
+                            jQuery( '[data-dimension="'+ topDKey +'"]' ).attr( 'data-id' , val );
+                            // set the lvl1 d to the first levl 2 value
+                        }
+
+                        jQuery( '[data-dimension="'+ key +'"]' ).attr( 'data-id' , val );
+                        jQuery( '[data-dimension="'+ key +'"]' ).show();
+                        // show d2 based on the current selected d1
+
+                        i++;
+
+                    });                  
+                }
+            }
+
+        });
+    }
+    
+    
+    
+    var currentProductId    = '<?php echo get_query_var('products'); ?>';
+    var zoomConfig          = {cursor: 'crosshair', responsive: true ,   zoomType : "inner",}; 
+    var image               = jQuery('.gallery');
+    var zoomImage           = jQuery('img#zoom_01');    
+    var core                = [];
+    var schema              = {};
+    var variants            = {};
+    var current_product     = null;
+    var f_dimension1        = null; // final;
+    var f_dimension2        = null; // final;   
+    var mySwiper_products   = null;
+    <?php foreach( $core as $attr => $value ): ?>
+    
+    core.push('<?php echo $attr ?>');
+    
+    <?php endforeach;?>
+        
+        
+    <?php foreach( $schema->properties as $key => $property ): ?>
+    
+    <?php   if(!isset($core[$key] ) ): ?>
+                
+    schema['<?php echo $key ?>'] = { 'append' : '<?php echo $property->append; ?>' , 'prepend' :  '<?php echo $property->prepend; ?>' ,title :  '<?php echo $property->title; ?>' };
+                
+    <?php   endif; ?>
+    <?php endforeach; ?>
+    
+    jQuery( document ).ready(function() {
+
+
+
+        jQuery.getJSON( '<?php echo 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products'); ?>' , function( data ) {
+            
+            var el          = jQuery( '<div/>' );
+            variants        = data;
+            //console.log( el );
+            
+            console.log( data );
+            
+            jQuery.each( data.dimensions  , function( key, val ) {
+                
+                
+                var dimension_id    = 'dimension_' + val.name.replace( ' ' , '_'  ).toLowerCase();
+                var lvl             = key + 1; 
+                
+                el.append( '<p class="lvl' + lvl + '_text">' + val.name + ' : <span id="current_' + dimension_id  + '" ></span></p>' );            
+                el.append( '<ul id="' + dimension_id + '" class="inline-list row">' );
+                
+                
+                
+                jQuery.each( val.members  , function( key, val ) {
+                    
+                    
+                    var d_display = val.name;
+                    
+                    if( val.image.length > 0 ){
+                        
+                        d_display = '<img src="' + val.image + '" />';
+                        
+                    }
+                    
+                    
+                    jQuery( 'ul#' + dimension_id  , el  ).append( '<li class="dimension lvl' + lvl + '" data-dimension="'+ val.name +'">' + d_display + '</li>' );
+                    
+                });
+                
+                el.append( '</ul>' );
+
+            });
+          
+            jQuery( '#product_description' ).after( el );
+          
+            current_product         = find_product( data.variants );
+            f_dimension1            = null; // final;
+            f_dimension2            = null; // final;
+            
+            //console.log( data );
+            
+            jQuery.each( data.transformedVariants  , function( key, val ) {
+                
+                var dimension1  = key;
+                
+                // create seperate method for 1d and 2d
+  
+  
+                console.log( 'Test' );
+                
+                
+                if( typeof val === 'object' ) {
+
+
+                    jQuery.each( val  , function( key, val ) {
+
+                        var dimension2  = key;
+
+                        if( val == currentProductId ){
+
+                            f_dimension1    = dimension1;
+                            f_dimension2    = dimension2;
+                            return false;
+
+                        }
+
+                    }); 
+                    
+                    render_dimension( variants.transformedVariants , f_dimension1 , f_dimension2 );
+                    
+                } else {
+                    
+                    
+                    
+                    if( val == currentProductId ){
+                        console.log( variants.transformedVariants );
+                        f_dimension1    = dimension1;
+                        f_dimension2    = '';
+                        
+                        render_dimension( variants.transformedVariants , f_dimension1 , f_dimension2 );
+
+                    }                    
+                    
+
+                }                
+
+            });
+            
+            
+
+        });
+
+
+
+        //initialize swiper when document ready  
+        mySwiper_products = new Swiper('.swiper-container-products', {
+            // Optional parameters
+            loop: false,
+            slidesPerView: 4,
+            spaceBetween: 4,
+            breakpoints: {
+                // when window width is <= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetweenSlides: 10
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 2,
+                    spaceBetweenSlides: 20
+                },
+                // when window width is <= 640px
+                640: {
+                    slidesPerView: 3,
+                    spaceBetweenSlides: 30
+                }
+
+            }
+        });
+
+
+        jQuery( document ).on( "click", ".dimension", function() {
+            
+            
+            
+            
+            
+            
+            
+            var dimension       = jQuery( this ).attr('data-dimension');
+            
+            
+            
+            if( jQuery( this ).hasClass( 'lvl1' ) ){
+                
+                f_dimension1    = dimension;
+                dimension       = '';
+                
+            }else{
+                f_dimension2    = dimension;
+            }
+             
+            render_dimension( variants.transformedVariants , f_dimension1 ,  f_dimension2  );
+            
+            if( !dimension ){
+                
+                jQuery( '.lvl2' ).removeClass('current');
+                jQuery( '.lvl2_text span' ).text('');
+                
+            }
+            
+            update_product( this );
             
         });
 
@@ -325,7 +698,16 @@ if( isset( $_GET['json'] ) ){
 
         });
 
-        jQuery('#add-basket').click( function(){
+        jQuery('#add-basket').click( function( e ){
+            
+            if( jQuery('.lvl2' ).length>0 && jQuery('.lvl2.current' ).length<=0 ){
+                
+                e.preventDefault();
+                
+                return alert( 'Please select ' +  jQuery( '.lvl2_text' ).text() +  ' to continue.' );
+                
+            }
+            
             
             var quantity = jQuery('#middle-label').val();
             

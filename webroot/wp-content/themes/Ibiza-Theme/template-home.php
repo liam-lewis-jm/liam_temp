@@ -137,33 +137,26 @@
                 
                 
                 $client = \Elasticsearch\ClientBuilder::create()
-                    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/'])
+                    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/product/'])
                     ->setHandler($singleHandler)
                     ->build();
 
-                $params = [
-                    'index' => 'documents',
-                    'type' => 'document',
-                    'body' => [
-                        'query' => [
-                            'match' => [
-                              
-                            ]
-                        ]
-                    ],
-                    
-                     'client' => [
+
+                $indexParams    = [
+                        'client' => [
                         'curl' => [
                             CURLOPT_HTTPHEADER => [
                                 'Content-type: application/json',
                             ]
                         ]
-                         ]
-                    
+                    ],
+
                 ];
 
-                $response               = $client->search($params);
+                $response               = $client->search($indexParams);
 
+                
+                
                 $core['name']           = 1;
                 $core['description']    = 1;
                 $core['productcode']    = 1;
@@ -177,6 +170,8 @@
                 
                 foreach($response['hits']['hits'] as $key =>$productIn ){
                     
+                    
+                    
                     if ($key==6)
                         break;
                     ?>
@@ -187,10 +182,11 @@
                     
                      
                     <p style="font-size: 13px; text-align: center; font-weight: bold; margin: 10px 0px 0px;"><?php echo $productIn['_source']['name']; ?></p>
+                    <a href="/products-list/<?php echo $productIn['_id']; ?>/">
                     <?php 
                      echo '<img src="' . $productIn['_source']['images'][0]['url'] . '" />';
                     ?>
-                    
+                    </a>
                 </div>
                 <?php 
                     
@@ -210,7 +206,7 @@
 <hr />
 
 <section class="row" id="second-band">
-    <div class="band__inner wrapper">      
+    
         <div class="text-center">
             <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
 
@@ -252,7 +248,15 @@
 
         <?php endif; ?>  
 
-        <article class="learning__item box4 mobile-full tablet-and-up-half  large-6 columns">
+       
+    <div class="clear"></div>
+</section>        
+
+
+<div class="row">
+    
+    
+     <article class="learning__item box4 mobile-full tablet-and-up-half  large-6 columns">
 
             <div class="learning__item__subtitle">
                 <hr class="rule">
@@ -305,9 +309,11 @@
 
         </article>
 
-    </div>
-    <div class="clear"></div>
-</section>        
+    
+    
+</div>
+
+
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/vendor/plugins/jwplayer/jwplayer.js"></script>
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/video.js"></script>
 <script type="text/javascript">

@@ -19,7 +19,7 @@ foreach( $_GET as $key => $param ){
         $items =  explode( ',' , $param );
         
         foreach ($items as $item){
-            $join_str[] = 'must(ejs.TermFilter(\''. $key .'\', \''. $item .'\'))';
+            $join_str[] = 'must(ejs.TermFilter(\''. str_replace( '_raw', '.raw' , $key ) .'\', \''. $item .'\'))';
         }
         
     }
@@ -48,14 +48,156 @@ if(!$facets) {
 
 if( isset( $_GET['cat'] ) ) {
     
+   
     $category       = (int)$_GET['cat'];
-    $filter_cat_str = "ejs.MatchQuery('_category', '" . $category ."')\"";
+    $filter_cat_str = "ejs.TermFilter('_category', '" . $category ."')";
     
 }
 
 ?>
 
 <?php get_header(); ?>
+
+<div id="content"   ng-controller="IndexController" ng-app="ibiza" eui-index="'product,howto'"  eui-filter="ejs.BoolFilter().must(<?php echo $filter_cat_str; ?>)<?php echo $filter; ?>" ng-model='querystring' eui-enabled='true'>
+<!--    
+        <a href="#" id="disable_filter">Button</a>-->
+    
+    <div id="loading_container" class="row" style=" left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;background: white none repeat scroll 0% 0%; height: 75%; z-index: 0; position: absolute; width: 100%; display: block ! important;" class="">
+        
+        
+    <img src="https://d13yacurqjgara.cloudfront.net/users/1275/screenshots/1198509/plus.gif" style="margin: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px;">
+        
+    </div>
+    
+    <!-- Side Bar -->
+    <div id="inner-content" class="row" <?php echo $filter_cat_str1;?>>
+         
+        <div  <?php echo $filter_cat_str1 ;?> />
+        <nav aria-label="You are here:" role="navigation">
+            <ul class="breadcrumbs">
+                <?php echo implode('', breacdcrumbs('cat-' . (int) $_GET['cat'])); ?></p>
+            </ul>
+        </nav>
+        <div class="sidebar large-3 medium-3 columns" role="complementary">
+
+            <div id="side-facets">
+
+                <section class="filter-by mod">
+                    <header>
+                        <p><strong>Filter by</strong></p>
+                    </header>
+                </section>
+
+                <h3>Search</h3>
+                
+                <eui-searchbox field="'name'"></eui-searchbox> <!-- ACTION: change to field to search on -->
+
+                <!--<h3>Price</h3>
+               <eui-singleselect field="'product.webPrice'" size="5"></eui-singleselect>-->   
+
+
+                
+<!--                <ul eui-aggregation="ejs.TermsAggregation('agg_name').field('material').size(20)">
+    <li ng-repeat="bucket in aggResult.buckets">test</li>
+</ul>-->
+                
+                <?php foreach( $facets as $facet ): ?>
+                
+                <h3><?php echo ucwords( $facet->displayname ); ?></h3>
+                <eui-checklist field="'<?php echo $facet->name; ?>.raw'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
+                
+                <?php endforeach;?>
+
+
+                <h3>Results Per Page</h3>
+                <select ng-model="indexVM.pageSize">
+                    <option ng-repeat="item in [12, 20, 50, 100, 200]">{{item}}</option>
+                </select>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- End Side Bar -->
+
+
+
+
+
+        <!-- Thumbnails -->
+
+
+
+
+
+        <main id="main" class="large-9 medium-9 columns" role="main" >
+
+            <div class="row">
+
+                <h2><?php echo (string) $_GET['title']; // not safe  ?></h2>
+                <div></div>
+                <div class="large-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  >
+
+                    
+
+                    <div class="panel"  ng-if="doc._index=='product'" >
+                        <img src="{{doc._source.images[0].url}}_thumb" />
+                        <h5><a href="/products-list/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
+
+                        <p style="font-size:12px;">{{doc._source.description}}</p>
+
+                        <h6 class="subheader">&pound;{{doc._source.price}}</h6>
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    </div>
+
+                    <div class="panel"  ng-if="doc._index=='howto'" >
+                        <img src="{{doc._source.image}}" />
+                        <h5><a href="/products-list/{{doc._id}}/{{doc._source.name}}?type={{doc._type}}">{{doc._source.name}}</a></h5>
+
+                        <p style="font-size:12px;">{{doc._source.introduction}}</p>
+
+                    </div>
+
+                </div>
+                <div style="clear:both">&nbsp;</div>
+                
+                <div>
+                
+                
+                    <eui-simple-paging></eui-simple-paging>
+               
+                
+                    
+                    <select id="sort_order">
+                        
+                        <option value="0">Default</option>
+                        <option value="1">Price (Low - High) </option>
+                        <option value="2">Price (High - Low) </option>
+                        
+                    </select>
+                    
+                </div>
+                
+            </div>
+
+            <!-- End Thumbnails -->
+
+        </main>
+    </div>
+</div>
+
+<!-- Footer -->
+
 
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/angular/angular.min.js" type='text/javascript'></script>
 
@@ -114,11 +256,38 @@ function toQueryString(obj, prefix) {
 jQuery( document ).ready(function() {
     
     
+    
+    jQuery( '#sort_order' ).change( function(){ 
+    
+    
+    
+    
+        switch( jQuery( this ).val() ) {
+            
+            case '1':
+                indexVm.sort = ejs.Sort('price').order('acs') ;
+                break;
+            case '2':
+                indexVm.sort = ejs.Sort('price').order('desc') ;
+                break;
+            default:
+                alert(444);
+                indexVm.sort = null;
+                //
+            
+        }
+    
+        
+        indexVm.refresh( false );
+    
+    });
+    
+    
     jQuery('#disable_filter').click( function(){
         
-        jQuery('#content').removeAttr('eui-enabled' );
-        console.log( indexVm.refresh(true) );
-        
+
+        indexVm.sort = ejs.Sort('name').order('acs') ;
+        indexVm.refresh( false );
     });
     
     History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
@@ -138,6 +307,11 @@ jQuery( document ).ready(function() {
     
     
     jQuery(document).on('click', '.pager a', function() {
+        
+        
+        if( jQuery( this ).parent( 'li' ).hasClass( 'disabled' )  ){
+            return;
+        }
         
         fadeSomethingIn()
         
@@ -194,132 +368,6 @@ jQuery( document ).ready(function() {
     });
  });    
 </script>
-
-
-
-
-
-<div id="content" ng-controller="IndexController" ng-app="ibiza" eui-index="'documents'"  eui-filter="ejs.BoolFilter().must(<?php echo $filter_cat_str; ?><?php echo $filter; ?>" ng-model='querystring' eui-enabled='true'>
-    
-   
-    
-<!--    <a href="#" id="disable_filter">Button</a>-->
-    
-    <div id="loading_container" class="row" style=" left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;background: white none repeat scroll 0% 0%; height: 75%; z-index: 0; position: absolute; width: 100%; display: block ! important;" class="">
-        
-        
-    <img src="https://d13yacurqjgara.cloudfront.net/users/1275/screenshots/1198509/plus.gif" style="margin: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px;">
-        
-    </div>
-    
-    <!-- Side Bar -->
-    <div id="inner-content" class="row" <?php echo $filter_cat_str1;?>>
-         
-        <div  <?php echo $filter_cat_str1 ;?> />
-<!--        <eui-checklist field="'dimensions.raw'" size="5"></eui-checklist>-->
-        <nav aria-label="You are here:" role="navigation">
-            <ul class="breadcrumbs">
-                <?php echo implode('', breacdcrumbs('cat-' . (int) $_GET['cat'])); ?></p>
-            </ul>
-        </nav>
-        <div class="sidebar large-3 medium-3 columns" role="complementary">
-
-            <div id="side-facets">
-
-                <section class="filter-by mod">
-                    <header>
-                        <p><strong>Filter by</strong></p>
-                    </header>
-                </section>
-
-                <h3>Search</h3>
-                
-                <eui-searchbox field="'name'"></eui-searchbox> <!-- ACTION: change to field to search on -->
-
-                <!--<h3>Price</h3>
-               <eui-singleselect field="'product.webPrice'" size="5"></eui-singleselect>-->   
-
-
-                
-<!--                <ul eui-aggregation="ejs.TermsAggregation('agg_name').field('material').size(20)">
-    <li ng-repeat="bucket in aggResult.buckets">test</li>
-</ul>-->
-                
-                <?php foreach( $facets as $facet ): ?>
-                
-                <h3><?php echo ucwords( $facet->displayname ); ?></h3>
-                <eui-checklist field="'<?php echo $facet->name; ?>'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
-                
-                <?php endforeach;?>
-
-
-                <h3>Results Per Page</h3>
-                <select ng-model="indexVM.pageSize">
-                    <option ng-repeat="item in [12, 20, 50, 100, 200]">{{item}}</option>
-                </select>
-
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-        <!-- End Side Bar -->
-
-
-
-
-
-        <!-- Thumbnails -->
-
-
-
-
-
-        <main id="main" class="large-9 medium-9 columns" role="main">
-
-            <div class="row">
-
-                <h2><?php echo (string) $_GET['title']; // not safe  ?></h2>
-                <div></div>
-                <div class="large-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits">
-
-                    <img src="{{doc._source.images[0].url}}" />
-
-                    <div class="panel">
-
-                        <h5><a href="/products-list/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
-
-                        <p style="font-size:12px;">{{doc._source.description}}</p>
-
-                        <h6 class="subheader">&pound;{{doc._source.price}}</h6>
-                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                    </div>
-
-                </div>
-                <div style="clear:both">&nbsp;</div>
-                <eui-simple-paging></eui-simple-paging>
-
-            </div>
-
-            <!-- End Thumbnails -->
-
-        </main>
-    </div>
-</div>
-
-<!-- Footer -->
-
-
-
 
 
 <?php get_footer(); ?>

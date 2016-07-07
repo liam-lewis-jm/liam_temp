@@ -6734,3 +6734,19 @@ li.menu-item-type-post_type a, li.menu-item-object-custom a {
 .cq-linkstack a {
   color: #fff;
 }
+
+/* line 151, ../scss/style.scss */
+li.dimension {
+  display: none;
+  float: left;
+  list-style: outside none none;
+  margin-left: 1.22222rem;
+  cursor: pointer;
+  width: 25px;
+}
+
+/* line 160, ../scss/style.scss */
+.current {
+  font-weight: bold;
+  border: 1px solid #ccc;
+}

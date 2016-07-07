@@ -26,31 +26,7 @@ jQuery(document).ready(function () {
     });
 
 
-    //initialize swiper when document ready  
-    var mySwiper = new Swiper('.swiper-container-products', {
-        // Optional parameters
-        loop: true,
-        slidesPerView: 4,
-        spaceBetween: 4,
-        breakpoints: {
-            // when window width is <= 320px
-            320: {
-                slidesPerView: 1,
-                spaceBetweenSlides: 10
-            },
-            // when window width is <= 480px
-            480: {
-                slidesPerView: 2,
-                spaceBetweenSlides: 20
-            },
-            // when window width is <= 640px
-            640: {
-                slidesPerView: 3,
-                spaceBetweenSlides: 30
-            }
 
-        }
-    });
 
 
 

@@ -148,3 +148,16 @@ background:#fff;
 .cq-linkstack a{
     color:#fff;
 }
+li.dimension{
+    display: none;
+    float: left;
+    list-style: outside none none;
+    margin-left: 1.22222rem;
+    cursor: pointer;
+    width: 25px;
+}
+
+.current{
+    font-weight:bold;
+    border:1px solid #ccc;
+} 
