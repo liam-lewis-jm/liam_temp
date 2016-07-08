@@ -105,7 +105,7 @@ if( isset( $_GET['json'] ) ){
 <div class="row" id="prodcut_main">
     <div class="medium-6 columns">
         
-        <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"  data-fancybox-type="iframe"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>_thumb">
+        <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"  data-fancybox-type="iframe"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
         <div class="clear">&nbsp;</div>
         <div class="">
 

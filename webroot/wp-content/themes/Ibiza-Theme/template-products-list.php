@@ -104,20 +104,46 @@ if( isset( $_GET['cat'] ) ) {
     <li ng-repeat="bucket in aggResult.buckets">test</li>
 </ul>-->
                 
-                <?php foreach( $facets as $facet ): ?>
+                <?php
+                foreach( $facets as $facet ): 
+                    
+                ?>
                 
                 <h3><?php echo ucwords( $facet->displayname ); ?></h3>
-                <eui-checklist field="'<?php echo $facet->name; ?>.raw'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
-                
-                <?php endforeach;?>
 
+                <?php 
+                    
+                    switch ( $facet->name ):
+                        case 'price':
+                            
+                ?>
+                
+                <eui-range field="'<?php echo $facet->name; ?>.raw'"  min="'0'"  max="'5'"   size="10"></eui-range> <!-- ACTION: change to field to use as facet -->
+                <eui-range field="'<?php echo $facet->name; ?>.raw'"  min="'6'"  max="'10'"   size="10"></eui-range> <!-- ACTION: change to field to use as facet -->
+                
+                <?php 
+                
+                    break;
+                    default: 
+                ?>
+                <eui-checklist field="'<?php echo $facet->name; ?>.raw'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
+
+                
+                <?php 
+                    endswitch; 
+                ?>
+
+                <?php endforeach; ?>
+                
 
                 <h3>Results Per Page</h3>
                 <select ng-model="indexVM.pageSize">
                     <option ng-repeat="item in [12, 20, 50, 100, 200]">{{item}}</option>
                 </select>
 
-
+                
+                
+               
 
 
             </div>
@@ -151,7 +177,7 @@ if( isset( $_GET['cat'] ) ) {
                     
 
                     <div class="panel"  ng-if="doc._index=='product'" >
-                        <img src="{{doc._source.images[0].url}}_thumb" />
+                        <img src="{{doc._source.images[0].url}}" />
                         <h5><a href="/products-list/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
 
                         <p style="font-size:12px;">{{doc._source.description}}</p>
