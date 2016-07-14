@@ -10,7 +10,7 @@ set_time_limit(0);
 //$dataSet    = json_decode($jsonData);
 
 $sort               = array( 0 => 'Default' , 1 => 'Price (Low - High)' , 2 => 'Price (High - Low)' );
-$ignore_query_strs  = array( 'cat' , 'title' , 'count' , 'sort' , 'pager' );
+$ignore_query_strs  = array( 'cat' , 'title' , 'count' , 'sort' , 'pager' , 'q' );
 $page_sizes         = array( 1 , 5 , 12 , 20 ,50 ,100 ,200 );
 $join_str           = array();
 
@@ -45,7 +45,7 @@ $range          = json_decode($rangeJSON);
 
 <?php get_header(); ?>
 
-<div id="content"   ng-controller="IndexController" ng-app="ibiza"  eui-index="'product'"   eui-filter="ejs.BoolFilter().must(<?php echo $filter_cat_str; ?>)" ng-model='querystring' eui-enabled='true'>
+<div id="content"   ng-controller="IndexController" ng-app="ibiza"  eui-index="'product'"  <?php echo  $filter_cat_str ? 'eui-filter="ejs.BoolFilter().must('. $filter_cat_str.')"' : '' ; ?>  ng-model='querystring'  eui-enabled='true' <?php  echo $_GET['q'] ?  'eui-query="ejs.QueryStringQuery(\'' . $_GET['q'] .'*\').lenient(true).fields(\'name\')"' : ''; ?>>
 <!--    
         <a href="#" id="disable_filter">Button</a>-->
     
@@ -62,7 +62,7 @@ $range          = json_decode($rangeJSON);
     <!-- Side Bar -->
     <div id="inner-content" class="row" <?php echo $filter_cat_str1;?>>
          
-        <div  <?php echo $filter_cat_str1 ;?> />
+        
         <nav aria-label="You are here:" role="navigation"   class="column">
             <ul class="breadcrumbs">
                 <?php echo implode('', breacdcrumbs('cat-' . (int) $_GET['cat'])); ?></p>
@@ -212,13 +212,6 @@ var indexVm             = {};
 <?php // quick fix to monitor the state -1 is when state have been changed, and we want to prevent another state being puished
       // State 1 is when someone click a facet and the state has been pushed, on this case there is a state event, we reset state back to default of 0?>
 
-
-function toSeoUrl(url) {
-        
-
-}
-
-
 function setSort( sortIn )
 {
         
@@ -235,7 +228,6 @@ function setSort( sortIn )
         default:
             indexVm.sort = null;
             //
-
     }        
     
 }
@@ -265,18 +257,22 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
     
     // add page to query as it may have updated
     // only a ever single value, so remove then readd new value
-
+    
     jQuery('#loading_container').fadeOut( function(){
     
         /// app must run once after out first call back, to add and facets from the query string
         if( started == 0 ){
+            
+            
+            
+            //jQuery('#loading_container').stop().animate({opacity:'100'});
             app();
             started = 1;
+            
         }else{
           
             // pager needs to run every time we hit the callback, incase it has changed
-            
-            if( query_str_arr['pager'][0] == indexVm.page ){
+            if(  typeof  query_str_arr == "undefined"  &&  query_str_arr['pager'][0] == indexVm.page ){
 
                 return;
                 
@@ -289,7 +285,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
             }
 
             addQueryString( 'pager' , indexVm.page );
-            state_change = 1;
+            state_change    = 1;
 
             push_state( null , query_str_arr );                     
             <?php /**
@@ -297,7 +293,11 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
              */
             ?>
         }
+        
     });
+    
+  
+    
 }
 
 
@@ -338,18 +338,13 @@ function app()
     }
 
     // if a facet is selected, should refresh can change to false, as adding facets will do the refresh for us
-
-
     // add out q string params we should ignore
     
     <?php foreach( $ignore_query_strs as $query_str ): ?>ignore.push( '<?php echo $query_str; ?>' );
     <?php endforeach; ?>
     
-    
     console.log( 'Ignore the following' );
     console.log( ignore );
-
-
 
     // move to functon
     // rebuild query string
@@ -369,43 +364,38 @@ function app()
                 state_change = -1; // prevent state from changing
                 jQuery('[data-id="the_value_' + data + '_'+  params[param] + '"]').trigger("click");
                 
-                alert( '[data-id="the_value_' + data + '_'+  params[param] + '"]' );
-                
             }
         }
     } 
+    
     console.log( 'End rebuild' );
-
-
 
     if( shouldRefresh ){
 
         indexVm.refresh( true );
         console.log( 'Refresh results' );
     }
-      
+    
     console.log( 'Complete' );
+    
 }
-
 
 function push_state( changedEl , query_str_arr )
 {
     var protocol    = jQuery.url().attr('protocol');
     var url         = jQuery.url().attr('host');
     var directory   = jQuery.url().attr('directory');
+    var q           = jQuery.url().param('q');
     var cat         = jQuery.url().param('cat');
     var title       = jQuery.url().param('title');
     
-    
-    
-    //var title   = 
-    // alert( protocol  + '://' + url +  directory  +  '?cat=' + cat + '&title=' + title + '&' + toQueryString(query_str_arr, '') );
-    History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?cat=' + cat + '&title=' + title + '&' + toQueryString(query_str_arr, '') );
-    //console.log(query_str_arr);    
+    if(q){
+        History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?q=' + q + '&' + toQueryString(query_str_arr, '') );
+    }else{
+        History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?cat=' + cat + '&title=' + title + '&' + toQueryString(query_str_arr, '') );       
+    }
     
 }
-
-
 
 function addQueryString( field , value ){
     
@@ -449,8 +439,6 @@ function toQueryString(obj, prefix) {
 }
     
 jQuery( document ).ready(function() {
-
-    
         
     jQuery( '#count' ).change( function(){ 
         
@@ -466,8 +454,6 @@ jQuery( document ).ready(function() {
         }         
         
         addQueryString( 'pager' , 1 );
-        
-        
         
         // reset back to page 1
         if( query_str_arr['count'] ){
@@ -524,8 +510,6 @@ jQuery( document ).ready(function() {
         state_item.click(); 
         
     });
-    
-    
     
     jQuery(document).on('change', '.ng-scope input', function() {
         
