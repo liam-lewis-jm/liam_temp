@@ -9,56 +9,43 @@ set_time_limit(0);
 //$jsonData   = file_get_contents($jsonPath);
 //$dataSet    = json_decode($jsonData);
 
-
-$ignore_query_strs  = array( 'cat' , 'title' );
+$sort               = array( 0 => 'Default' , 1 => 'Price (Low - High)' , 2 => 'Price (High - Low)' );
+$ignore_query_strs  = array( 'cat' , 'title' , 'count' , 'sort' , 'pager' );
+$page_sizes         = array( 1 , 5 , 12 , 20 ,50 ,100 ,200 );
 $join_str           = array();
-foreach( $_GET as $key => $param ){
-    
-    if( !in_array( $key , $ignore_query_strs ) ) {
-
-        $items =  explode( ',' , $param );
-        
-        foreach ($items as $item){
-            $join_str[] = 'must(ejs.TermFilter(\''. str_replace( '_raw', '.raw' , $key ) .'\', \''. $item .'\'))';
-        }
-        
-    }
-    
-}
-
-if( count( $join_str ) > 0 ){
-    
-    $filter         = '.' . implode( '.' , $join_str );
-    
-}
 
 
-
-$jsonPath       = 'http://ibizaschemas.product/ProductCatalog.Api/api/category/categoryId/' . $_GET['cat'];
-$facetsJSON     = @file_get_contents($jsonPath);
+$jsonPath           = 'http://ibizaschemas.product/ProductCatalog.Api/api/category/categoryId/' . $_GET['cat'];
+$facetsJSON         = @file_get_contents($jsonPath);
 // remove suppression on production
-$facets         = json_decode($facetsJSON);
-$category       = 0;
-$filter_cat_str = '';
+$facets             = json_decode($facetsJSON);
+
+$category           = 0;
+$filter_cat_str     = '';
 if(!$facets) {
     $facets = array();
 }else{
     $facets = $facets[0]->facets;
 }
 
-if( isset( $_GET['cat'] ) ) {
+if( isset( $_GET['cat'] ) && is_numeric( $_GET['cat'] ) ) {
     
-   
     $category       = (int)$_GET['cat'];
     $filter_cat_str = "ejs.TermFilter('_category', '" . $category ."')";
     
 }
 
+
+$rangePath      = 'http://ibizaschemas.product/ProductCatalog.Api/api/pricerange/range/0/20000';
+$rangeJSON      = @file_get_contents($rangePath);
+$range          = json_decode($rangeJSON);
+
+
 ?>
 
 <?php get_header(); ?>
 
-<div id="content"   ng-controller="IndexController" ng-app="ibiza" eui-index="'product,howto'"  eui-filter="ejs.BoolFilter().must(<?php echo $filter_cat_str; ?>)<?php echo $filter; ?>" ng-model='querystring' eui-enabled='true'>
+<div id="content"   ng-controller="IndexController" ng-app="ibiza"  eui-index="'product'"   eui-filter="ejs.BoolFilter().must(<?php echo $filter_cat_str; ?>)" ng-model='querystring' eui-enabled='true'>
 <!--    
         <a href="#" id="disable_filter">Button</a>-->
     
@@ -76,7 +63,7 @@ if( isset( $_GET['cat'] ) ) {
     <div id="inner-content" class="row" <?php echo $filter_cat_str1;?>>
          
         <div  <?php echo $filter_cat_str1 ;?> />
-        <nav aria-label="You are here:" role="navigation">
+        <nav aria-label="You are here:" role="navigation"   class="column">
             <ul class="breadcrumbs">
                 <?php echo implode('', breacdcrumbs('cat-' . (int) $_GET['cat'])); ?></p>
             </ul>
@@ -85,25 +72,10 @@ if( isset( $_GET['cat'] ) ) {
 
             <div id="side-facets">
 
-                <section class="filter-by mod">
-                    <header>
-                        <p><strong>Filter by</strong></p>
-                    </header>
-                </section>
-
                 <h3>Search</h3>
                 
                 <eui-searchbox field="'name'"></eui-searchbox> <!-- ACTION: change to field to search on -->
 
-                <!--<h3>Price</h3>
-               <eui-singleselect field="'product.webPrice'" size="5"></eui-singleselect>-->   
-
-
-                
-<!--                <ul eui-aggregation="ejs.TermsAggregation('agg_name').field('material').size(20)">
-    <li ng-repeat="bucket in aggResult.buckets">test</li>
-</ul>-->
-                
                 <?php
                 foreach( $facets as $facet ): 
                     
@@ -117,9 +89,12 @@ if( isset( $_GET['cat'] ) ) {
                         case 'price':
                             
                 ?>
+
+                <?php foreach($range->ranges as $the_the_range):  ?>
                 
-                <eui-range field="'<?php echo $facet->name; ?>.raw'"  min="'0'"  max="'5'"   size="10"></eui-range> <!-- ACTION: change to field to use as facet -->
-                <eui-range field="'<?php echo $facet->name; ?>.raw'"  min="'6'"  max="'10'"   size="10"></eui-range> <!-- ACTION: change to field to use as facet -->
+                <eui-range field="'<?php echo $facet->name; ?>.raw'"  min="'<?php echo $the_the_range->start ?>'"  max="'<?php echo $the_the_range->end ?>'"   size="10"></eui-range>
+
+                <?php endforeach;?>
                 
                 <?php 
                 
@@ -137,18 +112,22 @@ if( isset( $_GET['cat'] ) ) {
                 
 
                 <h3>Results Per Page</h3>
-                <select ng-model="indexVM.pageSize">
-                    <option ng-repeat="item in [12, 20, 50, 100, 200]">{{item}}</option>
+                <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
+                    <?php foreach( $page_sizes as $key => $page_size ): 
+
+                    $selected == 'selected="selected"';
+
+                    if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
+
+                        $selected == 'selected="selected"';
+
+                    }
+                    ?>
+                    <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
+                    <?php endforeach; ?>                    
                 </select>
 
-                
-                
-               
-
-
             </div>
-
-
 
         </div>
 
@@ -157,20 +136,12 @@ if( isset( $_GET['cat'] ) ) {
         <!-- End Side Bar -->
 
 
-
-
-
         <!-- Thumbnails -->
-
-
-
-
-
         <main id="main" class="large-9 medium-9 columns" role="main" >
 
             <div class="row">
 
-                <h2><?php echo (string) $_GET['title']; // not safe  ?></h2>
+                <h3><?php echo (string) $_GET['title']; // not safe  ?></h3>
                 <div></div>
                 <div class="large-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  >
 
@@ -182,7 +153,7 @@ if( isset( $_GET['cat'] ) ) {
 
                         <p style="font-size:12px;">{{doc._source.description}}</p>
 
-                        <h6 class="subheader">&pound;{{doc._source.price}}</h6>
+                        <h6 class="subheader">&pound;{{ doc._source.price | number : 2}}</h6>
                         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     </div>
 
@@ -195,20 +166,21 @@ if( isset( $_GET['cat'] ) ) {
                     </div>
 
                 </div>
+                
                 <div style="clear:both">&nbsp;</div>
                 
-                <div>
-                
+                <div style="float: left; clear: left; margin-top: 40px;">
                 
                     <eui-simple-paging></eui-simple-paging>
-               
-                
                     
                     <select id="sort_order">
                         
-                        <option value="0">Default</option>
-                        <option value="1">Price (Low - High) </option>
-                        <option value="2">Price (High - Low) </option>
+
+                        <?php foreach( $sort as $key => $sort_opt ): ?>
+                        
+                        <option value="<?php echo $key; ?>" ><?php echo $sort_opt; ?></option>
+                        
+                        <?php endforeach; ?>
                         
                     </select>
                     
@@ -223,29 +195,64 @@ if( isset( $_GET['cat'] ) ) {
 </div>
 
 <!-- Footer -->
-
-
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/angular/angular.min.js" type='text/javascript'></script>
-
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/purl.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/elasticsearch/elasticsearch.angular.js"></script>
-
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/new/elastic.min.js"></script>
-
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/new/elasticui.min.js"></script>
-
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/new/app.js"></script>
-
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/history.js/scripts/compressed/history.adapter.jquery.js"></script>
-
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/history.js/scripts/compressed/history.js"></script>
 
 <script>
-
-var query_str_arr   = {};   
-var state_change     = 0;
-var indexVm         = {};
+var started             = 0;
+var query_str_arr       = {};   
+var state_change        = 0;
+var indexVm             = {};
 <?php // quick fix to monitor the state -1 is when state have been changed, and we want to prevent another state being puished
       // State 1 is when someone click a facet and the state has been pushed, on this case there is a state event, we reset state back to default of 0?>
+
+
+function toSeoUrl(url) {
+        
+
+}
+
+
+function setSort( sortIn )
+{
+        
+    var sort = parseInt( sortIn );
+    
+    switch( sort ) {
+
+        case 1:
+            indexVm.sort = ejs.Sort('price').order('acs') ;
+            break;
+        case 2:
+            indexVm.sort = ejs.Sort('price').order('desc') ;
+            break;
+        default:
+            indexVm.sort = null;
+            //
+
+    }        
+    
+}
+
+function setPage( pageIn )
+{
+        
+    var page        = parseInt( pageIn );
+    indexVm.page    = null;
+    
+    if( page ) {
+        
+        indexVm.page = page ;
+        
+    }        
+    
+}
 
 
 function fadeSomethingIn()
@@ -255,10 +262,174 @@ function fadeSomethingIn()
 
 function elastic_callback(body, updateOnlyIfCountChanged) {
     
-    jQuery('#loading_container').fadeOut();
+    
+    // add page to query as it may have updated
+    // only a ever single value, so remove then readd new value
+
+    jQuery('#loading_container').fadeOut( function(){
+    
+        /// app must run once after out first call back, to add and facets from the query string
+        if( started == 0 ){
+            app();
+            started = 1;
+        }else{
+          
+            // pager needs to run every time we hit the callback, incase it has changed
+            
+            if( query_str_arr['pager'][0] == indexVm.page ){
+
+                return;
+                
+            }
+            
+            if( query_str_arr['pager'] ){
+
+                removeQueryString( 'pager' , query_str_arr['pager'][0] );  
+
+            }
+
+            addQueryString( 'pager' , indexVm.page );
+            state_change = 1;
+
+            push_state( null , query_str_arr );                     
+            <?php /**
+             * @todo make sure double reload is not causing any bugs
+             */
+            ?>
+        }
+    });
+}
+
+
+function app()
+{
+   
+    console.log( 'App started' );
+    var ignore          = new Array();
+    var shouldRefresh   = false; // should refresh if something is updated baseed on query string, iideally need a way to only search once everything is set up, temp solution
+    var count           = jQuery.url().param('count');
+    var pager           = jQuery.url().param('pager');
+    var sort            = jQuery.url().param('sort');
+      
+    if ( undefined !=  count ) {
+          
+        indexVm.pageSize  = count;
+        jQuery('#count option[value="' + pager + '"]').attr("selected" , "selected" );
+        // do a UI update
+        shouldRefresh     = true;
+        addQueryString( 'count' ,count );
+          
+    }
+      
+    if ( undefined !=  pager ) {
+
+        setPage( pager ); 
+        shouldRefresh     = true;
+        addQueryString( 'pager' , pager );
+    }
+
+    if ( undefined !=  sort ) {
+
+        setSort( sort );
+        jQuery('#sort_order').val( sort );
+        // do a UI update          
+        shouldRefresh     = true;
+        addQueryString( 'sort' , sort );
+    }
+
+    // if a facet is selected, should refresh can change to false, as adding facets will do the refresh for us
+
+
+    // add out q string params we should ignore
+    
+    <?php foreach( $ignore_query_strs as $query_str ): ?>ignore.push( '<?php echo $query_str; ?>' );
+    <?php endforeach; ?>
+    
+    
+    console.log( 'Ignore the following' );
+    console.log( ignore );
+
+
+
+    // move to functon
+    // rebuild query string
+    console.log( 'Start rebuild' );
+    for( var data in jQuery.url().param() )
+    {
+        
+        var params   = jQuery.url().param( data ).split(',');
+
+        if( jQuery.inArray(  data ,  ignore  ) == -1 ){
+            
+            shouldRefresh     = false;
+            //  no need to refresh
+            for( var param in params )
+            {
+                // set check boxes in ui
+                state_change = -1; // prevent state from changing
+                jQuery('[data-id="the_value_' + data + '_'+  params[param] + '"]').trigger("click");
+                
+                alert( '[data-id="the_value_' + data + '_'+  params[param] + '"]' );
+                
+            }
+        }
+    } 
+    console.log( 'End rebuild' );
+
+
+
+    if( shouldRefresh ){
+
+        indexVm.refresh( true );
+        console.log( 'Refresh results' );
+    }
+      
+    console.log( 'Complete' );
+}
+
+
+function push_state( changedEl , query_str_arr )
+{
+    var protocol    = jQuery.url().attr('protocol');
+    var url         = jQuery.url().attr('host');
+    var directory   = jQuery.url().attr('directory');
+    var cat         = jQuery.url().param('cat');
+    var title       = jQuery.url().param('title');
+    
+    
+    
+    //var title   = 
+    // alert( protocol  + '://' + url +  directory  +  '?cat=' + cat + '&title=' + title + '&' + toQueryString(query_str_arr, '') );
+    History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?cat=' + cat + '&title=' + title + '&' + toQueryString(query_str_arr, '') );
+    //console.log(query_str_arr);    
     
 }
 
+
+
+function addQueryString( field , value ){
+    
+    if(query_str_arr[field]){
+
+        query_str_arr[field].push(value);
+
+    }else{
+
+        query_str_arr[field] = Array(1).fill(value);
+
+    }    
+    
+}
+
+function removeQueryString( field , value ){
+
+    if( jQuery.inArray(  value , query_str_arr[field] ) != -1 ){
+
+        query_str_arr[field].splice( jQuery.inArray(value, query_str_arr[field] ), 1 );
+
+    }
+            
+}
 
 function toQueryString(obj, prefix) {
     
@@ -272,37 +443,60 @@ function toQueryString(obj, prefix) {
             str.push( p + '=' + obj[p].join(",") );
             console.log(str);
         }
-        
-
     }
     
     return str.join("&");
 }
     
 jQuery( document ).ready(function() {
+
     
+        
+    jQuery( '#count' ).change( function(){ 
+        
+        // only a ever single value, so remove then readd new value        
+        state_change        = 1;
+        setPage( 1 ); 
+        
+        // reset back to page 1
+        if( query_str_arr['pager'] ){
+            
+            removeQueryString( 'pager' , query_str_arr['pager'][0] );  
+            
+        }         
+        
+        addQueryString( 'pager' , 1 );
+        
+        
+        
+        // reset back to page 1
+        if( query_str_arr['count'] ){
+            
+            removeQueryString( 'count' , query_str_arr['count'][0] );  
+            
+        }        
+        
+        addQueryString( 'count' , jQuery(this).val() );
+        push_state( this  , query_str_arr )
     
+    });
     
     jQuery( '#sort_order' ).change( function(){ 
     
-    
-    
-    
-        switch( jQuery( this ).val() ) {
+        state_change = 1;
+        var sort = jQuery( this ).val();
+        setSort( sort );
+        
+        // only a ever single value, so remove then readd new value
+        
+        if( query_str_arr['sort'] ){
             
-            case '1':
-                indexVm.sort = ejs.Sort('price').order('acs') ;
-                break;
-            case '2':
-                indexVm.sort = ejs.Sort('price').order('desc') ;
-                break;
-            default:
-                alert(444);
-                indexVm.sort = null;
-                //
+            removeQueryString( 'sort' , query_str_arr['sort'][0] );  
             
         }
-    
+          
+        addQueryString( 'sort' , sort );
+        push_state( this  , query_str_arr );        
         
         indexVm.refresh( false );
     
@@ -311,9 +505,9 @@ jQuery( document ).ready(function() {
     
     jQuery('#disable_filter').click( function(){
         
-
         indexVm.sort = ejs.Sort('name').order('acs') ;
         indexVm.refresh( false );
+        
     });
     
     History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
@@ -332,65 +526,37 @@ jQuery( document ).ready(function() {
     });
     
     
-    jQuery(document).on('click', '.pager a', function() {
-        
-        
-        if( jQuery( this ).parent( 'li' ).hasClass( 'disabled' )  ){
-            return;
-        }
-        
-        fadeSomethingIn()
-        
-    });
     
     jQuery(document).on('change', '.ng-scope input', function() {
+        
+        fadeSomethingIn();
 
-        fadeSomethingIn()
-
-        var field       =  jQuery( this ).parents('eui-checklist').attr( 'field' ).replace( /\'/g ,'' ) ;
-        var value       =  jQuery(this).attr('data-id').replace( 'the_value_' + field + '_' ,'' ) ;   
+        var field       = jQuery( this ).parents('eui-checklist,eui-range').attr( 'field' ).replace( /\'/g ,'' ) ;
+        var value       = jQuery(this).attr('data-id').replace( 'the_value_' + field + '_' ,'' ) ;   
         var changedEl   = this;
 
-        if( jQuery(this).attr('checked')   ){
+        console.log( value );
 
-            if(query_str_arr[field]){
-                
-                query_str_arr[field].push(value);
-                
-            }else{
-             
-                query_str_arr[field] = Array(1).fill(value);
-            
-            }
+        if( jQuery(this).attr('checked') ){
+
+            addQueryString( field , value );
         
         }else{
             
-            console.log( query_str_arr[field] );
-            if( jQuery.inArray(  value , query_str_arr[field] ) != -1 ){
-                
-                query_str_arr[field].splice( jQuery.inArray(value, query_str_arr[field] ), 1 );
-                
-            }
+            removeQueryString( field , value );
             // remove item from
-            //change state
             
         }
         
-        
-        if(state_change==-1){
+        if( state_change==-1 ){
             
-            state_change = 0;
+            state_change    = 0;
             
         }else{
-            state_change  =1;
-        
-            History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  'http://localdev.jewellerymaker.com/products-list/?cat=<?php echo $_GET['cat']; ?>&title=<?php echo $_GET['title']; ?>&' + toQueryString(query_str_arr, '') ); // logs {state:1}, "State 1", "?state=1"
-        
-            console.log(query_str_arr);
-        }
-        
+            state_change    = 1;
+            push_state( changedEl , query_str_arr  );
 
-        
+        }
     });
  });    
 </script>

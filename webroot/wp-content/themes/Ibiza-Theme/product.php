@@ -373,9 +373,11 @@ if( isset( $_GET['json'] ) ){
                         
                         console.log(data._source[d]);
                         
-                        if( jQuery.inArray( d , core )==-1 && data._source[d] ){
+                        if( jQuery.inArray( d , core )==-1 && data._source[d] && schema[d] ){
+                            
                             
                            var el = jQuery( '#attr_template' ).clone();
+                           
                            
                            jQuery('.attr_key p' , el ).text( schema[d].title );
                            jQuery('.attr_value p' , el ).text( schema[d].prepend + data._source[d] + schema[d].append );

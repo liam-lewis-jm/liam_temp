@@ -187,6 +187,8 @@
                      echo '<img src="' . $productIn['_source']['images'][0]['url'] . '" />';
                     ?>
                     </a>
+                    
+                    <span>&pound;<?php echo number_format( $productIn['_source']['price'] , 2); ?></span>
                 </div>
                 <?php 
                     

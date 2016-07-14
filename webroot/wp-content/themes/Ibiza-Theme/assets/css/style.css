@@ -6750,3 +6750,14 @@ li.dimension {
   font-weight: bold;
   border: 1px solid #ccc;
 }
+
+/* line 165, ../scss/style.scss */
+.rst_0 {
+  display: none;
+}
+
+/* line 169, ../scss/style.scss */
+p.ng-binding {
+  height: 60px;
+  overflow: hidden;
+}
