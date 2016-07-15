@@ -19,17 +19,40 @@
 
 define('DB_NAME', 'ibiza');
 
-/** MySQL database username */
-define('DB_USER', 'root');
 
-/** MySQL database password */
-define('DB_PASSWORD', 'd3v0p5');
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
 
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8mb4');
+if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
+
+    /** MySQL database username */
+    define('DB_USER', 'root');
+
+    /** MySQL database password */
+    define('DB_PASSWORD', 'd3v0p5');
+
+    /** MySQL hostname */
+    define('DB_HOST', 'localhost');
+
+    /** Database Charset to use in creating database tables. */
+    define('DB_CHARSET', 'utf8mb4');
+    
+}else{
+    
+    /** MySQL database username */
+    define('DB_USER', 'ibiza');
+
+    /** MySQL database password */
+    define('DB_PASSWORD', 'password');
+
+    /** MySQL hostname */
+    define('DB_HOST', 'ibiza.c4hkllwsjgpx.us-west-2.rds.amazonaws.com');
+
+    /** Database Charset to use in creating database tables. */
+    define('DB_CHARSET', 'utf8mb4');    
+    
+}
+
+
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
