@@ -15,15 +15,18 @@ $image = '';
   </div>
 <?php endif; ?>
 
+      <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
+        <?php    unset( $upw_query->posts[ $upw_query->current_post + 1 ]  ); ?>
+      <?php endwhile; ?>
+
 <div class="upw-posts hfeed">
 
   <?php if ($upw_query->have_posts()) : ?>
 
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
 
-        <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : ''; ?>
-
-    
+        <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>
+        
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
               <article <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
