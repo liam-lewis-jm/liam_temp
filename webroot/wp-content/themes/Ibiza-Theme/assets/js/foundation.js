@@ -1662,7 +1662,9 @@ for(var i=0;i<rules.length;i++){var rule=rules[i].split('-');var ruleSize=rule.l
    * @private
    */},{key:'_checkMediaQueries',value:function _checkMediaQueries(){var matchedMq,_this=this; // Iterate through each rule and find the last matching rule
 $.each(this.rules,function(key){if(Foundation.MediaQuery.atLeast(key)){matchedMq=key;}}); // No match? No dice
-if(!matchedMq)return; // Plugin already initialized? We good
+if(!matchedMq || !this.rules[matchedMq])return; // Plugin already initialized? We good
+ 
+
 if(this.currentPlugin instanceof this.rules[matchedMq].plugin)return; // Remove existing plugin-specific CSS classes
 $.each(MenuPlugins,function(key,value){_this.$element.removeClass(value.cssClass);}); // Add the CSS class for the new plugin
 this.$element.addClass(this.rules[matchedMq].cssClass); // Create an instance of the new plugin

@@ -15,7 +15,7 @@ $page_sizes         = array( 1 , 5 , 12 , 20 ,50 ,100 ,200 );
 $join_str           = array();
 
 
-$jsonPath           = 'http://ibizaschemas.product/ProductCatalog.Api/api/category/categoryId/' . $_GET['cat'];
+$jsonPath           = 'http://ibizaschemas.product/ProductCatalog.Api/api/category/categoryId/' . (int)$_GET['cat'];
 $facetsJSON         = @file_get_contents($jsonPath);
 // remove suppression on production
 $facets             = json_decode($facetsJSON);
@@ -511,7 +511,8 @@ jQuery( document ).ready(function() {
         
     });
     
-    jQuery(document).on('change', '.ng-scope input', function() {
+    jQuery(document).on('change', '.ng-scope input[type="checkbox"]', function() {
+        
         
         fadeSomethingIn();
 

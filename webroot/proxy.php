@@ -33,9 +33,7 @@
 }
 
 
-$url            = 'http://securewebsiteapiwrapper.localdev/api/basket/';
-//$data           = array( 'auctionID' => $_GET['auctionID'], "productDetailID" => $_GET['productDetailID'] );                                                                    
-//$data_string    = json_encode($data);                                                                                   
+$url            = 'http://securewebsiteapiwrapper.localdev/api/basket/';                                                                               
 $ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];
@@ -67,15 +65,6 @@ parse_str($cookieStr, $output);
     "NonSecurityKey"    : "'. $output['sk'] .'" }';
  
 
-  
- 
-
-//$cookie =  implode( ';' , $_COOKIE ) ;
-//
-//$headers   = array();
-//$headers[] = 'Cookie: ' . $cookie;
-//
-//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
