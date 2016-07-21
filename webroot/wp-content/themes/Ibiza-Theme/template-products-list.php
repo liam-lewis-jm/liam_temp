@@ -50,17 +50,14 @@ $facets             = json_decode($facetsJSON);
          
         if( $item->menu_item_parent == $r[0] ){
             
-            $catss[]    =$item ;    
+            $catss[$item->post_title]    =(object)$item ;    
             
         }
          
      }
      
      
-     
-                        
-     
-        //menu_item_parent
+     ksort( $catss    );                
 
 
 $category           = 0;
