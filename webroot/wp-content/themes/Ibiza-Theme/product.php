@@ -105,7 +105,7 @@ if( isset( $_GET['json'] ) ){
 <div class="row" id="prodcut_main">
     <div class="medium-6 columns">
         
-        <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
+        <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>"></a>
         <div class="clear">&nbsp;</div>
         <div class="">
 
@@ -118,7 +118,8 @@ if( isset( $_GET['json'] ) ){
                     <?php foreach( $response['_source']['images'] as $i => $image ): ?>
                     
                     <div class="swiper-slide">
-                        <a class="gallery" href="<?php echo $image['url']; ?>"
+                        
+                        <a  rel="group"  class="gallery" href="<?php echo $image['url']; ?>"
                            data-zoom-image="<?php echo $image['url']; ?>"  
                            data-image="<?php echo $image['url']; ?>">                        
                         <img data-zoom-image="<?php echo $image['url']; ?>" src="<?php echo $image['url']; ?>">
@@ -645,15 +646,7 @@ if( isset( $_GET['json'] ) ){
 
         jQuery( document ).on( "click", ".dimension", function() {
             
-            
-            
-            
-            
-            
-            
             var dimension       = jQuery( this ).attr('data-dimension');
-            
-            
             
             if( jQuery( this ).hasClass( 'lvl1' ) ){
                 
@@ -678,8 +671,33 @@ if( isset( $_GET['json'] ) ){
         });
 
         
-        jQuery("#zoom").fancybox({
-            fitToView	: true
+        jQuery("#zoom").click(function() {
+
+            var fancy   = [];
+            var index = 0;
+            var curHref = jQuery( this ).attr( 'href' );
+            
+            jQuery( ".gallery" ).each(function( indexIn ) {
+              
+              
+                if( jQuery( this ).attr( 'href' ) ==  curHref  ){
+                    index = indexIn;
+                }
+              
+              
+                fancy.push({
+                    href :  jQuery(this).attr( 'href' )  ,                
+                    //title : '2nd title'
+                            });
+            });            
+            
+            jQuery.fancybox.open( fancy , {
+                padding : 0 ,
+                index   :  index
+            });
+
+            return false;
+
         });
 
         jQuery("#zoom_01").elevateZoom( zoomConfig );
@@ -691,6 +709,7 @@ if( isset( $_GET['json'] ) ){
         //image.on('click', function(e){
             e.preventDefault();
             // Remove old instance od EZ
+            jQuery("#zoom").attr( 'href', jQuery(this).data('image') );
             jQuery('.zoomContainer').remove();
             zoomImage.removeData('elevateZoom');
             // Update source for images
