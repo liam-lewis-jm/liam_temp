@@ -94,11 +94,24 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
 
         }
 
+        if( $_GET['promoted_menu'] == 1  ){
+
+            add_action('init', array(&$this, 'promoted_menu'));
+            
+        }
+
+        if( $_GET['promote_menu'] == 1  ){
+
+            add_action('init', array(&$this, 'promote_menu'));
+            
+        }
+
         global $pagenow;
 
         if( $pagenow == 'nav-menus.php' ){
 
             wp_enqueue_script( 'menurefresh-js', get_template_directory_uri()  . '/assets/js/admin-scripts.js', array( 'jquery' ), '', true );
+            wp_enqueue_script( 'jquery.popupoverlay-js', get_template_directory_uri()  . '/vendor/jquery-popup-overlay/jquery.popupoverlay.js', array( 'jquery' ), '', true );
 
         }
 
@@ -181,6 +194,86 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             }
         }
     }
+
+
+    function promote_menu()
+    {
+    
+        $promote = '';
+        
+        if( $_GET['promoted'] == 1 ){
+            $promote = 1;
+        }
+        
+        // Update post 37
+        $my_post = array(
+            'ID'           =>   (int)$_GET['menu_id'] ,
+            'post_content' =>   $promote ,
+        );
+
+      // Update the post into the database
+        wp_update_post( $my_post );        
+        
+    }
+    
+    
+    function promoted_menu()
+    {
+        
+        
+        $menu_item = get_post( $_GET['menu_id'] );
+        
+        ?>
+        <div id="popupz">
+        <style>
+
+            .popup_content {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                display: none;
+                margin: 1em;
+            }
+            .popup_content {
+                background-color: #f5f5f5;
+                border: 1px solid #e3e3e3;
+                border-radius: 4px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+                margin-bottom: 20px;
+                min-height: 20px;
+                padding: 19px;
+            }
+        </style>
+
+        <div id="my_popup">
+           <!-- Add an optional button to close the popup -->
+           
+          
+           
+            <label>Promote category</label>
+            <?php if( $menu_item->post_content == 1 ): ?>
+            <input id="promote_cat" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" checked="checked" />
+            <?php else: ?>
+            <input id="promote_cat" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" />
+            <?php endif; ?>
+            <button class="my_popup_close">Close</button>
+
+         </div>
+        <script>
+        jQuery(document).ready(function () {
+            
+            jQuery('#my_popup').popup( { autoopen : true , background : false , detach :true  ,  onclose: function() {
+                
+                
+                jQuery('#popupz,#my_popup_wrapper').remove();
+                
+            }} );
+
+        });    
+        </script>
+        </div>
+        <?php 
+        die;
+    }
+    
 
     /**
      * 

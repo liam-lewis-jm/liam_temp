@@ -81,17 +81,57 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
     
     function my_dashboard_setup_function() {
         //add_meta_box( 'my_dashboard_widget', 'My Widget Name', array( &$this,  'my_dashboard_widget_function' ) , 'dashboard', 'home_product', 'high' );
-        echo 77777777777;
         add_meta_box( 'ContentScheduler_sectionid1', 
-                __( 'Conrrrrtent Scheduler', 
+                __( 'Product Details', 
                 'contentscheduler' ), 
                 array($this, 'my_dashboard_widget_function'), 
-                'home_product' );   
+                'home_product' , 'side' );   
         
         
     }
     function my_dashboard_widget_function() {
         // widget content goes here
+        ?>
+        
+        <div id="product_image"><p></p></div>
+        <div id="product_name"><p></p></div>
+        <div id="product_price"><p></p></div>
+        <script>
+        
+        
+        function getProduct()
+        {
+            
+            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/" + jQuery('#title').val()   , function( data ) {
+                var items = [];
+                console.log( data );
+                jQuery( '#product_name p' ).text( data.name );
+                jQuery( '#product_price p' ).text( data.price );
+                jQuery( '#product_image p' ).html( '<img src="' + data['images']['0']['url'] + '" />' );
+            });            
+            
+        }
+        
+        jQuery( document ).ready(function( $ ) {
+            
+            getProduct();
+            
+            jQuery( "#title" ).keyup(function() {
+                
+                if( jQuery(this).val().length>3 ){
+                    
+                    getProduct();
+                    
+
+                    
+                }
+            });
+        
+        });        
+        
+        
+        </script>
+        <?php
     }     
     
     public function addActionsAndFilters() {
@@ -101,7 +141,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         //add_action('admin_menu', array(&$this, 'addSettingsSubMenuPage'));
         //
         //
-add_action( 'wp_dashboard_setup', array(&$this,  'my_dashboard_setup_function' ) );
+        add_action( 'admin_menu', array(&$this,  'my_dashboard_setup_function' ) );
 
         // Hooking up our function to theme setup
         add_action( 'init',array(&$this, 'create_posttype') );        

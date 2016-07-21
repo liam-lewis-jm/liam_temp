@@ -9,6 +9,9 @@ set_time_limit(0);
 //$jsonData   = file_get_contents($jsonPath);
 //$dataSet    = json_decode($jsonData);
 
+
+$cat                = (int)$_GET['cat'];
+
 $sort               = array( 0 => 'Default' , 1 => 'Price (Low - High)' , 2 => 'Price (High - Low)' );
 $ignore_query_strs  = array( 'cat' , 'title' , 'count' , 'sort' , 'pager' , 'q' );
 $page_sizes         = array( 1 , 5 , 12 , 20 ,50 ,100 ,200 );
@@ -19,6 +22,46 @@ $jsonPath           = 'http://ibizaschemas.product/ProductCatalog.Api/api/catego
 $facetsJSON         = @file_get_contents($jsonPath);
 // remove suppression on production
 $facets             = json_decode($facetsJSON);
+
+
+    $r = $wpdb->get_col($wpdb->prepare("
+        SELECT p.id FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+        WHERE pm.meta_key = '%s' 
+        AND pm.meta_value !=  'null' 
+        AND pm.meta_value !=  '' 
+        LIMIT 1
+    ", 'cat-'  . $cat    ));
+
+        
+    // some be able to find the shop menu, and get correct place automaticly.
+        
+        
+    $top_level  = false;
+
+     $items =   wp_get_nav_menu_items( 2 );
+     $catss =   array(); 
+     foreach( $items as $item ){
+         
+         if( $item->ID == $r[0] && $item->menu_item_parent == '32' ){
+             $top_level  = true;
+         }
+         
+         
+        if( $item->menu_item_parent == $r[0] ){
+            
+            $catss[]    =$item ;    
+            
+        }
+         
+     }
+     
+     
+     
+                        
+     
+        //menu_item_parent
+
 
 $category           = 0;
 $filter_cat_str     = '';
@@ -69,7 +112,9 @@ $range          = json_decode($rangeJSON);
             </ul>
         </nav>
         <div class="sidebar large-3 medium-3 columns" role="complementary">
-
+            
+            <?php if($top_level == false): ?>
+            
             <div id="side-facets">
 
                 <h3>Search</h3>
@@ -128,20 +173,37 @@ $range          = json_decode($rangeJSON);
                 </select>
 
             </div>
-
+            
+            <?php else: ?>
+            
+            <ul>
+            
+            <?php foreach($catss as $cat): ?>
+            
+                <li><a href="<?php echo $cat->url; ?>"><?php echo $cat->post_title; ?></a></li>
+            
+            <?php endforeach; ?>
+            
+                
+            </ul>
+                
+            <?php endif; ?>
         </div>
 
 
 
         <!-- End Side Bar -->
 
-
+        
         <!-- Thumbnails -->
         <main id="main" class="large-9 medium-9 columns" role="main" >
 
             <div class="row">
 
-                <h3><?php echo (string) $_GET['title']; // not safe  ?></h3>
+                <div class="columns" ><h3><?php echo (string) $_GET['title']; // not safe  ?></h3></div>
+                
+                <?php if($top_level == false): ?>
+                
                 <div></div>
                 <div class="large-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  >
 
@@ -167,6 +229,9 @@ $range          = json_decode($rangeJSON);
 
                 </div>
                 
+                
+                
+                
                 <div style="clear:both">&nbsp;</div>
                 
                 <div style="float: left; clear: left; margin-top: 40px;">
@@ -186,11 +251,36 @@ $range          = json_decode($rangeJSON);
                     
                 </div>
                 
+                
+            <?php else: ?>    
+            
+                <?php foreach($catss as $cat): ?>
+                
+                
+                    <?php if( $cat->post_content==1 ):?>
+                
+                <div class="large-3 medium-3 columns padded-column">
+                    <a href="<?php print $cat->url; ?>"><img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" /></a>
+                </div>
+                
+                
+                
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                
+            <?php endif; ?>     
+                
+            
+            
+                
             </div>
 
+        
+            
             <!-- End Thumbnails -->
 
         </main>
+        
     </div>
 </div>
 
