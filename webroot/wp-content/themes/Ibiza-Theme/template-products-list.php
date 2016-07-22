@@ -9,7 +9,17 @@ set_time_limit(0);
 //$jsonData   = file_get_contents($jsonPath);
 //$dataSet    = json_decode($jsonData);
 
+$title              = (string) $_GET['title'];
 
+if( isset($_GET['q']) ){
+
+    if(   stripos($_GET['q'], 'how') !==false ){
+        $title              = 'How To';
+    }else{
+        $title              = 'Products';
+    }
+
+}
 $cat                = (int)$_GET['cat'];
 
 $sort               = array( 0 => 'Default' , 1 => 'Price (Low - High)' , 2 => 'Price (High - Low)' );
@@ -21,7 +31,9 @@ $join_str           = array();
 $jsonPath           = 'http://ibizaschemas.product/ProductCatalog.Api/api/category/categoryId/' . (int)$_GET['cat'];
 $facetsJSON         = @file_get_contents($jsonPath);
 // remove suppression on production
-$facets             = json_decode($facetsJSON);
+$facetsOb           = json_decode($facetsJSON);
+
+
 
 
     $r = $wpdb->get_col($wpdb->prepare("
@@ -62,10 +74,10 @@ $facets             = json_decode($facetsJSON);
 
 $category           = 0;
 $filter_cat_str     = '';
-if(!$facets) {
+if(!$facetsOb) {
     $facets = array();
 }else{
-    $facets = $facets[0]->facets;
+    $facets = $facetsOb[0]->facets;
 }
 
 if( isset( $_GET['cat'] ) && is_numeric( $_GET['cat'] ) ) {
@@ -92,13 +104,23 @@ $range          = json_decode($rangeJSON);
     <div id="loading_container" class="row" style=" left: 0;
     right: 0;
     margin-left: auto;
-    margin-right: auto;background: white none repeat scroll 0% 0%; height: 75%; z-index: 0; position: absolute; width: 100%; display: block ! important;" class="">
+    margin-right: auto;background: #fff none repeat scroll 0% 0%; height: 75%; z-index: 0; position: absolute; width: 100%; " class="">
+        
+        
+        
+    </div>
+    
+    <div id="loading_container2" class="row" style=" left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;background: white none repeat scroll 0% 0%; height: 75%; z-index: 0; position: absolute; width: 100%; " class="">
         
         
     <img src="https://d13yacurqjgara.cloudfront.net/users/1275/screenshots/1198509/plus.gif" style="margin: 0px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px;">
         
     </div>
-    
+
+
     <!-- Side Bar -->
     <div id="inner-content" class="row" <?php echo $filter_cat_str1;?>>
          
@@ -116,7 +138,7 @@ $range          = json_decode($rangeJSON);
 
                 <h3>Search</h3>
                 
-                <eui-searchbox field="'name'"></eui-searchbox> <!-- ACTION: change to field to search on -->
+                <eui-searchboxx></eui-searchboxx> <!-- ACTION: change to field to search on -->
 
                 <?php
                 foreach( $facets as $facet ): 
@@ -197,7 +219,7 @@ $range          = json_decode($rangeJSON);
 
             <div class="row">
 
-                <div class="columns" ><h3><?php echo (string) $_GET['title']; // not safe  ?></h3></div>
+                <div class="columns" ><h3><?php echo $title;    ?></h3></div>
                 
                 <?php if($top_level == false): ?>
                 
@@ -296,6 +318,18 @@ var started             = 0;
 var query_str_arr       = {};   
 var state_change        = 0;
 var indexVm             = {};
+
+<?php  
+
+function add_quotes( $string ) {
+  $ret = "\'" . $string . "\'";
+  return   $ret;
+}
+
+
+$facetsOb[0]->searchables = array_map( 'add_quotes', $facetsOb[0]->searchables); ?>
+
+var searchables         = '<?php print  implode( ',' , $facetsOb[0]->searchables  ); ?>';
 <?php // quick fix to monitor the state -1 is when state have been changed, and we want to prevent another state being puished
       // State 1 is when someone click a facet and the state has been pushed, on this case there is a state event, we reset state back to default of 0?>
 
@@ -379,6 +413,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
              * @todo make sure double reload is not causing any bugs
              */
             ?>
+                                        jQuery('#loading_container2').fadeOut();
         }
         
     });
@@ -462,7 +497,7 @@ function app()
         indexVm.refresh( true );
         console.log( 'Refresh results' );
     }
-    
+    //
     console.log( 'Complete' );
     
 }

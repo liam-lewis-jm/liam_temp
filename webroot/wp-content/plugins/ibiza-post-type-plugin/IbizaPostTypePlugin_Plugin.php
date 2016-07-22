@@ -102,12 +102,12 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         function getProduct()
         {
             
-            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/" + jQuery('#title').val()   , function( data ) {
+            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/" + jQuery('#title').val()   , function( dataIn ) {
                 var items = [];
-                console.log( data );
-                jQuery( '#product_name p' ).text( data.name );
-                jQuery( '#product_price p' ).text( data.price );
-                jQuery( '#product_image p' ).html( '<img src="' + data['images']['0']['url'] + '" />' );
+                console.log( dataIn['data'] );
+                //jQuery( '#product_name p' ).text( data.data.name );
+                //jQuery( '#product_price p' ).text( data.data.price );
+                //jQuery( '#product_image p' ).html( '<img src="' + data.data['images']['0']['url'] + '" />' );
             });            
             
         }
