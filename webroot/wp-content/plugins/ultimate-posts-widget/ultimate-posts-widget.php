@@ -162,7 +162,7 @@ if (!class_exists('WP_Widget_Ultimate_Posts')) {
                 'posts_per_page' => $number,
                 'order' => $order,
                 'orderby' => $orderby,
-                'category__in' => $cats,
+                'category__and' => $cats, // Ryan update
                 'tag__in' => $tags,
                 'post_type' => $types
             );

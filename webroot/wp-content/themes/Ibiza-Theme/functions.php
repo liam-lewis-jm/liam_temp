@@ -168,7 +168,7 @@ function crumb($id , $status = 'publish' , $output_arr = array() ) {
     /**
      * Point to note! Quuery joins the current menu item link to save to another query
      * Done by obatining the current menus link, it also retrieves the parent of the current level
-     * To pass on to the self return if it !=0 ie the highest level
+     * To pass on to the self return if is !=0 ie the highest level
      */
         
     if ($myrows[0]->pid != 0) {
@@ -199,4 +199,12 @@ function sanitize($string, $force_lowercase = true, $anal = false) {
             mb_strtolower($clean, 'UTF-8') :
             strtolower($clean) :
         $clean;
+}
+
+function get_product_by_mongo_product_code( $product_code )
+{
+    
+    return  reset( json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $product_code ) ) );
+    
+    
 }

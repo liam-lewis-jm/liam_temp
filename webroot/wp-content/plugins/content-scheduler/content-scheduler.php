@@ -73,6 +73,9 @@ if ( !class_exists( "ContentScheduler" ) ) {
                 // Add column to Post / Page lists
                 add_action ( 'manage_posts_custom_column', array( $this, 'cs_show_expdate' ) );
                 add_action ( 'manage_pages_custom_column', array( $this, 'cs_show_expdate' ) );
+                // Add column to Post / Page lists
+                add_action ( 'manage_posts_custom_column', array( $this, 'cs_show_startdate' ) );
+                add_action ( 'manage_pages_custom_column', array( $this, 'cs_show_startdate' ) );
                 // Showing custom columns values in list views
                 add_filter ('manage_posts_columns', array( $this, 'cs_add_expdate_column' ) );
                 add_filter ('manage_pages_columns', array( $this, 'cs_add_expdate_column' ) );
@@ -311,7 +314,8 @@ if ( !class_exists( "ContentScheduler" ) ) {
             ?>
             <script type="text/javascript">
             jQuery(function(){
-                jQuery( '#cs-expire-date' ).datetimepicker()
+                jQuery( '#cs-expire-date' ).datetimepicker();
+                jQuery( '#cs-start-date' ).datetimepicker();
                 });
             </script>
 	        <?php
@@ -447,17 +451,37 @@ if ( !class_exists( "ContentScheduler" ) ) {
             // datestring is the original human-readable form
             // $datestring = ( get_post_meta( $post->ID, '_cs-expire-date', true) );
             // timestamp should just be a unix timestamp
-            $timestamp = ( get_post_meta( $post->ID, '_cs-expire-date', true) );
+            $timestamp = ( get_post_meta( $post->ID, '_cs-start-date', true) );
+            
             if( !empty( $timestamp ) ) {
                 // we need to convert that into human readable so we can put it into our field
                 $datestring = DateUtilities::getReadableDateFromTimestamp( $timestamp );
             } else {
                 $datestring = '';
             }
+            
+            
             // Should we check for format of the date string? (not doing that presently)
-            echo '<label for="cs-expire-date">' . __("Expiration date and hour", 'contentscheduler' ) . '</label><br />';
+            echo '<label for="cs-start-date"><b>' . __("Start date and hour", 'contentscheduler' ) . '</b></label><br />';
+            echo '<input type="text" id="cs-start-date" name="_cs-start-date" value="'.$datestring.'" size="25" />';
+            echo '<br />Input the  start date and time in any valid Date and Time format<br /><br /><hr /><br />';            
+            
+            
+            $datestring = '';
+            
+             $timestamp = ( get_post_meta( $post->ID, '_cs-expire-date', true) );
+            
+            if( !empty( $timestamp ) ) {
+                // we need to convert that into human readable so we can put it into our field
+                $datestring = DateUtilities::getReadableDateFromTimestamp( $timestamp );
+            } 
+            
+
+            // Should we check for format of the date string? (not doing that presently)
+            echo '<label for="cs-expire-date"><b>' . __("Expiration date and hour", 'contentscheduler' ) . '</b></label><br />';
             echo '<input type="text" id="cs-expire-date" name="_cs-expire-date" value="'.$datestring.'" size="25" />';
-            echo '<br />Input date and time in any valid Date and Time format.';
+            echo '<br />Input the end date and time in any valid Date and Time format, should be after the start date.';
+            
         }
 
         // c. Save data from the box callback
@@ -510,6 +534,37 @@ if ( !class_exists( "ContentScheduler" ) ) {
             }
             // Textbox for "expiration date"
             $dateString = $_POST['_cs-expire-date'];            
+            
+            
+            
+            
+            // We probably need to store the date differently,
+            // and handle timezone situation
+            update_post_meta( $post_id, '_cs-enable-schedule', $enabled );
+            
+            $expiration_date    = $this->do_date_logic($dateString ,  '_cs-expire-date' );
+            
+            update_post_meta( $post_id, '_cs-expire-date', $expiration_date );
+            
+            
+            
+            ///
+         $dateString = $_POST['_cs-start-date'] ;
+            
+            $start_date    = $this->do_date_logic($dateString ,  '_cs-start-date' );
+            
+            update_post_meta( $post_id, '_cs-start-date', $start_date );            
+            
+            
+            return true;
+        }
+
+
+        
+        function do_date_logic($dateString ,$typeIn)
+        {
+            
+            
             $offsetHours = 0;
             // if it is empty then set it to tomorrow
             // we just want to pass an offset into getTimestampFromReadableDate since that is where our DateTime is made
@@ -561,21 +616,21 @@ if ( !class_exists( "ContentScheduler" ) ) {
                 // time to add our default
                 // we need $publish_date to be in unix timestamp format, like time()
                 $expiration_date = $publish_date + $default_hours * 60 * 60;
-                $_POST['_cs-expire-date'] = $expiration_date;
+                $_POST[$typeIn] = $expiration_date;
             }
             else
             {
                 $expiration_date = DateUtilities::getTimestampFromReadableDate( $dateString, $offsetHours );
-            }
-            // We probably need to store the date differently,
-            // and handle timezone situation
-            update_post_meta( $post_id, '_cs-enable-schedule', $enabled );
-            update_post_meta( $post_id, '_cs-expire-date', $expiration_date );
-            return true;
+            }            
+            
+            
+            
+            return $expiration_date;
+            
+            
         }
-
-
-
+        
+        
 
 
         // =======================================================================
@@ -784,7 +839,7 @@ if ( !class_exists( "ContentScheduler" ) ) {
         } // end cs_add_expdate_column()
     
         // b. print / draw our column in the table, for each item
-        function cs_show_expdate ($column_name) {
+        function cs_show_expdate ($column_name ) {
                 global $wpdb, $post, $current_user;
                 // Check to see if we really want to add our column
                 if( $this->options['show-columns'] == '1' ) {
@@ -804,7 +859,52 @@ if ( !class_exists( "ContentScheduler" ) ) {
                     if ($column_name === 'cs-exp-date')
                     {
                         // get the expiration value for this post
-                        $query = "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = \"_cs-expire-date\" AND post_id=$id";
+                        $query = "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key =\"_cs-expire-date\" AND post_id=$id";
+                        // get the single returned value (can do this better?)
+                        // $ed = $wpdb->get_var($query);
+                        $timestamp = $wpdb->get_var($query);
+                        if( !empty( $timestamp ) ) {
+                            // convert
+                            $ed = DateUtilities::getReadableDateFromTimestamp( $timestamp );
+                            if( empty( $ed ) ) {
+                                $ed = "Date misunderstood";
+                            }
+                        } else {
+                            $ed = "No date set";
+                        }
+                        // determine whether expiration is enabled or disabled
+                        if( get_post_meta( $post->ID, '_cs-enable-schedule', true) != 'Enable' )
+                        {
+                            $ed .= "<br />\n";
+                            $ed .= __( '(Expiration Disabled)', 'contentscheduler' );
+                        } // end if
+                        echo $ed;
+                    } // end if
+                } // end if
+            } // end cs_show_expdate()
+    
+        // b. print / draw our column in the table, for each item
+        function cs_show_startdate ($column_name   ) {
+                global $wpdb, $post, $current_user;
+                // Check to see if we really want to add our column
+                if( $this->options['show-columns'] == '1' ) {
+                    // Check to see if current user has permissions to see
+                    // What is minimum level required to see CS?
+                    // must declare $current_user as global
+                    $min_level = $this->options['min-level'];
+                    // What is current user's level?
+                    get_currentuserinfo();
+                    $allcaps = $current_user->allcaps;
+                    if( 1 != $allcaps[$min_level] )
+                    {
+                        return; // not authorized to see CS
+                    }
+                    // else - continue
+                    $id = $post->ID;
+                    if ($column_name === 'cs-exp-date')
+                    {
+                        // get the expiration value for this post
+                        $query = "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key =  \"_cs-start-date\" AND post_id=$id";
                         // get the single returned value (can do this better?)
                         // $ed = $wpdb->get_var($query);
                         $timestamp = $wpdb->get_var($query);

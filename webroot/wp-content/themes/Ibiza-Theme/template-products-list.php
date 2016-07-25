@@ -413,7 +413,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
              * @todo make sure double reload is not causing any bugs
              */
             ?>
-                                        jQuery('#loading_container2').fadeOut();
+            jQuery('#loading_container2').fadeOut();
         }
         
     });
@@ -429,6 +429,7 @@ function app()
     console.log( 'App started' );
     var ignore          = new Array();
     var shouldRefresh   = false; // should refresh if something is updated baseed on query string, iideally need a way to only search once everything is set up, temp solution
+    var hasQueryParam   = false;
     var count           = jQuery.url().param('count');
     var pager           = jQuery.url().param('pager');
     var sort            = jQuery.url().param('sort');
@@ -470,6 +471,7 @@ function app()
 
     // move to functon
     // rebuild query string
+    
     console.log( 'Start rebuild' );
     for( var data in jQuery.url().param() )
     {
@@ -478,7 +480,8 @@ function app()
 
         if( jQuery.inArray(  data ,  ignore  ) == -1 ){
             
-            shouldRefresh     = false;
+            shouldRefresh       = false;
+            hasQueryParam       = true;
             //  no need to refresh
             for( var param in params )
             {
@@ -496,6 +499,12 @@ function app()
 
         indexVm.refresh( true );
         console.log( 'Refresh results' );
+    }else{
+        
+        if(hasQueryParam==false)
+        {
+            jQuery('#loading_container2').fadeOut();
+        }
     }
     //
     console.log( 'Complete' );

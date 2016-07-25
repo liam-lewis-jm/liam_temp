@@ -5,8 +5,61 @@
  * @version     2.0.0
  */
 
-$image = '';
-echo 777;
+$image          = '';
+$cats           =  explode( ',' ,  $instance['cats'] ) ;
+$is_scheduled   = false;
+
+
+foreach( $cats as $cat ){
+    
+    if( get_cat_name( $cat ) == 'Scheduled' ){
+        
+        $is_scheduled = true;
+        
+    }
+    
+}
+
+$slider             = 1;
+$container_class    = 'products_widget';
+$row_class          = ' large-6 columns';
+if( $slider == 1 ){
+    
+    $container_class    = 'swiper-container';
+    $row_class          = 'swiper-slide ';
+}
+
+
+$ids = array();
+
+while ($upw_query->have_posts()) : $upw_query->the_post();
+
+    $ids[] = $post->ID;
+
+endwhile;
+
+
+
+if( count( $ids ) >0 )
+{
+    global $wpdb;
+
+    $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1  
+                        WHERE post_id IN ( ' . implode( ',' , $ids ) . ' ) AND ( meta_key = "_cs-start-date" OR meta_key = "_cs-expire-date" OR meta_key = "_cs-enable-schedule" )
+                        ');
+
+    foreach($myrows as $row)
+    {
+
+        $rowArr[ $row->post_id ][ $row->meta_key ] = $row->meta_value;
+
+    }
+}
+/**
+ * @todo Move to a model inside of a plugin
+ */
+
+
 ?>
 
 <?php if ($instance['before_posts']) : ?>
@@ -17,13 +70,49 @@ echo 777;
 
 
 
-<div class="upw-posts hfeed">
+<div class="upw-posts hfeed <?php echo $container_class; ?>">
 
+    
   <?php if ($upw_query->have_posts()) : ?>
-
+    <div class="swiper-wrapper" style="box-sizing:border-box;">
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
+        
+        
+        <?php
+        
+        $skip = false;
+        
+        if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
+
+            if( time() > $rowArr[$post->ID]['_cs-start-date'] && time() < $rowArr[$post->ID]['_cs-expire-date']) {
+
+            }else{
+                
+                $skip   = true;
+                
+            }
+            
+        }else{
+            
+            $skip   = true;
+            
+        }
+
+        if( $skip ){
+            continue;
+        }
+        
+        ?>
+        
+        
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>
+        
+    
+        
+    
+        <?php $product =  get_product_by_mongo_product_code( $post->post_title ) ;  ?>
+     <div class="<?php echo $row_class; ?>">
         
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
@@ -99,6 +188,22 @@ echo 777;
             </div>
           <?php endif; ?>
 
+        
+                
+                
+          <?php  // product specfic info  ?>
+           
+                
+                <div class="large-6 columns">
+                    <h4><?php echo  $product->data->name  ?></h4>
+                </div>
+                
+                <div class="large-6 columns">
+                <img src="<?php echo $product->data->images[0]->url; ?>" alt="" />
+                </div>
+          
+           
+          
           <footer>
 
             <?php
@@ -149,9 +254,9 @@ echo 777;
           </footer>
 
         </article>
-
+    </div>
       <?php endwhile; ?>
-
+              </div>
   <?php else : ?>
 
     <p class="upw-not-found">

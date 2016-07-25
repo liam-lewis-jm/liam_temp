@@ -242,7 +242,7 @@
 
         <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
 
-            <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
+            <article class="learning__item box1--videos mobile-full tablet-and-up-half">
 
                 <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
 
