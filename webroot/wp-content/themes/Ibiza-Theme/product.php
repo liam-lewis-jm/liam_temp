@@ -3,93 +3,31 @@
   Template Name: Product Page
  */
 
-/*
-use Elasticsearch\ClientBuilder;
 
-require 'vendor/autoload.php';
+global $ibiza_api;
 
-$product_type   = sanitize( $_GET['type'] );
-$singleHandler  = ClientBuilder::singleHandler();
-$multiHandler   = ClientBuilder::multiHandler();
+$core                   = $ibiza_api->get_core_attributes();
+$rst                    = $ibiza_api->get_product(get_query_var('products'));
+$response               = $rst[0]->data;
+$schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
 
-// Try both the $singleHandler and $multiHandler independently
-$client = \Elasticsearch\ClientBuilder::create()
-    ->setHosts(['http://ibizaschemas.product:80/ProductCatalog.Api/api/elastic/product/'])
-    ->setHandler($singleHandler)
-    ->build();
-
-*/
-/*
-$params = [
-    'index' => 'product',
-    'type'  => $product_type ,
-    'id'    =>  get_query_var('products') ,
-        'client' => [
-        'curl' => [
-            CURLOPT_HTTPHEADER => [
-                'Content-type: application/json',
-            ]
-        ]
-    ]
-];
-
-
-
-
-
-$response               = $client->get($params);*/
-
-
-/*
-$json           = '{"query":{ "ids":{ "values": [ ' . get_query_var('products') . ' ] } } }';
-
-$indexParams    = [
-        'client' => [
-        'curl' => [
-            CURLOPT_HTTPHEADER => [
-                'Content-type: application/json',
-            ]
-        ]
-    ],
-    
-];
-
-
-
-$indexParams['body']    = $json;*/
-//$rst                    = $client->search($indexParams);
-$core['name']           = 1;
-$core['description']    = 1;
-$core['productcode']    = 1;
-$core['legacycode']     = 1;
-$core['price']          = 1;
-$core['images']         = 1;
-$core['review']         = 1;
-$core['category']       = 1;
-$core['_mongo']         = 1;
-$core['_schema']        = 1;
-$core['_category']      = 1;
-$core['items']          = 1;
-
-$rst                    = json_decode( file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . get_query_var('products') ));
-
-
-
-
-//$response['_source']    = $rst['hits']['hits'][0]['_source'];
-$response    = $rst[0]->data;
-
-
-$schema                 = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $rst[0]->{'$schema'} ) );
-//$variantProducts        = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products') ) );
-
-
-
+/**
+ * Handle a JSON request
+ */
 if( isset( $_GET['json'] ) ){
     echo json_encode( $response );
     die;
 }
 
+/**
+ * Handle a bundle request
+ */
+if( isset( $_GET['bundle'] ) ){
+
+    return require('product-bundle.php');
+
+    
+}
 
 ?>
 
@@ -186,7 +124,7 @@ if( isset( $_GET['json'] ) ){
             
             <?php       foreach( $variantProducts->dimensions as $dimension ):?>
             <ul class="inline-list row">
-            <li><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img width="25" src="<?php echo $product->image ?>" /></a></li>
+                <li><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img width="25" src="<?php echo $product->image ?>" /></a></li>
             </ul>   
             <?php       endforeach; ?>
             
@@ -201,8 +139,8 @@ if( isset( $_GET['json'] ) ){
             <?php foreach($response->items as $item  ): ?>
             
                 
-            <li>
-                <a  href="/products-list/<?php echo $item->productcode; ?>" class="product_bundle various">
+                <li class="medium-6 large-6 columns attr_template" style="height:150px">
+                <a  rel="groups"   href="/products-list/<?php echo $item->productcode; ?>?bundle=1" class="product_bundle various">
                 <?php
 
                 $pItem  = json_decode( file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $item->productcode  ));

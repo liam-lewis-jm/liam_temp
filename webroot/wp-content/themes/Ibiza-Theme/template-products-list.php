@@ -3,95 +3,22 @@
   Template Name: Products List
  */
 
-set_time_limit(0);
+global $ibiza_api;
 
-//$jsonPath   = get_template_directory_uri() . '/assets/json/data_rc.json';
-//$jsonData   = file_get_contents($jsonPath);
-//$dataSet    = json_decode($jsonData);
-
-$title              = (string) $_GET['title'];
-
-if( isset($_GET['q']) ){
-
-    if(   stripos($_GET['q'], 'how') !==false ){
-        $title              = 'How To';
-    }else{
-        $title              = 'Products';
-    }
-
-}
-$cat                = (int)$_GET['cat'];
-
-$sort               = array( 0 => 'Default' , 1 => 'Price (Low - High)' , 2 => 'Price (High - Low)' );
-$ignore_query_strs  = array( 'cat' , 'title' , 'count' , 'sort' , 'pager' , 'q' );
-$page_sizes         = array( 1 , 5 , 12 , 20 ,50 ,100 ,200 );
 $join_str           = array();
-
-
-$jsonPath           = 'http://ibizaschemas.product/ProductCatalog.Api/api/category/categoryId/' . (int)$_GET['cat'];
-$facetsJSON         = @file_get_contents($jsonPath);
-// remove suppression on production
-$facetsOb           = json_decode($facetsJSON);
-
-
-
-
-    $r = $wpdb->get_col($wpdb->prepare("
-        SELECT p.id FROM {$wpdb->postmeta} pm
-        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-        WHERE pm.meta_key = '%s' 
-        AND pm.meta_value !=  'null' 
-        AND pm.meta_value !=  '' 
-        LIMIT 1
-    ", 'cat-'  . $cat    ));
-
-        
-    // some be able to find the shop menu, and get correct place automaticly.
-        
-        
-    $top_level  = false;
-
-     $items =   wp_get_nav_menu_items( 2 );
-     $catss =   array(); 
-     foreach( $items as $item ){
-         
-         if( $item->ID == $r[0] && $item->menu_item_parent == '32' ){
-             $top_level  = true;
-         }
-         
-         
-        if( $item->menu_item_parent == $r[0] ){
-            
-            $catss[$item->post_title]    =(object)$item ;    
-            
-        }
-         
-     }
-     
-     
-     ksort( $catss    );                
-
-
-$category           = 0;
-$filter_cat_str     = '';
-if(!$facetsOb) {
-    $facets = array();
-}else{
-    $facets = $facetsOb[0]->facets;
-}
-
-if( isset( $_GET['cat'] ) && is_numeric( $_GET['cat'] ) ) {
-    
-    $category       = (int)$_GET['cat'];
-    $filter_cat_str = "ejs.TermFilter('_category', '" . $category ."')";
-    
-}
-
-
-$rangePath      = 'http://ibizaschemas.product/ProductCatalog.Api/api/pricerange/range/0/20000';
-$rangeJSON      = @file_get_contents($rangePath);
-$range          = json_decode($rangeJSON);
-
+$title              = $ibiza_api->get_product_list_title($_GET['title']);
+$cat                = $ibiza_api->get_product_list_category($_GET['cat']);
+$sort               = $ibiza_api->get_product_list_sort_options();
+$ignore_query_strs  = $ibiza_api->get_product_list_ignored_query_strings();
+$page_sizes         = $ibiza_api->get_product_list_pages_sizes();
+$jsonPath           = $ibiza_api->get_product_list_api_url( $cat );
+$facets             = $ibiza_api->get_product_list_facets( $jsonPath );
+$range              = $ibiza_api->get_product_list_price_range(); 
+$catss              = $ibiza_api->get_product_list_top_level_categorys( $cat );
+$facetsOb           = $ibiza_api->get_product_list_facets_object();
+// most follow after above as get_product_list_top_level_categorys set whether or not it is top level
+$top_level          = $ibiza_api->is_top_level;    
+$filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
 
 ?>
 
@@ -127,7 +54,7 @@ $range          = json_decode($rangeJSON);
         
         <nav aria-label="You are here:" role="navigation"   class="column">
             <ul class="breadcrumbs">
-                <?php echo implode('', breacdcrumbs('cat-' . (int) $_GET['cat'])); ?></p>
+                <?php echo implode('', breacdcrumbs('cat-' . $cat  )); ?></p>
             </ul>
         </nav>
         <div class="sidebar large-3 medium-3 columns" role="complementary">
@@ -368,7 +295,7 @@ function setPage( pageIn )
 }
 
 
-function fadeSomethingIn()
+function fadeContainerIn()
 {
     jQuery('#loading_container').fadeIn();
 }
@@ -645,7 +572,7 @@ jQuery( document ).ready(function() {
     jQuery(document).on('change', '.ng-scope input[type="checkbox"]', function() {
         
         
-        fadeSomethingIn();
+        fadeContainerIn();
 
         var field       = jQuery( this ).parents('eui-checklist,eui-range').attr( 'field' ).replace( /\'/g ,'' ) ;
         var value       = jQuery(this).attr('data-id').replace( 'the_value_' + field + '_' ,'' ) ;   
