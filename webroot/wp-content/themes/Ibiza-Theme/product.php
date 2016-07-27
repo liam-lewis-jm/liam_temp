@@ -3,7 +3,7 @@
   Template Name: Product Page
  */
 
-
+/*
 use Elasticsearch\ClientBuilder;
 
 require 'vendor/autoload.php';
@@ -18,7 +18,7 @@ $client = \Elasticsearch\ClientBuilder::create()
     ->setHandler($singleHandler)
     ->build();
 
-
+*/
 /*
 $params = [
     'index' => 'product',
@@ -40,6 +40,7 @@ $params = [
 $response               = $client->get($params);*/
 
 
+/*
 $json           = '{"query":{ "ids":{ "values": [ ' . get_query_var('products') . ' ] } } }';
 
 $indexParams    = [
@@ -53,8 +54,10 @@ $indexParams    = [
     
 ];
 
-$indexParams['body']    = $json;
-$rst                    = $client->search($indexParams);
+
+
+$indexParams['body']    = $json;*/
+//$rst                    = $client->search($indexParams);
 $core['name']           = 1;
 $core['description']    = 1;
 $core['productcode']    = 1;
@@ -66,11 +69,18 @@ $core['category']       = 1;
 $core['_mongo']         = 1;
 $core['_schema']        = 1;
 $core['_category']      = 1;
+$core['items']          = 1;
 
-$response['_source']    = $rst['hits']['hits'][0]['_source'];
+$rst                    = json_decode( file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . get_query_var('products') ));
 
 
-$schema                 = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $response['_source']['_schema'] ) );
+
+
+//$response['_source']    = $rst['hits']['hits'][0]['_source'];
+$response    = $rst[0]->data;
+
+
+$schema                 = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $rst[0]->{'$schema'} ) );
 //$variantProducts        = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products') ) );
 
 
@@ -92,10 +102,10 @@ if( isset( $_GET['json'] ) ){
         
         <ul class="breadcrumbs">
             
-            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response['_source']['_category'][0]  ) ) ; ?>
+            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response->category[0]  ) ) ; ?>
 
             <li>
-                <span class="show-for-sr">Current: </span> <?php echo $response['_source']['name']; ?>
+                <span class="show-for-sr">Current: </span> <?php echo $response->name; ?>
             </li>
             
         </ul>
@@ -105,7 +115,7 @@ if( isset( $_GET['json'] ) ){
 <div class="row" id="prodcut_main">
     <div class="medium-6 columns">
         
-        <a href="<?php echo $response['_source']['images'][0]['url']; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>"></a>
+        <a href="<?php echo $response->images[0]->url; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>"></a>
         <div class="clear">&nbsp;</div>
         <div class="">
 
@@ -115,14 +125,14 @@ if( isset( $_GET['json'] ) ){
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     
-                    <?php foreach( $response['_source']['images'] as $i => $image ): ?>
+                    <?php foreach( $response->images as $i => $image ): ?>
                     
                     <div class="swiper-slide">
                         
-                        <a  rel="group"  class="gallery" href="<?php echo $image['url']; ?>"
-                           data-zoom-image="<?php echo $image['url']; ?>"  
-                           data-image="<?php echo $image['url']; ?>">                        
-                        <img data-zoom-image="<?php echo $image['url']; ?>" src="<?php echo $image['url']; ?>">
+                        <a  rel="group"  class="gallery" href="<?php echo $image->url; ?>"
+                           data-zoom-image="<?php echo $image->url; ?>"  
+                           data-image="<?php echo $image->url; ?>">                        
+                        <img data-zoom-image="<?php echo $image->url; ?>" src="<?php echo $image->url; ?>">
                         </a>
                         
                     </div>
@@ -137,18 +147,18 @@ if( isset( $_GET['json'] ) ){
 
     </div>
     <div class="medium-6 large-5 columns">
-        <h3 id="product_name"><?php echo $response['_source']['name']; ?></h3>
+        <h3 id="product_name"><?php echo $response->name; ?></h3>
 
-        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response['_source']['price'] , 2); ?> </h4>
+        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response->price , 2); ?> </h4>
         
-        <p  id="product_description"><?php echo $response['_source']['description']; ?></p>
+        <p  id="product_description"><?php echo $response->description; ?></p>
         
         
         
         <?php //print_r( $schema->properties );die; ?>
         
         <?php foreach($schema->properties as $key => $property): ?>
-        <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) && $response['_source'][$key] && $property->title ): ?>
+        <?php   if( !isset( $core[$key] ) && isset($response->$key) && $response->$key && $property->title ): ?>
         
         <div class="medium-6 large-6 columns attr_template">
             <p><?php echo $property->title; ?></p>
@@ -156,7 +166,7 @@ if( isset( $_GET['json'] ) ){
         
         
         <div class="medium-6 large-6 columns attr_template">
-            <p><?php echo $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
+            <p><?php echo $property->prepend .  $response->$key . $property->append; ?></p>
         </div>         
                  
                  
@@ -184,7 +194,33 @@ if( isset( $_GET['json'] ) ){
             <?php endif; ?>
             
              
+            <?php if( $response->items ): ?>
         
+            <p>In this bundle.</p>
+            <ul class="inline-list row">
+            <?php foreach($response->items as $item  ): ?>
+            
+                
+            <li>
+                <a  href="/products-list/<?php echo $item->productcode; ?>" class="product_bundle various">
+                <?php
+
+                $pItem  = json_decode( file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $item->productcode  ));
+
+
+                echo '<img width="50" src="' . $pItem[0]->data->images[0]->url . '"/>';
+                echo '<br /><span style="font-size:12px;" >'.  $pItem[0]->data->name .'</span>'
+                ?>
+                </a>
+            </li>
+            
+            
+            
+        
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
         
         <div class="row" id="quantity">
             <div class="small-3 columns">
@@ -201,11 +237,11 @@ if( isset( $_GET['json'] ) ){
         <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2">Add to basket</button>
         <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
             <div class="column large-6">
-                <img   class="thumbnail" data-zoom-image="<?php echo $response['_source']['images'][0]['url']; ?>" src="<?php echo $response['_source']['images'][0]['url']; ?>">
+                <img   class="thumbnail" data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>">
             </div>
             <div class="column large-6">
-                <p id="basket-description"><?php echo $response['_source']['product']['base']['name']; ?></p>
-                <p id="basket-total">Total &pound;<?php echo $response['_source']['product']['webPrice']; ?></p>
+                <p id="basket-description"><?php echo $response->name; ?></p>
+                <p id="basket-total">Total &pound;</p>
                 <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.localdev.jewellerymaker.com/basket.aspx'">Checkout</button>
             </div>
            
@@ -497,6 +533,7 @@ if( isset( $_GET['json'] ) ){
     var f_dimension1        = null; // final;
     var f_dimension2        = null; // final;   
     var mySwiper_products   = null;
+    
     <?php foreach( $core as $attr => $value ): ?>
     
     core.push('<?php echo $attr ?>');
@@ -515,6 +552,19 @@ if( isset( $_GET['json'] ) ){
     
     jQuery( document ).ready(function() {
 
+
+	jQuery(".various").fancybox({
+		maxWidth	: 800,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none' ,
+                type            : 'ajax'
+	});
 
 
         jQuery.getJSON( '<?php echo 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products'); ?>' , function( data ) {
@@ -669,6 +719,13 @@ if( isset( $_GET['json'] ) ){
             update_product( this );
             
         });
+        
+        
+
+        
+        
+        
+        
 
         
         jQuery("#zoom").click(function() {
