@@ -85,17 +85,19 @@
 
                 <?php endif; ?>
 
-
                 <!-- Temp style -->
-                <div id="dvVideoHolderHome" style="background-color: #000"><img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" /></div>       
+                <div id="dvVideoHolderHome" style="background-color: #000">
+                    <img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" />
+                </div>       
 
                 
-                
+                <?php if (is_active_sidebar('homepageleft')) : ?>
 
+                    <?php dynamic_sidebar('homepageleft'); ?>
+
+                <?php endif; ?>                
                 
-                
-                
-                <h2>On todays show</h2>
+<!--                <h2>On todays show</h2>
 
                 <ol>
 
@@ -104,7 +106,7 @@
                     <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
                     <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
 
-                </ol>
+                </ol>-->
 
 
             </main> <!-- end #main -->

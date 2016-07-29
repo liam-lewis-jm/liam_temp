@@ -20,6 +20,10 @@ $facetsOb           = $ibiza_api->get_product_list_facets_object();
 $top_level          = $ibiza_api->is_top_level;    
 $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
 
+if($cat==0)
+    $filter_cat_str     = '';
+$breadcrumbs       = breacdcrumbs('cat-' . $cat  );
+$cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -1, 1, TRUE ) )] ) ; 
 ?>
 
 <?php get_header(); ?>
@@ -54,7 +58,7 @@ $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
         
         <nav aria-label="You are here:" role="navigation"   class="column">
             <ul class="breadcrumbs">
-                <?php echo implode('', breacdcrumbs('cat-' . $cat  )); ?></p>
+                <?php echo implode('', $breadcrumbs); ?></p>
             </ul>
         </nav>
         <div class="sidebar large-3 medium-3 columns" role="complementary">
@@ -146,12 +150,12 @@ $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
 
             <div class="row">
 
-                <div class="columns" ><h3><?php echo $title;    ?></h3></div>
+                <div class="columns" ><h3><?php echo ucwords( $cat_title );    ?></h3></div>
                 
                 <?php if($top_level == false): ?>
                 
                 <div></div>
-                <div class="large-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  >
+                <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  >
 
                     
 
@@ -184,7 +188,7 @@ $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
                 
                     <eui-simple-paging></eui-simple-paging>
                     
-                    <select id="sort_order">
+                    <select id="sort_order" data-id="sort">
                         
 
                         <?php foreach( $sort as $key => $sort_opt ): ?>
@@ -200,13 +204,20 @@ $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
                 
             <?php else: ?>    
             
-                <?php foreach($catss as $cat): ?>
+                <?php foreach($catss as $cat):  ?>
                 
                 
                     <?php if( $cat->post_content==1 ):?>
                 
-                <div class="large-3 medium-3 columns padded-column">
+                <div class="large-3 medium-3 columns padded-column box">
                     <a href="<?php print $cat->url; ?>"><img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" /></a>
+                    
+                    <span class="caption fade-caption">
+			<h3><?php echo $cat->post_title;?></h3>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+			sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    </span>                    
+                    
                 </div>
                 
                 
@@ -320,7 +331,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
         }else{
           
             // pager needs to run every time we hit the callback, incase it has changed
-            if(  typeof  query_str_arr == "undefined"  &&  query_str_arr['pager'][0] == indexVm.page ){
+            /*if(  typeof  query_str_arr == "undefined"  &&  query_str_arr['pager'][0] == indexVm.page ){
 
                 return;
                 
@@ -339,7 +350,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
             <?php /**
              * @todo make sure double reload is not causing any bugs
              */
-            ?>
+            ?>*/
             jQuery('#loading_container2').fadeOut();
         }
         
@@ -414,7 +425,7 @@ function app()
             {
                 // set check boxes in ui
                 state_change = -1; // prevent state from changing
-                jQuery('[data-id="the_value_' + data + '_'+  params[param] + '"]').trigger("click");
+                jQuery('[data-id="the_value_' + data + '.raw_'+  params[param] + '"]').trigger("click");
                 
             }
         }
@@ -498,51 +509,89 @@ function toQueryString(obj, prefix) {
     
 jQuery( document ).ready(function() {
         
+    var qIn = jQuery.url().param('q');         
+    
+    if(typeof  qIn != 'undefined' )
+    {
+        jQuery('#s-box').val(  jQuery.url().param('q') );
+    }        
+        
     jQuery( '#count' ).change( function(){ 
         
         // only a ever single value, so remove then readd new value        
-        state_change        = 1;
+        
         setPage( 1 ); 
         
-        // reset back to page 1
+        
         if( query_str_arr['pager'] ){
-            
+
             removeQueryString( 'pager' , query_str_arr['pager'][0] );  
-            
+
         }         
-        
+
         addQueryString( 'pager' , 1 );
-        
+
         // reset back to page 1
         if( query_str_arr['count'] ){
-            
+
             removeQueryString( 'count' , query_str_arr['count'][0] );  
-            
+
         }        
+
+        addQueryString( 'count' , jQuery(this).val() );        
         
-        addQueryString( 'count' , jQuery(this).val() );
-        push_state( this  , query_str_arr )
+        
+        if(state_change!=-1)
+        {
+            
+            state_change        = 1;
+            // reset back to page 1
+   
+            push_state( this  , query_str_arr )
+        }
+        
+        
+
+        
     
     });
     
-    jQuery( '#sort_order' ).change( function(){ 
-    
-        state_change = 1;
+    jQuery( '#sort_order' ).change( function(e){ 
+        
+        
+        
+        
         var sort = jQuery( this ).val();
         setSort( sort );
-        
-        // only a ever single value, so remove then readd new value
-        
-        if( query_str_arr['sort'] ){
             
+            
+        // only a ever single value, so remove then readd new value
+
+        if( query_str_arr['sort'] ){
+
             removeQueryString( 'sort' , query_str_arr['sort'][0] );  
+
+        }
+
+        addQueryString( 'sort' , sort );            
+            
+        // condition added to prevent another state being added when user clicks bnack
+        if(state_change!=-1 || e.originalEvent)
+        {
+            state_change = 1;
+            
+          
+            
+
+            push_state( this  , query_str_arr );             
             
         }
-          
-        addQueryString( 'sort' , sort );
-        push_state( this  , query_str_arr );        
+    
         
+
+       
         indexVm.refresh( false );
+        
     
     });
     
@@ -557,28 +606,82 @@ jQuery( document ).ready(function() {
     History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
         
         if( state_change == 1 ){
+             console.log( 'abort'  )
             state_change = 0;
             <?php // reset the state ?>
             return;
         }
-        var State       = History.getStateByIndex( History.getCurrentIndex() -1  ); // Note: We are using History.getState() instead of event.state
+        var State       = History.getStateByIndex( History.getCurrentIndex() -1   ); // Note: We are using History.getState() instead of event.state
+        
+        if(typeof State.data.state =='undefined'){
+            // if going forward
+            State   = State2;
+            console.log('Fall back');
+        }
 
         var state_item  = jQuery( '[data-id="' +  State.data.state + '"]' );
         state_change    = -1; <?php // prewvent another state update?>
-        state_item.click(); 
+        
+        //console.log(State)
+        
+        switch(State.data.state)
+        {
+            case 'the_count':
+                
+                var v = jQuery.url().param('count');
+                
+                if(!v)
+                {
+                    v= 12; // default value
+                }                
+                
+                jQuery("#count").val( v ).change();
+                state_change    = 0; 
+                break;
+            case 'sort':
+                
+                var v = jQuery.url().param('sort');
+                
+                if(!v)
+                {
+                    v= 0;
+                }
+                
+                jQuery("#sort_order").val( v ).change();
+                state_change    = 0; 
+                break;
+            default:
+                
+                state_item.click(); 
+            
+        }
+        
+        
+        
+        // come back to this
+
         
     });
     
-    jQuery(document).on('change', '.ng-scope input[type="checkbox"]', function() {
+    jQuery(document).on('change', '.ng-scope input[type="checkbox"]', function(e) {
         
-        
+       console.log( e );
         fadeContainerIn();
 
-        var field       = jQuery( this ).parents('eui-checklist,eui-range').attr( 'field' ).replace( /\'/g ,'' ) ;
+        var field       = jQuery( this ).parents('eui-checklist,eui-range').attr( 'field' ).replace( /\'/g ,'' );
+        
+        
+        
         var value       = jQuery(this).attr('data-id').replace( 'the_value_' + field + '_' ,'' ) ;   
+        
+        field           = field.replace('.raw','');
+        // cleaner url!
         var changedEl   = this;
 
-        console.log( value );
+
+        
+
+        console.log( state_change );
 
         if( jQuery(this).attr('checked') ){
 

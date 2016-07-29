@@ -20,11 +20,12 @@ foreach( $cats as $cat ){
     
 }
 
-$slider             = 1;
+$slider             = 0;
 $container_class    = 'products_widget';
 $row_class          = ' large-6 columns';
+$swiper_data        = '';
 if( $slider == 1 ){
-    
+    $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';
     $container_class    = 'swiper-container';
     $row_class          = 'swiper-slide ';
 }
@@ -74,7 +75,7 @@ if( count( $ids ) >0 )
 
     
   <?php if ($upw_query->have_posts()) : ?>
-    <div class="swiper-wrapper" style="box-sizing:border-box;">
+    <div<?php echo $swiper_data;?>>
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
         
         
@@ -191,18 +192,15 @@ if( count( $ids ) >0 )
         
                 
                 
-          <?php  // product specfic info  ?>
-           
+          <?php // product specfic info  ?>
                 
-                <div class="large-6 columns">
-                    <h4><?php echo  $product->data->name  ?></h4>
-                </div>
-                
-                <div class="large-6 columns">
-                <img src="<?php echo $product->data->images[0]->url; ?>" alt="" />
-                </div>
-          
-           
+            <div class="large-6 columns">
+                <h4><a href="/products-list/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
+            </div>
+
+            <div class="large-6 columns">
+                <a href="/products-list/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
+            </div>
           
           <footer>
 

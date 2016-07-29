@@ -25,7 +25,6 @@ if( isset( $_GET['json'] ) ){
 if( isset( $_GET['bundle'] ) ){
 
     return require('product-bundle.php');
-
     
 }
 
@@ -51,9 +50,14 @@ if( isset( $_GET['bundle'] ) ){
 </div>
 <div id="result">
 <div class="row" id="prodcut_main">
+    <div class="medium-12 large-12 columns">
+        <h3 id="product_name"><?php echo $response->name; ?></h3>
+    </div>
+    
     <div class="medium-6 columns">
-        
-        <a href="<?php echo $response->images[0]->url; ?>" id="zoom"> <img id="zoom_01"   data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>"></a>
+        <div class="text-center">
+            <a href="<?php echo $response->images[0]->url; ?>" id="zoom" class="text-center"> <img id="zoom_01"   data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>"></a>
+        </div>
         <div class="clear">&nbsp;</div>
         <div class="">
 
@@ -85,7 +89,7 @@ if( isset( $_GET['bundle'] ) ){
 
     </div>
     <div class="medium-6 large-5 columns">
-        <h3 id="product_name"><?php echo $response->name; ?></h3>
+        
 
         <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response->price , 2); ?> </h4>
         
@@ -143,9 +147,13 @@ if( isset( $_GET['bundle'] ) ){
                 <a  rel="groups"   href="/products-list/<?php echo $item->productcode; ?>?bundle=1" class="product_bundle various">
                 <?php
 
-                $pItem  = json_decode( file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $item->productcode  ));
-
-
+                $pItem  = $ibiza_api->get_product( $item->productcode  );
+ 
+                
+                if( !$pItem[0]->data->images[0]->url ){
+                    $pItem[0]->data->images[0]->url = 'https://s3.amazonaws.com/images.seroundtable.com/out-of-stock-1395144988.png';
+                }
+                
                 echo '<img width="50" src="' . $pItem[0]->data->images[0]->url . '"/>';
                 echo '<br /><span style="font-size:12px;" >'.  $pItem[0]->data->name .'</span>'
                 ?>
@@ -328,34 +336,30 @@ if( isset( $_GET['bundle'] ) ){
                 dataType  : 'json' ,
                 url: url
             }).done(function( data ) {
-                if ( console && console.log ) {
-                    console.log(  data );
-
-                        
                     mySwiper_products.removeAllSlides();
                         
-                    for( var image in  data._source.images ){
+                    for( var image in  data.images ){
                         
-                        var image_link_el_start = '<a data-image="' + data._source.images[image].url + '" data-zoom-image="' + data._source.images[image].url + '" href="' + data._source.images[image].url + '" class="gallery">';
+                        var image_link_el_start = '<a data-image="' + data.images[image].url + '" data-zoom-image="' + data.images[image].url + '" href="' + data.images[image].url + '" class="gallery">';
                         var image_link_el_end   = '</a>';
-                        mySwiper_products.appendSlide('<div class="swiper-slide">' + image_link_el_start + '<img src="'  + data._source.images[image].url  + '" />' + image_link_el_end + '</div>');
+                        mySwiper_products.appendSlide('<div class="swiper-slide">' + image_link_el_start + '<img src="'  + data.images[image].url  + '" />' + image_link_el_end + '</div>');
                         
                     }
                     
                     jQuery('.columns .attr_template').remove();
 
-                    for( var d in  data._source ){
+                    for( var d in  data ){
                         
-                        console.log(data._source[d]);
+                        console.log(data[d]);
                         
-                        if( jQuery.inArray( d , core )==-1 && data._source[d] && schema[d] ){
+                        if( jQuery.inArray( d , core )==-1 && data[d] && schema[d] ){
                             
                             
                            var el = jQuery( '#attr_template' ).clone();
                            
                            
                            jQuery('.attr_key p' , el ).text( schema[d].title );
-                           jQuery('.attr_value p' , el ).text( schema[d].prepend + data._source[d] + schema[d].append );
+                           jQuery('.attr_value p' , el ).text( schema[d].prepend + data[d] + schema[d].append );
                            
                            jQuery('#quantity').before( el.html() );
                         }
@@ -369,22 +373,21 @@ if( isset( $_GET['bundle'] ) ){
                     zoomImage.removeData('elevateZoom');
                     // Reinitialize EZ
                     
-                    jQuery('#product_name').text( data._source.name );
-                    jQuery('#product_description').text( data._source.description );
-                    jQuery('#product_price').text( '<?php echo $schema->properties->price->prepend ?>' + data._source.price.toFixed(2) );
-                    jQuery('#zoom').attr('href' , data._source.images[0].url );
+                    jQuery('#product_name').text( data.name );
+                    jQuery('#product_description').text( data.description );
+                    jQuery('#product_price').text( '<?php echo $schema->properties->price->prepend ?>' + data.price.toFixed(2) );
+                    jQuery('#zoom').attr('href' , data.images[0].url );
 
                     // Remove old instance od EZ
                     jQuery('.zoomContainer').remove();
                     zoomImage.removeData('elevateZoom');
                     // Update source for images
-                    zoomImage.attr('src',  data._source.images[0].url );
-                    zoomImage.data('zoom-image',  data._source.images[0].url );
+                    zoomImage.attr('src',  data.images[0].url );
+                    zoomImage.data('zoom-image',  data.images[0].url );
                     // Reinitialize EZ
                     zoomImage.elevateZoom(zoomConfig);
                     
                     
-                }
               });        
     }
     
@@ -492,16 +495,18 @@ if( isset( $_GET['bundle'] ) ){
 
 
 	jQuery(".various").fancybox({
-		maxWidth	: 800,
-		maxHeight	: 600,
-		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
-		autoSize	: false,
-		closeClick	: false,
+		maxWidth	: 800   ,
+		maxHeight	: 600   ,
+		fitToView	: false ,
+		width		: '70%' ,
+		height		: '70%' ,
+		autoSize	: false ,
+		closeClick	: false ,
 		openEffect	: 'none',
-		closeEffect	: 'none' ,
-                type            : 'ajax'
+		closeEffect	: 'none',
+                type            : 'ajax',
+                nextEffect      : 'none',
+                prevEffect      : 'none',                
 	});
 
 
@@ -687,8 +692,10 @@ if( isset( $_GET['bundle'] ) ){
             });            
             
             jQuery.fancybox.open( fancy , {
-                padding : 0 ,
-                index   :  index
+                padding         : 0 ,
+                index           :  index ,
+                nextEffect      : 'none',
+                prevEffect      : 'none'                
             });
 
             return false;

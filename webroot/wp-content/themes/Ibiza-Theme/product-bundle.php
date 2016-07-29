@@ -4,27 +4,17 @@
  */
 
 
-$core['name']           = 1;
-$core['description']    = 1;
-$core['productcode']    = 1;
-$core['legacycode']     = 1;
-$core['price']          = 1;
-$core['images']         = 1;
-$core['review']         = 1;
-$core['category']       = 1;
-$core['_mongo']         = 1;
-$core['_schema']        = 1;
-$core['_category']      = 1;
-$core['items']          = 1;
+global $ibiza_api;
 
-$rst                    = json_decode( file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . get_query_var('products') ));
+$core                   = $ibiza_api->get_core_attributes();
+$rst                    = $ibiza_api->get_product(get_query_var('products'));
 $response               = $rst[0]->data;
-$schema                 = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $rst[0]->{'$schema'} ) );
+$schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
 
 
 ?>
 
-<?php //get_header(); ?>
+
 
 
 <div id="result">

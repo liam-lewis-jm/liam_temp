@@ -351,6 +351,29 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     
     
     // end ibiza api function 
+    
+    
+    public function get_current_and_previous_tv_products()
+    {
+        
+        $json_contents              = file_get_contents( 'http://legacyapi.localdev/Api/todaysproducts/0/1/49' );
+            
+        $rst                        = json_decode($json_contents);                        
+        
+        return  $rst;
+    }
+    
+    
+    public function get_tv_schedule()
+    {
+        
+        $json_contents              = file_get_contents( 'http://legacyapi.localdev/Api/todaysproducts/0/1/49' );
+            
+        $rst                        = json_decode($json_contents);                        
+        
+        return  $rst;
+    }
+    
     /**
      * 
      */  
