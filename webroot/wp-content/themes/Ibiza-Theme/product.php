@@ -466,7 +466,7 @@ if( isset( $_GET['bundle'] ) ){
 		closeEffect	: 'none',
                 type            : 'ajax',
                 nextEffect      : 'none',
-                prevEffect      : 'none',                
+                prevEffect      : 'none'           
 	});
 
 

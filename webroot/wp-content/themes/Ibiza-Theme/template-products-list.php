@@ -20,7 +20,7 @@ $top_level          = $ibiza_api->is_top_level;
 $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
 $title              = $ibiza_api->get_product_list_title($_GET['title']);
 
-$index              = 'products';
+$index              = 'product';
 
 if($cat==0){
     $filter_cat_str     = '';
