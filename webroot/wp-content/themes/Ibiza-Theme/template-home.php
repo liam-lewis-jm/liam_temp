@@ -97,16 +97,6 @@
 
                 <?php endif; ?>                
                 
-<!--                <h2>On todays show</h2>
-
-                <ol>
-
-                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
-                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
-                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
-                    <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
-
-                </ol>-->
 
 
             </main> <!-- end #main -->
@@ -333,6 +323,37 @@
                  pageIdentifier: 'homepage',
                  edge: '',
              });
+             
+             
+
+            jQuery('#add-basket').click( function( e ){
+
+
+                
+
+                var quantity = 1;
+
+                jQuery.ajax({
+                    dataType  : 'json' ,
+                    url: 'http://localdev.jewellerymaker.com/proxy.php?auctionID=-1&productCode=<?php echo 'WTTY01'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '361247'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
+                })  .done(function( data ) {
+                    
+                    if ( console && console.log ) {
+                        console.log(  data );
+                    }
+                    
+                    jQuery('#basket-total').text('£' +  data.BasketTotal );
+                    jQuery('#basket-description').text('£' +  data.Description );                    
+                    
+                    window.location = 'https://secure.localdev.jewellerymaker.com/basket.aspx';
+                    
+                    
+                  });
+
+            });              
+             
+             
+             
          });
 </script>
     <?php get_footer(); ?>

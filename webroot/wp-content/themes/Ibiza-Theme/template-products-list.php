@@ -6,7 +6,6 @@
 global $ibiza_api;
 
 $join_str           = array();
-$title              = $ibiza_api->get_product_list_title($_GET['title']);
 $cat                = $ibiza_api->get_product_list_category($_GET['cat']);
 $sort               = $ibiza_api->get_product_list_sort_options();
 $ignore_query_strs  = $ibiza_api->get_product_list_ignored_query_strings();
@@ -19,16 +18,30 @@ $facetsOb           = $ibiza_api->get_product_list_facets_object();
 // most follow after above as get_product_list_top_level_categorys set whether or not it is top level
 $top_level          = $ibiza_api->is_top_level;    
 $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
+$title              = $ibiza_api->get_product_list_title($_GET['title']);
 
-if($cat==0)
+$index              = 'products';
+
+if($cat==0){
     $filter_cat_str     = '';
+}
+
+
+
 $breadcrumbs       = breacdcrumbs('cat-' . $cat  );
 $cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -1, 1, TRUE ) )] ) ; 
+
+if( $title == 'How To' ){
+    $index              = 'howto';
+    $cat_title          = $title;
+} 
+
+
 ?>
 
 <?php get_header(); ?>
 
-<div id="content"   ng-controller="IndexController" ng-app="ibiza"  eui-index="'product'"  <?php echo  $filter_cat_str ? 'eui-filter="ejs.BoolFilter().must('. $filter_cat_str.')"' : '' ; ?>  ng-model='querystring'  eui-enabled='true' <?php  echo $_GET['q'] ?  'eui-query="ejs.QueryStringQuery(\'' . $_GET['q'] .'*\').lenient(true).fields(\'name\')"' : ''; ?>>
+<div id="content"   ng-controller="IndexController" ng-app="ibiza"  eui-index="'<?php echo $index; ?>'"  <?php echo  $filter_cat_str ? 'eui-filter="ejs.BoolFilter().must('. $filter_cat_str.')"' : '' ; ?>  ng-model='querystring'  eui-enabled='true' <?php  echo $_GET['q'] ?  'eui-query="ejs.QueryStringQuery(\'' . $_GET['q'] .'*\').lenient(true).fields(\'name\')"' : ''; ?>>
 <!--    
         <a href="#" id="disable_filter">Button</a>-->
     
@@ -61,7 +74,7 @@ $cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -
                 <?php echo implode('', $breadcrumbs); ?></p>
             </ul>
         </nav>
-        <div class="sidebar large-3 medium-3 columns" role="complementary">
+        <div class="sidebar large-3 columns show-for-large " role="complementary">
             
             <?php if($top_level == false): ?>
             
@@ -104,23 +117,6 @@ $cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -
                 ?>
 
                 <?php endforeach; ?>
-                
-
-                <h3>Results Per Page</h3>
-                <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
-                    <?php foreach( $page_sizes as $key => $page_size ): 
-
-                    $selected == 'selected="selected"';
-
-                    if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
-
-                        $selected == 'selected="selected"';
-
-                    }
-                    ?>
-                    <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
-                    <?php endforeach; ?>                    
-                </select>
 
             </div>
             
@@ -146,16 +142,65 @@ $cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -
 
         
         <!-- Thumbnails -->
-        <main id="main" class="large-9 medium-9 columns" role="main" >
+        <main id="main" class="large-9 medium-12 small-12 columns" role="main" >
 
             <div class="row">
 
-                <div class="columns" ><h3><?php echo ucwords( $cat_title );    ?></h3></div>
+                <div class="columns" >
+                    <h3><?php echo ucwords( $cat_title );    ?></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <hr />
+                    
+                    
+                    <div class="large-4 columns">
+                        
+                        <select id="sort_order" data-id="sort">
+
+
+                            <?php foreach( $sort as $key => $sort_opt ): ?>
+
+                            <option value="<?php echo $key; ?>" ><?php echo $sort_opt; ?></option>
+
+                            <?php endforeach; ?>
+
+                        </select>                        
+                        
+                    </div>
+                    
+                    
+                    <div class="large-4 columns">
+                        
+                        <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
+                            <?php foreach( $page_sizes as $key => $page_size ): 
+
+                            $selected == 'selected="selected"';
+
+                            if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
+
+                                $selected == 'selected="selected"';
+
+                            }
+                            ?>
+                            <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
+                            <?php endforeach; ?>                    
+                        </select>                        
+                        
+                    </div>
+                    
+                    <div class="large-4 columns">
+                        <eui-simple-paging></eui-simple-paging>
+                    </div>
+                    
+                </div>
+                
+                
+                
+                
                 
                 <?php if($top_level == false): ?>
                 
                 <div></div>
-                <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  >
+                <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  ng-class="!$last ? '' : 'end'">
 
                     
 
@@ -178,29 +223,7 @@ $cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -
                     </div>
 
                 </div>
-                
-                
-                
-                
-                <div style="clear:both">&nbsp;</div>
-                
-                <div style="float: left; clear: left; margin-top: 40px;">
-                
-                    <eui-simple-paging></eui-simple-paging>
-                    
-                    <select id="sort_order" data-id="sort">
-                        
-
-                        <?php foreach( $sort as $key => $sort_opt ): ?>
-                        
-                        <option value="<?php echo $key; ?>" ><?php echo $sort_opt; ?></option>
-                        
-                        <?php endforeach; ?>
-                        
-                    </select>
-                    
-                </div>
-                
+ 
                 
             <?php else: ?>    
             

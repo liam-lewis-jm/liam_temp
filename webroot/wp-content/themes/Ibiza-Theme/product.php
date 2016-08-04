@@ -49,242 +49,202 @@ if( isset( $_GET['bundle'] ) ){
     </nav>
 </div>
 <div id="result">
-<div class="row" id="prodcut_main">
-    <div class="medium-12 large-12 columns">
-        <h3 id="product_name"><?php echo $response->name; ?></h3>
-    </div>
-    
-    <div class="medium-6 columns">
-        <div class="text-center">
-            <a href="<?php echo $response->images[0]->url; ?>" id="zoom" class="text-center"> <img id="zoom_01"   data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>"></a>
-        </div>
-        <div class="clear">&nbsp;</div>
-        <div class="">
+    <div class="row" id="prodcut_main">
 
 
-            <!-- Slider main container -->
-            <div class="swiper-container-products">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    
-                    <?php foreach( $response->images as $i => $image ): ?>
-                    
-                    <div class="swiper-slide">
-                        
-                        <a  rel="group"  class="gallery" href="<?php echo $image->url; ?>"
-                           data-zoom-image="<?php echo $image->url; ?>"  
-                           data-image="<?php echo $image->url; ?>">                        
-                        <img data-zoom-image="<?php echo $image->url; ?>" src="<?php echo $image->url; ?>">
-                        </a>
-                        
+        <div class="medium-6 columns">
+            <div class="text-center">
+                <a href="<?php echo $response->images[0]->url; ?>" id="zoom" class="text-center"> <img id="zoom_01"   data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>"></a>
+            </div>
+            <div class="clear">&nbsp;</div>
+            <div class="">
+
+
+                <!-- Slider main container -->
+                <div class="swiper-container-products">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+
+                        <?php foreach( $response->images as $i => $image ): ?>
+
+                        <div class="swiper-slide">
+
+                            <a  rel="group"  class="gallery" href="<?php echo $image->url; ?>"
+                               data-zoom-image="<?php echo $image->url; ?>"  
+                               data-image="<?php echo $image->url; ?>">                        
+                            <img data-zoom-image="<?php echo $image->url; ?>" src="<?php echo $image->url; ?>">
+                            </a>
+
+                        </div>
+
+                        <?php endforeach; ?>
                     </div>
-                    
-                    <?php endforeach; ?>
-                </div>
 
+
+                </div>
 
             </div>
 
         </div>
+        <div class="medium-6 large-6 columns">
 
-    </div>
-    <div class="medium-6 large-5 columns">
-        
 
-        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response->price , 2); ?> </h4>
-        
-        <p  id="product_description"><?php echo $response->description; ?></p>
-        
-        
-        
-        <?php //print_r( $schema->properties );die; ?>
-        
-        <?php foreach($schema->properties as $key => $property): ?>
-        <?php   if( !isset( $core[$key] ) && isset($response->$key) && $response->$key && $property->title ): ?>
-        
-        <div class="medium-6 large-6 columns attr_template">
-            <p><?php echo $property->title; ?></p>
-        </div>
-        
-        
-        <div class="medium-6 large-6 columns attr_template">
-            <p><?php echo $property->prepend .  $response->$key . $property->append; ?></p>
-        </div>         
-                 
-                 
-                 
-        <?php endif; ?>   
-         
-        
-        <?php endforeach; ?>
+            <h3 id="product_name"><?php echo $response->name; ?></h3>
 
-        
 
-        
-        
-            
-            
-            <?php   if($variantProducts): ?>
-            
-            <?php       foreach( $variantProducts->dimensions as $dimension ):?>
-            <ul class="inline-list row">
-                <li><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img width="25" src="<?php echo $product->image ?>" /></a></li>
-            </ul>   
-            <?php       endforeach; ?>
-            
-            
-            <?php endif; ?>
-            
-             
-            <?php if( $response->items ): ?>
-        
-            <p>In this bundle.</p>
-            <ul class="inline-list row">
-            <?php foreach($response->items as $item  ): ?>
-            
-                
-                <li class="medium-6 large-6 columns attr_template" style="height:150px">
-                <a  rel="groups"   href="/products-list/<?php echo $item->productcode; ?>?bundle=1" class="product_bundle various">
-                <?php
+            <p><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> Read Reviews (15)</p>
+            <p>Product code: <strong><?php print get_query_var('products'); ?></strong></p>
 
-                $pItem  = $ibiza_api->get_product( $item->productcode  );
- 
-                
-                if( !$pItem[0]->data->images[0]->url ){
-                    $pItem[0]->data->images[0]->url = 'https://s3.amazonaws.com/images.seroundtable.com/out-of-stock-1395144988.png';
-                }
-                
-                echo '<img width="50" src="' . $pItem[0]->data->images[0]->url . '"/>';
-                echo '<br /><span style="font-size:12px;" >'.  $pItem[0]->data->name .'</span>'
-                ?>
-                </a>
-            </li>
-            
-            
-            
-        
-            <?php endforeach; ?>
-            </ul>
-            <?php endif; ?>
 
-        
-        <div class="row" id="quantity">
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">Quantity</label>
-            </div>
-            <div class="small-9 columns">
-                <input type="text" id="middle-label" placeholder="One fish two fish">
-            </div>
-        </div>
-        
-        
+            <div class="row column" style="background:#F4F4F4;padding:30px">
 
-        
-        <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2">Add to basket</button>
-        <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
-            <div class="column large-6">
-                <img   class="thumbnail" data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>">
-            </div>
-            <div class="column large-6">
-                <p id="basket-description"><?php echo $response->name; ?></p>
-                <p id="basket-total">Total &pound;</p>
-                <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.localdev.jewellerymaker.com/basket.aspx'">Checkout</button>
-            </div>
-           
-         </div>
-
-    </div>
-</div>
-</div>
-<div class="column row">
-    <hr>
-    <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
-        <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
-    </ul>
-    <div class="tabs-content" data-tabs-content="example-tabs">
-        <div class="tabs-panel is-active" id="panel1">
-            <h4>Reviews</h4>
-            <div class="media-object stack-for-small">
-                <div class="media-object-section">
-                    <img class="thumbnail" src="http://placehold.it/200x200">
+                <div class="medium-4 large-4 columns">
+                    <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response->price , 2); ?> </h4>
+                    <input type="text" id="middle-label" placeholder="One fish two fish">
                 </div>
-                <div class="media-object-section">
-                    <h5>Mike Stevenson</h5>
-                    <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+
+                <div class="medium-4 large-4 columns">
+                    <p>In Stock</p>
+                </div>
+
+                <div class="medium-4 large-4 columns">
+                    <p>Delivery From<br/>&pound;2.99</p>
+                </div>
+
+                <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2" style="background: #00B109">Add to basket</button>
+                <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
+                    <div class="column large-6">
+                        <img   class="thumbnail" data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>">
+                    </div>
+                    <div class="column large-6">
+                        <p id="basket-description"><?php echo $response->name; ?></p>
+                        <p id="basket-total">Total &pound;</p>
+                        <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.localdev.jewellerymaker.com/basket.aspx'">Checkout</button>
+                    </div>
+
                 </div>
             </div>
-            <div class="media-object stack-for-small">
-                <div class="media-object-section">
-                    <img class="thumbnail" src="http://placehold.it/200x200">
+
+
+
+
+
+
+
+
+
+
+                <div class="clear">&nbsp;</div>
+
+
+
+
+
+
+                <ul class="tabs" data-tabs id="example-tabs">
+                    <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>
+                    <li class="tabs-title"><a href="#panel2">Specifications</a></li>
+                </ul>
+                <div class="tabs-content" data-tabs-content="example-tabs">
+                    <div class="tabs-panel is-active" id="panel1">
+                        <h4>Description</h4>
+                        <p  id="product_description"><?php echo $response->description; ?></p>
+                    </div>
+                    <div class="tabs-panel" id="panel2">
+
+                        <h4>Specifications</h4>
+                        <div class="row medium-up-12 large-up-12">
+                            <div class="column">
+
+                            <?php foreach($schema->properties as $key => $property): ?>
+                            <?php   if( !isset( $core[$key] ) && isset($response->$key) && $response->$key && $property->title ): ?>
+
+                            <div class="medium-6 large-6 columns attr_template">
+                                <p><?php echo $property->title; ?></p>
+                            </div>
+
+
+                            <div class="medium-6 large-6 columns attr_template">
+                                <p><?php echo $property->prepend .  $response->$key . $property->append; ?></p>
+                            </div>         
+
+
+
+                            <?php endif; ?>   
+
+
+                            <?php endforeach; ?>
+
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="media-object-section">
-                    <h5>Mike Stevenson</h5>
-                    <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+
+
+
+                <?php   if($variantProducts): ?>
+
+                <?php       foreach( $variantProducts->dimensions as $dimension ):?>
+                <ul class="inline-list row">
+                    <li><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img width="25" src="<?php echo $product->image ?>" /></a></li>
+                </ul>   
+                <?php       endforeach; ?>
+
+
+                <?php endif; ?>
+
+
+                <?php if( $response->items ): ?>
+
+                <p>In this bundle.</p>
+                <ul class="inline-list row">
+                <?php foreach($response->items as $item  ): ?>
+
+
+                    <li class="medium-6 large-6 columns attr_template" style="height:150px">
+                    <a  rel="groups"   href="/products-list/<?php echo $item->productcode; ?>?bundle=1" class="product_bundle various">
+                    <?php
+
+                    $pItem  = $ibiza_api->get_product( $item->productcode  );
+
+
+                    if( !$pItem[0]->data->images[0]->url ){
+                        $pItem[0]->data->images[0]->url = 'https://s3.amazonaws.com/images.seroundtable.com/out-of-stock-1395144988.png';
+                    }
+
+                    echo '<img width="50" src="' . $pItem[0]->data->images[0]->url . '"/>';
+                    echo '<br /><span style="font-size:12px;" >'.  $pItem[0]->data->name .'</span>'
+                    ?>
+                    </a>
+                </li>
+
+
+
+
+                <?php endforeach; ?>
+                </ul>
+                <?php endif; ?>
+
+
+    <!--        <div class="row" id="quantity">
+                <div class="small-3 columns">
+                    <label for="middle-label" class="middle">Quantity</label>
                 </div>
-            </div>
-            <div class="media-object stack-for-small">
-                <div class="media-object-section">
-                    <img class="thumbnail" src="http://placehold.it/200x200">
+                <div class="small-9 columns">
+                    <input type="text" id="middle-label" placeholder="One fish two fish">
                 </div>
-                <div class="media-object-section">
-                    <h5>Mike Stevenson</h5>
-                    <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
-                </div>
-            </div>
-            <label>
-                My Review
-                <textarea placeholder="None"></textarea>
-            </label>
-            <button class="button">Submit Review</button>
-        </div>
-        <div class="tabs-panel" id="panel2">
-            <div class="row medium-up-3 large-up-5">
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/350x200">
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/350x200">
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/350x200">
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/350x200">
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/350x200">
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                </div>
-            </div>
+            </div>-->
+
+
+
+
+
+
+
         </div>
     </div>
 </div>
-<div class="row column">
-    <hr>
-    <ul class="menu">
-        <li>Yeti Store</li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li class="float-right">Copyright 2016</li>
-    </ul>
-</div>
-
 <!-- Footer -->
 
 
@@ -361,7 +321,7 @@ if( isset( $_GET['bundle'] ) ){
                            jQuery('.attr_key p' , el ).text( schema[d].title );
                            jQuery('.attr_value p' , el ).text( schema[d].prepend + data[d] + schema[d].append );
                            
-                           jQuery('#quantity').before( el.html() );
+                           jQuery('#panel2 .column').before( el.html() );
                         }
                         
                         
@@ -549,7 +509,7 @@ if( isset( $_GET['bundle'] ) ){
 
             });
           
-            jQuery( '#product_description' ).after( el );
+            jQuery( '#panel1' ).parent().after( el );
           
             current_product         = find_product( data.variants );
             f_dimension1            = null; // final;
@@ -564,8 +524,6 @@ if( isset( $_GET['bundle'] ) ){
                 // create seperate method for 1d and 2d
   
   
-                console.log( 'Test' );
-                
                 
                 if( typeof val === 'object' ) {
 
@@ -754,4 +712,4 @@ if( isset( $_GET['bundle'] ) ){
 </script>
 
 
-<?php get_footer(); ?>
+<?php  get_footer(); ?>

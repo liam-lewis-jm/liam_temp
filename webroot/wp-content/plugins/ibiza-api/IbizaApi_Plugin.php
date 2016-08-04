@@ -115,6 +115,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
                                             'price_range'   => '/ProductCatalog.Api/api/pricerange/range/'          ,
                                             'product'       => '/ProductCatalog.Api/api/document/data.productcode/' ,
                                             'product_schema'=> '/productcatalog.api/api/schema/title/'              ,
+                                            'product_schema'=> '/productcatalog.api/api/schema/title/'              ,
         );    
     public  $is_top_level           = false;
     private $sort                   = array(0 => 'Default', 1 => 'Price (Low - High)', 2 => 'Price (High - Low)');

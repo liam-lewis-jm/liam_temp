@@ -35,7 +35,7 @@ function joints_register_sidebars() {
 		'id' => 'homepagesidebar',
 		'name' => __('Homepage sidebar', 'jointswp'),
 		'description' => __('The search area sidebar.', 'jointswp'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s  large-6 columns">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',

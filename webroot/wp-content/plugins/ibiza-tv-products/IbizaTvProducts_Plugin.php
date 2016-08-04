@@ -1,9 +1,9 @@
 <?php
 
 
-include_once('IbizaTvSchedule_LifeCycle.php');
+include_once('IbizaTvProducts_LifeCycle.php');
 
-class IbizaTvSchedule_Plugin extends IbizaTvSchedule_LifeCycle {
+class IbizaTvProducts_Plugin extends IbizaTvProducts_LifeCycle {
 
     /**
      * See: http://plugin.michael-simpson.com/?page_id=31
@@ -37,11 +37,11 @@ class IbizaTvSchedule_Plugin extends IbizaTvSchedule_LifeCycle {
     }
 
     public function getPluginDisplayName() {
-        return 'Ibiza TV Schedule';
+        return 'Ibiza TV Products';
     }
 
     protected function getMainPluginFileName() {
-        return 'ibiza-tv-schedule.php';
+        return 'ibiza-tv-products.php';
     }
 
     /**
@@ -83,16 +83,18 @@ class IbizaTvSchedule_Plugin extends IbizaTvSchedule_LifeCycle {
 
         // Add options administration page
         // http://plugin.michael-simpson.com/?page_id=47
-        add_action('admin_menu', array(&$this, 'addSettingsSubMenuPage'));
+        //add_action('admin_menu', array(&$this, 'addSettingsSubMenuPage'));
 
         // Example adding a script & style just for the options administration page
         // http://plugin.michael-simpson.com/?page_id=47
-        //        if (strpos($_SERVER['REQUEST_URI'], $this->getSettingsSlug()) !== false) {
-        //            wp_enqueue_script('my-script', plugins_url('/js/my-script.js', __FILE__));
-        //            wp_enqueue_style('my-style', plugins_url('/css/my-style.css', __FILE__));
-        //        }
+        
+ 
 
 
+
+        
+        add_action('widgets_init',  array( $this,  'wpb_load_widget' ) );
+        
         // Add Actions & Filters
         // http://plugin.michael-simpson.com/?page_id=37
 
@@ -110,51 +112,45 @@ class IbizaTvSchedule_Plugin extends IbizaTvSchedule_LifeCycle {
 
         // Register AJAX hooks
         // http://plugin.michael-simpson.com/?page_id=41
-        add_action('widgets_init', array( $this , 'wp_tv_schedule_load_widget' ) );
+
+    }
+
+
+    function wpb_load_widget() {
+        
+        register_widget('IbizaTvProductsPlugin_Widget');
     }
 
     
-    // Class wpb_widget ends here
-    // Register and load the widget
-    function wp_tv_schedule_load_widget() {
-        register_widget('IbizaTvSchedule_Widget');
-    }
-
-    
-    
-
 }
 
 
-
 // Creating the widget 
-class IbizaTvSchedule_Widget extends WP_Widget {
-    
+class IbizaTvProductsPlugin_Widget extends WP_Widget {
+
     function __construct() {
         
         parent::__construct(
-// Base ID of your widget
-                'wpb_widget_tv_schedule_widget',
-// Widget name will appear in UI
-                __('Tv Schedule Widget', 'wpb_tv_schedule_widget'),
-// Widget description
-                array('description' => __('Sample widget based on WPBeginner Tutorial', 'wpb_widget_domain'),)
+            // Base ID of your widget
+            'wpb_tv_product_widget',
+            // Widget name will appear in UI
+            __('Ibiza TV Product Widget', 'wpb_widget_tv_product'),
+            // Widget description
+            array('description' => __('Sample widget based on WPBeginner Tutorial', 'wpb_widget_tv_product'),)
         );
+        
     }
 
-// Creating widget front-end
-// This is where the action happens
+    // Creating widget front-end
+    // This is where the action happens
     public function widget($args, $instance) {
         
-        global $ibiza_api;
         
-    //        echo '<pre>';
-    //        print_r( $ibiza_api->get_tv_schedule() );
-        
-        
-        
-        $data = json_decode( file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/tvschedule/6/fulls' ) );
-        
+        if ( is_front_page() ) {
+            wp_enqueue_script('my-script', plugins_url('/js/tv-products.js', __FILE__));
+            wp_enqueue_style('my-style', plugins_url('/css/tv-products.css', __FILE__));
+            
+        }         
         
         $title = apply_filters('widget_title', $instance['title']);
         // before and after widget arguments are defined by themes
@@ -163,21 +159,49 @@ class IbizaTvSchedule_Widget extends WP_Widget {
             echo $args['before_title'] . $title . $args['after_title'];
 
         // This is where you run the code and display the output
+        
+        $rst = json_decode(  file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/productsontv/6' ) );
+        
+        
         ?>
-        <ol>
 
-            <?php foreach($data[0]->schedule as $key=>$d): ?>
-            
-            <?php if( $key  ==5 ){
-                break;
-            } ?>
-            
-            <li><h4><?php echo( $d->title );  ?></h4><p><?php echo $d->synopsis?></p></li>
-            
-            <?php endforeach; ?>
-        </ol>
 
-        <p><a href="/tv-schedule/">View more</a></p>
+        <!-- Slider main container -->
+        <div class="swiper-container-tv-products" style="width:auto;height:auto!important">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" style="box-sizing: border-box;">
+                <!-- Slides -->
+                <?php foreach($rst as $r): ?>
+                
+                
+                
+                <div class="swiper-slide">
+                    
+                    <div class="">
+                        <div class=" large-6" style="float:left">
+                            <img src="<?php  echo $r->imageUrl;?>" />
+                        </div>
+                        <div  class=" large-6"  style="float:right">
+                            <h4><a href="/products-list/<?php echo $r->productCode; ?>"><?php echo trim($r->name); ?></a></h4>
+                            <p><?php echo trim($r->description) ?></p>
+                            <button style="background: #00B109" data-toggle="example-dropdown2" type="button" class="button large expanded" id="add-basket" aria-controls="example-dropdown2" data-is-focus="false" data-yeti-box="example-dropdown2" aria-haspopup="true" aria-expanded="false">Add to basket</button>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <?php endforeach; ?>
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+
 
         <?php
         echo $args['after_widget'];
@@ -207,4 +231,3 @@ class IbizaTvSchedule_Widget extends WP_Widget {
     }
 
 }
-
