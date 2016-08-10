@@ -160,8 +160,12 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
 
         // This is where you run the code and display the output
         
-        $rst = json_decode(  file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/productsontv/6' ) );
+        $data = json_decode(  file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/productsontv/6/full' ) );
         
+        if( !isset( $data[0] ) )
+        {
+            return array();
+        }        
         
         ?>
 
@@ -171,7 +175,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper" style="box-sizing: border-box;">
                 <!-- Slides -->
-                <?php foreach($rst as $r): ?>
+                <?php foreach($data[0]->products as $r): ?>
                 
                 
                 

@@ -11,7 +11,7 @@ $sort               = $ibiza_api->get_product_list_sort_options();
 $ignore_query_strs  = $ibiza_api->get_product_list_ignored_query_strings();
 $page_sizes         = $ibiza_api->get_product_list_pages_sizes();
 $jsonPath           = $ibiza_api->get_product_list_api_url( $cat );
-$facets             = $ibiza_api->get_product_list_facets( $jsonPath );
+$facets             = $ibiza_api->get_product_list_facets( $jsonPath , $cat );
 $range              = $ibiza_api->get_product_list_price_range(); 
 $catss              = $ibiza_api->get_product_list_top_level_categorys( $cat );
 $facetsOb           = $ibiza_api->get_product_list_facets_object();
@@ -27,9 +27,8 @@ if($cat==0){
 }
 
 
-
-$breadcrumbs       = breacdcrumbs('cat-' . $cat  );
-$cat_title          = strip_tags( $breadcrumbs[key( array_slice( $breadcrumbs, -1, 1, TRUE ) )] ) ; 
+$breadcrumbs        = breacdcrumbs('cat-' . $cat  );
+$cat_title          = $ibiza_api->cat_data->title; 
 
 if( $title == 'How To' ){
     $index              = 'howto';
@@ -75,8 +74,22 @@ if( $title == 'How To' ){
             </ul>
         </nav>
         <div class="sidebar large-3 columns show-for-large " role="complementary">
-            
             <?php if($top_level == false): ?>
+            
+            
+          
+            
+            
+            <div>
+                <p>Applied Filters</p>
+                <ul class="add_facets">
+
+
+
+                </ul>
+                <p>Reset All</p>
+            </div>
+            
             
             <div id="side-facets">
 
@@ -88,8 +101,7 @@ if( $title == 'How To' ){
                 foreach( $facets as $facet ): 
                     
                 ?>
-                
-                <h3><?php echo ucwords( $facet->displayname ); ?></h3>
+ 
 
                 <?php 
                     
@@ -97,19 +109,17 @@ if( $title == 'How To' ){
                         case 'price':
                             
                 ?>
-
                 <?php foreach($range->ranges as $the_the_range):  ?>
                 
-                <eui-range field="'<?php echo $facet->name; ?>.raw'"  min="'<?php echo $the_the_range->start ?>'"  max="'<?php echo $the_the_range->end ?>'"   size="10"></eui-range>
+                <eui-range display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'"  min="'<?php echo $the_the_range->start ?>'"  max="'<?php echo $the_the_range->end ?>'"   size="10"></eui-range>
 
                 <?php endforeach;?>
-                
                 <?php 
                 
                     break;
                     default: 
                 ?>
-                <eui-checklist field="'<?php echo $facet->name; ?>.raw'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
+                <eui-checklist  display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
 
                 
                 <?php 
@@ -148,9 +158,22 @@ if( $title == 'How To' ){
 
                 <div class="columns" >
                     <h3><?php echo ucwords( $cat_title );    ?></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <hr />
                     
+                    <?php if($ibiza_api->cat_data->description): ?>
+                    <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
+                    <?php else:?>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <?php endif; ?>
+                    
+                    <hr />
+                    <?php if($top_level == false): ?>
+                    
+                    <div class="top-bar-left float-left show-for-small-only">
+                        <ul class="menu">
+                            <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
+                            <li><a data-toggle="off-canvas-left" aria-expanded="false" aria-controls="off-canvas">Filter</a></li>
+                        </ul>
+                    </div>                      
                     
                     <div class="large-4 columns">
                         
@@ -190,7 +213,7 @@ if( $title == 'How To' ){
                     <div class="large-4 columns">
                         <eui-simple-paging></eui-simple-paging>
                     </div>
-                    
+                    <?php endif; ?>
                 </div>
                 
                 
@@ -226,26 +249,52 @@ if( $title == 'How To' ){
  
                 
             <?php else: ?>    
-            
+                
+                <?php 
+                
+                $i      = 0;
+                $total  = 0;
+                
+                foreach($catss as $cat){
+                    if( $cat->post_content==1 ){
+                        $total++;
+                    }
+                }
+                    
+                ?>                
+                
+                <?php $i = 0;?>
+                
+                
+                
+                
                 <?php foreach($catss as $cat):  ?>
                 
-                
+                  
                     <?php if( $cat->post_content==1 ):?>
-                
-                <div class="large-3 medium-3 columns padded-column box">
-                    <a href="<?php print $cat->url; ?>"><img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" /></a>
                     
+                    <?php $q_s= parse_url($cat->url); $out; ?>
+                
+                    <?php parse_str( $q_s['query'] ,$out ) ;  ?>
+                    <?php $cat_data     =  get_post_meta( $cat->ID ) ; 
+                          $cat_data_ob  =  json_decode( $cat_data['cat-' . $out['cat']][0] );
+                    
+                    ?>
+                
+                <div class="large-3 medium-3 columns padded-column box <?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
+                    <img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" />
+                    <a href="<?php print $cat->url; ?>">
                     <span class="caption fade-caption">
 			<h3><?php echo $cat->post_title;?></h3>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-			sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+			<p><?php echo $cat_data_ob->intro ? $cat_data_ob->intro :'nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'; ?></p>
                     </span>                    
-                    
+                    </a>
                 </div>
                 
                 
-                
+                <?php $i++;?>   
                     <?php endif; ?>
+                
                 <?php endforeach; ?>
                 
             <?php endif; ?>     
@@ -351,6 +400,9 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
             app();
             started = 1;
             
+            
+
+
         }else{
           
             // pager needs to run every time we hit the callback, incase it has changed
@@ -374,12 +426,55 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
              * @todo make sure double reload is not causing any bugs
              */
             ?>*/
-            jQuery('#loading_container2').fadeOut();
+            jQuery('#loading_container2').fadeOut( function(){
+                
+                
+                
+                setTimeout(function(){ 
+                
+    
+                    jQuery( 'ul.nav-list' ).each(function( index ) {
+
+                        if( jQuery( this ).children('li.ng-scope').length<=0 ){
+                            
+                            jQuery( this ).parent().hide();
+                        }else{
+                            jQuery( this ).parent().show();
+                        }
+
+                    }); 
+                    
+                }, 150);
+                
+               
+                
+            });
+
+            setTimeout(function(){  addMobileMenu(); }, 750);
+            /**
+             * @todo need more reliable way, as this will not work for slow connections
+             */
         }
         
     });
     
   
+    
+}
+
+
+function addSelectedFilter( changedEl , selectedFacet )
+{
+
+    var elSelectedFacet =  '<li data-idx="'+ jQuery( changedEl ).attr('data-id') +'"> X ' + selectedFacet + '</li>';
+        
+    jQuery( elSelectedFacet ).appendTo( '.add_facets' );
+
+    jQuery( document ).on( "click", 'li[data-idx="'+ jQuery( changedEl ).attr('data-id') +'"]', function() {
+
+        jQuery('#inner-content input[data-id="'+ jQuery( changedEl ).attr('data-id') +'"]').click();
+
+    });    
     
 }
 
@@ -529,7 +624,23 @@ function toQueryString(obj, prefix) {
     
     return str.join("&");
 }
+
+function addMobileMenu()
+{
     
+    jQuery('#off-canvas-left .sidebar').remove();        
+    var sideBar = jQuery('.sidebar').clone(false,false);
+    jQuery(sideBar).appendTo('#off-canvas-left');
+    jQuery('.show-for-large' , '#off-canvas-left').removeClass('show-for-large');
+    jQuery('.sidebar').show();
+
+    jQuery('#off-canvas-left input').click( function(){
+
+       jQuery('#inner-content input[data-id="'+ jQuery( this ).attr('data-id') +'"]').click();
+
+    });       
+}
+
 jQuery( document ).ready(function() {
         
     var qIn = jQuery.url().param('q');         
@@ -538,6 +649,16 @@ jQuery( document ).ready(function() {
     {
         jQuery('#s-box').val(  jQuery.url().param('q') );
     }        
+        
+        
+    jQuery('.top-bar-left a').click( function(){
+        
+        
+        
+        addMobileMenu();
+        
+        
+    });
         
     jQuery( '#count' ).change( function(){ 
         
@@ -572,10 +693,6 @@ jQuery( document ).ready(function() {
    
             push_state( this  , query_str_arr )
         }
-        
-        
-
-        
     
     });
     
@@ -602,16 +719,10 @@ jQuery( document ).ready(function() {
         if(state_change!=-1 || e.originalEvent)
         {
             state_change = 1;
-            
-          
-            
 
             push_state( this  , query_str_arr );             
             
         }
-    
-        
-
        
         indexVm.refresh( false );
         
@@ -686,23 +797,17 @@ jQuery( document ).ready(function() {
         
     });
     
-    jQuery(document).on('change', '.ng-scope input[type="checkbox"]', function(e) {
+    jQuery('#inner-content').on('change', '.ng-scope input[type="checkbox"]', function(e) {
         
-       console.log( e );
-        fadeContainerIn();
+        console.log( e );
+        //fadeContainerIn();
 
         var field       = jQuery( this ).parents('eui-checklist,eui-range').attr( 'field' ).replace( /\'/g ,'' );
-        
-        
-        
         var value       = jQuery(this).attr('data-id').replace( 'the_value_' + field + '_' ,'' ) ;   
         
         field           = field.replace('.raw','');
         // cleaner url!
         var changedEl   = this;
-
-
-        
 
         console.log( state_change );
 
@@ -710,10 +815,20 @@ jQuery( document ).ready(function() {
 
             addQueryString( field , value );
         
+            var selectedFacet   = jQuery(   changedEl )[0].nextSibling.nodeValue;
+            selectedFacet       = selectedFacet.substring(0, selectedFacet.lastIndexOf( ' (' )   );
+            // removed aggregated data, maybe this should be wrapped in a span, sho we can do via CSS
+
+            addSelectedFilter( changedEl , selectedFacet );
+        
         }else{
             
             removeQueryString( field , value );
             // remove item from
+            
+            
+            
+            jQuery( 'li[data-idx="'+ jQuery( changedEl ).attr('data-id') +'"]' ).remove();
             
         }
         

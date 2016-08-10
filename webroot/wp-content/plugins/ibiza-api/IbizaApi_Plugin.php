@@ -114,7 +114,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     private $end_points             = array('product_list'  => '/ProductCatalog.Api/api/category/categoryId/'       , 
                                             'price_range'   => '/ProductCatalog.Api/api/pricerange/range/'          ,
                                             'product'       => '/ProductCatalog.Api/api/document/data.productcode/' ,
-                                            'product_schema'=> '/productcatalog.api/api/schema/title/'              ,
+                                            'howto'         => '/ProductCatalog.Api/api/document/'                  ,
                                             'product_schema'=> '/productcatalog.api/api/schema/title/'              ,
         );    
     public  $is_top_level           = false;
@@ -210,8 +210,8 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     {
 
         global $wpdb;
-        $r              = $wpdb->get_col($wpdb->prepare("
-        SELECT p.id FROM {$wpdb->postmeta} pm
+        $r              = $wpdb->get_results($wpdb->prepare("
+        SELECT p.id , pm.meta_value FROM {$wpdb->postmeta} pm
         LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
         WHERE pm.meta_key = '%s' 
         AND pm.meta_value !=  'null' 
@@ -224,13 +224,15 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         $items          = wp_get_nav_menu_items( $this::wp_menu_id );
         $catss          = array();
         
+        $this->cat_data = json_decode( $r[0]->meta_value );
+        
         foreach ($items as $item) {
 
-            if ($item->ID == $r[0] && $item->menu_item_parent == $this::top_level_category ) {
+            if ($item->ID == $r[0]->id && $item->menu_item_parent == $this::top_level_category ) {
                 $this->is_top_level = true;
             }
 
-            if ($item->menu_item_parent == $r[0]) {
+            if ($item->menu_item_parent == $r[0]->id) {
 
                 $catss[$item->post_title] = (object) $item;
             }
@@ -248,18 +250,18 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * @param type $jsonPath
      * @return array
      */
-    public function get_product_list_facets( $jsonPath ) 
+    public function get_product_list_facets( $jsonPath , $cat = 0 ) 
     {
         
         $facetsJSON         = @file_get_contents($jsonPath);
         // remove suppression on production
         $this->facetsOb           = json_decode($facetsJSON);
 
-
-        if(!$this->facetsOb) {
-            $facets = array();
+        
+        if(!$this->facetsOb || $cat== 0) {
+            $facets = $this->facetsOb[0]->allfacets;;
         }else{
-            $facets = $this->facetsOb[0]->facets;
+            $facets = $this->facetsOb[0]->commonfacets;
         }        
         
         return $facets;
@@ -320,7 +322,21 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         $json_contents          = file_get_contents($this::api_location . $this->end_points['product'] .  strtoupper(  $this->sanitize( $product_code ) ) );
         $rst                    = json_decode( $json_contents );
         
-        $this::api_location . $this->end_points['product'] . strtoupper( $this->sanitize( $product_code ) );
+        return $rst;
+    }    
+    
+    
+    
+    /**
+     * Retrieve a product from MongoDB using a product code
+     * @param type $product_code
+     * @return object
+     */
+    public function get_howto($id)
+    {
+        
+        $json_contents          = file_get_contents( $this::api_location . $this->end_points['howto'] .   $this->sanitize( $id  ) );
+        $rst                    = json_decode( $json_contents );                
         
         return $rst;
     }    
@@ -334,7 +350,8 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     public function get_product_schema($schema)
     {
         
-        $json_contents          = file_get_contents($this::api_location . $this->end_points['product_schema'] .   $schema  );
+        
+        $json_contents          = @file_get_contents($this::api_location . $this->end_points['product_schema'] .   $schema  );
         
         $rst                    = json_decode( $json_contents );
         return $rst;

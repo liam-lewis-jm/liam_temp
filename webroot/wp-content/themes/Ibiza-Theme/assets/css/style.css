@@ -6976,3 +6976,8 @@ p.ng-binding {
   -webkit-transform: translateX(200px);
   transform: translateX(200px);
 }
+
+/* line 369, ../scss/style.scss */
+.add_facets li {
+  cursor: pointer;
+}

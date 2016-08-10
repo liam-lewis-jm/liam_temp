@@ -33,7 +33,7 @@
 }
 
 
-$url            = 'http://securewebsiteapiwrapper.localdev/api/basket/';                                                                               
+$url            = 'http://securewebsiteapiwrapper.localdev/api/legacy/basket/';                                                                               
 $ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];

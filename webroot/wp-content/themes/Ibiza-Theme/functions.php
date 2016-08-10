@@ -74,9 +74,11 @@ function so_13997743_custom_template($template) {
 
     $hasProduct = get_query_var('products');
 
+    
     if ($hasProduct) {
 
-        if($_GET['type'] =='howtoguide'){
+        if($_GET['type'] =='howto'){
+            
             $template = plugin_dir_path(__FILE__) . $_GET['type'] . '.php';
         }else{
             $template = plugin_dir_path(__FILE__) . 'product' . '.php';

@@ -281,7 +281,7 @@ class IbizaApi_OptionsManager {
         $settingsGroup = get_class($this) . '-settings-group';
         ?>
         <div class="wrap">
-            <h2><?php _e('System Settings', 'ibiza-api'); ?></h2>
+            <!--<h2><?php _e('System Settings', 'ibiza-api'); ?></h2>
             <table cellspacing="1" cellpadding="2"><tbody>
             <tr><td><?php _e('System', 'ibiza-api'); ?></td><td><?php echo php_uname(); ?></td></tr>
             <tr><td><?php _e('PHP Version', 'ibiza-api'); ?></td>
@@ -306,11 +306,11 @@ class IbizaApi_OptionsManager {
                     ?>
                 </td>
             </tr>
-            </tbody></table>
+            </tbody></table>-->
 
             <h2><?php echo $this->getPluginDisplayName(); echo ' '; _e('Settings', 'ibiza-api'); ?></h2>
 
-            <form method="post" action="">
+           <!-- <form method="post" action="">
             <?php settings_fields($settingsGroup); ?>
                 <style type="text/css">
                     table.plugin-options-table {width: 100%; padding: 0;}
@@ -342,7 +342,10 @@ class IbizaApi_OptionsManager {
                     <input type="submit" class="button-primary"
                            value="<?php _e('Save Changes', 'ibiza-api') ?>"/>
                 </p>
-            </form>
+            </form> -->
+           
+           <iframe width="100%" height="800px" src="http://ibizaschemas.product/ProductCatalog.Web/document_edit/Tablet/5786078b1ea1f20af417c1bb/%7B%7D"></iframe>
+           
         </div>
         <?php
 

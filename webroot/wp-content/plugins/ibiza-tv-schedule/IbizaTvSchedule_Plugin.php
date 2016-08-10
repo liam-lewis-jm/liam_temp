@@ -153,7 +153,12 @@ class IbizaTvSchedule_Widget extends WP_Widget {
         
         
         
-        $data = json_decode( file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/tvschedule/6/fulls' ) );
+        $data = json_decode( file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/tvschedule/89/fulls' ) );
+        
+        if( !isset( $data[0] ) )
+        {
+            return array();
+        }
         
         
         $title = apply_filters('widget_title', $instance['title']);

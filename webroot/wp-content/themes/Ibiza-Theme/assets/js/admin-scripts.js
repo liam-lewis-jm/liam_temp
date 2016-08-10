@@ -45,7 +45,6 @@ jQuery(document).ready(function () {
           context: document.body
         }).done(function( data ) {
             
-            alert( 777 )
             
             
         });           

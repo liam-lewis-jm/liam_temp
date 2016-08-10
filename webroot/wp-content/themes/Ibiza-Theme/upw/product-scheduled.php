@@ -7,8 +7,18 @@
 
 $image          = '';
 $cats           =  explode( ',' ,  $instance['cats'] ) ;
+$is_scheduled   = false;
 
 
+foreach( $cats as $cat ){
+    
+    if( get_cat_name( $cat ) == 'Scheduled' ){
+        
+        $is_scheduled = true;
+        
+    }
+    
+}
 
 $slider             = 0;
 $container_class    = 'products_widget';
@@ -69,7 +79,32 @@ if( count( $ids ) >0 )
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
         
         
+        <?php
+        
+        $skip = false;
+        
+        if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
+
+            if( time() > $rowArr[$post->ID]['_cs-start-date'] && time() < $rowArr[$post->ID]['_cs-expire-date']) {
+
+            }else{
+                
+                $skip   = true;
+                
+            }
+            
+        }else{
+            
+            $skip   = true;
+            
+        }
+
+        if( $skip = 0){
+            continue;
+        }
+        
+        ?>
         
         
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>

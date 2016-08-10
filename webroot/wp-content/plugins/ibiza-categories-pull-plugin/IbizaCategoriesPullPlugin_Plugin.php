@@ -183,8 +183,11 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
         foreach ($data as $key1 => $dataIn) {
 
             $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id);
-
-            update_post_meta($child_menu_id, 'cat-' . $dataIn->id, '1');
+            
+            
+            
+            //update_post_meta($child_menu_id, 'cat-' . $dataIn->id, '1');
+            update_post_meta($child_menu_id, 'cat-' . $dataIn->id, json_encode($dataIn) );
             // 1 has now use, ignore
             if (count($dataIn->nodes) > 0) {
 

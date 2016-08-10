@@ -9,6 +9,10 @@ global $ibiza_api;
 $core                   = $ibiza_api->get_core_attributes();
 $rst                    = $ibiza_api->get_product(get_query_var('products'));
 $response               = $rst[0]->data;
+
+
+
+
 $schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
 
 /**
@@ -183,16 +187,7 @@ if( isset( $_GET['bundle'] ) ){
 
 
 
-                <?php   if($variantProducts): ?>
 
-                <?php       foreach( $variantProducts->dimensions as $dimension ):?>
-                <ul class="inline-list row">
-                    <li><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img width="25" src="<?php echo $product->image ?>" /></a></li>
-                </ul>   
-                <?php       endforeach; ?>
-
-
-                <?php endif; ?>
 
 
                 <?php if( $response->items ): ?>
@@ -290,7 +285,7 @@ if( isset( $_GET['bundle'] ) ){
             
             var product_id      = jQuery( el ).attr( 'data-id' );
             
-            var url             = "/products-list/" + product_id  + "/" + product_name + '?json=1';
+            var url             = "/products-list/" + product_id  + "/" + product_name + '/?json=1';
             
             jQuery.ajax({
                 dataType  : 'json' ,

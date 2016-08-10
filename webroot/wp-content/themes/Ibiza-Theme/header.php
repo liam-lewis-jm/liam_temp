@@ -39,7 +39,20 @@
 
     <body <?php body_class(); ?> >
 
-        <div class="header" style="margin: 0px;  overflow: hidden;">
+<!--        <div class="header" style="margin: 0px;  overflow: hidden;">
+
+        </div>-->
+
+        <div class="off-canvas-wrapper">
+
+            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+                <?php get_template_part('parts/content', 'offcanvas'); ?>
+                <?php get_template_part('parts/content', 'offcanvas_left'); ?>
+
+                <div class="off-canvas-content" data-off-canvas-content>
+
+                    
             <div class="row">
                 <div class="large-6 columns">
                     
@@ -74,17 +87,8 @@
                     
                     
                 </div>
-            </div>
-        </div>
-
-        <div class="off-canvas-wrapper">
-
-            <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-
-                <?php get_template_part('parts/content', 'offcanvas'); ?>
-
-                <div class="off-canvas-content" data-off-canvas-content>
-
+            </div>                    
+                    
                     <nav class="header row" role="banner">
 
                         <!-- This navs will be applied to the topbar, above all content 
