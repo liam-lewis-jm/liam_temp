@@ -15,16 +15,17 @@ $image = '';
   </div>
 <?php endif; ?>
 
-      <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
-        <?php    unset( $upw_query->posts[ $upw_query->current_post + 1 ]  ); ?>
-      <?php endwhile; ?>
+<?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
+  <?php    unset( $upw_query->posts[ $upw_query->current_post + 1 ]  ); ?>
+<?php endwhile; ?>
 
 <div class="upw-posts hfeed">
 
   <?php if ($upw_query->have_posts()) : ?>
 
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
-
+        
+    
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>
         
     

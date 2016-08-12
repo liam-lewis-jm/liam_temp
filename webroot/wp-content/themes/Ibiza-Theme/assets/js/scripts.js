@@ -4,6 +4,37 @@ jQuery(document).foundation();
  and Foundation play nice together.
  */
 
+var mongoHubModule = (function() {
+    return {
+        mongoHub: jQuery.connection.mongoHub,
+
+        // Starts connection with Hub and call Hub functions.
+        startServer: function() {
+            var self = this;
+            self.mongoHub.connection.url = "http://52.18.1.60/ProductCatalog.Api/signalr";
+            self.mongoHub.connection.start()
+                .done(function() {
+                    self.mongoHub.server.startMongoHub();
+                });
+        },
+
+        //Register callback listeners to get data from Hub(Server-Side)
+        clientEventsListerners: function () {
+            var self = this;
+
+            this.mongoHub.client.updateData = function (data) {
+                //console.log(data);
+                //jQuery("#operationLogInfo").html(data);
+            };
+        },
+
+        init: function () {
+            this.startServer();
+            this.clientEventsListerners();
+        }
+    }
+})();
+
 jQuery(document).ready(function () {
 
     // Remove empty P tags created by WP inside of Accordion and Orbit
@@ -55,5 +86,24 @@ jQuery(document).ready(function () {
             jQuery(this).wrap("<div class='flex-video'/>");
         }
     });
+
+
+
+
+
+
+
+     
+    mongoHubModule.init();
+     
+
+
+
+
+
+
+
+
+
 
 });

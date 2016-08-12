@@ -5,11 +5,8 @@
  * @version     2.0.0
  */
 
-$image          = '';
-$cats           =  explode( ',' ,  $instance['cats'] ) ;
-
-
-
+$image              = '';
+$cats               = explode( ',' ,  $instance['cats'] ) ;
 $slider             = 0;
 $container_class    = 'products_widget';
 $row_class          = ' large-6 columns';
@@ -159,11 +156,12 @@ if( count( $ids ) >0 )
                 
           <?php // product specfic info  ?>
                 
-            <div class="large-6 columns">
-                <h4><a href="/products-list/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
+            <div class="large-9 columns">
+                <h4><strong>Featured Today! </strong><a href="/products-list/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
+                <p><?php echo $product->data->description;?></p>
             </div>
 
-            <div class="large-6 columns">
+            <div class="large-3 columns">
                 <a href="/products-list/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
             </div>
           

@@ -81,35 +81,7 @@ class IbizaTvSchedule_Plugin extends IbizaTvSchedule_LifeCycle {
 
     public function addActionsAndFilters() {
 
-        // Add options administration page
-        // http://plugin.michael-simpson.com/?page_id=47
         add_action('admin_menu', array(&$this, 'addSettingsSubMenuPage'));
-
-        // Example adding a script & style just for the options administration page
-        // http://plugin.michael-simpson.com/?page_id=47
-        //        if (strpos($_SERVER['REQUEST_URI'], $this->getSettingsSlug()) !== false) {
-        //            wp_enqueue_script('my-script', plugins_url('/js/my-script.js', __FILE__));
-        //            wp_enqueue_style('my-style', plugins_url('/css/my-style.css', __FILE__));
-        //        }
-
-
-        // Add Actions & Filters
-        // http://plugin.michael-simpson.com/?page_id=37
-
-
-        // Adding scripts & styles to all pages
-        // Examples:
-        //        wp_enqueue_script('jquery');
-        //        wp_enqueue_style('my-style', plugins_url('/css/my-style.css', __FILE__));
-        //        wp_enqueue_script('my-script', plugins_url('/js/my-script.js', __FILE__));
-
-
-        // Register short codes
-        // http://plugin.michael-simpson.com/?page_id=39
-
-
-        // Register AJAX hooks
-        // http://plugin.michael-simpson.com/?page_id=41
         add_action('widgets_init', array( $this , 'wp_tv_schedule_load_widget' ) );
     }
 
@@ -133,25 +105,20 @@ class IbizaTvSchedule_Widget extends WP_Widget {
     function __construct() {
         
         parent::__construct(
-// Base ID of your widget
-                'wpb_widget_tv_schedule_widget',
-// Widget name will appear in UI
-                __('Tv Schedule Widget', 'wpb_tv_schedule_widget'),
-// Widget description
-                array('description' => __('Sample widget based on WPBeginner Tutorial', 'wpb_widget_domain'),)
+            // Base ID of your widget
+            'wpb_widget_tv_schedule_widget',
+            // Widget name will appear in UI
+            __('Tv Schedule Widget', 'wpb_tv_schedule_widget'),
+            // Widget description
+            array('description' => __('Sample widget based on WPBeginner Tutorial', 'wpb_widget_domain'),)
         );
     }
 
-// Creating widget front-end
-// This is where the action happens
+    // Creating widget front-end
+    // This is where the action happens
     public function widget($args, $instance) {
         
         global $ibiza_api;
-        
-    //        echo '<pre>';
-    //        print_r( $ibiza_api->get_tv_schedule() );
-        
-        
         
         $data = json_decode( file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/tvschedule/89/fulls' ) );
         
@@ -173,11 +140,11 @@ class IbizaTvSchedule_Widget extends WP_Widget {
 
             <?php foreach($data[0]->schedule as $key=>$d): ?>
             
-            <?php if( $key  ==5 ){
+            <?php if( $key  ==3 ){
                 break;
             } ?>
             
-            <li><h4><?php echo( $d->title );  ?></h4><p><?php echo $d->synopsis?></p></li>
+            <li><h5><?php echo( $d->title );  ?></h5><p><?php echo $d->synopsis?></p></li>
             
             <?php endforeach; ?>
         </ol>
@@ -188,14 +155,15 @@ class IbizaTvSchedule_Widget extends WP_Widget {
         echo $args['after_widget'];
     }
 
-// Widget Backend 
+    // Widget Backend 
     public function form($instance) {
+        
         if (isset($instance['title'])) {
             $title = $instance['title'];
         } else {
             $title = __('New title', 'wpb_widget_domain');
         }
-// Widget admin form
+        // Widget admin form
         ?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
@@ -204,7 +172,7 @@ class IbizaTvSchedule_Widget extends WP_Widget {
         <?php
     }
 
-// Updating widget replacing old instances with new
+    // Updating widget replacing old instances with new
     public function update($new_instance, $old_instance) {
         $instance = array();
         $instance['title'] = (!empty($new_instance['title']) ) ? strip_tags($new_instance['title']) : '';

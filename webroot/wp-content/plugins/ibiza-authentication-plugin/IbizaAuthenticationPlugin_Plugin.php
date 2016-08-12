@@ -19,10 +19,6 @@ class IbizaAuthenticationPlugin_Plugin extends IbizaAuthenticationPlugin_LifeCyc
         );
     }
 
-//    protected function getOptionValueI18nString($optionValue) {
-//        $i18nValue = parent::getOptionValueI18nString($optionValue);
-//        return $i18nValue;
-//    }
 
     protected function initOptions() {
         $options = $this->getOptionMetaData();

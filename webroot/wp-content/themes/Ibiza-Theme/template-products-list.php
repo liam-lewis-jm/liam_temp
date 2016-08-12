@@ -109,6 +109,8 @@ if( $title == 'How To' ){
                         case 'price':
                             
                 ?>
+                <h3><?php echo ucwords( $facet->displayname ); ?></h3>
+
                 <?php foreach($range->ranges as $the_the_range):  ?>
                 
                 <eui-range display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'"  min="'<?php echo $the_the_range->start ?>'"  max="'<?php echo $the_the_range->end ?>'"   size="10"></eui-range>
