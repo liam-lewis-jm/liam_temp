@@ -175,11 +175,14 @@ function crumb($id , $status = 'publish' , $output_arr = array() ) {
         
     if ($myrows[0]->pid != 0) {
 
-        $output_arr[] = '<li><a href="'. $myrows[0]->meta_value .'"> ' . $myrows[0]->post_title . ' </a></li>';
+        $output_arr[] = '<li><a href="'. $myrows[0]->meta_value .'">' . $myrows[0]->post_title . '</a></li>';
         return crumb($myrows[0]->pid, $status = 'publish', $output_arr);
         // return self call to get next level up
     } else {
+        $output_arr[$myrows[0]->post_title] = '<li><a href="'. $myrows[0]->meta_value .'">' . $myrows[0]->post_title . '</a></li>';
         $output_arr[] = '<li><a href="/">Home page </a></li>';
+
+        return $output_arr;
         // top level add homepage link
     }
 

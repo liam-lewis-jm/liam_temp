@@ -30,9 +30,14 @@ if($cat==0){
 $breadcrumbs        = breacdcrumbs('cat-' . $cat  );
 $cat_title          = $ibiza_api->cat_data->title; 
 
-if( $title == 'How To' ){
+
+
+                        
+
+
+if( $title == 'How To' || isset($breadcrumbs['How to'])){
     $index              = 'howto';
-    $cat_title          = $title;
+    $cat_title          = $cat_title;
 } 
 
 
@@ -98,6 +103,7 @@ if( $title == 'How To' ){
                 <eui-searchboxx></eui-searchboxx> <!-- ACTION: change to field to search on -->
 
                 <?php
+                if(count($facets))
                 foreach( $facets as $facet ): 
                     
                 ?>
@@ -330,7 +336,7 @@ var started             = 0;
 var query_str_arr       = {};   
 var state_change        = 0;
 var indexVm             = {};
-
+var searchables         = '';
 <?php  
 
 function add_quotes( $string ) {
@@ -338,12 +344,17 @@ function add_quotes( $string ) {
   return   $ret;
 }
 
+if(count($facetsOb[0]->searchables)):
 
-$facetsOb[0]->searchables = array_map( 'add_quotes', $facetsOb[0]->searchables); ?>
+$facetsOb[0]->searchables = array_map( 'add_quotes', $facetsOb[0]->searchables); 
 
-var searchables         = '<?php print  implode( ',' , $facetsOb[0]->searchables  ); ?>';
-<?php // quick fix to monitor the state -1 is when state have been changed, and we want to prevent another state being puished
-      // State 1 is when someone click a facet and the state has been pushed, on this case there is a state event, we reset state back to default of 0?>
+?>
+
+searchables         = '<?php print  implode( ',' , $facetsOb[0]->searchables  ); ?>';
+<?php 
+endif;
+//// quick fix to monitor the state -1 is when state have been changed, and we want to prevent another state being puished
+// State 1 is when someone click a facet and the state has been pushed, on this case there is a state event, we reset state back to default of 0?>
 
 function setSort( sortIn )
 {

@@ -83,10 +83,6 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
 
     public function addActionsAndFilters() {
 
-        // Add options administration page
-        // http://plugin.michael-simpson.com/?page_id=47
-        //add_action('admin_menu', array(&$this, 'addSettingsSubMenuPage'));
-
         if( $_GET['refresh_ibiza_menu'] == 1  ){
 
             add_action('init', array(&$this, 'do_menu'));
@@ -114,26 +110,6 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             wp_enqueue_script( 'jquery.popupoverlay-js', get_template_directory_uri()  . '/vendor/jquery-popup-overlay/jquery.popupoverlay.js', array( 'jquery' ), '', true );
 
         }
-
-        
-        
-        // Example adding a script & style just for the options administration page
-        // http://plugin.michael-simpson.com/?page_id=47
-        //        if (strpos($_SERVER['REQUEST_URI'], $this->getSettingsSlug()) !== false) {
-        //            wp_enqueue_script('my-script', plugins_url('/js/my-script.js', __FILE__));
-        //            wp_enqueue_style('my-style', plugins_url('/css/my-style.css', __FILE__));
-        //        }
-        // Add Actions & Filters
-        // http://plugin.michael-simpson.com/?page_id=37
-        // Adding scripts & styles to all pages
-        // Examples:
-        //        wp_enqueue_script('jquery');
-        //        wp_enqueue_style('my-style', plugins_url('/css/my-style.css', __FILE__));
-        //        wp_enqueue_script('my-script', plugins_url('/js/my-script.js', __FILE__));
-        // Register short codes
-        // http://plugin.michael-simpson.com/?page_id=39
-        // Register AJAX hooks
-        // http://plugin.michael-simpson.com/?page_id=41
     }
 
     /**
@@ -167,7 +143,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             'menu-item-object' => 'page',
             'menu-item-type' => $menu_type,
             'menu-item-status' => 'publish',
-            'menu-item-url' => '/products-list?cat=' . $new_menu_id . '&title=' . $title,
+            'menu-item-url' => '/products-list?cat=' . $new_menu_id . '&title=' . sanitize_title_with_dashes( $title ),
             'menu-item-title' => $title,
         ));
     }
@@ -182,17 +158,37 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
 
         foreach ($data as $key1 => $dataIn) {
 
-            $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id);
-            
-            
-            
-            //update_post_meta($child_menu_id, 'cat-' . $dataIn->id, '1');
-            update_post_meta($child_menu_id, 'cat-' . $dataIn->id, json_encode($dataIn) );
-            // 1 has now use, ignore
-            if (count($dataIn->nodes) > 0) {
+            if($dataIn->title=='How'){
+                
+                
+                $parent_id = 4;
+                if (count($dataIn->nodes) > 0) {
 
-                $this->add_menu($dataIn->nodes, $menu_id, $child_menu_id);
+                    $this->add_menu($dataIn->nodes, $menu_id, 4);
+                }                 
+                
+            }else{
+                
+                
+                
+                $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id);
+
+
+
+                //update_post_meta($child_menu_id, 'cat-' . $dataIn->id, '1');
+                update_post_meta($child_menu_id, 'cat-' . $dataIn->id, json_encode($dataIn) );
+                // 1 has now use, ignore
+                if (count($dataIn->nodes) > 0) {
+
+                    $this->add_menu($dataIn->nodes, $menu_id, $child_menu_id);
+                }                
+                
+                
+                
             }
+            
+            
+
         }
     }
 
@@ -292,14 +288,12 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
 
 
 
-        $menuname = 'Main';
-        $menu_exists = wp_get_nav_menu_object($menuname);
-        $menu_id = $menu_exists->term_id;
+        $menuname       = 'Main';
+        $menu_exists    = wp_get_nav_menu_object($menuname);
+        $menu_id        = $menu_exists->term_id;
+        $jsonData       = $this->get_json();
 
-
-
-        $jsonData = $this->get_json();
-
+       
         if ($menu_exists) {
             $this->add_menu($jsonData, $menu_id, $parent_id = PARENT_MENU_ID);
         }
@@ -317,7 +311,7 @@ class Topbar1_Menu_Walker extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 
 
-        if ($item->menu_item_parent == 32 OR in_array($item->menu_item_parent, $this->sub_menu_arr)) {
+        if ($item->menu_item_parent == 32 OR $item->menu_item_parent == 4 OR in_array($item->menu_item_parent, $this->sub_menu_arr)) {
             $this->sub_menu_arr[$item->ID] = $item->ID;
 
             wp_delete_post($item->ID, true);

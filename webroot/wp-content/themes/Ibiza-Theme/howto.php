@@ -3,36 +3,25 @@
   Template Name: Product Page
  */
 
- 
 
-$product_type   = sanitize( $_GET['type'] );
 
 global $ibiza_api;
-
-
-$response                    = $ibiza_api->get_howto(get_query_var('products'));
-
-
+$product_type           = sanitize( $_GET['type'] );
+$response               = $ibiza_api->get_howto(get_query_var('products'));
 $core['name']           = 1;
-$core['category']    = 1;
-$core['image']    = 1;
-$core['steps']     = 1;
-$core['products']          = 1;
+$core['category']       = 1;
+$core['image']          = 1;
+$core['steps']          = 1;
+$core['products']       = 1;
 $core['images']         = 1;
-$core['subtitle']         = 1;
-$core['introduction']       = 1;
-$core['_category']       = 1;
-
-//$schema                 = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/schema/title/' .  $response['_source']['_schema'] ) );
-//$variantProducts        = json_decode( @file_get_contents( 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products') ) );
-
+$core['subtitle']       = 1;
+$core['introduction']   = 1;
+$core['_category']      = 1;
 
 if( isset( $_GET['json'] ) ){
     echo json_encode( $response );
     die;
 }
-
-
 
 ?>
 
@@ -54,149 +43,122 @@ if( isset( $_GET['json'] ) ){
         </ul>
     </nav>
 </div>
+
 <div id="result">
-<div class="row" id="prodcut_main">
+    <div class="row" id="prodcut_main">
 
-    <div class="medium-6 large-6 columns">
-        <h3 id="product_name"><?php echo $response->data->name; ?></h3>
+        <div class="medium-6 large-6 columns">
+            <h3 id="product_name"><?php echo $response->data->name; ?></h3>
 
-        
-        <fieldset>
-            <p>Click on the links below to shop for products you will need:</p>
-            <ul>
-                
-                
-            <?php foreach($response->data->products as $key => $product): ?>
-            
-                <li><a href="/products-list/<?php echo $product->product ?>/<?php echo $product->title; ?>/?type=product"><?php echo $product->title; ?></a></li>
-                
+
+            <fieldset>
+                <p>Click on the links below to shop for products you will need:</p>
+                <ul>
+                <?php foreach($response->data->products as $key => $product): ?>
+
+                    <li><a href="/products-list/<?php echo $product->product ?>/<?php echo $product->title; ?>/?type=product"><?php echo $product->title; ?></a></li>
+
+                <?php endforeach; ?>
+                </ul>
+            </fieldset>
+
+
+
+            <p  id="product_description"><?php echo $response->data->description; ?></p>
+
+            <?php if(0)foreach($schema->properties as $key => $property): ?>
+            <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) ): ?>
+
+            <div class="medium-6 large-6 columns">
+                <p><?php echo $property->title; ?></p>
+            </div>
+
+
+            <div class="medium-6 large-6 columns">
+                <p><?php echo  $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
+            </div>         
+
+
+
+            <?php endif; ?>   
+
+
             <?php endforeach; ?>
-            </ul>
-        </fieldset>
-        
-        
-        
-        <p  id="product_description"><?php echo $response->data->description; ?></p>
-        
-        <?php if(0)foreach($schema->properties as $key => $property): ?>
-        <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) ): ?>
-        
-        <div class="medium-6 large-6 columns">
-            <p><?php echo $property->title; ?></p>
-        </div>
-        
-        
-        <div class="medium-6 large-6 columns">
-            <p><?php echo  $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
-        </div>         
-                 
-                 
-                 
-        <?php endif; ?>   
-         
-        
-        <?php endforeach; ?>
 
-        
 
-         
-        
-        <ul class="inline-list row">
-            
-            
-            <?php   if(0 && $variantProducts): ?>
-            
-            <?php       foreach($variantProducts->variants as $product):?>
-                
-            <li style="    display: block;
-                            float: left;
-                            list-style: outside none none;
-                            margin-left: 1.22222rem;"><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img src="<?php echo $product->image ?>" /></a></li>
+    <!--        <ul class="inline-list row">
 
-            <?php       endforeach; ?>
-            
-            
-            <?php endif ?>
-            
-        </ul>        
-        
-        
-        <div class="row">
-            
-            <div class="columns">
-            
-                <h5><?php echo  $response->data->subtitle ?></h5>
-                <p><?php echo  $response->data->introduction ?></p>
+
+                <?php   if(0 && $variantProducts): ?>
+
+                <?php       foreach($variantProducts->variants as $product):?>
+
+                <li style="    display: block;
+                                float: left;
+                                list-style: outside none none;
+                                margin-left: 1.22222rem;"><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img src="<?php echo $product->image ?>" /></a></li>
+
+                <?php       endforeach; ?>
+
+
+                <?php endif ?>
+
+            </ul>        -->
+
+
+            <div class="row">
+
+                <div class="columns">
+
+                    <h5><?php echo  $response->data->subtitle ?></h5>
+                    <p><?php echo  $response->data->introduction ?></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
+                    <?php foreach( $response->data->steps  as $step ): ?>
+
+                        <li>
+                            <h5><?php echo $step->title ?></h5>
+                            <p style="font-size:12px;"><?php echo $step->description; ?></p>
+                        </li>
+                        <?php $i++ ?>
+
+                    <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
         </div>
-        
-        <div class="row">
-        <div class="large-12 columns">
-        
-            <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
-            <?php foreach( $response->data->steps  as $step ): ?>
-            
-            
-            
-            
-                <li>
-                    <h5><?php echo $step->title ?></h5>
-                    <p style="font-size:12px;"><?php echo $step->description; ?></p>
-                </li>
-            
-            
-            <?php $i++ ?>
-            
-            <?php endforeach; ?>
-                </ul>
- 
-    </div>
-</div>
 
-    </div>
-    
-    
-    
-    
-    <div class="medium-6 columns">
-        
-       <img id="zoom_01"  src="<?php echo $response->data->image; ?>" />
-        <div class="clear">&nbsp;</div>
-        <div class="row">
+        <div class="medium-6 columns">
 
+            <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image; ?>" /></a>
+            <div class="clear">&nbsp;</div>
+            <div class="row">
+                <!-- Slider main container -->
+                    <!-- Additional required wrapper -->
 
-            <!-- Slider main container -->
-                <!-- Additional required wrapper -->
-                    
                     <?php foreach( $response->data->steps  as $key=> $step_image ): ?>
-                    
+
                     <div class="large-6 columns">
-                        
+
                         <span style="display: inline-block; background: red none repeat scroll 0% 0%; height: 25px; width: 25px; border-radius: 15px; text-align: center; line-height: 25px; color: rgb(255, 255, 255);"><?php echo $key+1; ?></span>
-                        
-                        <a class="th" href="<?php echo $step_image->image; ?>"
+
+                        <a rel="groups" class="th various" href="<?php echo $step_image->image; ?>"
                            data-zoom-image="<?php echo $step_image->image; ?>"  
-                           data-image="<?php echo $step_image->image; ?>">                        
+                           data-image="<?php echo $step_image->image; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step_image->description; ?>">                        
                         <img  src="<?php echo $step_image->image; ?>">
                         </a>
-                        
+
                     </div>
-                    
+
                     <?php endforeach; ?>
-
-
-
-        </div>
-
-    </div>    
-    
-    
-    
+            </div>
+        </div>    
+    </div>
 </div>
-</div>
-
-
-
 <!-- Footer -->
 
 
@@ -208,6 +170,32 @@ if( isset( $_GET['json'] ) ){
     
     
     jQuery( document ).ready(function() {
+
+
+	jQuery(".various").fancybox({
+		maxWidth	: 800   ,
+		maxHeight	: 600   ,
+		fitToView	: false ,
+		width		: '70%' ,
+		height		: '70%' ,
+		autoSize	: false ,
+		closeClick	: false ,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+                type            : 'ajax',
+                nextEffect      : 'none',
+                prevEffect      : 'none',
+                type            : 'image' ,
+		helpers	: {
+			title	: {
+				type: 'over'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			}
+		}                
+	});
 
 
         //initialize swiper when document ready  

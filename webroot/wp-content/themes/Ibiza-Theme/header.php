@@ -51,9 +51,13 @@
                 <?php get_template_part('parts/content', 'offcanvas_left'); ?>
 
                 <div class="off-canvas-content" data-off-canvas-content>
-
+                
                     
-            <div class="row">
+                    <?php print_r(  ); die;  ?>
+                    
+                    
+                    
+            <div class="row show-for-xlarge-only">
                 <div class="large-6 columns">
                     
                     
@@ -61,14 +65,14 @@
                         
                       <?php if(_LOGGED_IN): ?>
                       
-                      <li><a href="https://secure.localdev.jewellerymaker.com/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+                      <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
                         
                       <?php else:?>
                         
-                      <li><a href="https://secure.localdev.jewellerymaker.com/login.aspx?_ga=1.246909059.624630137.1465816634">Sign up / Login</a></li>
+                      <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Sign up / Login</a></li>
                       
                       <?php endif; ?>
-                      <li><a href="#">0800 6444 655</a></li>
+                      <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
                       <li><a href="#">92815 Independent Reviews</a></li>
                     </ul>                    
                                         

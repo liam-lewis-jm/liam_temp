@@ -9,10 +9,6 @@ global $ibiza_api;
 $core                   = $ibiza_api->get_core_attributes();
 $rst                    = $ibiza_api->get_product(get_query_var('products'));
 $response               = $rst[0]->data;
-
-
-
-
 $schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
 
 /**

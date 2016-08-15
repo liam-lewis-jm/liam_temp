@@ -109,7 +109,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * start class variables
      */
     const   api_location            = 'http://ibizaschemas.product';
-    const   top_level_category      = '32';
+    const   top_level_category      = array( '32' , '4' );
     const   wp_menu_id              = '2';
     private $end_points             = array('product_list'  => '/ProductCatalog.Api/api/category/categoryId/'       , 
                                             'price_range'   => '/ProductCatalog.Api/api/pricerange/range/'          ,
@@ -226,9 +226,12 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         
         $this->cat_data = json_decode( $r[0]->meta_value );
         
+        
+
+        
         foreach ($items as $item) {
 
-            if ($item->ID == $r[0]->id && $item->menu_item_parent == $this::top_level_category ) {
+            if ($item->ID == $r[0]->id && in_array($item->menu_item_parent,  $this::top_level_category ) ) {
                 $this->is_top_level = true;
             }
 
@@ -239,6 +242,8 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         }
 
 
+        
+        
         ksort($catss);
         
         return $catss;

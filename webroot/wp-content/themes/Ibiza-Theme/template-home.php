@@ -10,7 +10,7 @@
     
     <div id="operationLogInfo"></div>
     
-    <div id="banner-content" class="row">
+    <div id="banner-content" class="row show-for-large">
         <div class="swiper-container-banner">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper" style="transform: translate3d(-600px, 0px, 0px); transition-duration: 0ms;">
