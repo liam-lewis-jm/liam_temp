@@ -413,11 +413,5 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
                 strtolower($clean) :
             $clean;
     }    
-    
-   function __construct() {
-       
-       print_r($this::top_level_category);
-       die('ddd');
-       
-   }
+
 }
