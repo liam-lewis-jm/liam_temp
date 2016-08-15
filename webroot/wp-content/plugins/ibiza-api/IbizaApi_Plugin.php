@@ -109,7 +109,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * start class variables
      */
     const   api_location            = 'http://ibizaschemas.product';
-    $top_level_category             = array( '32' , '4' );
+    public  $top_level_category             = array( '32' , '4' );
     const   wp_menu_id              = '2';
     private $end_points             = array('product_list'  => '/ProductCatalog.Api/api/category/categoryId/'       , 
                                             'price_range'   => '/ProductCatalog.Api/api/pricerange/range/'          ,
