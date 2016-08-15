@@ -53,8 +53,6 @@
                 <div class="off-canvas-content" data-off-canvas-content>
                 
                     
-                    <?php print_r(  ); die;  ?>
-                    
                     
                     
             <div class="row show-for-xlarge-only">
