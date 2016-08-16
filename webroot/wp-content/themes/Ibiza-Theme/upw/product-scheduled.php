@@ -7,18 +7,18 @@
 
 $image          = '';
 $cats           =  explode( ',' ,  $instance['cats'] ) ;
-$is_scheduled   = false;
-
-
-foreach( $cats as $cat ){
-    
-    if( get_cat_name( $cat ) == 'Scheduled' ){
-        
-        $is_scheduled = true;
-        
-    }
-    
-}
+//$is_scheduled   = false;
+//
+//
+//foreach( $cats as $cat ){
+//    
+//    if( get_cat_name( $cat ) == 'Scheduled' ){
+//        
+//        $is_scheduled = true;
+//        
+//    }
+//    
+//}
 
 $slider             = 0;
 $container_class    = 'products_widget';
@@ -82,7 +82,6 @@ if( count( $ids ) >0 )
         <?php
         
         $skip = false;
-        
         if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
 
@@ -100,7 +99,7 @@ if( count( $ids ) >0 )
             
         }
 
-        if( $skip = 0){
+        if( $skip == 1){
             continue;
         }
         

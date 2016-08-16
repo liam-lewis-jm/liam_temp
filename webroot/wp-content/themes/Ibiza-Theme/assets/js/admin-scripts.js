@@ -21,7 +21,7 @@ jQuery(document).ready(function () {
     
     
     
-    jQuery('<a href=""  class="item-manage submitcancel hide-if-no-js">Manage</a> | ').prependTo( '.menu-item-depth-2 .menu-item-actions' );
+    jQuery('<a href=""  class="item-manage submitcancel hide-if-no-js">Manage</a> | ').prependTo( '.menu-item-depth-2 .menu-item-actions,.menu-item-depth-1 .menu-item-actions' );
     
     jQuery('body').on( "click", '.my_popup_close' , function() {
     

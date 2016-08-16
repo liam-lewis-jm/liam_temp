@@ -304,7 +304,7 @@ if( isset( $_GET['json'] ) ){
             
             jQuery.ajax({
                 dataType  : 'json' ,
-                url: 'http://localdev.jewellerymaker.com/proxy.php?auctionID=-1&productCode=<?php echo 'WTTY01'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '361247'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
+                url: 'http://<?php echo $_SERVER['SERVER_NAME']; ?>/proxy.php?auctionID=-1&productCode=<?php echo 'WTTY01'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '361247'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
             })  .done(function( data ) {
                 if ( console && console.log ) {
                     console.log(  data );

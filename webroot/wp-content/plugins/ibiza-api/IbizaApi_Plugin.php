@@ -109,7 +109,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * start class variables
      */
     const   api_location            = 'http://ibizaschemas.product';
-    public  $top_level_category             = array( '32' , '4' );
+    public  $top_level_category             = array( '32' , '23935' );
     const   wp_menu_id              = '2';
     private $end_points             = array('product_list'  => '/ProductCatalog.Api/api/category/categoryId/'       , 
                                             'price_range'   => '/ProductCatalog.Api/api/pricerange/range/'          ,
@@ -206,43 +206,54 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * @param type $cat
      * @return type
      */
-    public function get_product_list_top_level_categorys( $cat ) 
+    public function get_product_list_top_level_categorys( $cat , $id = 0 ) 
     {
 
-        global $wpdb;
-        $r              = $wpdb->get_results($wpdb->prepare("
-        SELECT p.id , pm.meta_value FROM {$wpdb->postmeta} pm
-        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-        WHERE pm.meta_key = '%s' 
-        AND pm.meta_value !=  'null' 
-        AND pm.meta_value !=  '' 
-        LIMIT 1
-        ", 'cat-' . $cat));
+        
+
+        
+        
+        if($cat){
+            
+            global $wpdb;
+            $r              = $wpdb->get_results($wpdb->prepare("
+            SELECT p.id , pm.meta_value FROM {$wpdb->postmeta} pm
+            LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+            WHERE pm.meta_key = '%s' 
+            AND pm.meta_value !=  'null' 
+            AND pm.meta_value !=  '' 
+            LIMIT 1
+            ", 'cat-' . $cat));
 
 
-        // some be able to find the shop menu, and get correct place automaticly.
+            
+            $catss          = array();
+            $this->cat_data = json_decode( $r[0]->meta_value );
+            
+            if(!$id){
+
+                $id             = $r[0]->id;
+            }            
+            
+            
+        }
+        
+        
         $items          = wp_get_nav_menu_items( $this::wp_menu_id );
-        $catss          = array();
-        
-        $this->cat_data = json_decode( $r[0]->meta_value );
-        
-        
-
         
         foreach ($items as $item) {
 
-            if ($item->ID == $r[0]->id && in_array($item->menu_item_parent,  $this->top_level_category ) ) {
+            if ($item->ID == $id && in_array($item->menu_item_parent,  $this->top_level_category ) ) {
                 $this->is_top_level = true;
             }
 
-            if ($item->menu_item_parent == $r[0]->id) {
+            if ($item->menu_item_parent == $id) {
 
                 $catss[$item->post_title] = (object) $item;
             }
         }
 
 
-        
         
         ksort($catss);
         

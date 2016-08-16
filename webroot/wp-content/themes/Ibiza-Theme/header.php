@@ -80,11 +80,7 @@
                     
                     
                     <ul class="menu float-right">
-                      <li><a href="#">Link 1</a></li>
-                      <li><a href="#">Link 2</a></li>
-                      <li><a href="#">Link 3</a></li>
-                      <li><a href="#">Link 4</a></li>
-                      <li><a href="https://secure.localdev.jewellerymaker.com/basket.aspx?_ga=1.141642677.624630137.1465816634">Your Bag</a></li>
+                      <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx?_ga=1.141642677.624630137.1465816634">Your Bag</a></li>
                     </ul>                    
                     
                     

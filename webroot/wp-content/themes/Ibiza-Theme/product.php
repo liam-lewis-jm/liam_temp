@@ -119,7 +119,7 @@ if( isset( $_GET['bundle'] ) ){
                     <div class="column large-6">
                         <p id="basket-description"><?php echo $response->name; ?></p>
                         <p id="basket-total">Total &pound;</p>
-                        <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.localdev.jewellerymaker.com/basket.aspx'">Checkout</button>
+                        <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>.com/basket.aspx'">Checkout</button>
                     </div>
 
                 </div>

@@ -6,7 +6,7 @@
 global $ibiza_api;
 
 $join_str           = array();
-$cat                = $ibiza_api->get_product_list_category($_GET['cat']);
+$cat                = $ibiza_api->get_product_list_category(  get_query_var('the_id') );
 $sort               = $ibiza_api->get_product_list_sort_options();
 $ignore_query_strs  = $ibiza_api->get_product_list_ignored_query_strings();
 $page_sizes         = $ibiza_api->get_product_list_pages_sizes();
@@ -18,7 +18,7 @@ $facetsOb           = $ibiza_api->get_product_list_facets_object();
 // most follow after above as get_product_list_top_level_categorys set whether or not it is top level
 $top_level          = $ibiza_api->is_top_level;    
 $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
-$title              = $ibiza_api->get_product_list_title($_GET['title']);
+$title              = $ibiza_api->get_product_list_title( get_query_var('products') );
 
 $index              = 'product';
 
@@ -237,7 +237,7 @@ if( $title == 'How To' || isset($breadcrumbs['How to'])){
 
                     <div class="panel"  ng-if="doc._index=='product'" >
                         <img src="{{doc._source.images[0].url}}" />
-                        <h5><a href="/products-list/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
+                        <h5><a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
 
                         <p style="font-size:12px;">{{doc._source.description}}</p>
 
@@ -247,7 +247,7 @@ if( $title == 'How To' || isset($breadcrumbs['How to'])){
 
                     <div class="panel"  ng-if="doc._index=='howto'" >
                         <img src="{{doc._source.image}}" />
-                        <h5><a href="/products-list/{{doc._id}}/{{doc._source.name}}?type={{doc._type}}">{{doc._source.name}}</a></h5>
+                        <h5><a href="/h/{{doc._id}}/{{doc._source.name}}">{{doc._source.name}}</a></h5>
 
                         <p style="font-size:12px;">{{doc._source.introduction}}</p>
 
@@ -592,7 +592,7 @@ function push_state( changedEl , query_str_arr )
     if(q){
         History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?q=' + q + '&' + toQueryString(query_str_arr, '') );
     }else{
-        History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?cat=' + cat + '&title=' + title + '&' + toQueryString(query_str_arr, '') );       
+        History.pushState({state: jQuery( changedEl ).attr('data-id')  }, "State 1",  protocol + '://' + url +  directory  +  '?' + toQueryString(query_str_arr, '') );       
     }
     
 }

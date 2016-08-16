@@ -143,7 +143,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             'menu-item-object' => 'page',
             'menu-item-type' => $menu_type,
             'menu-item-status' => 'publish',
-            'menu-item-url' => '/products-list?cat=' . $new_menu_id . '&title=' . sanitize_title_with_dashes( $title ),
+            'menu-item-url' => '/' . sanitize_title_with_dashes( $title ) . '/' . $new_menu_id ,
             'menu-item-title' => $title,
         ));
     }
@@ -158,13 +158,13 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
 
         foreach ($data as $key1 => $dataIn) {
 
-            if($dataIn->title=='How'){
+            if($dataIn->title=='How To Guides'){
                 
-                
-                $parent_id = 4;
+                update_post_meta(23935, 'cat-' . $dataIn->id, json_encode($dataIn) );
+                $parent_id = 23935;
                 if (count($dataIn->nodes) > 0) {
 
-                    $this->add_menu($dataIn->nodes, $menu_id, 4);
+                    $this->add_menu($dataIn->nodes, $menu_id, 23935);
                 }                 
                 
             }else{
@@ -311,7 +311,7 @@ class Topbar1_Menu_Walker extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 
 
-        if ($item->menu_item_parent == 32 OR $item->menu_item_parent == 4 OR in_array($item->menu_item_parent, $this->sub_menu_arr)) {
+        if ($item->menu_item_parent == 32 OR $item->menu_item_parent == 23935 OR in_array($item->menu_item_parent, $this->sub_menu_arr)) {
             $this->sub_menu_arr[$item->ID] = $item->ID;
 
             wp_delete_post($item->ID, true);

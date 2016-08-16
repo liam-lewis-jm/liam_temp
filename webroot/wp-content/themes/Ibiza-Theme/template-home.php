@@ -315,7 +315,7 @@
 
                jQuery('#basket-total').text('£' +  data.BasketTotal );
                jQuery('#basket-description').text('£' +  data.Description );                    
-               window.location = 'https://secure.localdev.jewellerymaker.com/basket.aspx';
+               window.location = 'https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>.com/basket.aspx';
 
              });
         });              
