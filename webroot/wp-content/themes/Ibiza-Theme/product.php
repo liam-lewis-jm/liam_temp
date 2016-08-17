@@ -119,7 +119,7 @@ if( isset( $_GET['bundle'] ) ){
                     <div class="column large-6">
                         <p id="basket-description"><?php echo $response->name; ?></p>
                         <p id="basket-total">Total &pound;</p>
-                        <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>.com/basket.aspx'">Checkout</button>
+                        <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx'">Checkout</button>
                     </div>
 
                 </div>
@@ -194,7 +194,7 @@ if( isset( $_GET['bundle'] ) ){
 
 
                     <li class="medium-6 large-6 columns attr_template" style="height:150px">
-                    <a  rel="groups"   href="/products-list/<?php echo $item->productcode; ?>?bundle=1" class="product_bundle various">
+                    <a  rel="groups"   href="/p/<?php echo $item->productcode; ?>?bundle=1" class="product_bundle various">
                     <?php
 
                     $pItem  = $ibiza_api->get_product( $item->productcode  );
@@ -281,7 +281,7 @@ if( isset( $_GET['bundle'] ) ){
             
             var product_id      = jQuery( el ).attr( 'data-id' );
             
-            var url             = "/products-list/" + product_id  + "/" + product_name + '/?json=1';
+            var url             = "/p/" + product_id  + "/" + product_name + '/?json=1';
             
             jQuery.ajax({
                 dataType  : 'json' ,

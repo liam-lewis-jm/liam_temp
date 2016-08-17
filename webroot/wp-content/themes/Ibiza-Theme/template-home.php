@@ -168,7 +168,7 @@
 
 
             <p style="font-size: 13px; text-align: center; font-weight: bold; margin: 10px 0px 0px;"><?php echo $productIn['_source']['name']; ?></p>
-            <a href="/products-list/<?php echo $productIn['_id']; ?>/">
+            <a href="/p/<?php echo $productIn['_id']; ?>/">
             <?php 
              echo '<img src="' . $productIn['_source']['images'][0]['url'] . '" />';
             ?>

@@ -186,7 +186,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
                             <img src="<?php  echo $r->imageUrl;?>" />
                         </div>
                         <div  class=" large-6"  style="float:right">
-                            <h4><a href="/products-list/<?php echo $r->productCode; ?>"><?php echo trim($r->name); ?></a></h4>
+                            <h4><a href="/p/<?php echo $r->productCode; ?>"><?php echo trim($r->name); ?></a></h4>
                             <p><?php echo trim($r->description) ?></p>
                             <button style="background: #00B109" data-toggle="example-dropdown2" type="button" class="button large expanded" id="add-basket" aria-controls="example-dropdown2" data-is-focus="false" data-yeti-box="example-dropdown2" aria-haspopup="true" aria-expanded="false">Add to basket</button>
                         </div>
