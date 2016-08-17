@@ -90,7 +90,10 @@ $cat_title          = $ibiza_api->cat_data->title;
                 
                 <?php $i = 0;?>
                 
-                
+                    <div class="swiper-container-howto" style="  margin: 0 auto;  overflow: hidden;    position: relative; z-index: 1;">
+                <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        
                 
                 
                 <?php foreach($catss as $cat):  ?>
@@ -105,7 +108,7 @@ $cat_title          = $ibiza_api->cat_data->title;
                           
                     ?>
                 
-                <div class="large-3 medium-3 columns padded-column box <?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
+                <div class="large-3 medium-3 columns padded-column box swiper-slide<?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
                     <img src="<?php echo $cat_data_ob->image?$cat_data_ob->image:'http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$'; ?>" />
                     <a href="<?php print $cat->url; ?>">
                     <span class="caption fade-caption">
@@ -133,4 +136,22 @@ $cat_title          = $ibiza_api->cat_data->title;
     </div>
 </div>
 
+                
+<script>
+
+jQuery(document).ready(function () {
+    //initialize swiper when document ready  
+    var mySwiper = new Swiper('.swiper-container-howto', {
+        // Optional parameters
+        loop                : false ,
+        pagination          : '.swiper-pagination',
+        paginationClickable : true ,
+        slidesPerView       : 5
+    });
+    
+});
+
+
+</script>
+                
 <?php get_footer(); ?>
