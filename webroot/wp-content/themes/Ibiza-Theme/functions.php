@@ -39,6 +39,99 @@ require_once(get_template_directory() . '/assets/translation/translation.php');
 
 
 
+add_action('init', 'wpse71305_register_types');
+
+/**
+ * 
+ */
+function wpse71305_register_types() {
+
+    //You'll need to register the country taxonomy here too.
+    //Add 'country' tag.
+    add_rewrite_tag('%products%', '([^&/]+)');
+    add_rewrite_tag('%howto%', '([^&/]+)');
+    add_rewrite_tag('%the_id%', '([^&/]+)');
+    add_rewrite_tag('%cat%', '([^&/]+)');
+    
+    //Register hotel post type with %country$ tag
+    $args = array(
+        'has_archive' => true,
+        'rewrite' => array(
+            'slug' => 'p/%products%',
+            'with_front' => false,
+            'feed' => true,
+            'pages' => true
+        )
+    );
+    register_post_type('product', $args);
+    
+    //Register hotel post type with %country$ tag
+    $args = array(
+        'has_archive' => true,
+        'rewrite' => array(
+            'slug' => 'h/%howto%',
+            'with_front' => false,
+            'feed' => true,
+            'pages' => true
+        )
+    );
+    register_post_type('howto', $args);
+    
+    
+
+    //Register hotel post type with %country$ tag
+    $args = array(
+        'has_archive' => true,
+        'rewrite' => array(
+            'slug' => 'product-list/%cat%/%the_id%',
+            'with_front' => false,
+            'feed' => true,
+            'pages' => true
+        )
+    );
+    register_post_type('product-list', $args);    
+    
+    
+    
+    
+    
+}
+
+add_filter('template_include', 'so_13997743_custom_template');
+
+/**
+ * 
+ * @param string $template
+ * @return string
+ */
+function so_13997743_custom_template($template) {
+
+    $hasProduct = get_query_var('products');
+
+
+
+    $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
+
+    
+    if(isset($segments[0]) && !empty($segments[0])  )
+        switch ( $segments[0] )
+        {
+
+            case 'p':
+                $template = plugin_dir_path(__FILE__) . 'product.php';
+                break;
+            case 'h':
+                $template = plugin_dir_path(__FILE__) . 'howto.php';
+                break;
+            default:
+                if(  $segments[0] == 'product-list'  )
+                    $template = plugin_dir_path(__FILE__) . 'template-products-list.php';        
+                
+        }
+    
+        
+    return $template;
+}
 
 /**
  * 
