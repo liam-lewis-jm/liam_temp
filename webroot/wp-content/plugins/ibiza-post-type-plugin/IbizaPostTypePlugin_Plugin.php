@@ -199,7 +199,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
             'hierarchical' => false,
             'taxonomies' => array('category', 'Test'),
             /* the next one is important, it tells what's enabled in the post editor */
-            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'taxonomies')
+            'supports' => array('title', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'taxonomies')
                 ) /* end of options */
         ); /* end of register post type */
     
