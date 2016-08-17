@@ -92,6 +92,11 @@ $cat_title          = $ibiza_api->cat_data->title;
                 
                     <div class="swiper-container-howto" style="  margin: 0 auto;  overflow: hidden;    position: relative; z-index: 1;">
                 <!-- Additional required wrapper -->
+                
+                
+                            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
                     <div class="swiper-wrapper">
                         
                 
@@ -104,8 +109,7 @@ $cat_title          = $ibiza_api->cat_data->title;
                     <?php $seg = explode( '/',$cat->url);  ?>
                 
                     <?php $cat_data     =  get_post_meta( $cat->ID ) ; 
-                          $cat_data_ob  =  json_decode( $cat_data['cat-' . $seg[2] ][0] );
-                          
+                          $cat_data_ob  =  json_decode( $cat_data['cat-' . $seg[3] ][0] );
                     ?>
                 
                 <div class="large-3 medium-3 columns padded-column box swiper-slide<?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
@@ -146,7 +150,9 @@ jQuery(document).ready(function () {
         loop                : false ,
         pagination          : '.swiper-pagination',
         paginationClickable : true ,
-        slidesPerView       : 5
+        slidesPerView       : 5 ,
+        nextButton : '.swiper-button-next',
+        prevButton : '.swiper-button-prev',
     });
     
 });
