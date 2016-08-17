@@ -83,7 +83,7 @@ function wpse71305_register_types() {
     $args = array(
         'has_archive' => true,
         'rewrite' => array(
-            'slug' => 'p/%cat%/%the_id%',
+            'slug' => 'product-list/%cat%/%the_id%',
             'with_front' => false,
             'feed' => true,
             'pages' => true
@@ -124,8 +124,7 @@ function so_13997743_custom_template($template) {
                 $template = plugin_dir_path(__FILE__) . 'howto.php';
                 break;
             default:
-                
-                if(  $segments[0] == 'products-list'  )
+                if(  $segments[0] == 'product-list'  )
                     $template = plugin_dir_path(__FILE__) . 'template-products-list.php';        
                 
         }

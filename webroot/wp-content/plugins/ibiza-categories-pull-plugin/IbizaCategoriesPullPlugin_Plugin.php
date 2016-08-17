@@ -143,7 +143,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             'menu-item-object' => 'page',
             'menu-item-type' => $menu_type,
             'menu-item-status' => 'publish',
-            'menu-item-url' => '/' . sanitize_title_with_dashes( $title ) . '/' . $new_menu_id ,
+            'menu-item-url' => '/product-list/' . sanitize_title_with_dashes( $title ) . '/' . $new_menu_id ,
             'menu-item-title' => $title,
         ));
     }

@@ -1,0 +1,5811 @@
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 3
+            [title] => Books & DVDs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 31
+                            [title] => Books
+                            [nodes] => Array
+                                (
+                                )
+
+                            [google] => stdClass Object
+                                (
+                                    [_id] => 577bbc62d413540863316637
+                                    [googleId] => 784
+                                    [category1] => Media
+                                    [category2] => Books
+                                    [category3] => 
+                                    [category4] => 
+                                    [category5] => 
+                                    [category6] => 
+                                    [category7] => 
+                                    [path] => Media > Books
+                                    [search] => media > books
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 32
+                            [title] => DVDs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 60
+            [title] => Embroidery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 62
+                            [title] => Hoops & Frames
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 63
+                            [title] => Linen
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 64
+                            [title] => Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 65
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 66
+                            [title] => Specialist Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 67
+                            [title] => Hessians & Burlaps
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 68
+                            [title] => Quilt Backs
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 69
+                            [title] => Printing on Fabric
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 70
+                            [title] => Home Dec & Laminated Cotton Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 71
+                            [title] => Foundation by the Yard
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 72
+                            [title] => Calico, Muslins & Utility Fabrics
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [google] => stdClass Object
+                (
+                    [_id] => 577bbc62d413540863316a7c
+                    [googleId] => 1258
+                    [category1] => Toys & Games
+                    [category2] => Toys
+                    [category3] => Dolls, Playsets & Toy Figures
+                    [category4] => Puppets & Marionettes
+                    [category5] => 
+                    [category6] => 
+                    [category7] => 
+                    [path] => Toys & Games > Toys > Dolls, Playsets & Toy Figures > Puppets & Marionettes
+                    [search] => toys & games > toys > dolls, playsets & toy figures > puppets & marionettes
+                )
+
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 61
+            [title] => Fabric, Kits & Packs
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 73
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 74
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 75
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 76
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 77
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 78
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 79
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 80
+            [title] => Haberdashery
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 81
+                            [title] => Bias Tape
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 82
+                            [title] => Buttons
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_4_060516
+                            [visible] => 1
+                            [description] => We've got a button for every occassion
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 83
+                            [title] => Ribbons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 84
+                            [title] => Zips
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 85
+                            [title] => Pins & Needles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 86
+                            [title] => Dress Forms
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 87
+                            [title] => Thread
+                            [nodes] => Array
+                                (
+                                )
+
+                            [image] => http://johnlewis.scene7.com/is/image/JohnLewis/haberdashery_6_2_060516
+                            [description] => Browse our range of quality yarn
+                            [visible] => 1
+                        )
+
+                )
+
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 1
+            [title] => Materials
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 11
+                            [title] => Threads
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 12
+                            [title] => Markers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 35
+            [title] => Sewing Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 36
+                            [title] => Womens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 37
+                            [title] => Childrens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 48
+                            [title] => Mens Patterns
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 49
+                            [title] => Home Décor & Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 51
+            [title] => Storage
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 52
+                            [title] => Bags
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 53
+                            [title] => Boxes
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 96
+                            [title] => Cases
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 54
+            [title] => Templates & Patterns
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 55
+                            [title] => Basic Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 56
+                            [title] => Block Templates
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 57
+                            [title] => English Paper Piecing
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 58
+                            [title] => Quilting Stencils
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 59
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 50
+            [title] => Waddings & Battings
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 88
+                            [title] => Natural Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 89
+                            [title] => Man-made Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 90
+                            [title] => Blended Waddings
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 2
+            [title] => Tools
+            [nodrop] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 21
+                            [title] => Irons
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 22
+                            [title] => Hand tools
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 38
+                            [title] => Lights & Magnifiers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 39
+                            [title] => Notions
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 40
+                            [title] => Accessories
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 41
+                            [title] => Sewing Machines
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [6] => stdClass Object
+                        (
+                            [id] => 42
+                            [title] => Rulers
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [7] => stdClass Object
+                        (
+                            [id] => 43
+                            [title] => Cutting Mats
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [8] => stdClass Object
+                        (
+                            [id] => 44
+                            [title] => Rotary Cutter
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [9] => stdClass Object
+                        (
+                            [id] => 45
+                            [title] => Rotary Cutter Blades
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [10] => stdClass Object
+                        (
+                            [id] => 46
+                            [title] => Scissors
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [11] => stdClass Object
+                        (
+                            [id] => 47
+                            [title] => Die-Cutting
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 91
+            [title] => Electricals
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 92
+                            [title] => Televisions
+                            [nodes] => Array
+                                (
+                                )
+
+                            [description] => Testssss
+                            [intro] => Some intro
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 93
+                            [title] => iPad & Tablets
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => stdClass Object
+                        (
+                            [id] => 94
+                            [title] => Camera
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [3] => stdClass Object
+                        (
+                            [id] => 95
+                            [title] => Lenses
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [4] => stdClass Object
+                        (
+                            [id] => 97
+                            [title] => Memory Cards
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                    [5] => stdClass Object
+                        (
+                            [id] => 98
+                            [title] => Bundles
+                            [nodes] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            [intro] => Hello
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 99
+            [title] => How
+            [visible] => 1
+            [nodes] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [id] => 100
+                            [title] => Beginners
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 101
+                                            [title] => Hints & Tips
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [id] => 102
+                            [title] => Video Tutorials
+                            [nodes] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [id] => 103
+                                            [title] => Beginner Tutorials
+                                            [nodes] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+dddddddddddddddd

@@ -232,63 +232,6 @@
 </section>        
 
 
-<div class="row">
-    
-    <article class="learning__item box4 mobile-full tablet-and-up-half  large-6 columns">
-
-           <div class="learning__item__subtitle">
-               <hr class="rule">
-               <h2>Hints &amp; Tips</h2>
-           </div>
-           <a href="/en-gb/how-to/create-multifunctional-pearl-jewellery.aspx">
-               <div class="promotional-box">
-                   <picture class="responsiveImg learning__item__img">
-                       <!--[if IE 9]><video style="display: none;"><![endif]-->
-                       <source media="(min-width: 1024px)" srcset="http://www.jewellerymaker.com/en-gb/global/img/homepage/learning/tip/multifunctional-pearls.jpg"></source>
-                       <source media="(min-width: 768px)" srcset="http://www.jewellerymaker.com/en-gb/global/img/homepage/learning/tip/multifunctional-pearls477.jpg"></source>
-                       <source media="(max-width: 767px)" srcset="http://www.jewellerymaker.com/en-gb/global/img/homepage/learning/tip/multifunctional-pearls717.jpg"></source>
-                       <!--[if IE 9]></video><![endif]-->
-                       <img alt="Hints and Tips" class="promotional-box--bg">
-                       <meta content="/global/img/homepage/learning/tip/multifunctional-pearls.jpg" itemprop="image">
-                   </picture>
-
-                   <div class="promotional-box__rounded-layer"></div>
-                   <div class="promotional-box__txt">
-                       <div class="promotional-box__txt--preheader">How to Create a</div>
-                       <div class="promotional-box__txt--header">Multi-functional Pearl Set</div>
-                       <div class="rule"></div>
-                       <div class="promotional-box__txt--dummylink">Learn Now &gt;</div>
-                   </div>
-               </div>
-           </a> 
-       </article>
-       <article class="learning__item recent-tutorials tablet-and-up-half desktop-only large-6 columns">
-
-           <div class="learning__item__subtitle">
-               <hr class="rule">
-               <h2>Recent Tutorials</h2>
-               <a href="/en-gb/learning/video-tutorials/?video=how-to-use-earring-wire-looper">
-                   <div class="desktop-quarter recent-tutorials__item recent-tutorial__one large-6 columns">
-                       <img alt="" class="learning__item__img" src="//cdn.jewellerymaker.com/global/img/homepage/learning/vid-tut1.jpg">
-                       <div class="recent-tutorials__item__txt">How to Use an Earring Wire Looper</div>
-                       <div class="rule"></div>
-                   </div>
-               </a>
-               <a href="/en-gb/learning/video-tutorials/?video=how-to-use-wags-wicone-maxi">
-                   <div class="desktop-quarter recent-tutorials__item recent-tutorial__two  large-6 columns">
-                       <img alt="" class="learning__item__img" src="//cdn.jewellerymaker.com/global/img/homepage/learning/vid-tut2.jpg">
-                       <div class="recent-tutorials__item__txt">How to Use a Wags Wicone Maxi</div>
-                       <div class="rule"></div>
-                   </div>
-
-               </a>
-           </div>           
-           <div class=""></div>
-       </article>
-    
-</div>
-
-
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/vendor/plugins/jwplayer/jwplayer.js"></script>
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/video.js"></script>
 <script type="text/javascript">
@@ -310,7 +253,7 @@
 
            jQuery.ajax({
                dataType  : 'json' ,
-               url: 'http://localdev.jewellerymaker.com/proxy.php?auctionID=-1&productCode=<?php echo 'WTTY01'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '361247'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
+               url: 'http://<?php echo $_SERVER['SERVER_NAME']; ?>/proxy.php?auctionID=-1&productCode=<?php echo 'WTTY01'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '361247'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
            }).done(function( data ) {
 
                jQuery('#basket-total').text('£' +  data.BasketTotal );

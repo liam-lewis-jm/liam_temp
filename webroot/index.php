@@ -11,7 +11,6 @@
  *
  * @var bool
  */
-
 define('WP_USE_THEMES', true);
 
 
