@@ -194,11 +194,11 @@ if( count( $ids ) >0 )
           <?php // product specfic info  ?>
                 
             <div class="large-6 columns">
-                <h4><a href="/products-list/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
+                <h4><a href="/p/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
             </div>
 
             <div class="large-6 columns">
-                <a href="/products-list/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
+                <a href="/p/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
             </div>
           
           <footer>

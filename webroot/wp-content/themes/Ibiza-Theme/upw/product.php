@@ -157,12 +157,12 @@ if( count( $ids ) >0 )
           <?php // product specfic info  ?>
                 
             <div class="large-9 columns">
-                <h4><strong>Featured Today! </strong><a href="/products-list/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
+                <h4><strong>Featured Today! </strong><a href="/p/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
                 <p><?php echo $product->data->description;?></p>
             </div>
 
             <div class="large-3 columns">
-                <a href="/products-list/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
+                <a href="/p/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
             </div>
           
           <footer>

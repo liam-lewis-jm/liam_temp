@@ -33,7 +33,7 @@
 }
 
 
-$url            = 'http://securewebsiteapiwrapper.localdev/api/legacy/basket/';                                                                               
+$url            = 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/addTobasket';                                                                               
 $ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];

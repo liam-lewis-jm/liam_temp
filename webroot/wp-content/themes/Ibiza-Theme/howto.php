@@ -56,7 +56,7 @@ if( isset( $_GET['json'] ) ){
                 <ul>
                 <?php foreach($response->data->products as $key => $product): ?>
 
-                    <li><a href="/products-list/<?php echo $product->product ?>/<?php echo $product->title; ?>/?type=product"><?php echo $product->title; ?></a></li>
+                    <li><a href="/product-list/<?php echo $product->product ?>/<?php echo $product->title; ?>/?type=product"><?php echo $product->title; ?></a></li>
 
                 <?php endforeach; ?>
                 </ul>
@@ -232,7 +232,7 @@ if( isset( $_GET['json'] ) ){
             
             var product_name    = jQuery( this ).attr( 'data-name' );
             var product_id      = jQuery( this ).attr( 'data-id' );
-            var url             = "/products-list/" + product_id  + "/" + product_name + '?json=1&type=<?php echo $product_type; ?>';
+            var url             = "/p/" + product_id  + "/" + product_name + '?json=1&type=<?php echo $product_type; ?>';
             
             jQuery.ajax({
                 dataType  : 'json' ,
