@@ -139,7 +139,9 @@ function so_13997743_custom_template($template) {
                 $template = plugin_dir_path(__FILE__) . 'howto.php';
                 break;
             default:
-                if(  $segments[0] == 'product-list' || ( $segments[0] ==  'how-to-guides' && !isset($segments[0]) ) )
+                
+                
+                if(  $segments[0] == 'product-list' || ( $segments[0] ==  'how-to-guides' && isset($segments[1]) ) )
                     $template = plugin_dir_path(__FILE__) . 'template-products-list.php';        
                 
         }
