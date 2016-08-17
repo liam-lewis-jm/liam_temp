@@ -69,7 +69,7 @@ function wpse71305_register_types() {
     $args = array(
         'has_archive' => true,
         'rewrite' => array(
-            'slug' => 'h/%howto%',
+            'slug' => 'h/%the_id%/%howto%',
             'with_front' => false,
             'feed' => true,
             'pages' => true

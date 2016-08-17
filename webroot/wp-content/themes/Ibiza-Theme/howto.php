@@ -7,7 +7,10 @@
 
 global $ibiza_api;
 $product_type           = sanitize( $_GET['type'] );
-$response               = $ibiza_api->get_howto(get_query_var('products'));
+
+
+
+$response               = $ibiza_api->get_howto(get_query_var('the_id'));
 $core['name']           = 1;
 $core['category']       = 1;
 $core['image']          = 1;
