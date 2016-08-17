@@ -246,7 +246,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
 //                'home_product' );
 //        
 //    }
-flush_rewrite_rules();
+
 }
 
 
