@@ -89,7 +89,22 @@ function wpse71305_register_types() {
             'pages' => true
         )
     );
-    register_post_type('product-list', $args);    
+    register_post_type('product-list', $args);  
+    
+    
+
+    //Register hotel post type with %country$ tag
+    $args = array(
+        'has_archive' => true,
+        'rewrite' => array(
+            'slug' => 'how-to-guides/%cat%/%the_id%',
+            'with_front' => false,
+            'feed' => true,
+            'pages' => true
+        )
+    );
+    register_post_type('how-to-guides', $args);    
+    
     
     
     
@@ -124,7 +139,7 @@ function so_13997743_custom_template($template) {
                 $template = plugin_dir_path(__FILE__) . 'howto.php';
                 break;
             default:
-                if(  $segments[0] == 'product-list'  )
+                if(  $segments[0] == 'product-list' || $segments[0] ==  'how-to-guides' )
                     $template = plugin_dir_path(__FILE__) . 'template-products-list.php';        
                 
         }

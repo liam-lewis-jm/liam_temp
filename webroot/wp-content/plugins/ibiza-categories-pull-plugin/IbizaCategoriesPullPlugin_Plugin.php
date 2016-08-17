@@ -133,9 +133,18 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
      * @param type $menu_type
      * @return type
      */
-    function update_menu($menu_id, $new_menu_id, $title, $menu_position = 0, $parent_menu_id = PARENT_MENU_ID, $menu_type = 'custom') {
+    function update_menu($menu_id, $new_menu_id, $title, $menu_position = 0, $parent_menu_id = PARENT_MENU_ID, $menu_type = 'custom' , $page_link ='product-list') {
 
-
+        static $i = 0;
+        
+        if($page_link!='product-list'){
+            $i =1;
+        }
+        
+        if($i ==1){
+            $page_link = 'how-to-guides';
+        }
+        
         return wp_update_nav_menu_item($menu_id, 0, array(
             'menu-item-parent-id' => $parent_menu_id,
 //        'menu-item-db-id'   => $new_menu_id , 
@@ -143,7 +152,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             'menu-item-object' => 'page',
             'menu-item-type' => $menu_type,
             'menu-item-status' => 'publish',
-            'menu-item-url' => '/product-list/' . sanitize_title_with_dashes( $title ) . '/' . $new_menu_id ,
+            'menu-item-url' => '/'. $page_link .'/' . sanitize_title_with_dashes( $title ) . '/' . $new_menu_id ,
             'menu-item-title' => $title,
         ));
     }
@@ -169,9 +178,13 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
                 
             }else{
                 
+                if($parent_id == 23935){
+                    $page_link = 'how-to-guides';
+                }else{
+                    $page_link = 'product-list';
+                }
                 
-                
-                $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id);
+                $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id, 'custom' , $page_link);
 
 
 
