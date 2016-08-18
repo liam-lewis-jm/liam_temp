@@ -3,7 +3,7 @@ jQuery(document).foundation();
  These functions make sure WordPress
  and Foundation play nice together.
  */
-
+/*
 var mongoHubModule = (function() {
     return {
         mongoHub: jQuery.connection.mongoHub,
@@ -34,7 +34,7 @@ var mongoHubModule = (function() {
         }
     }
 })();
-
+*/
 jQuery(document).ready(function () {
 
     // Remove empty P tags created by WP inside of Accordion and Orbit
@@ -87,14 +87,8 @@ jQuery(document).ready(function () {
         }
     });
 
-
-
-
-
-
-
      
-    mongoHubModule.init();
+    //mongoHubModule.init();
      
 
 

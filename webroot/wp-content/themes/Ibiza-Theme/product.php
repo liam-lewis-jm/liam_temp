@@ -463,6 +463,11 @@ if( isset( $_GET['bundle'] ) ){
 
         jQuery.getJSON( '<?php echo 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products'); ?>' , function( data ) {
             
+            
+            if( !data ){
+                return;
+            }
+            
             var el          = jQuery( '<div/>' );
             variants        = data;
             //console.log( el );
