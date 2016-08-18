@@ -694,8 +694,8 @@ if( isset( $_GET['bundle'] ) ){
                     console.log(  data );
                 }
                 
-                jQuery('#basket-total').text('&pound;' +  data.basketTotal );
-                jQuery('#basket-description').text('&pound;' +  data.description );                
+                jQuery('#basket-total').text('£' +  data.basketTotal.toFixed(2) );
+                jQuery('#basket-description').text( data.description );                
                 
               });
 
