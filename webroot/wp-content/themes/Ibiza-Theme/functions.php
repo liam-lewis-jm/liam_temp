@@ -192,7 +192,7 @@ function breacdcrumbs( $menu_id , $type = 'post' , $status = 'publish' ) {
 
     $r = $wpdb->get_col($wpdb->prepare("
         SELECT p.id FROM {$wpdb->postmeta} pm
-        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+        INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
         WHERE pm.meta_key = '%s' 
         AND p.post_status = '%s' 
         AND pm.meta_value !=  'null' 
@@ -238,7 +238,18 @@ function crumb($id , $status = 'publish' , $output_arr = array() ) {
         return crumb($myrows[0]->pid, $status = 'publish', $output_arr);
         // return self call to get next level up
     } else {
-        $output_arr[$myrows[0]->post_title] = '<li><a href="'. $myrows[0]->meta_value .'">' . $myrows[0]->post_title . '</a></li>';
+        
+        // temp wire how to guides, will need updating
+        if($id == '23935') {
+            // how to id
+            $url        = '/how-to-guides';
+            $title      = 'How to guides';
+        }else{
+            $url        = $myrows[0]->meta_value;
+            $title      = $myrows[0]->post_title;
+        }
+        
+        $output_arr[$myrows[0]->post_title] = '<li><a href="'. $url .'">' . $title . '</a></li>';
         $output_arr[] = '<li><a href="/">Home page </a></li>';
 
         return $output_arr;
