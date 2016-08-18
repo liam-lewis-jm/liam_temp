@@ -43,7 +43,8 @@ jQuery( document ).ready(function() {
     
     //initialize swiper when document ready  
     mySwiperTvProducts = new Swiper('.swiper-container-tv-products', {
-        // Optional parameters
+        nextButton : '.swiper-button-next',
+        prevButton : '.swiper-button-prev'
     });    
     
     setTimeout(doPoll,25000);

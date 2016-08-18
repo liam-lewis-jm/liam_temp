@@ -86,9 +86,64 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                 'contentscheduler' ), 
                 array($this, 'my_dashboard_widget_function'), 
                 'home_product' , 'side' );   
+
+        add_meta_box( 'ContentScheduler_sectionid2', 
+                __( 'Product Details', 
+                'contentscheduler' ), 
+                array($this, 'my_dashboard_widget_function_howtos'), 
+                'howtos' , 'side' ); 
         
         
     }
+    
+    
+    function my_dashboard_widget_function_howtos(){
+        // widget content goes here
+        ?>
+        
+        <div id="product_image"><p></p></div>
+        <div id="product_name"><p></p></div>
+        <div id="product_price"><p></p></div>
+        <script>
+        
+        
+        function getHowTo()
+        {
+            if(jQuery('#title').val().length>0)
+            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/document/" + jQuery('#title').val()   , function( dataIn ) {
+                var items = [];
+                //console.log( dataIn.data.name );
+                jQuery( '#product_name p' ).text( dataIn.data.name  );
+                jQuery( '#product_price p' ).text( dataIn.data.price );
+                jQuery( '#product_image p' ).html( '<img style="width:100%" src="' + dataIn.data['image'] + '" />' );
+            });            
+            
+        }
+        
+        jQuery( document ).ready(function( $ ) {
+            
+            getHowTo();
+            
+            jQuery( "#title" ).keyup(function() {
+                
+                if( jQuery(this).val().length>3 ){
+                    
+                    getHowTo();
+                    
+
+                    
+                }
+            });
+        
+        });        
+        
+        
+        </script>
+        <?php
+    }     
+    
+    
+    
     function my_dashboard_widget_function() {
         // widget content goes here
         ?>
@@ -233,6 +288,43 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
             'capability_type'       => 'post',
             'hierarchical'          => false,
             'taxonomies'            => array('category', 'Test'),
+            /* the next one is important, it tells what's enabled in the post editor */
+            'supports'              => array('title', 'editor', 'thumbnail', 'custom-fields', 'revisions', 'taxonomies')
+                ) /* end of options */
+        ); /* end of register post type */
+        
+        
+    
+
+        register_post_type('howtos', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+                // let's now add all the options for this post type
+                array('labels' => array(
+                'name' => __('How to Guides Widget', 'jointswp'), /* This is the Title of the Group */
+                'singular_name' => __('How to Guides', 'jointswp'), /* This is the individual type */
+                'all_items' => __('All How to Guides', 'jointswp'), /* the all items menu item */
+                'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
+                'add_new_item' => __('Add New How to Guides', 'jointswp'), /* Add New Display Title */
+                'edit' => __('Edit', 'jointswp'), /* Edit Dialog */
+                'edit_item' => __('Edit Post Types', 'jointswp'), /* Edit Display Title */
+                'new_item' => __('New Post Type', 'jointswp'), /* New Display Title */
+                'view_item' => __('View Post Type', 'jointswp'), /* View Display Title */
+                'search_items' => __('Search Post Type', 'jointswp'), /* Search Custom Type Title */
+                'not_found' => __('Nothing found in the Database.', 'jointswp'), /* This displays if there are no entries yet */
+                'not_found_in_trash' => __('Nothing found in Trash', 'jointswp'), /* This displays if there is nothing in the trash */
+                'parent_item_colon' => ''
+            ), /* end of arrays */
+            'description'           => __('This is the example custom post type', 'jointswp'), /* Custom Type Description */
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'exclude_from_search'   => false,
+            'show_ui'               => true,
+            'query_var'             => true,
+            'menu_position'         => 8, /* this is what order you want it to appear in on the left hand side menu */
+            'menu_icon'             => 'dashicons-book', /* the icon for the custom post type menu. uses built-in dashicons (CSS class name) */
+            'rewrite'               => array('slug' => 'site', 'with_front' => false), /* you can specify its url slug */
+            'capability_type'       => 'post',
+            'hierarchical'          => false,
+            'taxonomies'            => array('category'),
             /* the next one is important, it tells what's enabled in the post editor */
             'supports'              => array('title', 'editor', 'thumbnail', 'custom-fields', 'revisions', 'taxonomies')
                 ) /* end of options */

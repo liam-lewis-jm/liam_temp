@@ -90,7 +90,7 @@ $cat_title          = $ibiza_api->cat_data->title;
                 
                 <?php $i = 0;?>
                 
-                    <div class="swiper-container-howto" style="  margin: 0 auto;  overflow: hidden;    position: relative; z-index: 1;">
+                    <div class="swiper-container-howto-cats" style="  margin: 0 auto;  overflow: hidden;    position: relative; z-index: 1;">
                 <!-- Additional required wrapper -->
                 
                 
@@ -129,11 +129,25 @@ $cat_title          = $ibiza_api->cat_data->title;
                 <?php endforeach; ?>
                 
                 
+                        
+                        
+                        
             </div>
+                    </div>
+                    
+                    <?php if (is_active_sidebar('howtoguides')) : ?>
 
+                        <article class="learning__item box1--videos mobile-full tablet-and-up-half">
+
+                            <?php dynamic_sidebar('howtoguides'); ?>
+
+                        </article>         
+
+                    <?php endif; ?>  
+                    
+                </div>
+            </div>
         
-            
-            <!-- End Thumbnails -->
 
         </main>
         
@@ -145,14 +159,14 @@ $cat_title          = $ibiza_api->cat_data->title;
 
 jQuery(document).ready(function () {
     //initialize swiper when document ready  
-    var mySwiper = new Swiper('.swiper-container-howto', {
+    var mySwiper = new Swiper('.swiper-container-howto-cats', {
         // Optional parameters
         loop                : false ,
         pagination          : '.swiper-pagination',
         paginationClickable : true ,
         slidesPerView       : 5 ,
         nextButton : '.swiper-button-next',
-        prevButton : '.swiper-button-prev',
+        prevButton : '.swiper-button-prev'
     });
     
 });

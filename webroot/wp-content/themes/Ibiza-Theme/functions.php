@@ -244,7 +244,11 @@ function crumb($id , $status = 'publish' , $output_arr = array() ) {
             // how to id
             $url        = '/how-to-guides';
             $title      = 'How to guides';
-        }else{
+        } else if( $id == '32' ){
+            $url        = '/products-list';
+            $title      = 'Shop';            
+        }
+        else{
             $url        = $myrows[0]->meta_value;
             $title      = $myrows[0]->post_title;
         }
@@ -282,4 +286,16 @@ function get_product_by_mongo_product_code( $product_code )
     return  reset( json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $product_code ) ) );
     
     
+}
+
+function get_product_by_mongo_id($mongo_id)
+{
+    $data =  json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id  ) ) ;
+    
+    return $data;
+    
+    
+    
+        return  reset( json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id ) ) );
+
 }
