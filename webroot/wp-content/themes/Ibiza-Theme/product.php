@@ -688,12 +688,15 @@ if( isset( $_GET['bundle'] ) ){
             jQuery.ajax({
                 dataType  : 'json' ,
                 url: 'http://<?php echo $_SERVER['SERVER_NAME']; ?>/proxy.php?auctionID=-1&productCode=<?php echo 'IPGP48'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '58783'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
-            })  .done(function( data ) {
+            }).done(function( data ) {
+                
                 if ( console && console.log ) {
                     console.log(  data );
-                    jQuery('#basket-total').text('£' +  data.BasketTotal );
-                    jQuery('#basket-description').text('£' +  data.Description );
                 }
+                
+                jQuery('#basket-total').text('&pound;' +  data.basketTotal );
+                jQuery('#basket-description').text('&pound;' +  data.description );                
+                
               });
 
         }); 
