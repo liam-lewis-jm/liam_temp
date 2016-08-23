@@ -26,7 +26,6 @@ http://codex.wordpress.org/Creating_Admin_Themes
 /* line 32, ../scss/top-menu.scss */
 .top-bar .menu:first-child a:hover {
   position: relative;
-  background: white;
   z-index: 9999999;
 }
 
@@ -35,34 +34,35 @@ http://codex.wordpress.org/Creating_Admin_Themes
   background-color: #fff;
   position: relative;
   z-index: 9999999;
+  color: #000 !important;
 }
 
-/* line 53, ../scss/top-menu.scss */
+/* line 54, ../scss/top-menu.scss */
 .top-bar, .top-bar ul {
   background-color: #fff !important;
 }
 
-/* line 56, ../scss/top-menu.scss */
+/* line 57, ../scss/top-menu.scss */
 .ibiza-menu ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 62, ../scss/top-menu.scss */
+/* line 63, ../scss/top-menu.scss */
 .ibiza-menu ul ul a {
   font-weight: normal !important;
   font-size: 14px;
 }
-/* line 70, ../scss/top-menu.scss */
+/* line 71, ../scss/top-menu.scss */
 .ibiza-menu ul .menu-item-has-children a {
   font-weight: bold;
   color: #000;
 }
-/* line 75, ../scss/top-menu.scss */
+/* line 76, ../scss/top-menu.scss */
 .ibiza-menu ul .menu-item-has-children a:hover {
   text-decoration: underline;
 }
 
-/* line 88, ../scss/top-menu.scss */
+/* line 89, ../scss/top-menu.scss */
 .ibiza-menu {
   box-shadow: 0 5px 14px 0px #313131;
   display: none;
@@ -75,32 +75,32 @@ http://codex.wordpress.org/Creating_Admin_Themes
   left: 0;
   z-index: 999999;
 }
-/* line 102, ../scss/top-menu.scss */
+/* line 103, ../scss/top-menu.scss */
 .ibiza-menu li.large-3, .ibiza-menu li.medium-3 {
   width: 15%;
 }
-/* line 105, ../scss/top-menu.scss */
+/* line 106, ../scss/top-menu.scss */
 .ibiza-menu .row.menus {
   padding: 30px 0 30px 0;
 }
 
-/* line 110, ../scss/top-menu.scss */
+/* line 111, ../scss/top-menu.scss */
 .ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child) {
   float: left;
 }
 
-/* line 116, ../scss/top-menu.scss */
+/* line 117, ../scss/top-menu.scss */
 .ibiza-menu:hover {
   display: block;
 }
 
-/* line 120, ../scss/top-menu.scss */
+/* line 121, ../scss/top-menu.scss */
 .top-bar .ibiza-menu .row {
   margin: 0 auto !important;
   max-width: 75rem;
 }
 
-/* line 125, ../scss/top-menu.scss */
+/* line 126, ../scss/top-menu.scss */
 .main-nav__backdrop {
   background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
   display: block;
@@ -113,12 +113,12 @@ http://codex.wordpress.org/Creating_Admin_Themes
   z-index: 3999;
 }
 
-/* line 138, ../scss/top-menu.scss */
+/* line 139, ../scss/top-menu.scss */
 #content {
   /*    box-shadow: 0 7px 7px -7px #313131 inset;*/
 }
 
-/* line 142, ../scss/top-menu.scss */
+/* line 143, ../scss/top-menu.scss */
 .swiper-container-products {
   margin: 0 auto;
   overflow: hidden;
@@ -126,17 +126,17 @@ http://codex.wordpress.org/Creating_Admin_Themes
   z-index: 1;
 }
 
-/* line 149, ../scss/top-menu.scss */
+/* line 150, ../scss/top-menu.scss */
 .large-4.small-6.columns.ng-scope {
   height: 485px;
 }
 
-/* line 154, ../scss/top-menu.scss */
+/* line 155, ../scss/top-menu.scss */
 input.search-submit {
   display: none;
 }
 
-/* line 158, ../scss/top-menu.scss */
+/* line 159, ../scss/top-menu.scss */
 .swiper-slide div {
   font-weight: bold;
   text-indent: 10px;

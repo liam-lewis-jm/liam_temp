@@ -22,7 +22,7 @@ $cats           =  explode( ',' ,  $instance['cats'] ) ;
 
 $slider             = 0;
 $container_class    = 'products_widget';
-$row_class          = ' large-6 columns';
+$row_class          = ' large-3 columns';
 $swiper_data        = '';
 if( $slider == 1 ){
     $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';
@@ -33,20 +33,31 @@ if( $slider == 1 ){
 
 $ids = array();
 
+
+
+$ids = array();
+
 while ($upw_query->have_posts()) : $upw_query->the_post();
 
-    $ids[] = $post->ID;
-
+    $ids1[] = $post->ID;
+    $ids2[] = '"cat-' . $post->post_title . '"';
 endwhile;
 
 
-
-if( count( $ids ) >0 )
+if( count( $ids1 ) >0 )
 {
     global $wpdb;
 
+    
+    
+    
+    
+
+
+
+
     $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1  
-                        WHERE post_id IN ( ' . implode( ',' , $ids ) . ' ) AND ( meta_key = "_cs-start-date" OR meta_key = "_cs-expire-date" OR meta_key = "_cs-enable-schedule" )
+                        WHERE post_id IN ( ' . implode( ',' , $ids1 ) . ' ) AND ( meta_key = "_cs-start-date" OR meta_key = "_cs-expire-date" OR meta_key = "_cs-enable-schedule" )
                         ');
 
     foreach($myrows as $row)
@@ -55,9 +66,30 @@ if( count( $ids ) >0 )
         $rowArr[ $row->post_id ][ $row->meta_key ] = $row->meta_value;
 
     }
+    
+    
+    
+ 
+    
+    
+    
+    
+    $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1 WHERE meta_key IN ( ' . implode( ',' , $ids2 ) . ' )    ');
+
+    foreach($myrows as $row)
+    {
+        
+        $data                   = json_decode( $row->meta_value );
+        $rowArrTitles[ $data->id ]    = $data->title;
+
+    }
 }
+
+
+
+
 /**
- * @todo Move to a model inside of a plugin
+ * @todo Move to a model inside of a plugin api
  */
 
 
@@ -69,6 +101,8 @@ if( count( $ids ) >0 )
   </div>
 <?php endif; ?>
 
+
+
 <div class="upw-posts hfeed <?php echo $container_class; ?>">
 
     
@@ -78,7 +112,6 @@ if( count( $ids ) >0 )
         
         
         <?php
-        
         $skip = false;
         if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
@@ -100,7 +133,7 @@ if( count( $ids ) >0 )
         if( $skip == 1){
             continue;
         }
-        
+    
         ?>
         
         
@@ -109,12 +142,12 @@ if( count( $ids ) >0 )
     
         
     
-        <?php $product =  get_product_by_mongo_product_code( $post->post_title ) ;  ?>
-     <div class="<?php echo $row_class; ?>">
+        
+        <div class="<?php echo $row_class; ?>" style="height:250px">
         
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
-              <article <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
+              <article <?php post_class($current_post); ?>  style="    height: 100%;background-size:cover;background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
     padding: 17px;" >
         <?php else:?>
             <article <?php post_class($current_post); ?>>
@@ -127,11 +160,7 @@ if( count( $ids ) >0 )
 
 
             <?php if (get_the_title() && $instance['show_title']) : ?>
-              <h4 class="entry-title">
-                <a href="<?php the_permalink(); ?>" rel="bookmark">
-                  <?php the_title(); ?>
-                </a>
-              </h4>
+              <h4 class="entry-title" style="background: #fff"><?php echo $rowArrTitles[trim(get_the_title())]; ?></h4>
             <?php endif; ?>
 
             <?php if ($instance['show_date'] || $instance['show_author'] || $instance['show_comments']) : ?>

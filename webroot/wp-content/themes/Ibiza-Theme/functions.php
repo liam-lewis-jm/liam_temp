@@ -141,9 +141,14 @@ function so_13997743_custom_template($template) {
             default:
                 
                 
-                if(  $segments[0] == 'product-list' || ( $segments[0] ==  'how-to-guides' && isset($segments[1]) ) )
+                if(  ( $segments[0] == 'product-list'  && isset($segments[1]) ) || ($segments[0] ==  'how-to-guides' && isset($segments[1] ) ) ){
+                    
                     $template = plugin_dir_path(__FILE__) . 'template-products-list.php';        
-                
+                }
+                    
+//                if( $segments[0] ==  'how-to-guides' && isset($segments[1])  ){
+//                    $template = plugin_dir_path(__FILE__) . 'template-how-to-guides.php';        
+//                }
         }
     
         
@@ -234,7 +239,16 @@ function crumb($id , $status = 'publish' , $output_arr = array() ) {
         
     if ($myrows[0]->pid != 0) {
 
-        $output_arr[] = '<li><a href="'. $myrows[0]->meta_value .'">' . $myrows[0]->post_title . '</a></li>';
+        static $i;
+        $class= '';
+            
+        if( $i==0 ){
+            $class= 'class="current"';
+        }
+        
+        $output_arr[] = '<li '. $class .'><a href="'. $myrows[0]->meta_value .'">' . $myrows[0]->post_title . '</a></li>';
+        
+        $i++;
         return crumb($myrows[0]->pid, $status = 'publish', $output_arr);
         // return self call to get next level up
     } else {

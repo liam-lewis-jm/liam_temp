@@ -19,7 +19,6 @@ $facetsOb           = $ibiza_api->get_product_list_facets_object();
 $top_level          = $ibiza_api->is_top_level;    
 $filter_cat_str     = "ejs.TermFilter('_category', '" . $cat ."')";
 $title              = $ibiza_api->get_product_list_title( get_query_var('products') );
-
 $index              = 'product';
 
 if($cat==0){
@@ -29,15 +28,14 @@ if($cat==0){
 
 $breadcrumbs        = breacdcrumbs('cat-' . $cat  );
 $cat_title          = $ibiza_api->cat_data->title; 
-
-
-    $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
+$segments           = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
                         
 
 
 if( $segments[0] == 'how-to-guides'  ){
     $index              = 'howto';
     $cat_title          = $cat_title;
+    $sort               =  array();
 } 
 
 
@@ -75,11 +73,21 @@ if( $segments[0] == 'how-to-guides'  ){
         
         <nav aria-label="You are here:" role="navigation"   class="column">
             <ul class="breadcrumbs">
-                <?php echo implode('', $breadcrumbs); ?></p>
+                <?php echo implode('', $breadcrumbs); ?>
             </ul>
         </nav>
         <div class="sidebar large-3 columns show-for-large " role="complementary">
-            <?php if($top_level == false): ?>
+            
+            <?php if($index=='howto'): ?>
+            <div id="side-facets">
+
+                  <h3>Search</h3>
+
+                  <eui-searchboxx></eui-searchboxx> 
+            </div>
+            <?php endif; ?>
+            
+            <?php if($top_level == false && $index=='product'): ?>
             
             
           
@@ -100,7 +108,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
                 <h3>Search</h3>
                 
-                <eui-searchboxx></eui-searchboxx> <!-- ACTION: change to field to search on -->
+                <eui-searchboxx></eui-searchboxx> 
 
                 <?php
                 if(count($facets))
@@ -185,6 +193,8 @@ if( $segments[0] == 'how-to-guides'  ){
                     
                     <div class="large-4 columns">
                         
+                        
+                        <?php if( count( $sort ) ): ?>
                         <select id="sort_order" data-id="sort">
 
 
@@ -195,7 +205,7 @@ if( $segments[0] == 'how-to-guides'  ){
                             <?php endforeach; ?>
 
                         </select>                        
-                        
+                        <?php endif; ?>
                     </div>
                     
                     

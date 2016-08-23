@@ -1,13 +1,13 @@
 <?php
 /*
-  Template Name: How to guides
+  Template Name: Products List Landing Page
  */
 
 
 global $ibiza_api;
-
+//32 is shop catgeory
 $cat                = $ibiza_api->get_product_list_category(  get_query_var('the_id') );
-$catss              = $ibiza_api->get_product_list_top_level_categorys( 99 , 23935 );
+$catss              = $ibiza_api->get_product_list_top_level_categorys( 99 , 32 );
 $title              = $ibiza_api->get_product_list_title( get_query_var('products') );
 $cat_title          = $ibiza_api->cat_data->title; 
 
@@ -29,7 +29,7 @@ $cat_title          = $ibiza_api->cat_data->title;
         </nav>
         <div class="sidebar large-3 columns show-for-large " role="complementary">
             
-            <h3>How To Categories</h3>
+            <h3>Products Categories</h3>
             
            <ul>
             
@@ -135,11 +135,11 @@ $cat_title          = $ibiza_api->cat_data->title;
             </div>
                     </div>
                     
-                    <?php if (is_active_sidebar('howtoguides')) : ?>
+                    <?php if (is_active_sidebar('products')) : ?>
 
                         <div>
 
-                            <?php dynamic_sidebar('howtoguides'); ?>
+                            <?php dynamic_sidebar('products'); ?>
 
                         </div>         
 

@@ -31,7 +31,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
             &:hover {
                 position: relative;
-                background:white;
+                
                 z-index: 9999999;
             }
         }
@@ -44,6 +44,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
     background-color: #fff;
     position:relative;
     z-index: 9999999;
+    color:#000!important;
 }
 
 

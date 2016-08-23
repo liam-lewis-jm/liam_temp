@@ -5,28 +5,15 @@
  * @version     2.0.0
  */
 
-$image          = '';
-$cats           =  explode( ',' ,  $instance['cats'] ) ;
-//$is_scheduled   = false;
-//
-//
-//foreach( $cats as $cat ){
-//    
-//    if( get_cat_name( $cat ) == 'Scheduled' ){
-//        
-//        $is_scheduled = true;
-//        
-//    }
-//    
-//}
-
-$slider             = 0;
+$image              = '';
+$cats               = explode( ',' ,  $instance['cats'] ) ;
+$slider             = 1;
 $container_class    = 'products_widget';
 $row_class          = ' large-6 columns';
 $swiper_data        = '';
 if( $slider == 1 ){
     $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';
-    $container_class    = 'swiper-container';
+    $container_class    = 'swiper-container-products-page';
     $row_class          = 'swiper-slide ';
 }
 
@@ -69,6 +56,8 @@ if( count( $ids ) >0 )
   </div>
 <?php endif; ?>
 
+
+
 <div class="upw-posts hfeed <?php echo $container_class; ?>">
 
     
@@ -77,31 +66,7 @@ if( count( $ids ) >0 )
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
         
         
-        <?php
-        
-        $skip = false;
-        if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
-
-            if( time() > $rowArr[$post->ID]['_cs-start-date'] && time() < $rowArr[$post->ID]['_cs-expire-date']) {
-
-            }else{
-                
-                $skip   = true;
-                
-            }
-            
-        }else{
-            
-            $skip   = true;
-            
-        }
-
-        if( $skip == 1){
-            continue;
-        }
-        
-        ?>
         
         
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>
@@ -191,13 +156,12 @@ if( count( $ids ) >0 )
                 
           <?php // product specfic info  ?>
                 
-            <div class="large-6 columns">
-                <h4><a href="/p/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
+            <div class="large-12 columns">
+                <h6><a href="/p/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h6>
+<!--                <p><?php echo $product->data->description;?></p>-->
+                <p><a href="/p/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a></p>
             </div>
-
-            <div class="large-6 columns">
-                <a href="/p/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
-            </div>
+ 
           
           <footer>
 
@@ -267,3 +231,22 @@ if( count( $ids ) >0 )
     <?php echo wpautop($instance['after_posts']); ?>
   </div>
 <?php endif; ?>
+
+<script>
+
+jQuery(document).ready(function () {
+    //initialize swiper when document ready  
+    var mySwiper = new Swiper('.swiper-container-products-page', {
+        // Optional parameters
+        loop                : false ,
+        pagination          : '.swiper-pagination',
+        paginationClickable : true ,
+        slidesPerView       : 5 ,
+        nextButton : '.swiper-button-next',
+        prevButton : '.swiper-button-prev'
+    });
+    
+});
+
+
+</script>

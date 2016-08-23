@@ -313,9 +313,9 @@ if ( !class_exists( "ContentScheduler" ) ) {
             if( $this->options['datepicker'] == '1' ) {
             ?>
             <script type="text/javascript">
-            jQuery(function(){
-                jQuery( '#cs-expire-date' ).datetimepicker();
-                jQuery( '#cs-start-date' ).datetimepicker();
+                jQuery(function(){
+                    jQuery( '#cs-expire-date' ).datetimepicker( {"dateFormat":"d MM yy"}  );
+                    jQuery( '#cs-start-date' ).datetimepicker( {"dateFormat":"d MM yy"}  );
                 });
             </script>
 	        <?php

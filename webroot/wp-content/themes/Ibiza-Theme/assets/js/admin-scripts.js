@@ -30,7 +30,7 @@ jQuery(document).ready(function () {
     });
     
     
-    jQuery( "body" ).on( "change", '#promote_cat' , function() {
+    jQuery( "body" ).on( "change", '#promote_cat_cat' , function() {
          //var a = $(this).val();
          
          var promoted = 0;
@@ -42,6 +42,30 @@ jQuery(document).ready(function () {
          
         jQuery.ajax({
           url: "/wp-admin/nav-menus.php?promote_menu=1&menu_id=" + jQuery(this).val() + '&promoted=' + promoted ,
+          context: document.body
+        }).done(function( data ) {
+            
+            
+            
+        });           
+         
+         
+         
+    }); 
+    
+    
+    jQuery( "body" ).on( "change", '#promote_cat_landing' , function() {
+         //var a = $(this).val();
+         
+         var promoted = 0;
+         
+         if( jQuery(this).is( ':checked' )  ){
+             promoted= 1;
+         }
+         
+         
+        jQuery.ajax({
+          url: "/wp-admin/nav-menus.php?promote_menu=2&menu_id=" + jQuery(this).val() + '&promoted=' + promoted ,
           context: document.body
         }).done(function( data ) {
             

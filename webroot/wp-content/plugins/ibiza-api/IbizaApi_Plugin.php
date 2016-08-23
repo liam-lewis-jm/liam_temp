@@ -122,6 +122,8 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     private $page_sizes             = array(1, 5, 12, 20, 50, 100, 200);
     private $ignore_query_strs      = array( 'cat' , 'title' , 'count' , 'sort' , 'pager' , 'q' );
     private $facetsOb               = null;
+    private $sub_cats               = array();
+    public  $all_cats               = array();
     /**
      * end class variables
      */    
@@ -209,10 +211,6 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     public function get_product_list_top_level_categorys( $cat , $id = 0 ) 
     {
 
-        
-
-        
-        
         if($cat){
             
             global $wpdb;
@@ -240,20 +238,40 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         
         
         $items          = wp_get_nav_menu_items( $this::wp_menu_id );
-        
+        //print_r($items);die;
         foreach ($items as $item) {
 
             if ($item->ID == $id && in_array($item->menu_item_parent,  $this->top_level_category ) ) {
                 $this->is_top_level = true;
             }
 
-            if ($item->menu_item_parent == $id) {
-
-                $catss[$item->post_title] = (object) $item;
+            if ($item->menu_item_parent == $id   ) {
+                $this->sub_cats[]                   = $item->ID;
+                $this->all_cats[$item->post_title]  = (object) $item;
+                $catss[$item->post_title]           = (object) $item;
             }
+            
+            if(in_array($item->menu_item_parent, $this->sub_cats)){
+                $this->sub_cats[]                   = $item->ID;
+                
+                $this->all_cats[$item->post_name] = (object) $item;
+            }
+            
+
+            
+        }
+        // run again to pick up any missed categorys
+        foreach ($items as $item) {
+           
+            if(in_array($item->menu_item_parent, $this->sub_cats)){
+                $this->sub_cats[]                   = $item->ID;
+                
+                $this->all_cats[$item->post_name] = (object) $item;
+            }
+            
         }
 
-
+        //print_r($this->sub_cats)
         
         ksort($catss);
         

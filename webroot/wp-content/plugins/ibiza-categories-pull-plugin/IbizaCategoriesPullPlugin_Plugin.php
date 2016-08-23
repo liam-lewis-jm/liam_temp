@@ -96,7 +96,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             
         }
 
-        if( $_GET['promote_menu'] == 1  ){
+        if( $_GET['promote_menu'] == 1 || $_GET['promote_menu'] == 2 ){
 
             add_action('init', array(&$this, 'promote_menu'));
             
@@ -215,10 +215,16 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             $promote = 1;
         }
         
+        $col_to_update = 'post_content';
+        
+        if( $_GET['promote_menu'] == '2' ){
+            $col_to_update = 'post_excerpt';
+        }
+        
         // Update post 37
         $my_post = array(
             'ID'           =>   (int)$_GET['menu_id'] ,
-            'post_content' =>   $promote ,
+            $col_to_update =>   $promote ,
         );
 
       // Update the post into the database
@@ -258,11 +264,18 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
            
           
            
-            <label>Promote category</label>
+            <label>Promote category on category page</label>
             <?php if( $menu_item->post_content == 1 ): ?>
-            <input id="promote_cat" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" checked="checked" />
+            <input id="promote_cat_cat" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" checked="checked" />
             <?php else: ?>
-            <input id="promote_cat" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" />
+            <input id="promote_cat_cat" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" />
+            <?php endif; ?>     
+            <br />
+            <label>Promote category on landing page</label>
+            <?php if( $menu_item->post_excerpt == 1 ): ?>
+            <input id="promote_cat_landing" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" checked="checked" />
+            <?php else: ?>
+            <input id="promote_cat_landing" type="checkbox" value="<?php echo $menu_item->ID; ?>" name="" />
             <?php endif; ?>
             <button class="my_popup_close">Close</button>
 

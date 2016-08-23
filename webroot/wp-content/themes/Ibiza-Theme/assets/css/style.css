@@ -87,7 +87,6 @@ http://codex.wordpress.org/Creating_Admin_Themes
 /* line 32, ../scss/top-menu.scss */
 .top-bar .menu:first-child a:hover {
   position: relative;
-  background: white;
   z-index: 9999999;
 }
 
@@ -96,34 +95,35 @@ http://codex.wordpress.org/Creating_Admin_Themes
   background-color: #fff;
   position: relative;
   z-index: 9999999;
+  color: #000 !important;
 }
 
-/* line 53, ../scss/top-menu.scss */
+/* line 54, ../scss/top-menu.scss */
 .top-bar, .top-bar ul {
   background-color: #fff !important;
 }
 
-/* line 56, ../scss/top-menu.scss */
+/* line 57, ../scss/top-menu.scss */
 .ibiza-menu ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 62, ../scss/top-menu.scss */
+/* line 63, ../scss/top-menu.scss */
 .ibiza-menu ul ul a {
   font-weight: normal !important;
   font-size: 14px;
 }
-/* line 70, ../scss/top-menu.scss */
+/* line 71, ../scss/top-menu.scss */
 .ibiza-menu ul .menu-item-has-children a {
   font-weight: bold;
   color: #000;
 }
-/* line 75, ../scss/top-menu.scss */
+/* line 76, ../scss/top-menu.scss */
 .ibiza-menu ul .menu-item-has-children a:hover {
   text-decoration: underline;
 }
 
-/* line 88, ../scss/top-menu.scss */
+/* line 89, ../scss/top-menu.scss */
 .ibiza-menu {
   box-shadow: 0 5px 14px 0px #313131;
   display: none;
@@ -136,32 +136,32 @@ http://codex.wordpress.org/Creating_Admin_Themes
   left: 0;
   z-index: 999999;
 }
-/* line 102, ../scss/top-menu.scss */
+/* line 103, ../scss/top-menu.scss */
 .ibiza-menu li.large-3, .ibiza-menu li.medium-3 {
   width: 15%;
 }
-/* line 105, ../scss/top-menu.scss */
+/* line 106, ../scss/top-menu.scss */
 .ibiza-menu .row.menus {
   padding: 30px 0 30px 0;
 }
 
-/* line 110, ../scss/top-menu.scss */
+/* line 111, ../scss/top-menu.scss */
 .ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child) {
   float: left;
 }
 
-/* line 116, ../scss/top-menu.scss */
+/* line 117, ../scss/top-menu.scss */
 .ibiza-menu:hover {
   display: block;
 }
 
-/* line 120, ../scss/top-menu.scss */
+/* line 121, ../scss/top-menu.scss */
 .top-bar .ibiza-menu .row {
   margin: 0 auto !important;
   max-width: 75rem;
 }
 
-/* line 125, ../scss/top-menu.scss */
+/* line 126, ../scss/top-menu.scss */
 .main-nav__backdrop {
   background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
   display: block;
@@ -174,12 +174,12 @@ http://codex.wordpress.org/Creating_Admin_Themes
   z-index: 3999;
 }
 
-/* line 138, ../scss/top-menu.scss */
+/* line 139, ../scss/top-menu.scss */
 #content {
   /*    box-shadow: 0 7px 7px -7px #313131 inset;*/
 }
 
-/* line 142, ../scss/top-menu.scss */
+/* line 143, ../scss/top-menu.scss */
 .swiper-container-products {
   margin: 0 auto;
   overflow: hidden;
@@ -187,17 +187,17 @@ http://codex.wordpress.org/Creating_Admin_Themes
   z-index: 1;
 }
 
-/* line 149, ../scss/top-menu.scss */
+/* line 150, ../scss/top-menu.scss */
 .large-4.small-6.columns.ng-scope {
   height: 485px;
 }
 
-/* line 154, ../scss/top-menu.scss */
+/* line 155, ../scss/top-menu.scss */
 input.search-submit {
   display: none;
 }
 
-/* line 158, ../scss/top-menu.scss */
+/* line 159, ../scss/top-menu.scss */
 .swiper-slide div {
   font-weight: bold;
   text-indent: 10px;
@@ -6831,15 +6831,16 @@ p.ng-binding {
 /** Caption 3: Fade **/
 /* line 236, ../scss/style.scss */
 #main .box .fade-caption, #main .box .scale-caption {
+  box-sizing: border-box;
+  height: 100%;
   opacity: 0;
-  width: 240px;
-  height: 240px;
+  padding: 21px;
   text-align: left;
-  padding: 15px;
+  width: 100%;
 }
 
 /** Caption 4: Slide **/
-/* line 245, ../scss/style.scss */
+/* line 246, ../scss/style.scss */
 #main .box .slide-caption {
   width: 170px;
   height: 170px;
@@ -6849,7 +6850,7 @@ p.ng-binding {
 }
 
 /** Caption 5: Rotate **/
-/* line 254, ../scss/style.scss */
+/* line 255, ../scss/style.scss */
 #main #box-5.box .rotate-caption {
   width: 170px;
   height: 170px;
@@ -6862,7 +6863,7 @@ p.ng-binding {
   transform: rotate(-180deg);
 }
 
-/* line 266, ../scss/style.scss */
+/* line 267, ../scss/style.scss */
 #main .box .rotate {
   width: 200px;
   height: 400px;
@@ -6874,7 +6875,7 @@ p.ng-binding {
 }
 
 /** Caption 6: Scale **/
-/* line 277, ../scss/style.scss */
+/* line 278, ../scss/style.scss */
 #main .box .scale-caption h3, #main .box .scale-caption p {
   position: relative;
   left: -200px;
@@ -6886,7 +6887,7 @@ p.ng-binding {
   transition: all 300ms ease-out;
 }
 
-/* line 288, ../scss/style.scss */
+/* line 289, ../scss/style.scss */
 #main .box .scale-caption h3 {
   -webkit-transition-delay: 300ms;
   -moz-transition-delay: 300ms;
@@ -6895,7 +6896,7 @@ p.ng-binding {
   transition-delay: 300ms;
 }
 
-/* line 296, ../scss/style.scss */
+/* line 297, ../scss/style.scss */
 #main .box .scale-caption p {
   -webkit-transition-delay: 500ms;
   -moz-transition-delay: 500ms;
@@ -6905,7 +6906,7 @@ p.ng-binding {
 }
 
 /** Simple Caption :hover Behaviour **/
-/* line 305, ../scss/style.scss */
+/* line 306, ../scss/style.scss */
 #main .box:hover .simple-caption {
   -moz-transform: translateY(-100%);
   -o-transform: translateY(-100%);
@@ -6915,7 +6916,7 @@ p.ng-binding {
 }
 
 /** Full Caption :hover Behaviour **/
-/* line 314, ../scss/style.scss */
+/* line 315, ../scss/style.scss */
 #main .box:hover .full-caption {
   -moz-transform: translateY(100%);
   -o-transform: translateY(100%);
@@ -6925,13 +6926,13 @@ p.ng-binding {
 }
 
 /** Fade Caption :hover Behaviour **/
-/* line 323, ../scss/style.scss */
+/* line 324, ../scss/style.scss */
 #main .box:hover .fade-caption, #main .box:hover .scale-caption {
   opacity: 1;
 }
 
 /** Slide Caption :hover Behaviour **/
-/* line 328, ../scss/style.scss */
+/* line 329, ../scss/style.scss */
 #main .box:hover .slide-caption {
   background-color: black !important;
   -moz-transform: translateX(-100%);
@@ -6941,7 +6942,7 @@ p.ng-binding {
   transform: translateX(-100%);
 }
 
-/* line 336, ../scss/style.scss */
+/* line 337, ../scss/style.scss */
 #main .box:hover img#image-4 {
   -moz-transform: translateX(-100%);
   -o-transform: translateX(-100%);
@@ -6951,7 +6952,7 @@ p.ng-binding {
 }
 
 /** Rotate Caption :hover Behaviour **/
-/* line 345, ../scss/style.scss */
+/* line 346, ../scss/style.scss */
 #main .box:hover .rotate {
   background-color: black !important;
   -moz-transform: rotate(-180deg);
@@ -6961,7 +6962,7 @@ p.ng-binding {
 }
 
 /** Scale Caption :hover Behaviour **/
-/* line 354, ../scss/style.scss */
+/* line 355, ../scss/style.scss */
 #main .box:hover #image-6 {
   -moz-transform: scale(1.4);
   -o-transform: scale(1.4);
@@ -6969,7 +6970,7 @@ p.ng-binding {
   transform: scale(1.4);
 }
 
-/* line 361, ../scss/style.scss */
+/* line 362, ../scss/style.scss */
 #main .box:hover .scale-caption h3, #main .box:hover .scale-caption p {
   -moz-transform: translateX(200px);
   -o-transform: translateX(200px);
@@ -6977,7 +6978,12 @@ p.ng-binding {
   transform: translateX(200px);
 }
 
-/* line 369, ../scss/style.scss */
+/* line 370, ../scss/style.scss */
 .add_facets li {
   cursor: pointer;
+}
+
+/* line 374, ../scss/style.scss */
+#inner-content {
+  min-height: 600px;
 }
