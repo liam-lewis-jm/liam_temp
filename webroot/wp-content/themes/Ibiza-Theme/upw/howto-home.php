@@ -20,7 +20,31 @@ if( $slider == 1 ){
 }
 
 
+$ids = array();
 
+while ($upw_query->have_posts()) : $upw_query->the_post();
+
+    $ids[] = $post->ID;
+
+endwhile;
+
+
+
+if( count( $ids ) >0 )
+{
+    global $wpdb;
+
+    $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1  
+                        WHERE post_id IN ( ' . implode( ',' , $ids ) . ' ) AND ( meta_key = "_cs-start-date" OR meta_key = "_cs-expire-date" OR meta_key = "_cs-enable-schedule" )
+                        ');
+
+    foreach($myrows as $row)
+    {
+
+        $rowArr[ $row->post_id ][ $row->meta_key ] = $row->meta_value;
+
+    }
+}
 
 ?>
 
@@ -44,7 +68,31 @@ if( $slider == 1 ){
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
         
         
+        <?php
+        
+        $skip = false;
+        if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
+
+            if( time() > $rowArr[$post->ID]['_cs-start-date'] && time() < $rowArr[$post->ID]['_cs-expire-date']) {
+
+            }else{
+                
+                $skip   = true;
+                
+            }
+            
+        }else{
+            
+            $skip   = true;
+            
+        }
+
+        if( $skip == 1){
+            continue;
+        }
+        
+        ?>
         
         
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>

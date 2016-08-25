@@ -73,7 +73,6 @@
                       <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
                       <li><a href="#">92815 Independent Reviews</a></li>
                     </ul>                    
-                                        
                     
                 </div>
                 <div class="large-6 columns">
@@ -81,10 +80,14 @@
                     
                     <ul class="menu float-right">
                       <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx?_ga=1.141642677.624630137.1465816634">Your Bag</a></li>
+                      
+                      <?php if(_LOGGED_IN): ?>
+                      <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+                      <?php endif;?>
+                      
                     </ul>                    
                     
                     
-                </div>
             </div>                    
                     
                     <nav class="header row" role="banner">

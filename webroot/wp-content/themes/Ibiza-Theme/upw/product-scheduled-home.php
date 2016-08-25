@@ -5,21 +5,60 @@
  * @version     2.0.0
  */
 
-$image              = '';
-$cats               = explode( ',' ,  $instance['cats'] ) ;
+$image          = '';
+$cats           =  explode( ',' ,  $instance['cats'] ) ;
+//$is_scheduled   = false;
+//
+//
+//foreach( $cats as $cat ){
+//    
+//    if( get_cat_name( $cat ) == 'Scheduled' ){
+//        
+//        $is_scheduled = true;
+//        
+//    }
+//    
+//}
+
 $slider             = 1;
 $container_class    = 'products_widget';
 $row_class          = ' large-6 columns';
 $swiper_data        = '';
-$style= '';
 if( $slider == 1 ){
     $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';
-    $container_class    = 'swiper-container-howto';
+    $container_class    = 'swiper-container-scheduled-home swiper large-6';
     $row_class          = 'swiper-slide ';
-    $style              = 'style="margin: 0 auto;  overflow: hidden;    position: relative; z-index: 1;"';
 }
 
 
+$ids = array();
+
+while ($upw_query->have_posts()) : $upw_query->the_post();
+
+    $ids[] = $post->ID;
+
+endwhile;
+
+
+
+if( count( $ids ) >0 )
+{
+    global $wpdb;
+
+    $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1  
+                        WHERE post_id IN ( ' . implode( ',' , $ids ) . ' ) AND ( meta_key = "_cs-start-date" OR meta_key = "_cs-expire-date" OR meta_key = "_cs-enable-schedule" )
+                        ');
+
+    foreach($myrows as $row)
+    {
+
+        $rowArr[ $row->post_id ][ $row->meta_key ] = $row->meta_value;
+
+    }
+}
+/**
+ * @todo Move to a model inside of a plugin
+ */
 
 
 ?>
@@ -30,21 +69,41 @@ if( $slider == 1 ){
   </div>
 <?php endif; ?>
 
-
-
-<div class="upw-posts hfeed <?php echo $container_class; ?>" <?php echo $style; ?>>
-
+<div class="upw-posts hfeed <?php echo $container_class; ?>">
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div> 
+    <div class="swiper-pagination"></div>        
+    
   <?php if ($upw_query->have_posts()) : ?>
     <div<?php echo $swiper_data;?>>
-        
-
-        
       <?php while ($upw_query->have_posts()) : $upw_query->the_post(); ?>
         
         
+        <?php
+        
+        $skip = false;
+        if( (isset( $rowArr[$post->ID]['_cs-expire-date'] ) && isset( $rowArr[$post->ID]['_cs-start-date'] ) ) && $rowArr[$post->ID]['_cs-enable-schedule'] == 'Enable'  ){
 
+
+            if( time() > $rowArr[$post->ID]['_cs-start-date'] && time() < $rowArr[$post->ID]['_cs-expire-date']) {
+
+            }else{
+                
+                $skip   = true;
+                
+            }
+            
+        }else{
+            
+            $skip   = true;
+            
+        }
+
+        if( $skip == 1){
+            continue;
+        }
+        
+        ?>
         
         
         <?php $current_post = ($post->ID == $current_post_id && is_single()) ? 'active' : '';   ;?>
@@ -52,8 +111,8 @@ if( $slider == 1 ){
     
         
     
-        <?php $howto =  get_product_by_mongo_id( $post->post_title ) ;  print_r($product); ?>
-     <div class="<?php echo $row_class; ?>">
+        <?php $product =  get_product_by_mongo_product_code( $post->post_title ) ;  ?>
+        <div class="<?php echo $row_class; ?>">
         
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
@@ -133,11 +192,10 @@ if( $slider == 1 ){
                 
                 
           <?php // product specfic info  ?>
-                
-            <div class="large-12 columns">
-                <h6><a href="/h/<?php echo $howto->_id;?>/"><?php echo  $howto->data->name; ?></a></h6>
-                <p><img src="<?php echo $howto->data->image; ?>" alt="" /></p>
-            </div>         
+                <a href="/p/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
+                <p><a href="/p/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></p>
+                <p>&pound;<?php echo number_format( $product->data->price , 2 ); ?></p>
+                <p><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> Read Reviews (15)</p>
           <footer>
 
             <?php
@@ -207,17 +265,16 @@ if( $slider == 1 ){
   </div>
 <?php endif; ?>
 
-
 <script>
 
 jQuery(document).ready(function () {
     //initialize swiper when document ready  
-    var mySwiper = new Swiper('.swiper-container-howto', {
+    var mySwiper = new Swiper('.swiper-container-scheduled-home', {
         // Optional parameters
         loop                : false ,
         pagination          : '.swiper-pagination',
         paginationClickable : true ,
-        slidesPerView       : 5 ,
+        slidesPerView       : 4 ,
         nextButton : '.swiper-button-next',
         prevButton : '.swiper-button-prev'
     });

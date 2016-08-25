@@ -6987,3 +6987,44 @@ p.ng-binding {
 #inner-content {
   min-height: 600px;
 }
+
+/* line 378, ../scss/style.scss */
+.swiper {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 384, ../scss/style.scss */
+.swiper-container-scheduled-home .home_product {
+  padding: 25px;
+}
+
+/* line 386, ../scss/style.scss */
+#sticky-posts-10 {
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+/* line 390, ../scss/style.scss */
+.swiper-container-howto img {
+  height: 200px;
+}
+
+/* line 393, ../scss/style.scss */
+.swiper-container-howto article {
+  text-align: center;
+}
+
+/* line 397, ../scss/style.scss */
+#sticky-posts-12 h4 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* line 402, ../scss/style.scss */
+.home_product.type-home_product.status-publish.hentry p {
+  font-size: 12px;
+  margin: 0;
+}

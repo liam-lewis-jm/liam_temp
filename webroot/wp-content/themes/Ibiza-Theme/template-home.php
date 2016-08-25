@@ -130,8 +130,9 @@
     
 </section>        
 
+<hr />
 
-<section class="row" id="second-band">
+<section class="row" id="third-band">
     
     <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
 

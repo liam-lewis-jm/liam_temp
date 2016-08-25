@@ -125,61 +125,49 @@ if( isset( $_GET['bundle'] ) ){
                 </div>
             </div>
 
+            <div class="clear">&nbsp;</div>
+
+
+            <ul class="tabs" data-tabs id="example-tabs">
+                <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>
+                <li class="tabs-title"><a href="#panel2">Specifications</a></li>
+            </ul>
+            
+            <div class="tabs-content" data-tabs-content="example-tabs">
+                <div class="tabs-panel is-active" id="panel1">
+                    <h4>Description</h4>
+                    <p  id="product_description"><?php echo $response->description; ?></p>
+                </div>
+                <div class="tabs-panel" id="panel2">
+
+                    <h4>Specifications</h4>
+                    <div class="row medium-up-12 large-up-12">
+                        <div class="column">
+
+                        <?php foreach($schema->properties as $key => $property): ?>
+                        <?php   if( !isset( $core[$key] ) && isset($response->$key) && $response->$key && $property->title ): ?>
+
+                        <div class="medium-6 large-6 columns attr_template">
+                            <p><?php echo $property->title; ?></p>
+                        </div>
+
+
+                        <div class="medium-6 large-6 columns attr_template">
+                            <p><?php echo $property->prepend .  $response->$key . $property->append; ?></p>
+                        </div>         
 
 
 
+                        <?php endif; ?>   
 
 
+                        <?php endforeach; ?>
 
 
-
-
-                <div class="clear">&nbsp;</div>
-
-
-
-
-
-
-                <ul class="tabs" data-tabs id="example-tabs">
-                    <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>
-                    <li class="tabs-title"><a href="#panel2">Specifications</a></li>
-                </ul>
-                <div class="tabs-content" data-tabs-content="example-tabs">
-                    <div class="tabs-panel is-active" id="panel1">
-                        <h4>Description</h4>
-                        <p  id="product_description"><?php echo $response->description; ?></p>
-                    </div>
-                    <div class="tabs-panel" id="panel2">
-
-                        <h4>Specifications</h4>
-                        <div class="row medium-up-12 large-up-12">
-                            <div class="column">
-
-                            <?php foreach($schema->properties as $key => $property): ?>
-                            <?php   if( !isset( $core[$key] ) && isset($response->$key) && $response->$key && $property->title ): ?>
-
-                            <div class="medium-6 large-6 columns attr_template">
-                                <p><?php echo $property->title; ?></p>
-                            </div>
-
-
-                            <div class="medium-6 large-6 columns attr_template">
-                                <p><?php echo $property->prepend .  $response->$key . $property->append; ?></p>
-                            </div>         
-
-
-
-                            <?php endif; ?>   
-
-
-                            <?php endforeach; ?>
-
-
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 

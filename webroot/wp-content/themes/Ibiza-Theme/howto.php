@@ -59,7 +59,7 @@ if( isset( $_GET['json'] ) ){
                 <ul>
                 <?php foreach($response->data->products as $key => $product): ?>
 
-                    <li><a href="/product-list/<?php echo $product->product ?>/<?php echo $product->title; ?>/?type=product"><?php echo $product->title; ?></a></li>
+                    <li><a rel="groups" href="/p/<?php echo $product->product ?>/?bundle=1" class="howto_products" ><?php echo $product->title; ?></a></li>
 
                 <?php endforeach; ?>
                 </ul>
@@ -180,7 +180,7 @@ if( isset( $_GET['json'] ) ){
 		maxHeight	: 600   ,
 		fitToView	: false ,
 		width		: '70%' ,
-		height		: '70%' ,
+		height		: '100%' ,
 		autoSize	: false ,
 		closeClick	: false ,
 		openEffect	: 'none',
@@ -198,6 +198,21 @@ if( isset( $_GET['json'] ) ){
 				height	: 50
 			}
 		}                
+	});
+
+	jQuery(".howto_products").fancybox({
+		maxWidth	: 800   ,
+		maxHeight	: 600   ,
+		fitToView	: false ,
+		width		: '70%' ,
+		height		: '70%' ,
+		autoSize	: false ,
+		closeClick	: false ,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+                type            : 'ajax',
+                nextEffect      : 'none',
+                prevEffect      : 'none'           
 	});
 
 

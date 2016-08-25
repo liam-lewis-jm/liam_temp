@@ -374,3 +374,32 @@ p.ng-binding {
 #inner-content{
     min-height:600px;
 }
+
+.swiper{
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.swiper-container-scheduled-home .home_product {
+    padding: 25px;
+}#sticky-posts-10{
+      margin: 40px 0;
+    overflow: hidden;
+}
+.swiper-container-howto img{
+    height:200px;
+}
+.swiper-container-howto article{
+    text-align: center;
+    
+}
+#sticky-posts-12 h4{
+    text-align: center;
+    margin:20px 0;
+}
+
+.home_product.type-home_product.status-publish.hentry p {
+    font-size: 12px;
+    margin: 0;
+}
