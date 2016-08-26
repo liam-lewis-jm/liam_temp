@@ -35,7 +35,7 @@ function joints_register_sidebars() {
 		'id' => 'homepagesidebar',
 		'name' => __('Homepage sidebar', 'jointswp'),
 		'description' => __('The search area sidebar.', 'jointswp'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s  large-6 columns">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s  large-4 columns">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
@@ -123,6 +123,21 @@ function joints_register_sidebars() {
 		'id' => 'homepagebelowmaincontent_full',
 		'name' => __('Homepage panel below content full', 'jointswp'),
 		'description' => __('Homepage panel below content full.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+        
+       
+
+
+
+	register_sidebar(array(
+		'id' => 'presenters',
+		'name' => __('Presenters page content', 'jointswp'),
+		'description' => __('Presenters page content.', 'jointswp'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',

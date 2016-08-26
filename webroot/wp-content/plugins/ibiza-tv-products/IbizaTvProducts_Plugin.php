@@ -147,8 +147,8 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
         
         
         if ( is_front_page() ) {
-            wp_enqueue_script('my-script', plugins_url('/js/tv-products.js', __FILE__));
-            wp_enqueue_style('my-style', plugins_url('/css/tv-products.css', __FILE__));
+         //   wp_enqueue_script('my-script', plugins_url('/js/tv-products.js', __FILE__));
+         //  wp_enqueue_style('my-style', plugins_url('/css/tv-products.css', __FILE__));
             
         }         
         
@@ -169,40 +169,26 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
         
         ?>
 
-
-        <!-- Slider main container -->
-        <div class="swiper-container-tv-products" style="width:auto;height:auto!important">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper" style="box-sizing: border-box;">
-                <!-- Slides -->
-                <?php foreach($data[0]->products as $r): ?>
+        <div>
+                <?php foreach($data[0]->products as $key=>$r): ?>
                 
                 
-                
-                <div class="swiper-slide">
+                    <?php if($key==4)break;  ?>
                     
-                    <div class="">
-                        <div class=" large-6" style="float:left">
+                    <div class="row">
+                        <div class="column large-3">
                             <img src="<?php  echo $r->imageUrl;?>" />
                         </div>
-                        <div  class=" large-6"  style="float:right">
-                            <h4><a href="/p/<?php echo $r->productCode; ?>"><?php echo trim($r->name); ?></a></h4>
-                            <p><?php echo trim($r->description) ?></p>
-                            <button style="background: #00B109" data-toggle="example-dropdown2" type="button" class="button large expanded" id="add-basket" aria-controls="example-dropdown2" data-is-focus="false" data-yeti-box="example-dropdown2" aria-haspopup="true" aria-expanded="false">Add to basket</button>
+                        <div  class="column large-9">
+                            <h5><a href="/p/<?php echo $r->productCode; ?>"><?php echo trim($r->name); ?></a></h5>
+                            <p>&pound;<?php echo  number_format( $r->price , 2  ) ?></p>
+                            <button style="background: #00B109" data-toggle="example-dropdown2" type="button" class="button" class="add-basket" aria-controls="example-dropdown2" data-is-focus="false" data-yeti-box="example-dropdown2" aria-haspopup="true" aria-expanded="false">Add to basket</button>
                         </div>
                     </div>
                     
                     
-                </div>
                 <?php endforeach; ?>
 
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
 
         </div>
 

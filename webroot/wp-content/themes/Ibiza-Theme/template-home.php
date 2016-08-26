@@ -14,7 +14,7 @@
 
         <?php if (is_front_page()): ?>
 
-            <main id="main" class="large-6 medium-6 columns" role="main">
+            <main id="main" class="large-8 medium-8 columns" role="main">
 
             <?php else: ?>
 
@@ -41,6 +41,11 @@
                     <img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" />
                 </div>       
 
+                
+                <div class="row text-center">
+                    <div class="large-6 columns"><a href="/tv-schedule/">View the TV Schedule &gt;</a></div>
+                    <div class="large-6 columns"><a href="">View all products from Today &gt;</a></div>
+                </div>
                 
                 <?php if (is_active_sidebar('homepageleft')) : ?>
 

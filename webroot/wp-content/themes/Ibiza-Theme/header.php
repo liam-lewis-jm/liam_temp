@@ -39,9 +39,9 @@
 
     <body <?php body_class(); ?> >
 
-<!--        <div class="header" style="margin: 0px;  overflow: hidden;">
-
-        </div>-->
+        <!--        <div class="header" style="margin: 0px;  overflow: hidden;">
+        
+                </div>-->
 
         <div class="off-canvas-wrapper">
 
@@ -51,45 +51,40 @@
                 <?php get_template_part('parts/content', 'offcanvas_left'); ?>
 
                 <div class="off-canvas-content" data-off-canvas-content>
-                
-                    
-                    
-                    
-            <div class="row show-for-xlarge-only">
-                <div class="large-6 columns">
-                    
-                    
-                    <ul class="menu">
-                        
-                      <?php if(_LOGGED_IN): ?>
-                      
-                      <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
-                        
-                      <?php else:?>
-                        
-                      <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Sign up / Login</a></li>
-                      
-                      <?php endif; ?>
-                      <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
-                      <li><a href="#">92815 Independent Reviews</a></li>
-                    </ul>                    
-                    
-                </div>
-                <div class="large-6 columns">
-                    
-                    
-                    <ul class="menu float-right">
-                      <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx?_ga=1.141642677.624630137.1465816634">Your Bag</a></li>
-                      
-                      <?php if(_LOGGED_IN): ?>
-                      <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
-                      <?php endif;?>
-                      
-                    </ul>                    
-                    
-                    
-            </div>                    
-                    
+
+                    <div class="row show-for-xlarge-only">
+                        <div class="large-6 columns">
+
+                            <ul class="menu">
+
+                                <?php if (_LOGGED_IN): ?>
+
+                                    <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+
+                                <?php else: ?>
+
+                                    <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Sign up / Login</a></li>
+
+                                <?php endif; ?>
+                                <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
+                                <li><a href="#">92815 Independent Reviews</a></li>
+                            </ul>                    
+
+                        </div>
+                        <div class="large-6 columns">
+
+                            <ul class="menu float-right">
+                                <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx?_ga=1.141642677.624630137.1465816634">Your Bag</a></li>
+
+                                <?php if (_LOGGED_IN): ?>
+                                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+                                <?php endif; ?>
+
+                            </ul>                    
+
+                        </div>                    
+                    </div>                    
+
                     <nav class="header row" role="banner">
 
                         <!-- This navs will be applied to the topbar, above all content 
