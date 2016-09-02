@@ -308,7 +308,7 @@ class IbizaApi_OptionsManager {
             </tr>
             </tbody></table>-->
 
-            <h2><?php echo $this->getPluginDisplayName(); echo ' '; _e('Settings', 'ibiza-api'); ?></h2>
+<!--            <h2><?php echo $this->getPluginDisplayName(); echo ' '; _e('Settings', 'ibiza-api'); ?></h2>-->
 
            <!-- <form method="post" action="">
             <?php settings_fields($settingsGroup); ?>
@@ -344,7 +344,7 @@ class IbizaApi_OptionsManager {
                 </p>
             </form> -->
            
-           <iframe width="100%" height="800px" src="http://ibizaschemas.product/ProductCatalog.Web/document_edit/Tablet/5786078b1ea1f20af417c1bb/%7B%7D"></iframe>
+           <iframe width="100%" height="600px" src="http://ibizaschemas.product/ProductCatalog.Web/document_edit/Tablet/5786078b1ea1f20af417c1bb/%7B%7D"></iframe>
            
         </div>
         <?php

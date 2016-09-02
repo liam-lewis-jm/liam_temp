@@ -58,6 +58,10 @@ $schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
             <?php endif; ?>   
             <?php endforeach; ?>
 
+            
+            <?php if( $_GET['bundle']==2 ): ?>
+            add to basket
+            <?php endif;?>
 
         </div>
     </div>

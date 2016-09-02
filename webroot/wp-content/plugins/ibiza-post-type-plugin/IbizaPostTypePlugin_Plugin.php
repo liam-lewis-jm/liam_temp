@@ -108,6 +108,9 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         ?>
         
         <div id="product_name"><p></p></div>
+        <div id="product_image"><p></p></div>
+        
+        <?php $this->type_ahead_js('howto');?>
         <script>
         
         
@@ -153,31 +156,33 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         ?>
         
         <div id="category_name"><p></p></div>
+        <div id="category_image"><p></p></div>
+        
+        <?php $this->type_ahead_js('cat'); ?>
+        
         <script>
         
         
-        function getProduct()
+        function getCat()
         {
             
-            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/category/categoryId/" + jQuery('#title').val()   , function( dataIn ) {
+            jQuery.getJSON( "?cat_search=" + jQuery('#title').val()   , function( dataIn ) {
                 var items = [];
-                 
-                 if( typeof dataIn[0] !='undefined' ){
-                    jQuery( '#category_name p' ).text( dataIn[0].title );
-                }
+                    jQuery( '#category_name p' ).text( dataIn.hits.hits[0]._source.name );
+                    jQuery( '#category_image p' ).html( '<img style="width:100%" src="' + dataIn.hits.hits[0]._source.image + '" />' );
             });            
             
         }
         
         jQuery( document ).ready(function( $ ) {
             
-            getProduct();
+            getCat();
             
             jQuery( "#title" ).keyup(function() {
                 
                 if( jQuery(this).val().length>0 ){
                     
-                    getProduct();
+                    getCat();
                     
 
                     
@@ -201,6 +206,9 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         <div id="product_image"><p></p></div>
         <div id="product_name"><p></p></div>
         <div id="product_price"><p></p></div>
+        
+        <?php $this->type_ahead_js('product'); ?>
+        
         <script>
         
         
@@ -211,7 +219,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                 var items = [];
                  
                 jQuery( '#product_name p' ).text( dataIn[0]['data'].name );
-                jQuery( '#product_price p' ).text( dataIn[0]['data'].price );
+                jQuery( '#product_price p' ).text( '£' + dataIn[0]['data'].price );
                 jQuery( '#product_image p' ).html( '<img style="width:100%" src="' + dataIn[0]['data']['images']['0']['url'] + '" />' );
             });            
             
@@ -231,9 +239,8 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                     
                 }
             });
-        
+
         });        
-        
         
         </script>
         <?php
@@ -302,7 +309,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
             'rewrite' => array('slug' => 'home', 'with_front' => true), /* you can specify its url slug */
             'capability_type' => 'post',
             'hierarchical' => false,
-            'taxonomies' => array('category', 'Test'),
+            'taxonomies' => array('category'),
             /* the next one is important, it tells what's enabled in the post editor */
             'supports' => array('title', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'taxonomies')
                 ) /* end of options */
@@ -312,16 +319,16 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         register_post_type('home_product', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
                 // let's now add all the options for this post type
                 array('labels' => array(
-                'name' => __('Home Product Widgets', 'jointswp'), /* This is the Title of the Group */
-                'singular_name' => __('Home Product', 'jointswp'), /* This is the individual type */
-                'all_items' => __('All Custom Posts', 'jointswp'), /* the all items menu item */
+                'name' => __('Products', 'jointswp'), /* This is the Title of the Group */
+                'singular_name' => __('Product', 'jointswp'), /* This is the individual type */
+                'all_items' => __('All Products', 'jointswp'), /* the all items menu item */
                 'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
-                'add_new_item' => __('Add New Product Home Page Content', 'jointswp'), /* Add New Display Title */
+                'add_new_item' => __('Add New Product Content', 'jointswp'), /* Add New Display Title */
                 'edit' => __('Edit', 'jointswp'), /* Edit Dialog */
-                'edit_item' => __('Edit Post Types', 'jointswp'), /* Edit Display Title */
-                'new_item' => __('New Post Type', 'jointswp'), /* New Display Title */
-                'view_item' => __('View Post Type', 'jointswp'), /* View Display Title */
-                'search_items' => __('Search Post Type', 'jointswp'), /* Search Custom Type Title */
+                'edit_item' => __('Edit Product Content', 'jointswp'), /* Edit Display Title */
+                'new_item' => __('New Product', 'jointswp'), /* New Display Title */
+                'view_item' => __('View Products', 'jointswp'), /* View Display Title */
+                'search_items' => __('Search Products', 'jointswp'), /* Search Custom Type Title */
                 'not_found' => __('Nothing found in the Database.', 'jointswp'), /* This displays if there are no entries yet */
                 'not_found_in_trash' => __('Nothing found in Trash', 'jointswp'), /* This displays if there is nothing in the trash */
                 'parent_item_colon' => ''
@@ -337,7 +344,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
             'rewrite'               => array('slug' => 'site', 'with_front' => false), /* you can specify its url slug */
             'capability_type'       => 'post',
             'hierarchical'          => false,
-            'taxonomies'            => array('category', 'Test'),
+            'taxonomies'            => array('category'),
             /* the next one is important, it tells what's enabled in the post editor */
             'supports'              => array('title', 'editor', 'thumbnail', 'custom-fields', 'revisions', 'taxonomies')
                 ) /* end of options */
@@ -349,7 +356,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         register_post_type('howtos', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
                 // let's now add all the options for this post type
                 array('labels' => array(
-                'name' => __('How to Guides Widget', 'jointswp'), /* This is the Title of the Group */
+                'name' => __('How to Guides', 'jointswp'), /* This is the Title of the Group */
                 'singular_name' => __('How to Guides', 'jointswp'), /* This is the individual type */
                 'all_items' => __('All How to Guides', 'jointswp'), /* the all items menu item */
                 'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
@@ -388,8 +395,8 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         register_post_type('featured_categories', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
                 // let's now add all the options for this post type
                 array('labels' => array(
-                'name' => __('Featured Categories Widget', 'jointswp'), /* This is the Title of the Group */
-                'singular_name' => __('Featured Categories Widget', 'jointswp'), /* This is the individual type */
+                'name' => __('Featured Categories', 'jointswp'), /* This is the Title of the Group */
+                'singular_name' => __('Featured Categories', 'jointswp'), /* This is the individual type */
                 'all_items' => __('All Featured Categories', 'jointswp'), /* the all items menu item */
                 'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
                 'add_new_item' => __('Add New How to Guides', 'jointswp'), /* Add New Display Title */
@@ -660,5 +667,138 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
             update_post_meta( $post_id, '_cs-expire-date', $expiration_date );
             return true;
         }
+        
+        
+        public function type_ahead_js($type)
+        {
+            
+            switch($type)
+            {
+                
+                case 'product':
+                    $url    = 'https://search-ibiza-zionowpdl7rywcwhx7jyiyni7e.eu-west-1.es.amazonaws.com/product/_search?from=0&size=53&q=name:*%QUERY*';
+                    $desc   = 'Search the product cat to feature an item on the front end, you can schedule it, so the product will show at a set time.';
+                    $title  = 'Ibiza Product Search';
+                    $template   = '\'<p style="background:white;padding:20px;clear:left"><img style="float:left;margin-right:10px;" width="75px" src="\'+ data._source.images[0].url +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._source.productcode + \'</p>\'';
+                    $callback = 'jQuery(\'#title\').val( datum._source.productcode );getProduct();';
+                    break;
+                case 'howto':
+                    $url    = 'https://search-ibiza-zionowpdl7rywcwhx7jyiyni7e.eu-west-1.es.amazonaws.com/howto/_search?from=0&size=5&q=name:*%QUERY*';
+                    $desc   = 'Search the how to guides cat to feature an item on the front end, you can schedule it, so the product will show at a set time.';
+                    $template   = '\'<p style="background:white;padding:20px;clear:left"><img style="float:left;margin-right:10px;" width="75px" src="\'+ data._source.image +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._id + \'</p>\'';
+                    $title  = 'Ibiza How to Search';
+                    $callback = 'jQuery(\'#title\').val( datum._id );getHowTo();';
+                    break;
+                case 'cat':
+                    $url    = '/?cat_search=*%QUERY*';
+                    $desc   = 'Search the categories to feature an item on the front end, you can schedule it, so the product will show at a set time.';
+                    $title  = 'Ibiza Category Search';
+                    $template   = '\'<p style="background:white;padding:20px;clear:left"><img style="float:left;margin-right:10px;" width="75px" src="\'+ data._source.image +\'"/><strong>\' + data._source.name + \'</strong></p>\'';
+                    $callback = 'jQuery(\'#title\').val( datum._source.id );getCat();';                    
+                    break;
+                    
+            }
+            
+            
+            ?>
+        
+        <div class="container">
+            <h1><?php echo $title;?></h1>
+            <p><?php echo $desc; ?></p>
+                <form action="#">
+                    <div class="form-group">
+                            <label for="location-1">Search</label>
+                            <input id="location-1" type="text" class="form-control typeahead" placeholder="Cannes" data-provide="typeahead" autocomplete="off">
+                    </div>
+                </form>
+<!--                <h3>Ressources</h3>
+                <ul>
+                  <li><a href="">GeoNames Search Webservice</a> (API Documentation)</li>
+                  <li><a href="http://getbootstrap.com">Twitter Bootstrap</a></li>
+                  <li><a href="http://twitter.github.io/typeahead.js/">Twitter typeahead.js</a></li>
+                  <li><a href="http://twitter.github.io/hogan.js/">Twitter Hogan.js JavaScript templating</a></li>
+                </ul>-->
+        </div>
+        
+        
+        <?php // wp_enqueue_script('typeahead',  '/wp-content/themes/Ibiza-Theme/vendor/typeahead.js/dist/typeahead.bundle.js' ); ?>
+        <?php // wp_enqueue_script('script2',  '/wp-content/themes/Ibiza-Theme/vendor/hogan.js/web/builds/3.0.2/hogan-3.0.2.common.js' ); ?>
+        
+        <style>
+         .tt-menu{  
+            left: -200px!important;
+            position: absolute;
+            width: 350px;
+            border: 1px solid #ccc;
+            background: white;
+         }
+        </style>
+        
+        <script src="/wp-content/themes/Ibiza-Theme/vendor/typeahead.js/dist/typeahead.bundle.js"></script>
+        <script src="/wp-content/themes/Ibiza-Theme/vendor/hogan.js/web/builds/3.0.2/hogan-3.0.2.common.js"></script>        
+        
+        
+        
+        <script>
+            var items = new Bloodhound({  
+               datumTokenizer: function(hits) {
+
+                   return Bloodhound.tokenizers.whitespace(hits.hits);
+               },
+
+               queryTokenizer: Bloodhound.tokenizers.whitespace,
+               remote: {
+                     wildcard: '%QUERY',
+                     url: "<?php echo $url; ?>",
+                     filter: function(response) {   
+
+                       return response.hits.hits;
+                     }
+               }
+             });
+
+             // initialize the bloodhound suggestion engine
+             items.initialize();
+
+             // instantiate the typeahead UI
+             jQuery('.typeahead').typeahead(
+                 { 
+                     hint        : true,
+                     highlight   : true,
+                     minLength   : 1
+                 }, 
+                 {
+                 name: 'hits',
+                 displayKey: function(hits) {
+
+                     return hits._source.name;        
+
+                 },
+                 source: items.ttAdapter(),
+                 templates: {
+                     suggestion: function (data) {
+                         
+                         return <?php echo $template; ?>;
+                     }
+                 }                
+             });     
+
+
+             jQuery('.typeahead').bind('typeahead:selected', function(obj, datum, name) {      
+                 
+                 <?php echo $callback; ?>
+                         
+                jQuery("#title").stop().css("background-color", "#FFFF9C")
+                    .animate({ backgroundColor: "#FFFFFF"}, 1500);                         
+                         
+             });            
+                    
+        </script>
+        
+            <?php
+            
+            
+        }
+        
 
 }

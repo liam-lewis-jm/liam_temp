@@ -74,19 +74,35 @@ if( count( $ids1 ) >0 )
     
     
     
-    $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1 WHERE meta_key IN ( ' . implode( ',' , $ids2 ) . ' )    ');
+    $myrows = $wpdb->get_results(  'SELECT * FROM wp_postmeta AS w1 WHERE meta_key IN ( ' . implode( ',' , $ids2 ) . ' )   OR meta_key = "_menu_item_url" ');
 
     foreach($myrows as $row)
     {
-        
-        $data                   = json_decode( $row->meta_value );
-        $rowArrTitles[ $data->id ]    = $data->title;
+
+        if( $row->meta_key == '_menu_item_url' ){
+             $rowArrs[ $row->post_id ]['url']       =  $row->meta_value;
+        }else{
+            $data                                   = json_decode( $row->meta_value );
+            $rowArrs[ $row->post_id ]['title']      = $data->title;
+            $rowArrs[ $row->post_id ]['id']         = $data->id;
+            $rowArrs[ $row->post_id ]['image']      = isset($data->image)?$data->image:'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+        }
 
     }
 }
 
+ // tidy data, remove unsed entries
 
-
+ foreach ($rowArrs as $row)
+ {
+     
+     if( isset($row['id']) ){
+        
+            $rowArrTitles[$row['id']]['title'] = $row['title'];
+            $rowArrTitles[$row['id']]['url'] =  $row['url'];;
+            $rowArrTitles[$row['id']]['image'] =  $row['image'];;
+    }
+ }     
 
 /**
  * @todo Move to a model inside of a plugin api
@@ -145,22 +161,32 @@ if( count( $ids1 ) >0 )
         
         <div class="<?php echo $row_class; ?>" style="height:250px">
         
+            
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
               <article <?php post_class($current_post); ?>  style="    height: 100%;background-size:cover;background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
     padding: 17px;" >
         <?php else:?>
-            <article <?php post_class($current_post); ?>>
+                  
+            <?php 
+            
+   
+            
+            ?>
+                  
+            <article <?php post_class($current_post); ?> style="    height: 100%;background-size:cover;background:url(<?php echo $rowArrTitles[trim(get_the_title())]['image'];; ?>); border: 1px solid #ddd;
+    padding: 17px;" >
         <?php endif; ?>    
     
         
 
           <header>
-
-
-
+                
+              
+              
+              
             <?php if (get_the_title() && $instance['show_title']) : ?>
-              <h4 class="entry-title" style="background: #fff"><?php echo $rowArrTitles[trim(get_the_title())]; ?></h4>
+              <h4 class="entry-title" style="background: #fff"><a href="<?php echo $rowArrTitles[trim(get_the_title())]['url']; ?>"><?php echo $rowArrTitles[trim(get_the_title())]['title']; ?></a></h4>
             <?php endif; ?>
 
             <?php if ($instance['show_date'] || $instance['show_author'] || $instance['show_comments']) : ?>
@@ -215,18 +241,6 @@ if( count( $ids1 ) >0 )
             </div>
           <?php endif; ?>
 
-        
-                
-                
-          <?php // product specfic info  ?>
-                
-            <div class="large-6 columns">
-                <h4><a href="/p/<?php echo $product->data->productcode;?>/"><?php echo  $product->data->name; ?></a></h4>
-            </div>
-
-            <div class="large-6 columns">
-                <a href="/p/<?php echo $product->data->productcode;?>/"><img src="<?php echo $product->data->images[0]->url; ?>" alt="" /></a>
-            </div>
           
           <footer>
 

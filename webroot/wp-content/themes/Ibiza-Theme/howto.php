@@ -59,7 +59,7 @@ if( isset( $_GET['json'] ) ){
                 <ul>
                 <?php foreach($response->data->products as $key => $product): ?>
 
-                    <li><a rel="groups" href="/p/<?php echo $product->product ?>/?bundle=1" class="howto_products" ><?php echo $product->title; ?></a></li>
+                    <li><a rel="groups" href="/p/<?php echo $product->product ?>/?bundle=2" class="howto_products" ><?php echo $product->title; ?></a></li>
 
                 <?php endforeach; ?>
                 </ul>

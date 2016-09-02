@@ -170,10 +170,10 @@ p.ng-binding {
     height: 60px;
     overflow: hidden;
 }
-
+/*
 .row{
     max-width:98%!important;
-}
+}*/
 
 #main .panel{
     height:550px;
@@ -402,4 +402,33 @@ p.ng-binding {
 .home_product.type-home_product.status-publish.hentry p {
     font-size: 12px;
     margin: 0;
+}
+
+.tt-menu{  
+
+   border: 1px solid #ccc;
+   background: white;
+}
+.tt-menu p{  
+
+   cursor: pointer;
+   font-size:75%;
+   margin-bottom:5px;
+   overflow: hidden;
+}
+
+.typeahead {
+    width:380px;
+}
+
+.tt-menu h5{
+
+    background: #333;
+    clear:both;
+    text-indent: 10px;
+    color:#ccc;
+}
+
+.upw-posts article {
+    overflow: hidden;
 }

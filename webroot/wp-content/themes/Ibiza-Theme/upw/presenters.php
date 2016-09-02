@@ -32,11 +32,11 @@ $image = '';
             <article <?php post_class($current_post); ?>>
         <?php endif; ?>    
     
-            <div class="large-1 columns">
+            <div class="large-2 columns">
                   <img src="<?php the_post_thumbnail_url($instance['thumb_size']); ?>" />
-              </div>  
+            </div>  
 
-          <header  class="large-11">
+            <header  class="large-10 columns">
 
 
 
@@ -83,7 +83,7 @@ $image = '';
 
             <?php endif; ?>
 
-          </header>
+          
 
           <?php if ($instance['show_excerpt']) : ?>
             <div class="entry-summary">
@@ -99,7 +99,7 @@ $image = '';
               <?php the_content() ?>
             </div>
           <?php endif; ?>
-
+            </header>
           <footer>
 
             <?php

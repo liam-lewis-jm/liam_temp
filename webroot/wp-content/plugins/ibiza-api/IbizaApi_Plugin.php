@@ -78,6 +78,14 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         
     }
 
+    
+    public function map($n){
+        
+        
+        return array_combine( explode('|-|',$n->keys) , explode('|-|',  $n->values) );
+        
+    }
+    
     public function addActionsAndFilters() {
 
         // Add options administration page
@@ -97,6 +105,53 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
             }
              
             header('Location: /');die;
+        }
+        
+        
+        if( isset( $_GET['cat_search'] )  ){
+            
+            global $wpdb;
+            $wpdb->get_results( 'SET SESSION group_concat_max_len = 1000000;' );
+            $rst =  $wpdb->get_results('SELECT * , GROUP_CONCAT( pm.meta_key SEPARATOR "|-|" ) as `keys`, 
+                   GROUP_CONCAT( pm.meta_value SEPARATOR "|-|" ) AS `values` 
+                   FROM wp_posts AS p INNER JOIN wp_postmeta AS pm ON p.ID =pm.post_id  
+                   WHERE (p.post_type = "nav_menu_item" AND p.post_title LIKE "%'. $this->sanitize($_GET['cat_search'] ) .'%" ) OR pm.meta_key="cat-' . $this->sanitize($_GET['cat_search'] ) . '" 
+                      GROUP BY pm.post_id'   );
+
+            $data_set  =  array_map( array(&$this,'map') , $rst);
+            $i= 0;
+            foreach ($data_set as $data){
+                
+                $data_x                     =  array_map( 'json_decode' , $data);
+                $data_x['_menu_item_url']   = $data['_menu_item_url'];
+                // we only need cat-* field and this is json, also menu url;)
+                
+                
+                foreach($data_x as $key=> $d){
+                    
+
+                    
+                    if(is_object($d)){
+                       
+                        
+                        $final_data['hits']['hits'][$i]['_source']['image']     = $d->image?$d->image:'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+                        $final_data['hits']['hits'][$i]['_source']['name']      = $d->title;
+                        $final_data['hits']['hits'][$i]['_source']['id']        = str_replace( 'cat-' , '',  $key );
+                        $final_data['hits']['hits'][$i]['_type']                = 'category'; 
+                        
+                    }
+                    if($key == '_menu_item_url'){
+                        $final_data['hits']['hits'][$i]['_url']                 = $_SERVER['HTTP_HOST'] . $d; 
+                    }
+                    
+                }
+                
+                ++$i;
+            }
+            
+            echo json_encode($final_data);
+            
+            die;
         }
 
 

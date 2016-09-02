@@ -43,8 +43,9 @@
 
                 
                 <div class="row text-center">
-                    <div class="large-6 columns"><a href="/tv-schedule/">View the TV Schedule &gt;</a></div>
-                    <div class="large-6 columns"><a href="">View all products from Today &gt;</a></div>
+                    <div class="large-4 columns"><a href="/tv-schedule/">View the TV Schedule &gt;</a></div>
+                    <div class="large-4 columns"><a href="/tv-schedule/">Watch Live Now &gt;</a></div>
+                    <div class="large-4 columns"><a href="">View all products from Today &gt;</a></div>
                 </div>
                 
                 <?php if (is_active_sidebar('homepageleft')) : ?>
@@ -97,7 +98,7 @@
     
     <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
 
-    <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns">
+    <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns" style="padding: 0">
 
         <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
 
@@ -123,7 +124,7 @@
 
     <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
 
-    <article class="learning__item box1--videos mobile-full tablet-and-up-half">
+    <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
 
         <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
 

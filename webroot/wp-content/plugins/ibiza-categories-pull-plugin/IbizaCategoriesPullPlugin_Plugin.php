@@ -133,7 +133,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
      * @param type $menu_type
      * @return type
      */
-    function update_menu($menu_id, $new_menu_id, $title, $menu_position = 0, $parent_menu_id = PARENT_MENU_ID, $menu_type = 'custom' , $page_link ='product-list') {
+    function update_menu($menu_id, $new_menu_id, $title, $menu_position = 0, $parent_menu_id = PARENT_MENU_ID, $menu_type = 'custom' , $page_link ='product-list' ,$db_id =0) {
 
         static $i = 0;
         
@@ -145,9 +145,9 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             $page_link = 'how-to-guides';
         }
         
-        return wp_update_nav_menu_item($menu_id, 0, array(
+        return wp_update_nav_menu_item($menu_id, $db_id, array(
             'menu-item-parent-id' => $parent_menu_id,
-//        'menu-item-db-id'   => $new_menu_id , 
+            'menu-item-db-id'   => $db_id , 
             'menu-item-position' => $menu_position,
             'menu-item-object' => 'page',
             'menu-item-type' => $menu_type,
@@ -184,12 +184,36 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
                     $page_link = 'product-list';
                 }
                 
-                $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id, 'custom' , $page_link);
+                
+                
+                global $wpdb;
+                $meta_key= 'cat-' . $dataIn->id;
+                $value = $wpdb->get_var( $wpdb->prepare("SELECT post_id FROM $wpdb->postmeta WHERE meta_key = %s LIMIT 1" , $meta_key) );;                
+                 $db_id = 0;
+                 
+//                $stringData = print_r($value ,true);
+//
+//                update_option( 'logs', $stringData, false );
+//                die;                 
+                 
+                // check if menu is in our data
+                if( isset($this->data[$value]) ){
+                    $child_menu_id = $db_id = $value;
+                    $order = $this->data[$value];
+                    unset($this->data[$value]);
+                     $this->update_menu($menu_id, $dataIn->id, $dataIn->title,$order, $parent_id, 'custom' , $page_link,$db_id);
+                }else{
+                    $child_menu_id = $this->update_menu($menu_id, $dataIn->id, $dataIn->title, $key1, $parent_id, 'custom' , $page_link,$db_id);
+                }
+                
+
+                
+                
 
 
-
+                $dataIn->description = str_replace(array("\r\n", "\r", "\n"), "<br />", $dataIn->description); 
                 //update_post_meta($child_menu_id, 'cat-' . $dataIn->id, '1');
-                update_post_meta($child_menu_id, 'cat-' . $dataIn->id, json_encode($dataIn) );
+                update_post_meta($child_menu_id, 'cat-' . $dataIn->id, wp_json_encode($dataIn , JSON_UNESCAPED_UNICODE) );
                 // 1 has now use, ignore
                 if (count($dataIn->nodes) > 0) {
 
@@ -303,28 +327,66 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
      */
     function do_menu() {
 
+        
+        
+        
+        
+        
+        
+        
+//                return wp_update_nav_menu_item('Main', 33959, array(
+//            'menu-item-parent-id' => 0,
+//            'menu-item-db-id'   => 33959 , 
+//            'menu-item-position' => 0,
+//            'menu-item-object' => 'page',
+//            'menu-item-type' => 'custom',
+//            'menu-item-status' => 'publish',
+//            'menu-item-url' => '#'  ,
+//            'menu-item-title' => 'updated',
+//        ));
+        
+        
+        
+        $jsonData       = $this->get_json();
 
-
+        $data           = array();
 
         wp_nav_menu(array(
             'echo' => false,
             'fallback_cb' => false, // Fallback function (see below)
-            'walker' => new Topbar1_Menu_Walker(),
+            'walker' => $a = new Topbar1_Menu_Walker($data),
         ));
 
 
+        $this->data = $a->data;
 
         $menuname       = 'Main';
         $menu_exists    = wp_get_nav_menu_object($menuname);
         $menu_id        = $menu_exists->term_id;
-        $jsonData       = $this->get_json();
+        
 
        
         if ($menu_exists) {
             $this->add_menu($jsonData, $menu_id, $parent_id = PARENT_MENU_ID);
         }
+        
+        
+        
+        
+//        $stringData = print_r($this->data ,true);
+//     
+//        update_option( 'logs', $stringData, false );
+//        die;        
+        
+        foreach ($this->data as $key=> $data){
+            
+            wp_delete_post($key, true);
+            
+        }
+        // delete any menus thats have been removed
+        
     }
-
+    public $data ;
 }
 
 /**
@@ -333,14 +395,18 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
 class Topbar1_Menu_Walker extends Walker_Nav_Menu {
 
     public $sub_menu_arr = array();
-
+    public $data;
+    
+    
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 
 
         if ($item->menu_item_parent == 32 OR $item->menu_item_parent == 23935 OR in_array($item->menu_item_parent, $this->sub_menu_arr)) {
             $this->sub_menu_arr[$item->ID] = $item->ID;
-
-            wp_delete_post($item->ID, true);
+            
+            $this->data[$item->ID] = $item->menu_order;
+            
+            //wp_delete_post($item->ID, true);
         }
     }
 

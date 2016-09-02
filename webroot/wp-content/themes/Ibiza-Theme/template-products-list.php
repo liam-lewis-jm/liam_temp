@@ -173,6 +173,13 @@ if( $segments[0] == 'how-to-guides'  ){
             <div class="row">
 
                 <div class="columns" >
+                    
+                    <?php if($ibiza_api->cat_data->bannerimage):?>
+                    <div style="height:200px;overflow: hidden">
+                        <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
+                    </div>
+                    <?php endif; ?>
+                    
                     <h3><?php echo ucwords( $cat_title );    ?></h3>
                     
                     <?php if($ibiza_api->cat_data->description): ?>
