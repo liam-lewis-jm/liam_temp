@@ -130,7 +130,7 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
 
 // This is where you run the code and display the output
         ?>
-        <form method="get" action="/product-list/">
+        <form method="get" action="/search/">
             <input type="search" title="Search for:" name="q" value="" placeholder="Search..." class="search-field typeahead" />
             <input type="submit" />
         </form>

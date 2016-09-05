@@ -1268,7 +1268,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #0a0a0a;
-  background: #fefefe;
+  background: url(../images/bg.png);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1335,7 +1335,7 @@ button {
 
 /* line 26, ../../vendor/foundation-sites/scss/grid/_classes.scss */
 .row {
-  max-width: 75rem;
+  max-width: 85.375rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2866,7 +2866,7 @@ a img {
 
 /* line 337, ../../vendor/foundation-sites/scss/typography/_base.scss */
 hr {
-  max-width: 75rem;
+  max-width: 85.375rem;
   height: 0;
   border-right: 0;
   border-top: 0;
@@ -3387,7 +3387,7 @@ legend {
 }
 /* line 30, ../../vendor/foundation-sites/scss/forms/_fieldset.scss */
 .fieldset legend {
-  background: #fefefe;
+  background: url(../images/bg.png);
   padding: 0 0.1875rem;
   margin: 0;
   margin-left: -0.1875rem;
@@ -4305,7 +4305,7 @@ select[multiple] {
 
 /* line 56, ../../vendor/foundation-sites/scss/components/_dropdown.scss */
 .dropdown-pane {
-  background-color: #fefefe;
+  background-color: url(../images/bg.png);
   border: 1px solid #cacaca;
   border-radius: 0;
   display: block;
@@ -5004,7 +5004,7 @@ body {
 .off-canvas-content,
 .off-canvas-content {
   min-height: 100%;
-  background: #fefefe;
+  background: url(../images/bg.png);
   transition: transform 0.5s ease;
   backface-visibility: hidden;
   z-index: 1;
@@ -5532,7 +5532,7 @@ html.is-reveal-open body {
   /* line 130, ../../vendor/foundation-sites/scss/components/_reveal.scss */
   .reveal {
     width: 600px;
-    max-width: 75rem;
+    max-width: 85.375rem;
   }
 }
 @media screen and (min-width: 40em) {
@@ -5551,21 +5551,21 @@ html.is-reveal-open body {
   /* line 155, ../../vendor/foundation-sites/scss/components/_reveal.scss */
   .reveal.tiny {
     width: 30%;
-    max-width: 75rem;
+    max-width: 85.375rem;
   }
 }
 @media screen and (min-width: 40em) {
   /* line 156, ../../vendor/foundation-sites/scss/components/_reveal.scss */
   .reveal.small {
     width: 50%;
-    max-width: 75rem;
+    max-width: 85.375rem;
   }
 }
 @media screen and (min-width: 40em) {
   /* line 157, ../../vendor/foundation-sites/scss/components/_reveal.scss */
   .reveal.large {
     width: 90%;
-    max-width: 75rem;
+    max-width: 85.375rem;
   }
 }
 /* line 160, ../../vendor/foundation-sites/scss/components/_reveal.scss */
@@ -6706,17 +6706,7 @@ li.menu-item-type-post_type a, li.menu-item-object-custom a {
   width: 100%;
 }
 
-/* line 128, ../scss/style.scss */
-.row {
-  background: #fff;
-}
-
 /* line 132, ../scss/style.scss */
-.off-canvas-content {
-  background: #ddd;
-}
-
-/* line 136, ../scss/style.scss */
 .swiper-container-banner .info {
   color: #fff;
   left: 70px;
@@ -6725,17 +6715,17 @@ li.menu-item-type-post_type a, li.menu-item-object-custom a {
   width: 40%;
 }
 
-/* line 144, ../scss/style.scss */
+/* line 140, ../scss/style.scss */
 .swiper-container {
   height: 322px !important;
 }
 
-/* line 148, ../scss/style.scss */
+/* line 144, ../scss/style.scss */
 .cq-linkstack a {
   color: #fff;
 }
 
-/* line 151, ../scss/style.scss */
+/* line 147, ../scss/style.scss */
 li.dimension {
   display: none;
   float: left;
@@ -6745,18 +6735,18 @@ li.dimension {
   width: 25px;
 }
 
-/* line 160, ../scss/style.scss */
+/* line 156, ../scss/style.scss */
 .current {
   font-weight: bold;
   border: 1px solid #ccc;
 }
 
-/* line 165, ../scss/style.scss */
+/* line 161, ../scss/style.scss */
 .rst_0 {
   display: none;
 }
 
-/* line 169, ../scss/style.scss */
+/* line 165, ../scss/style.scss */
 p.ng-binding {
   height: 60px;
   overflow: hidden;
@@ -6766,13 +6756,13 @@ p.ng-binding {
 .row{
     max-width:98%!important;
 }*/
-/* line 178, ../scss/style.scss */
+/* line 174, ../scss/style.scss */
 #main .panel {
   height: 550px;
 }
 
 /* Image Box Style */
-/* line 184, ../scss/style.scss */
+/* line 180, ../scss/style.scss */
 #main .box {
   cursor: pointer;
   height: 240px;
@@ -6781,7 +6771,7 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 191, ../scss/style.scss */
+/* line 187, ../scss/style.scss */
 #main .box img {
   position: absolute;
   left: 0;
@@ -6793,7 +6783,7 @@ p.ng-binding {
 }
 
 /* Caption Common Style */
-/* line 202, ../scss/style.scss */
+/* line 198, ../scss/style.scss */
 #main .box .caption {
   background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
@@ -6808,7 +6798,7 @@ p.ng-binding {
 }
 
 /** Caption 1: Simple **/
-/* line 217, ../scss/style.scss */
+/* line 213, ../scss/style.scss */
 #main .box .simple-caption {
   height: 30px;
   width: 200px;
@@ -6819,7 +6809,7 @@ p.ng-binding {
 }
 
 /** Caption 2: Full Width & Height **/
-/* line 227, ../scss/style.scss */
+/* line 223, ../scss/style.scss */
 #main .box .full-caption {
   width: 240px;
   height: 240px;
@@ -6828,7 +6818,7 @@ p.ng-binding {
 }
 
 /** Caption 3: Fade **/
-/* line 236, ../scss/style.scss */
+/* line 232, ../scss/style.scss */
 #main .box .fade-caption, #main .box .scale-caption {
   box-sizing: border-box;
   height: 100%;
@@ -6839,7 +6829,7 @@ p.ng-binding {
 }
 
 /** Caption 4: Slide **/
-/* line 246, ../scss/style.scss */
+/* line 242, ../scss/style.scss */
 #main .box .slide-caption {
   width: 170px;
   height: 170px;
@@ -6849,7 +6839,7 @@ p.ng-binding {
 }
 
 /** Caption 5: Rotate **/
-/* line 255, ../scss/style.scss */
+/* line 251, ../scss/style.scss */
 #main #box-5.box .rotate-caption {
   width: 170px;
   height: 170px;
@@ -6862,7 +6852,7 @@ p.ng-binding {
   transform: rotate(-180deg);
 }
 
-/* line 267, ../scss/style.scss */
+/* line 263, ../scss/style.scss */
 #main .box .rotate {
   width: 200px;
   height: 400px;
@@ -6874,7 +6864,7 @@ p.ng-binding {
 }
 
 /** Caption 6: Scale **/
-/* line 278, ../scss/style.scss */
+/* line 274, ../scss/style.scss */
 #main .box .scale-caption h3, #main .box .scale-caption p {
   position: relative;
   left: -200px;
@@ -6886,7 +6876,7 @@ p.ng-binding {
   transition: all 300ms ease-out;
 }
 
-/* line 289, ../scss/style.scss */
+/* line 285, ../scss/style.scss */
 #main .box .scale-caption h3 {
   -webkit-transition-delay: 300ms;
   -moz-transition-delay: 300ms;
@@ -6895,7 +6885,7 @@ p.ng-binding {
   transition-delay: 300ms;
 }
 
-/* line 297, ../scss/style.scss */
+/* line 293, ../scss/style.scss */
 #main .box .scale-caption p {
   -webkit-transition-delay: 500ms;
   -moz-transition-delay: 500ms;
@@ -6905,7 +6895,7 @@ p.ng-binding {
 }
 
 /** Simple Caption :hover Behaviour **/
-/* line 306, ../scss/style.scss */
+/* line 302, ../scss/style.scss */
 #main .box:hover .simple-caption {
   -moz-transform: translateY(-100%);
   -o-transform: translateY(-100%);
@@ -6915,7 +6905,7 @@ p.ng-binding {
 }
 
 /** Full Caption :hover Behaviour **/
-/* line 315, ../scss/style.scss */
+/* line 311, ../scss/style.scss */
 #main .box:hover .full-caption {
   -moz-transform: translateY(100%);
   -o-transform: translateY(100%);
@@ -6925,13 +6915,13 @@ p.ng-binding {
 }
 
 /** Fade Caption :hover Behaviour **/
-/* line 324, ../scss/style.scss */
+/* line 320, ../scss/style.scss */
 #main .box:hover .fade-caption, #main .box:hover .scale-caption {
   opacity: 1;
 }
 
 /** Slide Caption :hover Behaviour **/
-/* line 329, ../scss/style.scss */
+/* line 325, ../scss/style.scss */
 #main .box:hover .slide-caption {
   background-color: black !important;
   -moz-transform: translateX(-100%);
@@ -6941,7 +6931,7 @@ p.ng-binding {
   transform: translateX(-100%);
 }
 
-/* line 337, ../scss/style.scss */
+/* line 333, ../scss/style.scss */
 #main .box:hover img#image-4 {
   -moz-transform: translateX(-100%);
   -o-transform: translateX(-100%);
@@ -6951,7 +6941,7 @@ p.ng-binding {
 }
 
 /** Rotate Caption :hover Behaviour **/
-/* line 346, ../scss/style.scss */
+/* line 342, ../scss/style.scss */
 #main .box:hover .rotate {
   background-color: black !important;
   -moz-transform: rotate(-180deg);
@@ -6961,7 +6951,7 @@ p.ng-binding {
 }
 
 /** Scale Caption :hover Behaviour **/
-/* line 355, ../scss/style.scss */
+/* line 351, ../scss/style.scss */
 #main .box:hover #image-6 {
   -moz-transform: scale(1.4);
   -o-transform: scale(1.4);
@@ -6969,7 +6959,7 @@ p.ng-binding {
   transform: scale(1.4);
 }
 
-/* line 362, ../scss/style.scss */
+/* line 358, ../scss/style.scss */
 #main .box:hover .scale-caption h3, #main .box:hover .scale-caption p {
   -moz-transform: translateX(200px);
   -o-transform: translateX(200px);
@@ -6977,17 +6967,17 @@ p.ng-binding {
   transform: translateX(200px);
 }
 
-/* line 370, ../scss/style.scss */
+/* line 366, ../scss/style.scss */
 .add_facets li {
   cursor: pointer;
 }
 
-/* line 374, ../scss/style.scss */
+/* line 370, ../scss/style.scss */
 #inner-content {
   min-height: 600px;
 }
 
-/* line 378, ../scss/style.scss */
+/* line 374, ../scss/style.scss */
 .swiper {
   margin: 0 auto;
   overflow: hidden;
@@ -6995,46 +6985,46 @@ p.ng-binding {
   z-index: 1;
 }
 
-/* line 384, ../scss/style.scss */
+/* line 380, ../scss/style.scss */
 .swiper-container-scheduled-home .home_product {
   padding: 25px;
 }
 
-/* line 386, ../scss/style.scss */
+/* line 382, ../scss/style.scss */
 #sticky-posts-10 {
   margin: 40px 0;
   overflow: hidden;
 }
 
-/* line 390, ../scss/style.scss */
+/* line 386, ../scss/style.scss */
 .swiper-container-howto img {
   height: 200px;
 }
 
-/* line 393, ../scss/style.scss */
+/* line 389, ../scss/style.scss */
 .swiper-container-howto article {
   text-align: center;
 }
 
-/* line 397, ../scss/style.scss */
+/* line 393, ../scss/style.scss */
 #sticky-posts-12 h4 {
   text-align: center;
   margin: 20px 0;
 }
 
-/* line 402, ../scss/style.scss */
+/* line 398, ../scss/style.scss */
 .home_product.type-home_product.status-publish.hentry p {
   font-size: 12px;
   margin: 0;
 }
 
-/* line 407, ../scss/style.scss */
+/* line 403, ../scss/style.scss */
 .tt-menu {
   border: 1px solid #ccc;
   background: white;
 }
 
-/* line 412, ../scss/style.scss */
+/* line 408, ../scss/style.scss */
 .tt-menu p {
   cursor: pointer;
   font-size: 75%;
@@ -7042,12 +7032,12 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 420, ../scss/style.scss */
+/* line 416, ../scss/style.scss */
 .typeahead {
   width: 380px;
 }
 
-/* line 424, ../scss/style.scss */
+/* line 420, ../scss/style.scss */
 .tt-menu h5 {
   background: #333;
   clear: both;
@@ -7055,7 +7045,33 @@ p.ng-binding {
   color: #ccc;
 }
 
-/* line 432, ../scss/style.scss */
+/* line 428, ../scss/style.scss */
 .upw-posts article {
   overflow: hidden;
+}
+
+/* line 432, ../scss/style.scss */
+.fullwidth {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+}
+
+/* line 440, ../scss/style.scss */
+.site-top-bar {
+  background: #4ceae8;
+}
+
+/* line 445, ../scss/style.scss */
+.font-small {
+  font-size: 0.625rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 451, ../scss/style.scss */
+.rating-text {
+  font-weight: bold;
 }

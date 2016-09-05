@@ -7,7 +7,7 @@
 global $ibiza_api;
 //32 is shop catgeory
 $cat                = $ibiza_api->get_product_list_category(  get_query_var('the_id') );
-$catss              = $ibiza_api->get_product_list_top_level_categorys( 99 , 32 );
+$catss              = $ibiza_api->get_product_list_top_level_categorys( 131 , 32 );
 $title              = $ibiza_api->get_product_list_title( get_query_var('products') );
 $cat_title          = $ibiza_api->cat_data->title; 
 

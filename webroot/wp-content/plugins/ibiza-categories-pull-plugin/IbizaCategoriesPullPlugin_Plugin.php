@@ -178,6 +178,13 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
                 
             }else{
                 
+                
+                if($dataIn->title=='Shop'){
+                    update_post_meta(32, 'cat-' . $dataIn->id, json_encode($dataIn) );
+                    $this->add_menu($dataIn->nodes, $menu_id, $child_menu_id);
+                }else{                
+                
+                
                 if($parent_id == 23935){
                     $page_link = 'how-to-guides';
                 }else{
@@ -220,7 +227,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
                     $this->add_menu($dataIn->nodes, $menu_id, $child_menu_id);
                 }                
                 
-                
+                }
                 
             }
             

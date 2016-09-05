@@ -52,7 +52,7 @@ function wpse71305_register_types() {
     add_rewrite_tag('%howto%', '([^&/]+)');
     add_rewrite_tag('%the_id%', '([^&/]+)');
     add_rewrite_tag('%cat%', '([^&/]+)');
-    
+
     //Register hotel post type with %country$ tag
     $args = array(
         'has_archive' => true,
@@ -64,7 +64,7 @@ function wpse71305_register_types() {
         )
     );
     register_post_type('product', $args);
-    
+
     //Register hotel post type with %country$ tag
     $args = array(
         'has_archive' => true,
@@ -76,8 +76,8 @@ function wpse71305_register_types() {
         )
     );
     register_post_type('howto', $args);
-    
-    
+
+
 
     //Register hotel post type with %country$ tag
     $args = array(
@@ -89,9 +89,27 @@ function wpse71305_register_types() {
             'pages' => true
         )
     );
-    register_post_type('product-list', $args);  
-    
-    
+    register_post_type('product-list', $args);
+
+
+
+    //Register hotel post type with %country$ tag
+    $args = array(
+        'has_archive' => false,
+        'rewrite' => array(
+            'slug' => 'search/',
+            'with_front' => false,
+            'feed' => false,
+            'pages' => false,
+        ),
+        'query_var' => 'q',
+        'publicly_queryable' => true,
+        'public' => true,
+        'hierarchical' => false,
+    );
+    register_post_type('search', $args);
+
+
 
     //Register hotel post type with %country$ tag
     $args = array(
@@ -103,13 +121,7 @@ function wpse71305_register_types() {
             'pages' => true
         )
     );
-    register_post_type('how-to-guides', $args);    
-    
-    
-    
-    
-    
-    
+    register_post_type('how-to-guides', $args);
 }
 
 add_filter('template_include', 'so_13997743_custom_template');
@@ -127,10 +139,9 @@ function so_13997743_custom_template($template) {
 
     $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
 
-    
-    if(isset($segments[0]) && !empty($segments[0])  )
-        switch ( $segments[0] )
-        {
+
+    if (isset($segments[0]) && !empty($segments[0]))
+        switch ($segments[0]) {
 
             case 'p':
                 $template = plugin_dir_path(__FILE__) . 'product.php';
@@ -139,18 +150,18 @@ function so_13997743_custom_template($template) {
                 $template = plugin_dir_path(__FILE__) . 'howto.php';
                 break;
             default:
-               
-                
-                if(  ( $segments[0] == 'product-list'  && (isset($segments[1])||isset($_GET['q']) ) ) || ($segments[0] ==  'how-to-guides' && isset($segments[1] ) ) ){
-                    $template = plugin_dir_path(__FILE__) . 'template-products-list.php';        
+
+
+                if (( $segments[0] == 'search' && (isset($segments[1]) || isset($_GET['q']) ) ) || ( $segments[0] == 'product-list' && (isset($segments[1]) || isset($_GET['q']) ) ) || ($segments[0] == 'how-to-guides' && isset($segments[1]) )) {
+                    $template = plugin_dir_path(__FILE__) . 'template-products-list.php';
                 }
-                    
+
 //                if( $segments[0] ==  'how-to-guides' && isset($segments[1])  ){
 //                    $template = plugin_dir_path(__FILE__) . 'template-how-to-guides.php';        
 //                }
         }
-    
-        
+
+
     return $template;
 }
 
@@ -182,6 +193,7 @@ function get_meta_values($key = '', $type = 'post', $status = 'publish') {
 
     return $r;
 }
+
 /**
  * 
  * @global type $wpdb
@@ -190,7 +202,7 @@ function get_meta_values($key = '', $type = 'post', $status = 'publish') {
  * @param type $status
  * @return array
  */
-function breacdcrumbs( $menu_id , $type = 'post' , $status = 'publish' ) {
+function breacdcrumbs($menu_id, $type = 'post', $status = 'publish', $page = '') {
 
     global $wpdb;
 
@@ -204,7 +216,7 @@ function breacdcrumbs( $menu_id , $type = 'post' , $status = 'publish' ) {
         LIMIT 1
     ", $menu_id, $status));
 
-    return array_reverse( crumb($r[0], 'publish' ));
+    return array_reverse(crumb($r[0], $status, array(), $page));
 }
 
 /**
@@ -215,58 +227,62 @@ function breacdcrumbs( $menu_id , $type = 'post' , $status = 'publish' ) {
  * @param type $output_arr
  * @return string
  */
-function crumb($id , $status = 'publish' , $output_arr = array() ) {
+function crumb($id, $status = 'publish', $output_arr = array(), $page = '') {
 
     global $wpdb;
 
     $myrows = $wpdb->get_results(
-        $wpdb->prepare($q = "
+            $wpdb->prepare($q = "
         SELECT p.post_title,  pm.meta_value AS pid,  pmm.* FROM {$wpdb->postmeta} pm
         LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
         LEFT JOIN {$wpdb->postmeta} pmm ON p.ID = pm.post_id AND pmm.meta_key  = '_menu_item_url' AND pmm.post_id ='%s'
         WHERE pm.meta_key = '%s' 
         AND p.post_status = '%s' 
         AND pm.post_id =  '%s' 
-        LIMIT 1", $id , '_menu_item_menu_item_parent', $status, $id)
+        LIMIT 1", $id, '_menu_item_menu_item_parent', $status, $id)
     );
-        
+
     /**
      * Point to note! Quuery joins the current menu item link to save to another query
      * Done by obatining the current menus link, it also retrieves the parent of the current level
      * To pass on to the self return if is !=0 ie the highest level
      */
-        
     if ($myrows[0]->pid != 0) {
 
         static $i;
-        $class= '';
-            
-        if( $i==0 ){
-            $class= 'class="current"';
+        $class = '';
+
+        if ($i == 0) {
+            $class = 'class="current"';
         }
-        
-        $output_arr[] = '<li '. $class .'><a href="'. $myrows[0]->meta_value .'">' . $myrows[0]->post_title . '</a></li>';
-        
+
+        if ($page != '') {
+            $output_arr[] = '<li ' . $class . '><a href="#">' . $page . '</a></li>';
+            $class = '';
+        }
+
+
+        $output_arr[] = '<li ' . $class . '><a href="' . $myrows[0]->meta_value . '">' . $myrows[0]->post_title . '</a></li>';
+
         $i++;
         return crumb($myrows[0]->pid, $status = 'publish', $output_arr);
         // return self call to get next level up
     } else {
-        
+
         // temp wire how to guides, will need updating
-        if($id == '23935') {
+        if ($id == '23935') {
             // how to id
-            $url        = '/how-to-guides';
-            $title      = 'How to guides';
-        } else if( $id == '32' ){
-            $url        = '/products-list';
-            $title      = 'Shop';            
+            $url = '/how-to-guides';
+            $title = 'How to guides';
+        } else if ($id == '32') {
+            $url = '/products-list';
+            $title = 'Shop';
+        } else {
+            $url = $myrows[0]->meta_value;
+            $title = $myrows[0]->post_title;
         }
-        else{
-            $url        = $myrows[0]->meta_value;
-            $title      = $myrows[0]->post_title;
-        }
-        
-        $output_arr[$myrows[0]->post_title] = '<li><a href="'. $url .'">' . $title . '</a></li>';
+
+        $output_arr[$myrows[0]->post_title] = '<li><a href="' . $url . '">' . $title . '</a></li>';
         $output_arr[] = '<li><a href="/">Home page </a></li>';
 
         return $output_arr;
@@ -276,39 +292,31 @@ function crumb($id , $status = 'publish' , $output_arr = array() ) {
     return $output_arr;
 }
 
-
-
-
 function sanitize($string, $force_lowercase = true, $anal = false) {
     $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
-                   "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
-                   "â€”", "â€“", ",", "<", ".", ">", "/", "?");
+        "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+        "â€”", "â€“", ",", "<", ".", ">", "/", "?");
     $clean = trim(str_replace($strip, "", strip_tags($string)));
     $clean = preg_replace('/\s+/', "-", $clean);
-    $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean ;
+    $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean;
     return ($force_lowercase) ?
-        (function_exists('mb_strtolower')) ?
-            mb_strtolower($clean, 'UTF-8') :
-            strtolower($clean) :
-        $clean;
+            (function_exists('mb_strtolower')) ?
+                    mb_strtolower($clean, 'UTF-8') :
+                    strtolower($clean) :
+            $clean;
 }
 
-function get_product_by_mongo_product_code( $product_code )
-{
-    
-    return  reset( json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $product_code ) ) );
-    
-    
+function get_product_by_mongo_product_code($product_code) {
+
+    return reset(json_decode(file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $product_code)));
 }
 
-function get_product_by_mongo_id($mongo_id)
-{
-    $data =  json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id  ) ) ;
-    
+function get_product_by_mongo_id($mongo_id) {
+    $data = json_decode(file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id));
+
     return $data;
-    
-    
-    
-        return  reset( json_decode( file_get_contents( 'http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id ) ) );
 
+
+
+    return reset(json_decode(file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id)));
 }

@@ -11,17 +11,13 @@
 
 
     <div class="menu large-4 columns">
-        <p style="margin:0;font-weight: bold; color : #006666">Watch Live TV Channel On:</p>
-
-        <span>Virgin 756, Freesat 807,<br>
-            Sky 665, Freeview 76 (8am-12pm)
-        </span>
+        <?php joints_top_nav(); ?>
     </div>
 
 
 
     <ul class="menu large-4 columns">
-        <li><a href="<?php echo home_url(); ?>"><img height="100" src="http://ibiza.co.uk/wp-content/uploads/2013/12/ibiza-2014.png" alt="<?php bloginfo('name'); ?>" style="height: 75px ! important;"></a></li>
+        <li><a href="<?php echo home_url(); ?>"><img src="/wp-content/themes/Ibiza-Theme/assets/images/logo.jpg" alt="<?php bloginfo('name'); ?>"  ></a></li>
     </ul>
     <div class="large-4  columns">
         <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("searchbar")) : ?>
@@ -37,7 +33,7 @@
 <div class="top-bar" id="top-bar-menu">
 
     <div class="top-bar show-for-medium">
-        <?php joints_top_nav(); ?>	
+        h	
     </div>
     <div class="top-bar-right float-right show-for-small-only">
         <ul class="menu">

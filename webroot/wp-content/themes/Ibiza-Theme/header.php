@@ -51,44 +51,53 @@
                 <?php get_template_part('parts/content', 'offcanvas_left'); ?>
 
                 <div class="off-canvas-content" data-off-canvas-content>
+                    <div class="fullwidth site-top-bar">
+                        <div class="row show-for-xlarge-only">
+                            
+                            <div class="large-4 columns">
+                                <p class="font-small rating-text"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />Rated excellent by our customers</p>
+                            </div>
+                            
+                            
+                            <div class="large-4 columns">
 
-                    <div class="row show-for-xlarge-only">
-                        <div class="large-6 columns">
+                                <p>The Home of Sewing &amp; Quilting</p>
 
-                            <ul class="menu">
+                            </div>                            
+                            
+                            
+                            <div class="large-4 columns">
 
-                                <?php if (_LOGGED_IN): ?>
+                                <ul class="menu">
+
+                                    <?php if (_LOGGED_IN): ?>
 
                                     <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+                                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+                                    
+                                    <?php else: ?>
 
-                                <?php else: ?>
+                                    <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Login / Register </a></li>
 
-                                    <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Sign up / Login</a></li>
+                                    <?php endif; ?>
+                                    <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
+                                </ul>                    
 
-                                <?php endif; ?>
-                                <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
-                                <li><a href="#">92815 Independent Reviews</a></li>
-                            </ul>                    
+                            </div>
+
+
+   
 
                         </div>
-                        <div class="large-6 columns">
+                    </div>
+                    
+                
+                    <div class="fullwidth">
+                        <nav class="header row" role="banner">
 
-                            <ul class="menu float-right">
-                                <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx?_ga=1.141642677.624630137.1465816634">Your Bag</a></li>
+                            <!-- This navs will be applied to the topbar, above all content 
+                                     To see additional nav styles, visit the /parts directory -->
+                            <?php get_template_part('parts/nav', 'offcanvas-topbar'); ?>
 
-                                <?php if (_LOGGED_IN): ?>
-                                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
-                                <?php endif; ?>
-
-                            </ul>                    
-
-                        </div>                    
-                    </div>                    
-
-                    <nav class="header row" role="banner">
-
-                        <!-- This navs will be applied to the topbar, above all content 
-                                 To see additional nav styles, visit the /parts directory -->
-                        <?php get_template_part('parts/nav', 'offcanvas-topbar'); ?>
-
-                    </nav> <!-- end .header -->
+                        </nav> <!-- end .header -->
+                    </div>

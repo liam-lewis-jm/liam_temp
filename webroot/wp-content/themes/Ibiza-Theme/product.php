@@ -27,6 +27,8 @@ if( isset( $_GET['bundle'] ) ){
     return require('product-bundle.php');
     
 }
+$breadcrumbs = breacdcrumbs( 'cat-' . (int)$response->category[0] , 'post' ,  'publish' ,$response->name);
+ 
 
 ?>
 
@@ -39,11 +41,9 @@ if( isset( $_GET['bundle'] ) ){
         
         <ul class="breadcrumbs">
             
-            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response->category[0]  ) ) ; ?>
+            <?php echo  implode( '' , $breadcrumbs ) ; ?>
 
-            <li>
-                <span class="show-for-sr">Current: </span> <?php echo $response->name; ?>
-            </li>
+
             
         </ul>
     </nav>
