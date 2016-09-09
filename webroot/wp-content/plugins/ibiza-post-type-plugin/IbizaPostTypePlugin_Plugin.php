@@ -277,6 +277,29 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=39
         // Register AJAX hooks
         // http://plugin.michael-simpson.com/?page_id=41
+        
+        $post_type = $_REQUEST['post_type'];
+        
+        add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_name' ), 0, 1 );
+        add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content' ), 0, 2 );
+    }
+    
+    function column_name($columns) {
+        $added_columns = array();
+        $added_columns['name'] = __( 'Name');
+        $added_columns['schedule_date'] = __( 'Schedule Date');
+        return array_merge( $columns, $added_columns );
+    }
+    
+    function column_content($column_name, $post_id) {
+        switch ($column_name) {
+            case 'name':
+//                echo $product['name'];
+                break;
+            case 'schedule_date';
+//                echo $product['schedule'];                
+                break;
+        }
     }
 
     function create_posttype() {
