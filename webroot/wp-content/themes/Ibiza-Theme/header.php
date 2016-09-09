@@ -53,47 +53,58 @@
                 <div class="off-canvas-content" data-off-canvas-content>
                     <div class="fullwidth site-top-bar">
                         <div class="row show-for-xlarge-only">
-                            
+
                             <div class="large-4 columns">
-                                <p class="font-small rating-text"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />Rated excellent by our customers</p>
+                                <p class="font-small rating-text">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />
+                                    <span>Rated excellent by our customers</span>
+                                </p>
                             </div>
-                            
-                            
-                            <div class="large-4 columns">
 
-                                <p>The Home of Sewing &amp; Quilting</p>
 
+                            <div class="large-4 columns text-center">
+                                <img class="slogan" src="<?php echo get_template_directory_uri(); ?>/assets/images/slogan.png" title="" alt="" />
                             </div>                            
-                            
-                            
-                            <div class="large-4 columns">
 
-                                <ul class="menu">
+
+                            <div class="large-4 columns panel clearfix">
+
+                                <ul class="menu right ">
 
                                     <?php if (_LOGGED_IN): ?>
 
-                                    <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
-                                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
-                                    
+                                        <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+                                        <li class="separator">|</li>
+                                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+
                                     <?php else: ?>
 
-                                    <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Login / Register </a></li>
+                                        <li>
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-icon.png" title="" alt="" />
+                                            <a class="font-small"   style="display: inline-block" href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Login / Register </a>
+                                        </li>
 
                                     <?php endif; ?>
-                                    <li><a href="tel:0800 6444 655">0800 6444 655</a></li>
+
+                                    <li class="separator">|</li>
+
+                                    <li>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tel-icon.png" title="" alt="" />
+                                        <a class="font-small" style="display: inline-block" href="tel:0800 6444 655">0800 6444 655</a>
+                                    </li>
                                 </ul>                    
 
                             </div>
 
 
-   
+
 
                         </div>
                     </div>
-                    
-                
-                    <div class="fullwidth">
-                        <nav class="header row" role="banner">
+
+
+                    <div class="fullwidth header-outter">
+                        <nav class="header row upper" role="banner">
 
                             <!-- This navs will be applied to the topbar, above all content 
                                      To see additional nav styles, visit the /parts directory -->
@@ -101,3 +112,83 @@
 
                         </nav> <!-- end .header -->
                     </div>
+                    
+                    <div class="clear">&nbsp;</div>
+                    
+                    <div class="row" style="">
+                        <div>
+                        <div class="large-3  columns tv-channel-con">
+                            <div class="row">
+                                <div style="padding: 0px;" class="large-3  columns">
+                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/virgin-icon.png">
+                                </div>
+
+                                <div class="large-2  columns">
+                                    <p style="font-size: 22px;margin:0; text-align: center;">80</p>
+                                </div>
+
+                                <div style="padding:  7px 0 0 6px ;" class="large-6  columns end ">
+                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="large-3  columns  tv-channel-con">
+                            <div class="row">
+                                <div style="padding: 0px;" class="large-3  columns">
+                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/freesat-icon.png">
+                                </div>
+
+                                <div class="large-2  columns" style="padding: 0px 0px;">
+                                    <p style="font-size: 22px;margin:0;  text-align: center;">813</p>
+                                </div>
+
+                                <div style="padding:  7px 0 0 6px ;;" class="large-6  columns end ">
+                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="large-3  columns  tv-channel-con">
+                            <div class="row">
+                                <div style="padding: 0px;" class="large-3  columns">
+                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/sky-icon.png">
+                                </div>
+
+                                <div class="large-2  columns" style="padding: 0px 0px;">
+                                    <p style="font-size: 22px;margin:0;  text-align: center;">617</p>
+                                </div>
+
+                                <div style="padding: 7px 0 0 6px ;" class="large-6  columns end ">
+                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="large-3  columns   tv-channel-con">
+                            <div class="row">
+                                <div style="padding: 0px;" class="large-3  columns">
+                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/freeview-icon.png">
+                                </div>
+
+                                <div class="large-2  columns" style="padding: 0px 0px;">
+                                    <p style="font-size: 22px;margin:0; ; text-align: center;">76</p>
+                                </div>
+
+                                <div style="padding:  7px 0 0 6px ;" class="large-6  columns end ">
+                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        </div>
+
+                    </div>                    

@@ -186,7 +186,7 @@ if( count( $ids1 ) >0 )
               
               
             <?php if (get_the_title() && $instance['show_title']) : ?>
-              <h4 class="entry-title" style="background: #fff"><a href="<?php echo $rowArrTitles[trim(get_the_title())]['url']; ?>"><?php echo $rowArrTitles[trim(get_the_title())]['title']; ?></a></h4>
+              <h4 class="entry-title"><a href="<?php echo $rowArrTitles[trim(get_the_title())]['url']; ?>"><?php echo $rowArrTitles[trim(get_the_title())]['title']; ?></a></h4>
             <?php endif; ?>
 
             <?php if ($instance['show_date'] || $instance['show_author'] || $instance['show_comments']) : ?>

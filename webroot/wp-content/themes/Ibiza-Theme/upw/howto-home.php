@@ -7,9 +7,9 @@
 
 $image              = '';
 $cats               = explode( ',' ,  $instance['cats'] ) ;
-$slider             = 1;
-$container_class    = 'products_widget';
-$row_class          = ' large-6 columns';
+$slider             = 0;
+$container_class    = 'howto_widget';
+$row_class          = ' large-3 columns';
 $swiper_data        = '';
 $style= '';
 if( $slider == 1 ){
@@ -58,8 +58,14 @@ if( count( $ids ) >0 )
 
 <div class="upw-posts hfeed <?php echo $container_class; ?>" <?php echo $style; ?>>
 
+    
+    <?php if($slider): ?>
+    
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div> 
+    
+    <?php endif; ?>
+    
   <?php if ($upw_query->have_posts()) : ?>
     <div<?php echo $swiper_data;?>>
         
@@ -162,6 +168,12 @@ if( count( $ids ) >0 )
 
           </header>
 
+            <p class="how-to-image-holder"><img src="<?php echo $howto->data->image; ?>" alt="" /></p>    
+            <div class="how-to-holder">
+                
+                <h6><a href="/h/<?php echo $howto->_id;?>/"><?php echo  $howto->data->name; ?></a></h6>
+                 
+                
           <?php if ($instance['show_excerpt']) : ?>
             <div class="entry-summary">
               <p>
@@ -177,15 +189,15 @@ if( count( $ids ) >0 )
             </div>
           <?php endif; ?>
 
+            
+        </div> 
+                
         
                 
                 
           <?php // product specfic info  ?>
                 
-            <div class="large-12 columns">
-                <h6><a href="/h/<?php echo $howto->_id;?>/"><?php echo  $howto->data->name; ?></a></h6>
-                <p><img src="<?php echo $howto->data->image; ?>" alt="" /></p>
-            </div>         
+       
           <footer>
 
             <?php
