@@ -291,7 +291,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         return array_merge( $columns, $added_columns );
     }
     
-    function column_content( $column_name, $post_id ) {
+    function column_content($column_name, $post_id) {
         switch ($column_name) {
             case 'name':
 //                echo $product['name'];
