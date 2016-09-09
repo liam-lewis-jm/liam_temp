@@ -41,11 +41,10 @@
                     <img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" />
                 </div>       
 
-                
-                <div class="row text-center">
-                    <div class="large-4 columns"><a href="/tv-schedule/">View the TV Schedule &gt;</a></div>
-                    <div class="large-4 columns"><a href="/tv-schedule/">Watch Live Now &gt;</a></div>
-                    <div class="large-4 columns"><a href="">View all products from Today &gt;</a></div>
+                <!-- temp inline as design not final -->
+                <div class="text-center" id="tv-options">
+                    <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a></div>
+                    <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a></div>
                 </div>
                 
                 <?php if (is_active_sidebar('homepageleft')) : ?>
@@ -65,92 +64,148 @@
 
     </div> <!-- end #inner-content -->
     
+    
+    
+
+    
+    
 </div> <!-- end #content -->
 
-<hr />
 
-<section class="row" id="second-band">
-    
-    <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
-    <div class="text-center">
-            <?php dynamic_sidebar('homepagebelowmaincontent'); ?>
-    </div>
-    <?php endif; ?>
+<div class="row">
+        <div class="medium-6 medium-centered">
+               <div class="row">
 
-    <?php if (is_active_sidebar('homepagebelowmaincontent_left1') && is_active_sidebar('homepagebelowmaincontent_left2') ) : ?>
+                        <div style="background: white none repeat scroll 0% 0%; padding-left: 0px;" class="medium-6 columns">
+                          <div style="position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: rgb(76, 235, 233) none repeat scroll 0px 0px; padding: 0px 10px;">
+                          On Now
+                          <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent rgb(76, 235, 232); position: absolute; top: 0px; right: -21px;">
+                              
+                          </div>
+                          </div>
+                            
+                            <div class="tv-schedule-details">
+                              <p>08:00 - 09:00</p>
+                              <p>Title of the show and who the presenter</p>
+                            </div>
+                        </div>
+                   
+                        <div style="background: white none repeat scroll 0% 0%; padding-left: 0px;" class="medium-6 columns">
+                          <div style="position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: rgb(76, 235, 233) none repeat scroll 0px 0px; padding: 0px 10px;">
+                          On Next
+                            <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent rgb(76, 235, 232); position: absolute; top: 0px; right: -21px;"></div>
+                          </div>
 
-    <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
+                            <div class="tv-schedule-details">
+                              <p>08:00 - 09:00</p>
+                              <p>Title of the show and who the presenter</p>
+                            </div>                            
+                            
 
-        <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
+                        </div>                        
+               
+               
+               </div><!-- /.row -->
+        </div><!-- /.medium-6.center -->
+</div>
 
-    </article>          
+<div style="margin-top: 35px; background: rgb(255, 255, 255) url(http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/fold-bg.png) repeat-x scroll 0px 0px;" class="fullwidth">
 
-    <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
+    <section class="row" id="second-band">
 
-        <?php dynamic_sidebar('homepagebelowmaincontent_left2'); ?>
+        <?php if (is_active_sidebar('homepagebelowmaincontent')) : ?>
+        <div class="text-center">
+                <?php dynamic_sidebar('homepagebelowmaincontent'); ?>
+        </div>
+        <?php endif; ?>
 
-    </article>          
+        <?php if (is_active_sidebar('homepagebelowmaincontent_left1') && is_active_sidebar('homepagebelowmaincontent_left2') ) : ?>
 
-    
-    <?php else: ?>
-    
-    
-    
-    <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
+        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
 
-    <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns" style="padding: 0">
+            <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
 
-        <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
+        </article>          
 
-    </article>          
+        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
 
-    <?php endif; ?>     
+            <?php dynamic_sidebar('homepagebelowmaincontent_left2'); ?>
 
-    <?php if (is_active_sidebar('homepagebelowmaincontent_left2')) : ?>
+        </article>          
 
-    <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns">
 
-        <?php dynamic_sidebar('homepagebelowmaincontent_left2'); ?>
+        <?php else: ?>
 
-    </article>          
 
-    <?php endif; ?>     
-    
-    
-    
-    
-    <?php endif; ?> 
-    
 
-    <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
+        <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
 
-    <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
+        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns" style="padding: 0">
 
-        <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
+            <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
 
-    </article>         
+        </article>          
 
-    <?php endif; ?>  
-       
-    <div class="clear"></div>
-    
-</section>        
+        <?php endif; ?>     
 
-<hr />
+        <?php if (is_active_sidebar('homepagebelowmaincontent_left2')) : ?>
 
-<section class="row" id="third-band">
-    
-    <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
+        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns">
 
-    <article class="">
+            <?php dynamic_sidebar('homepagebelowmaincontent_left2'); ?>
 
-        <?php dynamic_sidebar('homepagebelowmaincontent_full'); ?>
+        </article>          
 
-    </article>
-    
-    <?php endif; ?>
-    
-</section>
+        <?php endif; ?>     
+
+
+
+
+        <?php endif; ?> 
+
+
+        <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
+
+        <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
+
+            <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
+
+        </article>         
+
+        <?php endif; ?>  
+
+        <div class="clear"></div>
+        
+        
+        <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
+
+        <article class="large-12 columns padding-1">
+
+            <?php dynamic_sidebar('homepagebelowmaincontent_full'); ?>
+
+        </article>
+
+        <?php endif; ?>        
+        
+
+    </section>        
+
+</div>
+
+
+    <section class="row" id="third-band">
+
+        <?php if (is_active_sidebar('homepagebelowmaincontent_full2')) : ?>
+
+        <article class="">
+
+            <?php dynamic_sidebar('homepagebelowmaincontent_full2'); ?>
+
+        </article>
+
+        <?php endif; ?>
+
+    </section>
 
 
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/vendor/plugins/jwplayer/jwplayer.js"></script>

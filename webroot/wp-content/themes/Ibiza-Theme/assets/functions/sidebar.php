@@ -129,6 +129,22 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+
+        
+       
+
+
+
+	register_sidebar(array(
+		'id' => 'homepagebelowmaincontent_full2',
+		'name' => __('Homepage panel below content full second', 'jointswp'),
+		'description' => __('Homepage panel below content full second.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
         
        
 
