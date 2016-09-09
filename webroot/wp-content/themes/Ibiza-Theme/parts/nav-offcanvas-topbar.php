@@ -11,7 +11,18 @@
 
 
     <div class="menu large-4 columns">
-        <?php joints_top_nav(); ?>
+        
+        
+        <div class="top-bar" id="top-bar-menu">
+            <?php joints_top_nav(); ?>
+            <div class="top-bar-right float-right show-for-small-only">
+                <ul class="menu">
+                    <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
+                    <li><a data-toggle="off-canvas"><?php _e('Menu', 'jointswp'); ?></a></li>
+                </ul>
+            </div>
+        </div>        
+        
     </div>
 
 
@@ -38,11 +49,3 @@
 
 <div style="clear:both"></div>
 
-<div class="top-bar" id="top-bar-menu">
-    <div class="top-bar-right float-right show-for-small-only">
-        <ul class="menu">
-            <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-            <li><a data-toggle="off-canvas"><?php _e('Menu', 'jointswp'); ?></a></li>
-        </ul>
-    </div>
-</div>

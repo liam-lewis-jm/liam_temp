@@ -605,6 +605,14 @@ p.ng-binding {
     width:97%;
 }
 
+.tv-product p{
+    width:97%;
+}
+
+.tv-product .row{
+    padding: 5px 0 0;
+}
+
 .tv-product img {
 
     bottom: 8px;
@@ -744,4 +752,17 @@ p.ng-binding {
     margin: 20px auto;
     padding: 10px 55px 9px;
     text-align: center;    
+}
+
+#second-band .large-6, #second-band .large-3{
+    padding:rem-calc(3.5); 
+}
+
+
+#second-band{
+    left: -4px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 1328px;
 }

@@ -140,7 +140,7 @@
 
         <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
 
-        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns" style="padding: 0">
+        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns">
 
             <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
 
@@ -166,7 +166,7 @@
 
         <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
 
-        <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
+        <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
 
             <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
 
@@ -179,7 +179,7 @@
         
         <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
 
-        <article class="large-12 columns padding-1">
+        <article class="large-12">
 
             <?php dynamic_sidebar('homepagebelowmaincontent_full'); ?>
 

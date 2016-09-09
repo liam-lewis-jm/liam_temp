@@ -115,11 +115,11 @@
                     
                     <div class="clear">&nbsp;</div>
                     
-                    <div class="row" style="">
+<div style="background: white none repeat scroll 0% 0%; padding: 20px;" class="row">
                         <div>
-                        <div class="large-3  columns tv-channel-con">
+                        <div class="large-3 small-3 columns tv-channel-con">
                             <div class="row">
-                                <div style="padding: 0px;" class="large-3  columns">
+                                <div class="large-3  columns small-12" style="padding: 0px;">
                                     <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/virgin-icon.png">
                                 </div>
 
@@ -127,7 +127,7 @@
                                     <p style="font-size: 22px;margin:0; text-align: center;">80</p>
                                 </div>
 
-                                <div style="padding:  7px 0 0 6px ;" class="large-6  columns end ">
+                                <div class="large-6  columns end  hide-for-small-only" style="padding:  7px 0 0 6px ;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -135,17 +135,17 @@
 
                         </div>
 
-                        <div class="large-3  columns  tv-channel-con">
+                        <div class="large-3 small-3   columns  tv-channel-con">
                             <div class="row">
-                                <div style="padding: 0px;" class="large-3  columns">
+                                <div class="large-3  columns" style="padding: 0px;">
                                     <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/freesat-icon.png">
                                 </div>
 
-                                <div class="large-2  columns" style="padding: 0px 0px;">
+                                <div style="padding: 0px 0px;" class="large-2  columns">
                                     <p style="font-size: 22px;margin:0;  text-align: center;">813</p>
                                 </div>
 
-                                <div style="padding:  7px 0 0 6px ;;" class="large-6  columns end ">
+                                <div class="large-6  columns  hide-for-small-only  end " style="padding:  7px 0 0 6px ;;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -153,17 +153,17 @@
 
                         </div>
 
-                        <div class="large-3  columns  tv-channel-con">
+                        <div class="large-3 small-3   columns  tv-channel-con">
                             <div class="row">
-                                <div style="padding: 0px;" class="large-3  columns">
+                                <div class="large-3  columns" style="padding: 0px;">
                                     <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/sky-icon.png">
                                 </div>
 
-                                <div class="large-2  columns" style="padding: 0px 0px;">
+                                <div style="padding: 0px 0px;" class="large-2  columns">
                                     <p style="font-size: 22px;margin:0;  text-align: center;">617</p>
                                 </div>
 
-                                <div style="padding: 7px 0 0 6px ;" class="large-6  columns end ">
+                                <div class="large-6  columns end  hide-for-small-only" style="padding: 7px 0 0 6px ;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -171,17 +171,17 @@
 
                         </div>
 
-                        <div class="large-3  columns   tv-channel-con">
+                        <div class="large-3 small-3   columns   tv-channel-con">
                             <div class="row">
-                                <div style="padding: 0px;" class="large-3  columns">
+                                <div class="large-3  columns" style="padding: 0px;">
                                     <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/freeview-icon.png">
                                 </div>
 
-                                <div class="large-2  columns" style="padding: 0px 0px;">
+                                <div style="padding: 0px 0px;" class="large-2  columns">
                                     <p style="font-size: 22px;margin:0; ; text-align: center;">76</p>
                                 </div>
 
-                                <div style="padding:  7px 0 0 6px ;" class="large-6  columns end ">
+                                <div class="large-6  columns end   hide-for-small-only" style="padding:  7px 0 0 6px ;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -191,4 +191,4 @@
 
                         </div>
 
-                    </div>                    
+                    </div>                 
