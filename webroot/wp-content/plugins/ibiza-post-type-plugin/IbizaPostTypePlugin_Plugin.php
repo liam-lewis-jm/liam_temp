@@ -280,24 +280,50 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         
         $post_type = $_REQUEST['post_type'];
         
-        add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_name' ), 0, 1 );
+        add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_header' ), 0, 1 );
         add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content' ), 0, 2 );
+        
     }
     
-    function column_name($columns) {
+    function column_header($columns) {
         $added_columns = array();
         $added_columns['name'] = __( 'Name');
+        $added_columns['schedule'] = __( 'Schedule');
         $added_columns['schedule_date'] = __( 'Schedule Date');
         return array_merge( $columns, $added_columns );
     }
     
     function column_content($column_name, $post_id) {
+        global $post;
+        
         switch ($column_name) {
             case 'name':
-//                echo $product['name'];
+                global $ibiza_api;        
+                $itemCode = get_post($post_id);
+                
+                if ($_REQUEST['post_type'] === 'home_product') {
+                    $product = $ibiza_api->get_product($itemCode->post_title);
+                    echo $product[0]->data->name;
+                } else if ($_REQUEST['post_type'] === 'howtos') {
+                    $howto = $ibiza_api->get_howto($itemCode->post_title);
+                    echo $howto->data->name;
+                }
+                break;
+            case 'schedule':
+                $post = get_post_meta($post_id);
+                if ($post['_cs-enable-schedule'][0]) {
+                    echo $post['_cs-enable-schedule'][0];
+                } else {
+                    echo 'N/A';
+                }
                 break;
             case 'schedule_date';
-//                echo $product['schedule'];                
+                $post = get_post_meta($post_id);
+                if ($post['_cs-start-date'][0] && $post['_cs-expire-date'][0]) {
+                    echo gmdate("H:i:s \ d-M-Y", $post['_cs-start-date'][0]) . ' - ' . gmdate("H:i:s \ d-M-Y", $post['_cs-expire-date'][0]);
+                } else {
+                    echo 'N/A';
+                }
                 break;
         }
     }
