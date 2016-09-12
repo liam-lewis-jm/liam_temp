@@ -3,21 +3,21 @@
  * @param {type} param
  */
 jQuery(document).ready(function () {
+    if (window.location.href.indexOf("action=edit") <= 0) {
+        jQuery( "#save_menu_header" )
+        .clone()
+        .attr({'id':'refresh_ibiza_menu' , 'value' : 'Refresh Ibiza Menu' })
+        .appendTo( ".publishing-action" )
+        .click( function(e){
 
-    jQuery( "#save_menu_header" )
-    .clone()
-    .attr({'id':'refresh_ibiza_menu' , 'value' : 'Refresh Ibiza Menu' })
-    .appendTo( ".publishing-action" )
-    .click( function(e){
+            e.preventDefault();
 
-        e.preventDefault();
+            if( confirm( 'Are you sure you want to refresh th Ibiza menu, changes will be overwritten.' ) ){
+                window.location.href = '/wp-admin/nav-menus.php?refresh_ibiza_menu=1';
+            }
 
-        if( confirm( 'Are you sure you want to refresh th Ibiza menu, changes will be overwritten.' ) ){
-            window.location.href = '/wp-admin/nav-menus.php?refresh_ibiza_menu=1';
-        }
-
-    });
-    
+        });
+    }
     
     
     
