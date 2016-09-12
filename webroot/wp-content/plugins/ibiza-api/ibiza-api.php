@@ -1,11 +1,11 @@
 <?php
 /*
-   Plugin Name: Ibiza API
+   Plugin Name: Product Catalogue
    Plugin URI: http://wordpress.org/extend/plugins/ibiza-api/
    Version: 0.1
    Author: Ryan Blake
-   Description: Ibiza API
-   Text Domain: ibiza-api
+   Description: Product Catalogue
+   Text Domain: product-catalogue
    License: GPLv3
   */
 
@@ -39,7 +39,7 @@ $IbizaApi_minimalRequiredPhpVersion = '5.0';
 function IbizaApi_noticePhpVersionWrong() {
     global $IbizaApi_minimalRequiredPhpVersion;
     echo '<div class="updated fade">' .
-      __('Error: plugin "Ibiza API" requires a newer version of PHP to be running.',  'ibiza-api').
+      __('Error: plugin "Product Catalogue" requires a newer version of PHP to be running.',  'ibiza-api').
             '<br/>' . __('Minimal version of PHP required: ', 'ibiza-api') . '<strong>' . $IbizaApi_minimalRequiredPhpVersion . '</strong>' .
             '<br/>' . __('Your server\'s PHP version: ', 'ibiza-api') . '<strong>' . phpversion() . '</strong>' .
          '</div>';
