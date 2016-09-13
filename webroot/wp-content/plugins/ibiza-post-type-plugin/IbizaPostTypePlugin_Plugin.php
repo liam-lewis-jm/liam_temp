@@ -279,10 +279,10 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=41
         
         $post_type = $_REQUEST['post_type'];
-        
-        add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_header' ), 0, 1 );
-        add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content' ), 0, 2 );
-        
+        if ($post_type !== 'page' && $post_type !== 'presenters' && $post_type !== 'home' && $post_type !== 'banner') {
+            add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_header' ), 0, 1 );
+            add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content' ), 0, 2 );
+        }
     }
     
     function column_header($columns) {
@@ -307,6 +307,9 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                 } else if ($_REQUEST['post_type'] === 'howtos') {
                     $howto = $ibiza_api->get_howto($itemCode->post_title);
                     echo $howto->data->name;
+                } elseif ($_REQUEST['post_type'] === 'featured_categories') {
+                    $category = $ibiza_api->get_category($itemCode->post_title);
+                    echo $category[0]->title;
                 }
                 break;
             case 'schedule':
