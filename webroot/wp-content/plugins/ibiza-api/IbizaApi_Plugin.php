@@ -429,6 +429,18 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
 
         return $rst;
     }
+    
+    /**
+     * Retrieve a product from MongoDB using a product code
+     * @param type $product_code
+     * @return object
+     */
+    public function get_category($id) {
+        $json_contents = file_get_contents($this::api_location . $this->end_points['product_list'] . $this->sanitize($id));
+        $rst = json_decode($json_contents);
+
+        return $rst;
+    }
 
     /**
      * Retrieve a product from MongoDB using a product code
@@ -436,7 +448,6 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * @return object
      */
     public function get_product_schema($schema) {
-
 
         $json_contents = @file_get_contents($this::api_location . $this->end_points['product_schema'] . $schema);
 
