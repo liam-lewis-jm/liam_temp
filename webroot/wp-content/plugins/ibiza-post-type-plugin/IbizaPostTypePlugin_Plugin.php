@@ -277,20 +277,26 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=39
         // Register AJAX hooks
         // http://plugin.michael-simpson.com/?page_id=41
-        
-        $post_type = $_REQUEST['post_type'];
+
+        (isset($_REQUEST['post_type']) ? $post_type = $_REQUEST['post_type'] : null);
         if ($post_type !== 'page' && $post_type !== 'presenters' && $post_type !== 'home' && $post_type !== 'banner') {
-            add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_header' ), 0, 1 );
-            add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content' ), 0, 2 );
+            add_filter( 'manage_edit-' . $post_type . '_columns', array($this, 'column_header' ));
+            add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content'), 10, 2);
+            add_filter( 'manage_edit-' . $post_type . '_sortable_columns', array($this,'column_sortable'));
+            add_filter( 'request', array($this,'column_sorted'));
         }
     }
     
-    function column_header($columns) {
-        $added_columns = array();
-        $added_columns['name'] = __( 'Name');
-        $added_columns['schedule'] = __( 'Schedule');
-        $added_columns['schedule_date'] = __( 'Schedule Date');
-        return array_merge( $columns, $added_columns );
+    function column_header() {
+        $columns  = array(
+            'cb' => '<input type="checkbox"/>',
+            'title' => 'Id',
+            'name' => 'Name',
+            'schedule' => 'Schedule',
+            'schedule_date' => 'Schedule Date',
+            'date' => __('Date')
+        );
+        return $columns;
     }
     
     function column_content($column_name, $post_id) {
@@ -298,7 +304,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         
         switch ($column_name) {
             case 'name':
-                global $ibiza_api;        
+                global $ibiza_api;
                 $itemCode = get_post($post_id);
                 
                 if ($_REQUEST['post_type'] === 'home_product') {
@@ -330,7 +336,27 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                 break;
         }
     }
-
+    
+    function column_sortable($columns) {
+        $columns['schedule_date'] = 'Schedule Date';   
+        return $columns;
+    }
+    
+    function column_sorted($vars) {
+	if (isset($vars['post_type'])) {
+            if (isset($vars['orderby']) && $vars['orderby'] === 'schedule_date') {
+                $vars = array_merge(
+                    $vars,
+                    array(
+                        'meta_key' => 'schedule_date',
+                        'orderby' => 'meta_value'
+                    )
+                );
+            }
+	}
+	return $vars;
+    }
+    
     function create_posttype() {
 
         register_post_type('home', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
