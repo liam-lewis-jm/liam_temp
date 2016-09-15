@@ -279,7 +279,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=41
 
         (isset($_REQUEST['post_type']) ? $post_type = $_REQUEST['post_type'] : null);
-        if ($post_type !== 'page' && $post_type !== 'presenters' && $post_type !== 'home' && $post_type !== 'banner') {
+        if ($post_type !== 'page' && $post_type !== 'presenters' && $post_type !== 'home') {
             add_filter( 'manage_edit-' . $post_type . '_columns', array($this, 'column_header' ));
             add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content'), 10, 2);
             add_filter( 'manage_edit-' . $post_type . '_sortable_columns', array($this,'column_sortable'));
