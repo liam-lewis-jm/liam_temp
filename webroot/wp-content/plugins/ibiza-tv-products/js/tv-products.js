@@ -9,7 +9,7 @@ var mySwiperTvProducts = null;
 
 
 function doPoll(){
-    jQuery.getJSON('http://ibizaschemas.product/ProductCatalog.api/api/productsontv/6', function(data) {
+    jQuery.getJSON('http://ibizaschemas.product.uat/ProductCatalog.api/api/productsontv/6', function(data) {
         
         
         jQuery.each( data , function( i, l ){

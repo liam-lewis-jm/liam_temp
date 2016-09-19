@@ -118,7 +118,7 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
      */
     function get_json() {
 
-        $jsonPath = 'http://ibizaschemas.product/ProductCatalog.Api/api/categorytree';  //get_template_directory() . '/assets/json/menu.json';
+        $jsonPath = 'http://ibizaschemas.product.uat/ProductCatalog.Api/api/categorytree';  //get_template_directory() . '/assets/json/menu.json';
         $cats = json_decode(file_get_contents($jsonPath));
         return $cats[0]->{TOP_NODE};
     }

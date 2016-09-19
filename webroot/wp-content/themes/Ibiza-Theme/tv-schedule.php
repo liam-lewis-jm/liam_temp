@@ -6,7 +6,7 @@
 global $ibiza_api;
 
 $join_str   = array();
-$data       = json_decode( file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/tvschedule/89/full' ) );
+$data       = json_decode( file_get_contents( 'http://ibizaschemas.product.uat/ProductCatalog.api/api/legacy/tvschedule/89/full' ) );
 ?>
 
 <?php get_header(); ?>

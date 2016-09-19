@@ -160,7 +160,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
 
         // This is where you run the code and display the output
         
-        $data = json_decode(  file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/productsontv/6/full' ) );
+        $data = json_decode(  file_get_contents( 'http://ibizaschemas.product.uat/ProductCatalog.api/api/legacy/productsontv/6/full' ) );
         
         if( !isset( $data[0] ) )
         {
