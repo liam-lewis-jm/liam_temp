@@ -109,7 +109,7 @@
         </div><!-- /.medium-6.center -->
 </div>
 
-<div style="margin-top: 35px; background: rgb(255, 255, 255) url(http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/fold-bg.png) repeat-x scroll 0px 0px;" class="fullwidth">
+<div style="margin-top: 35px; background: rgb(255, 255, 255) url(/wp-content/themes/Ibiza-Theme/assets/images/fold-bg.png) repeat-x scroll 0px 0px;" class="fullwidth">
 
     <section class="row" id="second-band">
 
