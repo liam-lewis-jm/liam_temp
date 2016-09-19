@@ -36,11 +36,11 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     }
 
     public function getPluginDisplayName() {
-        return 'Ibiza API';
+        return 'Product Catalogue';
     }
 
     protected function getMainPluginFileName() {
-        return 'ibiza-api.php';
+        return 'product-catalogue.php';
     }
 
     /**
@@ -174,7 +174,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=41
     }
 
-    // start ibiza api function 
+    // start product catalogue function 
 
     /**
      * start class variables
@@ -429,6 +429,18 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
 
         return $rst;
     }
+    
+    /**
+     * Retrieve a product from MongoDB using a product code
+     * @param type $product_code
+     * @return object
+     */
+    public function get_category($id) {
+        $json_contents = file_get_contents($this::api_location . $this->end_points['product_list'] . $this->sanitize($id));
+        $rst = json_decode($json_contents);
+
+        return $rst;
+    }
 
     /**
      * Retrieve a product from MongoDB using a product code
@@ -436,7 +448,6 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
      * @return object
      */
     public function get_product_schema($schema) {
-
 
         $json_contents = @file_get_contents($this::api_location . $this->end_points['product_schema'] . $schema);
 
@@ -449,7 +460,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     }
 
     // end product page
-    // end ibiza api function 
+    // end product catalogue function
 
 
     public function get_current_and_previous_tv_products() {

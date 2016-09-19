@@ -90,10 +90,8 @@ $breadcrumbs = breacdcrumbs( 'cat-' . (int)$response->category[0] , 'post' ,  'p
 
 
             <h3 id="product_name"><?php echo $response->name; ?></h3>
-
-
             <p><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> Read Reviews (15)</p>
-            <p>Product code: <strong><?php print get_query_var('products'); ?></strong></p>
+            <p>Product code: <strong><span id="product_code" class="strong"><?php print get_query_var('products'); ?></span></strong></p>
 
 
             <div class="row column" style="background:#F4F4F4;padding:30px">
@@ -312,6 +310,7 @@ $breadcrumbs = breacdcrumbs( 'cat-' . (int)$response->category[0] , 'post' ,  'p
                     zoomImage.removeData('elevateZoom');
                     // Reinitialize EZ
                     
+                    jQuery('#product_code').text(data.productcode);
                     jQuery('#product_name').text( data.name );
                     jQuery('#product_description').text( data.description );
                     jQuery('#product_price').text( '<?php echo $schema->properties->price->prepend ?>' + data.price.toFixed(2) );

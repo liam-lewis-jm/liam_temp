@@ -1,4 +1,4 @@
-=== Ibiza API ===
+=== Product Catalogue ===
 Contributors: Ryan Blake
 Donate link:
 Tags:
@@ -8,11 +8,11 @@ Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 0.1
 
-Ibiza API
+Product Catalogue
 
 == Description ==
 
-Ibiza API
+Product Catalogue
 
 == Installation ==
 

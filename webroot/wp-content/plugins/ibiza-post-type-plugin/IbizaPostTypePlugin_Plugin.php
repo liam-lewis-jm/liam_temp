@@ -277,31 +277,86 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=39
         // Register AJAX hooks
         // http://plugin.michael-simpson.com/?page_id=41
-        
-        $post_type = $_REQUEST['post_type'];
-        
-        add_filter( 'manage_' . $post_type . '_posts_columns', array($this, 'column_name' ), 0, 1 );
-        add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content' ), 0, 2 );
+
+        (isset($_REQUEST['post_type']) ? $post_type = $_REQUEST['post_type'] : null);
+        if ($post_type !== 'page' && $post_type !== 'presenters' && $post_type !== 'home') {
+            add_filter( 'manage_edit-' . $post_type . '_columns', array($this, 'column_header' ));
+            add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content'), 10, 2);
+            add_filter( 'manage_edit-' . $post_type . '_sortable_columns', array($this,'column_sortable'));
+            add_filter( 'request', array($this,'column_sorted'));
+        }
     }
     
-    function column_name($columns) {
-        $added_columns = array();
-        $added_columns['name'] = __( 'Name');
-        $added_columns['schedule_date'] = __( 'Schedule Date');
-        return array_merge( $columns, $added_columns );
+    function column_header() {
+        $columns  = array(
+            'cb' => '<input type="checkbox"/>',
+            'title' => 'Id',
+            'name' => 'Name',
+            'schedule' => 'Schedule',
+            'schedule_date' => 'Schedule Date',
+            'date' => __('Date')
+        );
+        return $columns;
     }
     
     function column_content($column_name, $post_id) {
+        global $post;
+        
         switch ($column_name) {
             case 'name':
-//                echo $product['name'];
+                global $ibiza_api;
+                $itemCode = get_post($post_id);
+                
+                if ($_REQUEST['post_type'] === 'home_product') {
+                    $product = $ibiza_api->get_product($itemCode->post_title);
+                    echo $product[0]->data->name;
+                } else if ($_REQUEST['post_type'] === 'howtos') {
+                    $howto = $ibiza_api->get_howto($itemCode->post_title);
+                    echo $howto->data->name;
+                } elseif ($_REQUEST['post_type'] === 'featured_categories') {
+                    $category = $ibiza_api->get_category($itemCode->post_title);
+                    echo $category[0]->title;
+                }
+                break;
+            case 'schedule':
+                $post = get_post_meta($post_id);
+                if ($post['_cs-enable-schedule'][0]) {
+                    echo $post['_cs-enable-schedule'][0];
+                } else {
+                    echo 'N/A';
+                }
                 break;
             case 'schedule_date';
-//                echo $product['schedule'];                
+                $post = get_post_meta($post_id);
+                if ($post['_cs-start-date'][0] && $post['_cs-expire-date'][0]) {
+                    echo gmdate("H:i:s \ d-M-Y", $post['_cs-start-date'][0]) . ' - ' . gmdate("H:i:s \ d-M-Y", $post['_cs-expire-date'][0]);
+                } else {
+                    echo 'N/A';
+                }
                 break;
         }
     }
-
+    
+    function column_sortable($columns) {
+        $columns['schedule_date'] = 'Schedule Date';   
+        return $columns;
+    }
+    
+    function column_sorted($vars) {
+	if (isset($vars['post_type'])) {
+            if (isset($vars['orderby']) && $vars['orderby'] === 'schedule_date') {
+                $vars = array_merge(
+                    $vars,
+                    array(
+                        'meta_key' => 'schedule_date',
+                        'orderby' => 'meta_value'
+                    )
+                );
+            }
+	}
+	return $vars;
+    }
+    
     function create_posttype() {
 
         register_post_type('home', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
