@@ -422,6 +422,7 @@ p.ng-binding {
 
 .header-container{
     margin: rem-calc( 26 0 0 0 );
+    text-align: right;
 }
 .header-container a{
     color:#000;
@@ -430,7 +431,7 @@ p.ng-binding {
     width:180px;
     float:left;
     background-color: transparent;
-    border-bottom: 1px solid black;
+    border-bottom:none !important;
     border-image: none !important;
     border-left: medium none !important;
     border-right: medium none !important;
@@ -438,7 +439,7 @@ p.ng-binding {
     box-shadow: none;
     color:#000;
     height: 24px;
-    margin: 0 0 0 3px;
+    margin: 0 0 0 0;
     padding: 0;
 }
 .typeahea::-webkit-input-placeholder {
@@ -765,4 +766,21 @@ p.ng-binding {
     overflow: hidden;
     position: relative;
     width: 1328px;
+}
+
+.search-container{
+    text-align: center;
+    background:rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+    display:none;
+}
+
+.search-container form{
+    display: inline-block; 
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%; 
+    border-radius: 34px; 
+    margin: 13px;
+}
+.search-container  img{
+    width: 20px; 
+    vertical-align: baseline;
 }

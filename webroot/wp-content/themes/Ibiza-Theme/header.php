@@ -111,11 +111,24 @@
                             <?php get_template_part('parts/nav', 'offcanvas-topbar'); ?>
 
                         </nav> <!-- end .header -->
+                        
+
+                        
                     </div>
                     
+                    
+                    <div class="fullwidth">
+                        <div>
+                        <?php if (is_active_sidebar('searchbar')) : ?>
+
+                            <?php dynamic_sidebar('searchbar'); ?>
+
+                        <?php endif; ?>
+                        </div>                    
+                    </div>
                     <div class="clear">&nbsp;</div>
                     
-<div style="background: white none repeat scroll 0% 0%; padding: 20px;" class="row">
+                    <div style="background: white none repeat scroll 0% 0%; padding: 20px;" class="row">
                         <div>
                         <div class="large-3 small-3 columns tv-channel-con">
                             <div class="row">
