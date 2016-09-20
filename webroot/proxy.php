@@ -50,10 +50,10 @@ parse_str($cookieStr, $output);
  
  $data_string =  '{
     "BasketID"          : 0,
-    "AuctionID"         : null,
+    "AuctionID"         : -1,
     "Ip"                : "'.  get_client_ip()  .'",
-    "WebsiteId"         : 7,
-    "ProductSourceId"   : 7,
+    "WebsiteId"         : 83,
+    "ProductSourceId"   : 83,
     "ProductCode"       : "'. $productCode . '" ,
     "ProductDetailId"   : '. $productDetailId . ' ,
     "Quantity"          : '. $quantity .',

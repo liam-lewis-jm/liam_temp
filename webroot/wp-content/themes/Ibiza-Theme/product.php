@@ -679,7 +679,7 @@ $breadcrumbs = breacdcrumbs( 'cat-' . (int)$response->category[0] , 'post' ,  'p
             
             jQuery.ajax({
                 dataType  : 'json' ,
-                url: 'http://<?php echo $_SERVER['SERVER_NAME']; ?>/proxy.php?auctionID=-1&productCode=<?php echo 'IPGP48'; //$response['_source']['legacyCode']; ?>&productDetailID=<?php echo '58783'; //$response['_source']['product']['productDetailId']; ?>&quantity=' + quantity
+                url: 'http://<?php echo $_SERVER['SERVER_NAME']; ?>/proxy.php?auctionID=-1&productCode=<?php echo $response->productcode; ?>&productDetailID=<?php echo $response->productcode; ?>&quantity=' + quantity
             }).done(function( data ) {
                 
                 if ( console && console.log ) {
