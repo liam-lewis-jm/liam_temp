@@ -52,7 +52,7 @@
 
                 <div class="off-canvas-content" data-off-canvas-content>
                     <div class="fullwidth site-top-bar">
-                        <div class="row show-for-xlarge-only">
+                        <div class="row">
 
                             <div class="large-4 columns">
                                 <p class="font-small rating-text">
@@ -128,12 +128,12 @@
                     </div>
                     <div class="clear">&nbsp;</div>
                     
-                    <div style="background: white none repeat scroll 0% 0%; padding: 20px;" class="row">
+                    <div style="background: white none repeat scroll 0% 0%; padding: 20px;width:1331px" class="row">
                         <div>
                         <div class="large-3 small-3 columns tv-channel-con">
                             <div class="row">
                                 <div class="large-3  columns small-12" style="padding: 0px;">
-                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/virgin-icon.png">
+                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/virgin-icon.png">
                                 </div>
 
                                 <div class="large-2  columns">
@@ -151,7 +151,7 @@
                         <div class="large-3 small-3   columns  tv-channel-con">
                             <div class="row">
                                 <div class="large-3  columns" style="padding: 0px;">
-                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/freesat-icon.png">
+                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/freesat-icon.png">
                                 </div>
 
                                 <div style="padding: 0px 0px;" class="large-2  columns">
@@ -169,7 +169,7 @@
                         <div class="large-3 small-3   columns  tv-channel-con">
                             <div class="row">
                                 <div class="large-3  columns" style="padding: 0px;">
-                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/sky-icon.png">
+                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/sky-icon.png">
                                 </div>
 
                                 <div style="padding: 0px 0px;" class="large-2  columns">
@@ -187,7 +187,7 @@
                         <div class="large-3 small-3   columns   tv-channel-con">
                             <div class="row">
                                 <div class="large-3  columns" style="padding: 0px;">
-                                    <img src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/freeview-icon.png">
+                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/freeview-icon.png">
                                 </div>
 
                                 <div style="padding: 0px 0px;" class="large-2  columns">

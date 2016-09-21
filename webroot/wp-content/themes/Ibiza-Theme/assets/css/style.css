@@ -74,23 +74,29 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-/* line 17, ../scss/top-menu.scss */
+/* line 16, ../scss/top-menu.scss */
+.menus.row {
+  padding: 0 30px;
+  border-top: 2px solid #e56f63;
+}
+
+/* line 20, ../scss/top-menu.scss */
 .top-bar {
   padding: 0 !important;
 }
 
-/* line 26, ../scss/top-menu.scss */
+/* line 34, ../scss/top-menu.scss */
 .top-bar .menu:first-child a:hover + .ibiza-menu {
   display: block;
   z-index: 4101;
 }
-/* line 32, ../scss/top-menu.scss */
+/* line 40, ../scss/top-menu.scss */
 .top-bar .menu:first-child a:hover {
   position: relative;
   z-index: 9999999;
 }
 
-/* line 43, ../scss/top-menu.scss */
+/* line 51, ../scss/top-menu.scss */
 .top-bar ul.menu li:hover > a {
   background-color: #fff;
   position: relative;
@@ -98,36 +104,38 @@ http://codex.wordpress.org/Creating_Admin_Themes
   color: #000 !important;
 }
 
-/* line 54, ../scss/top-menu.scss */
+/* line 62, ../scss/top-menu.scss */
 .top-bar, .top-bar ul {
   background-color: #fff !important;
 }
 
-/* line 57, ../scss/top-menu.scss */
+/* line 65, ../scss/top-menu.scss */
 .ibiza-menu ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 63, ../scss/top-menu.scss */
+/* line 71, ../scss/top-menu.scss */
 .ibiza-menu ul ul a {
   font-weight: normal !important;
   font-size: 14px;
 }
-/* line 71, ../scss/top-menu.scss */
+/* line 79, ../scss/top-menu.scss */
 .ibiza-menu ul .menu-item-has-children a {
   font-weight: bold;
   color: #000;
+  height: 30px;
+  margin-bottom: 10px;
 }
-/* line 76, ../scss/top-menu.scss */
+/* line 86, ../scss/top-menu.scss */
 .ibiza-menu ul .menu-item-has-children a:hover {
   text-decoration: underline;
 }
 
-/* line 89, ../scss/top-menu.scss */
+/* line 99, ../scss/top-menu.scss */
 .ibiza-menu {
-  box-shadow: 0 5px 14px 0px #313131;
+  top: 125px;
   display: none;
-  background: #fff none repeat scroll 0 0;
+  background: transparent none repeat scroll 0 0;
   position: absolute;
   width: 100%;
   margin-left: auto;
@@ -136,50 +144,46 @@ http://codex.wordpress.org/Creating_Admin_Themes
   left: 0;
   z-index: 999999;
 }
-/* line 103, ../scss/top-menu.scss */
+/* line 113, ../scss/top-menu.scss */
 .ibiza-menu li.large-3, .ibiza-menu li.medium-3 {
   width: 15%;
 }
-/* line 106, ../scss/top-menu.scss */
-.ibiza-menu .row.menus {
-  padding: 30px 0 30px 0;
-}
 
-/* line 111, ../scss/top-menu.scss */
+/* line 119, ../scss/top-menu.scss */
 .ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child) {
   float: left;
 }
 
-/* line 117, ../scss/top-menu.scss */
+/* line 125, ../scss/top-menu.scss */
 .ibiza-menu:hover {
   display: block;
 }
 
-/* line 121, ../scss/top-menu.scss */
+/* line 129, ../scss/top-menu.scss */
 .top-bar .ibiza-menu .row {
   margin: 0 auto !important;
-  max-width: 75rem;
+  max-width: 84rem;
 }
 
-/* line 126, ../scss/top-menu.scss */
+/* line 134, ../scss/top-menu.scss */
 .main-nav__backdrop {
   background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
   display: block;
   height: 100%;
   left: 0;
   position: fixed;
-  top: 0;
+  top: 130px;
   visibility: hidden;
   width: 100%;
   z-index: 3999;
 }
 
-/* line 139, ../scss/top-menu.scss */
+/* line 147, ../scss/top-menu.scss */
 #content {
   /*    box-shadow: 0 7px 7px -7px #313131 inset;*/
 }
 
-/* line 143, ../scss/top-menu.scss */
+/* line 151, ../scss/top-menu.scss */
 .swiper-container-products {
   margin: 0 auto;
   overflow: hidden;
@@ -187,21 +191,40 @@ http://codex.wordpress.org/Creating_Admin_Themes
   z-index: 1;
 }
 
-/* line 150, ../scss/top-menu.scss */
+/* line 158, ../scss/top-menu.scss */
 .large-4.small-6.columns.ng-scope {
   height: 485px;
 }
 
-/* line 155, ../scss/top-menu.scss */
+/* line 163, ../scss/top-menu.scss */
 input.search-submit {
   display: none;
 }
 
-/* line 159, ../scss/top-menu.scss */
+/* line 167, ../scss/top-menu.scss */
 .swiper-slide div {
   font-weight: bold;
   text-indent: 10px;
   color: #333;
+}
+
+/* line 173, ../scss/top-menu.scss */
+.ibiza-menu ul ul li.menu-item {
+  border-left: 5px solid #000;
+  height: 13px;
+  margin: 0 10px 10px 0 !important;
+  overflow: hidden;
+  padding-left: 7px;
+}
+
+/* line 182, ../scss/top-menu.scss */
+.header .menu a {
+  height: 63px;
+}
+
+/* line 185, ../scss/top-menu.scss */
+.header .menu a:hover {
+  color: #e56f63;
 }
 
 /* line 22, ../../vendor/motion-ui/src/util/_transition.scss */
@@ -7858,7 +7881,7 @@ to display none.
 
 /* line 93, ../scss/style.scss */
 #menu-main-1 .ibiza-menu .menu-item-has-children {
-  height: 400px;
+  height: 250px;
 }
 
 /* line 98, ../scss/style.scss */
@@ -7879,16 +7902,10 @@ to display none.
 #menu-main-1 li a {
   color: #1a2433;
   display: block;
-  height: 12px;
   line-height: 12px !important;
 }
 
 /* line 118, ../scss/style.scss */
-li.menu-item-type-post_type a, li.menu-item-object-custom a {
-  text-align: center;
-}
-
-/* line 123, ../scss/style.scss */
 .swiper-container-banner {
   margin: 0 auto;
   overflow: hidden;
@@ -7897,12 +7914,12 @@ li.menu-item-type-post_type a, li.menu-item-object-custom a {
   height: 295px;
 }
 
-/* line 132, ../scss/style.scss */
+/* line 127, ../scss/style.scss */
 .swiper-container-banner img {
   width: 100%;
 }
 
-/* line 140, ../scss/style.scss */
+/* line 135, ../scss/style.scss */
 .swiper-container-banner .info {
   color: #fff;
   left: 70px;
@@ -7911,17 +7928,17 @@ li.menu-item-type-post_type a, li.menu-item-object-custom a {
   width: 40%;
 }
 
-/* line 148, ../scss/style.scss */
+/* line 143, ../scss/style.scss */
 .swiper-container {
   height: 322px !important;
 }
 
-/* line 152, ../scss/style.scss */
+/* line 147, ../scss/style.scss */
 .cq-linkstack a {
   color: #fff;
 }
 
-/* line 155, ../scss/style.scss */
+/* line 150, ../scss/style.scss */
 li.dimension {
   display: none;
   float: left;
@@ -7931,18 +7948,18 @@ li.dimension {
   width: 25px;
 }
 
-/* line 164, ../scss/style.scss */
+/* line 159, ../scss/style.scss */
 .current {
   font-weight: bold;
   border: 1px solid #ccc;
 }
 
-/* line 169, ../scss/style.scss */
+/* line 164, ../scss/style.scss */
 .rst_0 {
   display: none;
 }
 
-/* line 173, ../scss/style.scss */
+/* line 168, ../scss/style.scss */
 p.ng-binding {
   height: 60px;
   overflow: hidden;
@@ -7952,13 +7969,13 @@ p.ng-binding {
 .row{
     max-width:98%!important;
 }*/
-/* line 182, ../scss/style.scss */
+/* line 177, ../scss/style.scss */
 #main .panel {
   height: 550px;
 }
 
 /* Image Box Style */
-/* line 188, ../scss/style.scss */
+/* line 183, ../scss/style.scss */
 #main .box {
   cursor: pointer;
   height: 240px;
@@ -7967,7 +7984,7 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 195, ../scss/style.scss */
+/* line 190, ../scss/style.scss */
 #main .box img {
   position: absolute;
   left: 0;
@@ -7979,7 +7996,7 @@ p.ng-binding {
 }
 
 /* Caption Common Style */
-/* line 206, ../scss/style.scss */
+/* line 201, ../scss/style.scss */
 #main .box .caption {
   background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
@@ -7994,7 +8011,7 @@ p.ng-binding {
 }
 
 /** Caption 1: Simple **/
-/* line 221, ../scss/style.scss */
+/* line 216, ../scss/style.scss */
 #main .box .simple-caption {
   height: 30px;
   width: 200px;
@@ -8005,7 +8022,7 @@ p.ng-binding {
 }
 
 /** Caption 2: Full Width & Height **/
-/* line 231, ../scss/style.scss */
+/* line 226, ../scss/style.scss */
 #main .box .full-caption {
   width: 240px;
   height: 240px;
@@ -8014,7 +8031,7 @@ p.ng-binding {
 }
 
 /** Caption 3: Fade **/
-/* line 240, ../scss/style.scss */
+/* line 235, ../scss/style.scss */
 #main .box .fade-caption, #main .box .scale-caption {
   box-sizing: border-box;
   height: 100%;
@@ -8025,7 +8042,7 @@ p.ng-binding {
 }
 
 /** Caption 4: Slide **/
-/* line 250, ../scss/style.scss */
+/* line 245, ../scss/style.scss */
 #main .box .slide-caption {
   width: 170px;
   height: 170px;
@@ -8035,7 +8052,7 @@ p.ng-binding {
 }
 
 /** Caption 5: Rotate **/
-/* line 259, ../scss/style.scss */
+/* line 254, ../scss/style.scss */
 #main #box-5.box .rotate-caption {
   width: 170px;
   height: 170px;
@@ -8048,7 +8065,7 @@ p.ng-binding {
   transform: rotate(-180deg);
 }
 
-/* line 271, ../scss/style.scss */
+/* line 266, ../scss/style.scss */
 #main .box .rotate {
   width: 200px;
   height: 400px;
@@ -8060,7 +8077,7 @@ p.ng-binding {
 }
 
 /** Caption 6: Scale **/
-/* line 282, ../scss/style.scss */
+/* line 277, ../scss/style.scss */
 #main .box .scale-caption h3, #main .box .scale-caption p {
   position: relative;
   left: -200px;
@@ -8072,7 +8089,7 @@ p.ng-binding {
   transition: all 300ms ease-out;
 }
 
-/* line 293, ../scss/style.scss */
+/* line 288, ../scss/style.scss */
 #main .box .scale-caption h3 {
   -webkit-transition-delay: 300ms;
   -moz-transition-delay: 300ms;
@@ -8081,7 +8098,7 @@ p.ng-binding {
   transition-delay: 300ms;
 }
 
-/* line 301, ../scss/style.scss */
+/* line 296, ../scss/style.scss */
 #main .box .scale-caption p {
   -webkit-transition-delay: 500ms;
   -moz-transition-delay: 500ms;
@@ -8091,7 +8108,7 @@ p.ng-binding {
 }
 
 /** Simple Caption :hover Behaviour **/
-/* line 310, ../scss/style.scss */
+/* line 305, ../scss/style.scss */
 #main .box:hover .simple-caption {
   -moz-transform: translateY(-100%);
   -o-transform: translateY(-100%);
@@ -8101,7 +8118,7 @@ p.ng-binding {
 }
 
 /** Full Caption :hover Behaviour **/
-/* line 319, ../scss/style.scss */
+/* line 314, ../scss/style.scss */
 #main .box:hover .full-caption {
   -moz-transform: translateY(100%);
   -o-transform: translateY(100%);
@@ -8111,13 +8128,13 @@ p.ng-binding {
 }
 
 /** Fade Caption :hover Behaviour **/
-/* line 328, ../scss/style.scss */
+/* line 323, ../scss/style.scss */
 #main .box:hover .fade-caption, #main .box:hover .scale-caption {
   opacity: 1;
 }
 
 /** Slide Caption :hover Behaviour **/
-/* line 333, ../scss/style.scss */
+/* line 328, ../scss/style.scss */
 #main .box:hover .slide-caption {
   background-color: black !important;
   -moz-transform: translateX(-100%);
@@ -8127,7 +8144,7 @@ p.ng-binding {
   transform: translateX(-100%);
 }
 
-/* line 341, ../scss/style.scss */
+/* line 336, ../scss/style.scss */
 #main .box:hover img#image-4 {
   -moz-transform: translateX(-100%);
   -o-transform: translateX(-100%);
@@ -8137,7 +8154,7 @@ p.ng-binding {
 }
 
 /** Rotate Caption :hover Behaviour **/
-/* line 350, ../scss/style.scss */
+/* line 345, ../scss/style.scss */
 #main .box:hover .rotate {
   background-color: black !important;
   -moz-transform: rotate(-180deg);
@@ -8147,7 +8164,7 @@ p.ng-binding {
 }
 
 /** Scale Caption :hover Behaviour **/
-/* line 359, ../scss/style.scss */
+/* line 354, ../scss/style.scss */
 #main .box:hover #image-6 {
   -moz-transform: scale(1.4);
   -o-transform: scale(1.4);
@@ -8155,7 +8172,7 @@ p.ng-binding {
   transform: scale(1.4);
 }
 
-/* line 366, ../scss/style.scss */
+/* line 361, ../scss/style.scss */
 #main .box:hover .scale-caption h3, #main .box:hover .scale-caption p {
   -moz-transform: translateX(200px);
   -o-transform: translateX(200px);
@@ -8163,17 +8180,17 @@ p.ng-binding {
   transform: translateX(200px);
 }
 
-/* line 374, ../scss/style.scss */
+/* line 369, ../scss/style.scss */
 .add_facets li {
   cursor: pointer;
 }
 
-/* line 378, ../scss/style.scss */
+/* line 373, ../scss/style.scss */
 #inner-content {
   min-height: 600px;
 }
 
-/* line 382, ../scss/style.scss */
+/* line 377, ../scss/style.scss */
 .swiper {
   margin: 0 auto;
   overflow: hidden;
@@ -8181,45 +8198,45 @@ p.ng-binding {
   z-index: 1;
 }
 
-/* line 388, ../scss/style.scss */
+/* line 383, ../scss/style.scss */
 .swiper-container-scheduled-home .home_product {
   padding: 25px;
 }
 
-/* line 390, ../scss/style.scss */
+/* line 385, ../scss/style.scss */
 #sticky-posts-10 {
   overflow: hidden;
 }
 
-/* line 393, ../scss/style.scss */
+/* line 388, ../scss/style.scss */
 .swiper-container-howto img {
   height: 200px;
 }
 
-/* line 396, ../scss/style.scss */
+/* line 391, ../scss/style.scss */
 .swiper-container-howto article {
   text-align: center;
 }
 
-/* line 400, ../scss/style.scss */
+/* line 395, ../scss/style.scss */
 #sticky-posts-12 h4 {
   text-align: center;
   margin: 20px 0;
 }
 
-/* line 405, ../scss/style.scss */
+/* line 400, ../scss/style.scss */
 .home_product.type-home_product.status-publish.hentry p {
   font-size: 12px;
   margin: 0;
 }
 
-/* line 410, ../scss/style.scss */
+/* line 405, ../scss/style.scss */
 .tt-menu {
   border: 1px solid #ccc;
   background: white;
 }
 
-/* line 415, ../scss/style.scss */
+/* line 410, ../scss/style.scss */
 .tt-menu p {
   cursor: pointer;
   font-size: 75%;
@@ -8227,18 +8244,18 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 423, ../scss/style.scss */
+/* line 418, ../scss/style.scss */
 .header-container {
   margin: 1.625rem 0 0 0;
   text-align: right;
 }
 
-/* line 427, ../scss/style.scss */
+/* line 422, ../scss/style.scss */
 .header-container a {
   color: #000;
 }
 
-/* line 430, ../scss/style.scss */
+/* line 425, ../scss/style.scss */
 .typeahead {
   width: 180px;
   float: left;
@@ -8255,20 +8272,20 @@ p.ng-binding {
   padding: 0;
 }
 
-/* line 445, ../scss/style.scss */
+/* line 440, ../scss/style.scss */
 .typeahea::-webkit-input-placeholder {
   color: #000;
   opacity: 1;
 }
 
-/* line 450, ../scss/style.scss */
+/* line 445, ../scss/style.scss */
 .typeahead:-moz-placeholder {
   /* Firefox 18- */
   color: #000;
   opacity: 1;
 }
 
-/* line 455, ../scss/style.scss */
+/* line 450, ../scss/style.scss */
 .typeahead::-moz-placeholder {
   /* Firefox 19+ */
   color: #000;
@@ -8276,13 +8293,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 463, ../scss/style.scss */
+/* line 458, ../scss/style.scss */
 .typeahead :-ms-input-placeholder {
   color: #000;
   opacity: 1;
 }
 
-/* line 467, ../scss/style.scss */
+/* line 462, ../scss/style.scss */
 .tt-menu h5 {
   background: #333;
   clear: both;
@@ -8290,12 +8307,12 @@ p.ng-binding {
   color: #ccc;
 }
 
-/* line 475, ../scss/style.scss */
+/* line 470, ../scss/style.scss */
 .upw-posts article {
   overflow: hidden;
 }
 
-/* line 479, ../scss/style.scss */
+/* line 474, ../scss/style.scss */
 .fullwidth {
   width: 100%;
   height: 100%;
@@ -8304,35 +8321,35 @@ p.ng-binding {
   max-width: initial;
 }
 
-/* line 487, ../scss/style.scss */
+/* line 482, ../scss/style.scss */
 .site-top-bar {
   background: #4ceae8;
 }
 
-/* line 492, ../scss/style.scss */
+/* line 487, ../scss/style.scss */
 .font-small {
   font-size: 0.625rem;
   margin: 0;
   padding: 0;
 }
 
-/* line 498, ../scss/style.scss */
+/* line 493, ../scss/style.scss */
 .rating-text {
   font-weight: bold;
   line-height: 32px;
 }
 
-/* line 502, ../scss/style.scss */
+/* line 497, ../scss/style.scss */
 .rating-text img {
   vertical-align: text-bottom;
 }
 
-/* line 506, ../scss/style.scss */
+/* line 501, ../scss/style.scss */
 .rating-text span {
   margin: 0 0 0 0.5rem;
 }
 
-/* line 510, ../scss/style.scss */
+/* line 505, ../scss/style.scss */
 .site-top-bar li a {
   display: inline-block;
   padding-left: 1px;
@@ -8341,61 +8358,61 @@ p.ng-binding {
   font-weight: bold;
 }
 
-/* line 517, ../scss/style.scss */
+/* line 512, ../scss/style.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 521, ../scss/style.scss */
+/* line 516, ../scss/style.scss */
 .separator {
   padding: 0 0.8125rem 0 0.875rem;
 }
 
-/* line 525, ../scss/style.scss */
+/* line 520, ../scss/style.scss */
 .right {
   float: right;
 }
 
-/* line 529, ../scss/style.scss */
+/* line 524, ../scss/style.scss */
 .left {
   float: left;
 }
 
-/* line 533, ../scss/style.scss */
+/* line 528, ../scss/style.scss */
 .slogan {
   margin: 0.5625rem 0 0 0;
 }
 
-/* line 536, ../scss/style.scss */
+/* line 531, ../scss/style.scss */
 .header-outter {
   background: #fff;
   border-bottom: 0.125rem solid #4ceae8;
 }
 
-/* line 541, ../scss/style.scss */
+/* line 536, ../scss/style.scss */
 #logo {
   margin: 17px 0 22px 0;
 }
 
-/* line 545, ../scss/style.scss */
+/* line 540, ../scss/style.scss */
 .tv-products {
   position: relative;
 }
 
-/* line 551, ../scss/style.scss */
+/* line 546, ../scss/style.scss */
 .tv-products p {
   margin: 4px 0 4px 0;
   font-size: 75%;
 }
 
-/* line 556, ../scss/style.scss */
+/* line 551, ../scss/style.scss */
 .tv-products .large-3 {
   padding-right: 0;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-/* line 562, ../scss/style.scss */
+/* line 557, ../scss/style.scss */
 #triangle-outter {
   width: 0;
   height: 0;
@@ -8410,7 +8427,7 @@ p.ng-binding {
   display: none;
 }
 
-/* line 575, ../scss/style.scss */
+/* line 570, ../scss/style.scss */
 #triangle {
   border-color: transparent #e57063 transparent transparent;
   border-style: solid;
@@ -8426,12 +8443,12 @@ p.ng-binding {
   display: none;
 }
 
-/* line 590, ../scss/style.scss */
+/* line 585, ../scss/style.scss */
 .active-product {
   display: block !important;
 }
 
-/* line 594, ../scss/style.scss */
+/* line 589, ../scss/style.scss */
 .tv-product.active-product {
   background: #e57063;
   border-top: 1px solid #fff;
@@ -8440,49 +8457,49 @@ p.ng-binding {
   height: 135px;
 }
 
-/* line 603, ../scss/style.scss */
+/* line 598, ../scss/style.scss */
 .tv-product {
   background: rgba(255, 255, 255, 0.75);
-  width: 97%;
+  width: 100%;
 }
 
-/* line 609, ../scss/style.scss */
+/* line 604, ../scss/style.scss */
 .tv-product p {
   width: 97%;
 }
 
-/* line 613, ../scss/style.scss */
+/* line 608, ../scss/style.scss */
 .tv-product .row {
   padding: 5px 0 0;
 }
 
-/* line 617, ../scss/style.scss */
+/* line 612, ../scss/style.scss */
 .tv-product img {
   bottom: 8px;
   left: 7px;
   position: relative;
 }
 
-/* line 625, ../scss/style.scss */
+/* line 620, ../scss/style.scss */
 .active-product p, .active-product p a {
   color: #fff;
   font-weight: bold;
 }
 
-/* line 633, ../scss/style.scss */
+/* line 628, ../scss/style.scss */
 #tv-options .large-6 {
   background-clip: content-box;
   background-color: #fff;
   height: 64px;
 }
 
-/* line 639, ../scss/style.scss */
+/* line 634, ../scss/style.scss */
 #tv-options .large-6 a {
   line-height: 64px;
   color: #E57063;
 }
 
-/* line 644, ../scss/style.scss */
+/* line 639, ../scss/style.scss */
 .blue-arrow {
   width: 0;
   height: 0;
@@ -8491,25 +8508,25 @@ p.ng-binding {
   border-color: transparent transparent transparent #4cebe8;
 }
 
-/* line 654, ../scss/style.scss */
+/* line 649, ../scss/style.scss */
 .tv-schedule-details {
   display: inline-block;
   margin: 0 0 9px 20px;
 }
 
-/* line 660, ../scss/style.scss */
+/* line 655, ../scss/style.scss */
 .tv-schedule-details p {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
 }
 
-/* line 666, ../scss/style.scss */
+/* line 661, ../scss/style.scss */
 #second-band {
   padding: 52px 0;
 }
 
-/* line 672, ../scss/style.scss */
+/* line 667, ../scss/style.scss */
 #second-band .more-link {
   color: #e56f63;
   display: block;
@@ -8518,13 +8535,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 680, ../scss/style.scss */
+/* line 675, ../scss/style.scss */
 .padding-1 {
   padding: 0px;
   padding-top: 0px;
 }
 
-/* line 684, ../scss/style.scss */
+/* line 679, ../scss/style.scss */
 .featured_categories h4.entry-title {
   padding: 42% 0px;
   text-align: center;
@@ -8532,49 +8549,49 @@ p.ng-binding {
   color: #e56f63;
 }
 
-/* line 691, ../scss/style.scss */
+/* line 686, ../scss/style.scss */
 .featured_categories .entry-title a {
   border-bottom: 3px solid #e56f63;
   text-transform: uppercase;
   font-size: 19px;
 }
 
-/* line 696, ../scss/style.scss */
+/* line 691, ../scss/style.scss */
 .howtos {
   background: #fff;
 }
 
-/* line 699, ../scss/style.scss */
+/* line 694, ../scss/style.scss */
 .how-to-holder {
   padding: 10px;
   text-align: left;
 }
 
-/* line 704, ../scss/style.scss */
+/* line 699, ../scss/style.scss */
 .howtos .entry-content p {
   font-size: 14px;
 }
 
-/* line 709, ../scss/style.scss */
+/* line 704, ../scss/style.scss */
 .how-to-holder a {
   color: #e56f63;
   text-transform: uppercase;
 }
 
-/* line 714, ../scss/style.scss */
+/* line 709, ../scss/style.scss */
 .howtos p.how-to-image-holder {
   height: 308px;
   overflow: hidden;
 }
 
-/* line 719, ../scss/style.scss */
+/* line 714, ../scss/style.scss */
 .footer {
   background: #fff;
   border-top: 5px solid #4ceae8;
   padding: 35px 0;
 }
 
-/* line 726, ../scss/style.scss */
+/* line 721, ../scss/style.scss */
 .footer input {
   background: #efefef none repeat scroll 0 0;
   border: 1px solid #efefef;
@@ -8583,24 +8600,24 @@ p.ng-binding {
   width: 210px;
 }
 
-/* line 735, ../scss/style.scss */
+/* line 730, ../scss/style.scss */
 .footer button {
   background: #e56f63;
   height: 37px;
   text-transform: uppercase;
 }
 
-/* line 741, ../scss/style.scss */
+/* line 736, ../scss/style.scss */
 .copyright {
   font-size: 0.75rem;
 }
 
-/* line 744, ../scss/style.scss */
+/* line 739, ../scss/style.scss */
 #third-band .widget {
   text-align: center;
 }
 
-/* line 749, ../scss/style.scss */
+/* line 744, ../scss/style.scss */
 #third-band h4 {
   background: white none repeat scroll 0 0;
   display: inline-block;
@@ -8610,12 +8627,12 @@ p.ng-binding {
   text-align: center;
 }
 
-/* line 758, ../scss/style.scss */
+/* line 753, ../scss/style.scss */
 #second-band .large-6, #second-band .large-3 {
   padding: 0.21875rem;
 }
 
-/* line 763, ../scss/style.scss */
+/* line 758, ../scss/style.scss */
 #second-band {
   left: -4px;
   margin: 0 auto;
@@ -8624,14 +8641,14 @@ p.ng-binding {
   width: 1328px;
 }
 
-/* line 771, ../scss/style.scss */
+/* line 766, ../scss/style.scss */
 .search-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
   display: none;
 }
 
-/* line 777, ../scss/style.scss */
+/* line 772, ../scss/style.scss */
 .search-container form {
   display: inline-block;
   background: white none repeat scroll 0% 0%;
@@ -8639,7 +8656,7 @@ p.ng-binding {
   margin: 13px;
 }
 
-/* line 783, ../scss/style.scss */
+/* line 778, ../scss/style.scss */
 .search-container img {
   width: 20px;
   vertical-align: baseline;

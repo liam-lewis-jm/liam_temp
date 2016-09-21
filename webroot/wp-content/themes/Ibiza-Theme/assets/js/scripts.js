@@ -87,6 +87,12 @@ jQuery(document).ready(function () {
         }
     });
 
+
+    jQuery('.search-link').click( function(){
+        
+        jQuery('.search-container').slideToggle();
+        
+    });
      
     //mongoHubModule.init();
      

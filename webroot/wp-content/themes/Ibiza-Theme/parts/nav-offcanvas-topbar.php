@@ -32,7 +32,7 @@
     </div>
     <div class="large-2  columns large-push-1">
         <div class="header-container">`
-            <img class="" alt="" title="" src="http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png">
+            <img class="" alt="" title="" src="/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png">
             <a href="#" class="search-link">SEARCH</a>
         </div>
     </div>
