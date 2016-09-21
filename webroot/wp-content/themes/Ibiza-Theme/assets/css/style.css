@@ -7890,7 +7890,24 @@ to display none.
   height: 92px;
 }
 
-/* line 104, ../scss/style.scss */
+/* line 103, ../scss/style.scss */
+#channels {
+  background: white none repeat scroll 0% 0%;
+  width: 1331px;
+  padding: 20px 60px;
+}
+
+/* line 109, ../scss/style.scss */
+#channels img {
+  float: right;
+}
+
+/* line 113, ../scss/style.scss */
+#channels .hide-for-small-only p {
+  border-right: 1px solid #000;
+}
+
+/* line 120, ../scss/style.scss */
 #menu-main-1 li {
   flex-grow: 1;
   text-transform: uppercase;
@@ -7898,14 +7915,14 @@ to display none.
   margin-bottom: 29px;
 }
 
-/* line 111, ../scss/style.scss */
+/* line 127, ../scss/style.scss */
 #menu-main-1 li a {
   color: #1a2433;
   display: block;
   line-height: 12px !important;
 }
 
-/* line 118, ../scss/style.scss */
+/* line 134, ../scss/style.scss */
 .swiper-container-banner {
   margin: 0 auto;
   overflow: hidden;
@@ -7914,12 +7931,12 @@ to display none.
   height: 295px;
 }
 
-/* line 127, ../scss/style.scss */
+/* line 143, ../scss/style.scss */
 .swiper-container-banner img {
   width: 100%;
 }
 
-/* line 135, ../scss/style.scss */
+/* line 151, ../scss/style.scss */
 .swiper-container-banner .info {
   color: #fff;
   left: 70px;
@@ -7928,17 +7945,17 @@ to display none.
   width: 40%;
 }
 
-/* line 143, ../scss/style.scss */
+/* line 159, ../scss/style.scss */
 .swiper-container {
   height: 322px !important;
 }
 
-/* line 147, ../scss/style.scss */
+/* line 163, ../scss/style.scss */
 .cq-linkstack a {
   color: #fff;
 }
 
-/* line 150, ../scss/style.scss */
+/* line 166, ../scss/style.scss */
 li.dimension {
   display: none;
   float: left;
@@ -7948,18 +7965,18 @@ li.dimension {
   width: 25px;
 }
 
-/* line 159, ../scss/style.scss */
+/* line 175, ../scss/style.scss */
 .current {
   font-weight: bold;
   border: 1px solid #ccc;
 }
 
-/* line 164, ../scss/style.scss */
+/* line 180, ../scss/style.scss */
 .rst_0 {
   display: none;
 }
 
-/* line 168, ../scss/style.scss */
+/* line 184, ../scss/style.scss */
 p.ng-binding {
   height: 60px;
   overflow: hidden;
@@ -7969,13 +7986,13 @@ p.ng-binding {
 .row{
     max-width:98%!important;
 }*/
-/* line 177, ../scss/style.scss */
+/* line 193, ../scss/style.scss */
 #main .panel {
   height: 550px;
 }
 
 /* Image Box Style */
-/* line 183, ../scss/style.scss */
+/* line 199, ../scss/style.scss */
 #main .box {
   cursor: pointer;
   height: 240px;
@@ -7984,7 +8001,7 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 190, ../scss/style.scss */
+/* line 206, ../scss/style.scss */
 #main .box img {
   position: absolute;
   left: 0;
@@ -7996,7 +8013,7 @@ p.ng-binding {
 }
 
 /* Caption Common Style */
-/* line 201, ../scss/style.scss */
+/* line 217, ../scss/style.scss */
 #main .box .caption {
   background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
@@ -8011,7 +8028,7 @@ p.ng-binding {
 }
 
 /** Caption 1: Simple **/
-/* line 216, ../scss/style.scss */
+/* line 232, ../scss/style.scss */
 #main .box .simple-caption {
   height: 30px;
   width: 200px;
@@ -8022,7 +8039,7 @@ p.ng-binding {
 }
 
 /** Caption 2: Full Width & Height **/
-/* line 226, ../scss/style.scss */
+/* line 242, ../scss/style.scss */
 #main .box .full-caption {
   width: 240px;
   height: 240px;
@@ -8031,7 +8048,7 @@ p.ng-binding {
 }
 
 /** Caption 3: Fade **/
-/* line 235, ../scss/style.scss */
+/* line 251, ../scss/style.scss */
 #main .box .fade-caption, #main .box .scale-caption {
   box-sizing: border-box;
   height: 100%;
@@ -8042,7 +8059,7 @@ p.ng-binding {
 }
 
 /** Caption 4: Slide **/
-/* line 245, ../scss/style.scss */
+/* line 261, ../scss/style.scss */
 #main .box .slide-caption {
   width: 170px;
   height: 170px;
@@ -8052,7 +8069,7 @@ p.ng-binding {
 }
 
 /** Caption 5: Rotate **/
-/* line 254, ../scss/style.scss */
+/* line 270, ../scss/style.scss */
 #main #box-5.box .rotate-caption {
   width: 170px;
   height: 170px;
@@ -8065,7 +8082,7 @@ p.ng-binding {
   transform: rotate(-180deg);
 }
 
-/* line 266, ../scss/style.scss */
+/* line 282, ../scss/style.scss */
 #main .box .rotate {
   width: 200px;
   height: 400px;
@@ -8077,7 +8094,7 @@ p.ng-binding {
 }
 
 /** Caption 6: Scale **/
-/* line 277, ../scss/style.scss */
+/* line 293, ../scss/style.scss */
 #main .box .scale-caption h3, #main .box .scale-caption p {
   position: relative;
   left: -200px;
@@ -8089,7 +8106,7 @@ p.ng-binding {
   transition: all 300ms ease-out;
 }
 
-/* line 288, ../scss/style.scss */
+/* line 304, ../scss/style.scss */
 #main .box .scale-caption h3 {
   -webkit-transition-delay: 300ms;
   -moz-transition-delay: 300ms;
@@ -8098,7 +8115,7 @@ p.ng-binding {
   transition-delay: 300ms;
 }
 
-/* line 296, ../scss/style.scss */
+/* line 312, ../scss/style.scss */
 #main .box .scale-caption p {
   -webkit-transition-delay: 500ms;
   -moz-transition-delay: 500ms;
@@ -8108,7 +8125,7 @@ p.ng-binding {
 }
 
 /** Simple Caption :hover Behaviour **/
-/* line 305, ../scss/style.scss */
+/* line 321, ../scss/style.scss */
 #main .box:hover .simple-caption {
   -moz-transform: translateY(-100%);
   -o-transform: translateY(-100%);
@@ -8118,7 +8135,7 @@ p.ng-binding {
 }
 
 /** Full Caption :hover Behaviour **/
-/* line 314, ../scss/style.scss */
+/* line 330, ../scss/style.scss */
 #main .box:hover .full-caption {
   -moz-transform: translateY(100%);
   -o-transform: translateY(100%);
@@ -8128,13 +8145,13 @@ p.ng-binding {
 }
 
 /** Fade Caption :hover Behaviour **/
-/* line 323, ../scss/style.scss */
+/* line 339, ../scss/style.scss */
 #main .box:hover .fade-caption, #main .box:hover .scale-caption {
   opacity: 1;
 }
 
 /** Slide Caption :hover Behaviour **/
-/* line 328, ../scss/style.scss */
+/* line 344, ../scss/style.scss */
 #main .box:hover .slide-caption {
   background-color: black !important;
   -moz-transform: translateX(-100%);
@@ -8144,7 +8161,7 @@ p.ng-binding {
   transform: translateX(-100%);
 }
 
-/* line 336, ../scss/style.scss */
+/* line 352, ../scss/style.scss */
 #main .box:hover img#image-4 {
   -moz-transform: translateX(-100%);
   -o-transform: translateX(-100%);
@@ -8154,7 +8171,7 @@ p.ng-binding {
 }
 
 /** Rotate Caption :hover Behaviour **/
-/* line 345, ../scss/style.scss */
+/* line 361, ../scss/style.scss */
 #main .box:hover .rotate {
   background-color: black !important;
   -moz-transform: rotate(-180deg);
@@ -8164,7 +8181,7 @@ p.ng-binding {
 }
 
 /** Scale Caption :hover Behaviour **/
-/* line 354, ../scss/style.scss */
+/* line 370, ../scss/style.scss */
 #main .box:hover #image-6 {
   -moz-transform: scale(1.4);
   -o-transform: scale(1.4);
@@ -8172,7 +8189,7 @@ p.ng-binding {
   transform: scale(1.4);
 }
 
-/* line 361, ../scss/style.scss */
+/* line 377, ../scss/style.scss */
 #main .box:hover .scale-caption h3, #main .box:hover .scale-caption p {
   -moz-transform: translateX(200px);
   -o-transform: translateX(200px);
@@ -8180,17 +8197,17 @@ p.ng-binding {
   transform: translateX(200px);
 }
 
-/* line 369, ../scss/style.scss */
+/* line 385, ../scss/style.scss */
 .add_facets li {
   cursor: pointer;
 }
 
-/* line 373, ../scss/style.scss */
+/* line 389, ../scss/style.scss */
 #inner-content {
   min-height: 600px;
 }
 
-/* line 377, ../scss/style.scss */
+/* line 393, ../scss/style.scss */
 .swiper {
   margin: 0 auto;
   overflow: hidden;
@@ -8198,45 +8215,45 @@ p.ng-binding {
   z-index: 1;
 }
 
-/* line 383, ../scss/style.scss */
+/* line 399, ../scss/style.scss */
 .swiper-container-scheduled-home .home_product {
   padding: 25px;
 }
 
-/* line 385, ../scss/style.scss */
+/* line 401, ../scss/style.scss */
 #sticky-posts-10 {
   overflow: hidden;
 }
 
-/* line 388, ../scss/style.scss */
+/* line 404, ../scss/style.scss */
 .swiper-container-howto img {
   height: 200px;
 }
 
-/* line 391, ../scss/style.scss */
+/* line 407, ../scss/style.scss */
 .swiper-container-howto article {
   text-align: center;
 }
 
-/* line 395, ../scss/style.scss */
+/* line 411, ../scss/style.scss */
 #sticky-posts-12 h4 {
   text-align: center;
   margin: 20px 0;
 }
 
-/* line 400, ../scss/style.scss */
+/* line 416, ../scss/style.scss */
 .home_product.type-home_product.status-publish.hentry p {
   font-size: 12px;
   margin: 0;
 }
 
-/* line 405, ../scss/style.scss */
+/* line 421, ../scss/style.scss */
 .tt-menu {
   border: 1px solid #ccc;
   background: white;
 }
 
-/* line 410, ../scss/style.scss */
+/* line 426, ../scss/style.scss */
 .tt-menu p {
   cursor: pointer;
   font-size: 75%;
@@ -8244,18 +8261,18 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 418, ../scss/style.scss */
+/* line 434, ../scss/style.scss */
 .header-container {
   margin: 1.625rem 0 0 0;
   text-align: right;
 }
 
-/* line 422, ../scss/style.scss */
+/* line 438, ../scss/style.scss */
 .header-container a {
   color: #000;
 }
 
-/* line 425, ../scss/style.scss */
+/* line 441, ../scss/style.scss */
 .typeahead {
   width: 180px;
   float: left;
@@ -8272,20 +8289,20 @@ p.ng-binding {
   padding: 0;
 }
 
-/* line 440, ../scss/style.scss */
+/* line 456, ../scss/style.scss */
 .typeahea::-webkit-input-placeholder {
   color: #000;
   opacity: 1;
 }
 
-/* line 445, ../scss/style.scss */
+/* line 461, ../scss/style.scss */
 .typeahead:-moz-placeholder {
   /* Firefox 18- */
   color: #000;
   opacity: 1;
 }
 
-/* line 450, ../scss/style.scss */
+/* line 466, ../scss/style.scss */
 .typeahead::-moz-placeholder {
   /* Firefox 19+ */
   color: #000;
@@ -8293,13 +8310,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 458, ../scss/style.scss */
+/* line 474, ../scss/style.scss */
 .typeahead :-ms-input-placeholder {
   color: #000;
   opacity: 1;
 }
 
-/* line 462, ../scss/style.scss */
+/* line 478, ../scss/style.scss */
 .tt-menu h5 {
   background: #333;
   clear: both;
@@ -8307,12 +8324,12 @@ p.ng-binding {
   color: #ccc;
 }
 
-/* line 470, ../scss/style.scss */
+/* line 486, ../scss/style.scss */
 .upw-posts article {
   overflow: hidden;
 }
 
-/* line 474, ../scss/style.scss */
+/* line 490, ../scss/style.scss */
 .fullwidth {
   width: 100%;
   height: 100%;
@@ -8321,35 +8338,35 @@ p.ng-binding {
   max-width: initial;
 }
 
-/* line 482, ../scss/style.scss */
+/* line 498, ../scss/style.scss */
 .site-top-bar {
   background: #4ceae8;
 }
 
-/* line 487, ../scss/style.scss */
+/* line 503, ../scss/style.scss */
 .font-small {
   font-size: 0.625rem;
   margin: 0;
   padding: 0;
 }
 
-/* line 493, ../scss/style.scss */
+/* line 509, ../scss/style.scss */
 .rating-text {
   font-weight: bold;
   line-height: 32px;
 }
 
-/* line 497, ../scss/style.scss */
+/* line 513, ../scss/style.scss */
 .rating-text img {
   vertical-align: text-bottom;
 }
 
-/* line 501, ../scss/style.scss */
+/* line 517, ../scss/style.scss */
 .rating-text span {
   margin: 0 0 0 0.5rem;
 }
 
-/* line 505, ../scss/style.scss */
+/* line 521, ../scss/style.scss */
 .site-top-bar li a {
   display: inline-block;
   padding-left: 1px;
@@ -8358,61 +8375,61 @@ p.ng-binding {
   font-weight: bold;
 }
 
-/* line 512, ../scss/style.scss */
+/* line 528, ../scss/style.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 516, ../scss/style.scss */
+/* line 532, ../scss/style.scss */
 .separator {
   padding: 0 0.8125rem 0 0.875rem;
 }
 
-/* line 520, ../scss/style.scss */
+/* line 536, ../scss/style.scss */
 .right {
   float: right;
 }
 
-/* line 524, ../scss/style.scss */
+/* line 540, ../scss/style.scss */
 .left {
   float: left;
 }
 
-/* line 528, ../scss/style.scss */
+/* line 544, ../scss/style.scss */
 .slogan {
   margin: 0.5625rem 0 0 0;
 }
 
-/* line 531, ../scss/style.scss */
+/* line 547, ../scss/style.scss */
 .header-outter {
   background: #fff;
   border-bottom: 0.125rem solid #4ceae8;
 }
 
-/* line 536, ../scss/style.scss */
+/* line 552, ../scss/style.scss */
 #logo {
   margin: 17px 0 22px 0;
 }
 
-/* line 540, ../scss/style.scss */
+/* line 556, ../scss/style.scss */
 .tv-products {
   position: relative;
 }
 
-/* line 546, ../scss/style.scss */
+/* line 562, ../scss/style.scss */
 .tv-products p {
   margin: 4px 0 4px 0;
   font-size: 75%;
 }
 
-/* line 551, ../scss/style.scss */
+/* line 567, ../scss/style.scss */
 .tv-products .large-3 {
   padding-right: 0;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-/* line 557, ../scss/style.scss */
+/* line 573, ../scss/style.scss */
 #triangle-outter {
   width: 0;
   height: 0;
@@ -8427,7 +8444,7 @@ p.ng-binding {
   display: none;
 }
 
-/* line 570, ../scss/style.scss */
+/* line 586, ../scss/style.scss */
 #triangle {
   border-color: transparent #e57063 transparent transparent;
   border-style: solid;
@@ -8443,12 +8460,12 @@ p.ng-binding {
   display: none;
 }
 
-/* line 585, ../scss/style.scss */
+/* line 601, ../scss/style.scss */
 .active-product {
   display: block !important;
 }
 
-/* line 589, ../scss/style.scss */
+/* line 605, ../scss/style.scss */
 .tv-product.active-product {
   background: #e57063;
   border-top: 1px solid #fff;
@@ -8457,49 +8474,49 @@ p.ng-binding {
   height: 135px;
 }
 
-/* line 598, ../scss/style.scss */
+/* line 614, ../scss/style.scss */
 .tv-product {
   background: rgba(255, 255, 255, 0.75);
   width: 100%;
 }
 
-/* line 604, ../scss/style.scss */
+/* line 620, ../scss/style.scss */
 .tv-product p {
   width: 97%;
 }
 
-/* line 608, ../scss/style.scss */
+/* line 624, ../scss/style.scss */
 .tv-product .row {
   padding: 5px 0 0;
 }
 
-/* line 612, ../scss/style.scss */
+/* line 628, ../scss/style.scss */
 .tv-product img {
   bottom: 8px;
   left: 7px;
   position: relative;
 }
 
-/* line 620, ../scss/style.scss */
+/* line 636, ../scss/style.scss */
 .active-product p, .active-product p a {
   color: #fff;
   font-weight: bold;
 }
 
-/* line 628, ../scss/style.scss */
+/* line 644, ../scss/style.scss */
 #tv-options .large-6 {
   background-clip: content-box;
   background-color: #fff;
   height: 64px;
 }
 
-/* line 634, ../scss/style.scss */
+/* line 650, ../scss/style.scss */
 #tv-options .large-6 a {
   line-height: 64px;
   color: #E57063;
 }
 
-/* line 639, ../scss/style.scss */
+/* line 655, ../scss/style.scss */
 .blue-arrow {
   width: 0;
   height: 0;
@@ -8508,25 +8525,25 @@ p.ng-binding {
   border-color: transparent transparent transparent #4cebe8;
 }
 
-/* line 649, ../scss/style.scss */
+/* line 665, ../scss/style.scss */
 .tv-schedule-details {
   display: inline-block;
   margin: 0 0 9px 20px;
 }
 
-/* line 655, ../scss/style.scss */
+/* line 671, ../scss/style.scss */
 .tv-schedule-details p {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
 }
 
-/* line 661, ../scss/style.scss */
+/* line 677, ../scss/style.scss */
 #second-band {
   padding: 52px 0;
 }
 
-/* line 667, ../scss/style.scss */
+/* line 683, ../scss/style.scss */
 #second-band .more-link {
   color: #e56f63;
   display: block;
@@ -8535,13 +8552,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 675, ../scss/style.scss */
+/* line 691, ../scss/style.scss */
 .padding-1 {
   padding: 0px;
   padding-top: 0px;
 }
 
-/* line 679, ../scss/style.scss */
+/* line 695, ../scss/style.scss */
 .featured_categories h4.entry-title {
   padding: 42% 0px;
   text-align: center;
@@ -8549,49 +8566,49 @@ p.ng-binding {
   color: #e56f63;
 }
 
-/* line 686, ../scss/style.scss */
+/* line 702, ../scss/style.scss */
 .featured_categories .entry-title a {
   border-bottom: 3px solid #e56f63;
   text-transform: uppercase;
   font-size: 19px;
 }
 
-/* line 691, ../scss/style.scss */
+/* line 707, ../scss/style.scss */
 .howtos {
   background: #fff;
 }
 
-/* line 694, ../scss/style.scss */
+/* line 710, ../scss/style.scss */
 .how-to-holder {
   padding: 10px;
   text-align: left;
 }
 
-/* line 699, ../scss/style.scss */
+/* line 715, ../scss/style.scss */
 .howtos .entry-content p {
   font-size: 14px;
 }
 
-/* line 704, ../scss/style.scss */
+/* line 720, ../scss/style.scss */
 .how-to-holder a {
   color: #e56f63;
   text-transform: uppercase;
 }
 
-/* line 709, ../scss/style.scss */
+/* line 725, ../scss/style.scss */
 .howtos p.how-to-image-holder {
   height: 308px;
   overflow: hidden;
 }
 
-/* line 714, ../scss/style.scss */
+/* line 730, ../scss/style.scss */
 .footer {
   background: #fff;
   border-top: 5px solid #4ceae8;
   padding: 35px 0;
 }
 
-/* line 721, ../scss/style.scss */
+/* line 737, ../scss/style.scss */
 .footer input {
   background: #efefef none repeat scroll 0 0;
   border: 1px solid #efefef;
@@ -8600,24 +8617,24 @@ p.ng-binding {
   width: 210px;
 }
 
-/* line 730, ../scss/style.scss */
+/* line 746, ../scss/style.scss */
 .footer button {
   background: #e56f63;
   height: 37px;
   text-transform: uppercase;
 }
 
-/* line 736, ../scss/style.scss */
+/* line 752, ../scss/style.scss */
 .copyright {
   font-size: 0.75rem;
 }
 
-/* line 739, ../scss/style.scss */
+/* line 755, ../scss/style.scss */
 #third-band .widget {
   text-align: center;
 }
 
-/* line 744, ../scss/style.scss */
+/* line 760, ../scss/style.scss */
 #third-band h4 {
   background: white none repeat scroll 0 0;
   display: inline-block;
@@ -8627,12 +8644,12 @@ p.ng-binding {
   text-align: center;
 }
 
-/* line 753, ../scss/style.scss */
+/* line 769, ../scss/style.scss */
 #second-band .large-6, #second-band .large-3 {
   padding: 0.21875rem;
 }
 
-/* line 758, ../scss/style.scss */
+/* line 774, ../scss/style.scss */
 #second-band {
   left: -4px;
   margin: 0 auto;
@@ -8641,14 +8658,14 @@ p.ng-binding {
   width: 1328px;
 }
 
-/* line 766, ../scss/style.scss */
+/* line 782, ../scss/style.scss */
 .search-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
   display: none;
 }
 
-/* line 772, ../scss/style.scss */
+/* line 788, ../scss/style.scss */
 .search-container form {
   display: inline-block;
   background: white none repeat scroll 0% 0%;
@@ -8656,7 +8673,7 @@ p.ng-binding {
   margin: 13px;
 }
 
-/* line 778, ../scss/style.scss */
+/* line 794, ../scss/style.scss */
 .search-container img {
   width: 20px;
   vertical-align: baseline;

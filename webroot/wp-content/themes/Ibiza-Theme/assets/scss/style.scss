@@ -100,6 +100,22 @@ CSS file.
     height:92px;
 }
 
+#channels{
+    background: white none repeat scroll 0% 0%; 
+    width: 1331px; 
+    padding: 20px 60px;
+}
+
+#channels img{
+    float:right;
+}
+
+#channels .hide-for-small-only p{
+    
+    border-right:1px solid #000;
+    
+}
+
 
 #menu-main-1 li{
     flex-grow: 1;

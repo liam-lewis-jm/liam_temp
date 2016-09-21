@@ -31,7 +31,7 @@
         <a href="<?php echo home_url(); ?>"><img id="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpg" alt="<?php bloginfo('name'); ?>"  ></a>
     </div>
     <div class="large-2  columns large-push-1">
-        <div class="header-container">`
+        <div class="header-container">
             <img class="" alt="" title="" src="/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png">
             <a href="#" class="search-link">SEARCH</a>
         </div>

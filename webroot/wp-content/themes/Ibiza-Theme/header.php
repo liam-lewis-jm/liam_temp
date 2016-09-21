@@ -128,7 +128,7 @@
                     </div>
                     <div class="clear">&nbsp;</div>
                     
-                    <div style="background: white none repeat scroll 0% 0%; padding: 20px;width:1331px" class="row">
+                    <div id="channels" class="row">
                         <div>
                         <div class="large-3 small-3 columns tv-channel-con">
                             <div class="row">
