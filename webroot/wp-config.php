@@ -36,13 +36,13 @@ if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8mb4');
     
-}else if( $_SERVER['SERVER_ADDR'] == '52.51.36.86' ){
+}else if( $_SERVER['SERVER_ADDR'] == '172.31.1.0' ){
 
     /** MySQL database username */
     define('DB_USER', 'ibiza');
 
     /** MySQL database password */
-    define('DB_PASSWORD', 'password');
+    define('DB_PASSWORD', 'password_uat');
 
     /** MySQL hostname */
     define('DB_HOST', 'ibiza-front-end-wordpress-db-uat.cbextfa9fu28.eu-west-1.rds.amazonaws.com');
@@ -59,7 +59,7 @@ if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
     define('DB_PASSWORD', 'password');
 
     /** MySQL hostname */
-    define('DB_HOST', 'ibiza.c4hkllwsjgpx.us-west-2.rds.amazonaws.com');
+    define('DB_HOST', 'ibiza-front-end-wordpress-db.cbextfa9fu28.eu-west-1.rds.amazonaws.com');
 
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8mb4');    
