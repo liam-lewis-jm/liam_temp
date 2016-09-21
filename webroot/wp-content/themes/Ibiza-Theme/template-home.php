@@ -109,7 +109,7 @@
         </div><!-- /.medium-6.center -->
 </div>
 
-<div style="margin-top: 35px; background: rgb(255, 255, 255) url(http://localdev.jewellerymaker.com/wp-content/themes/Ibiza-Theme/assets/images/fold-bg.png) repeat-x scroll 0px 0px;" class="fullwidth">
+<div style="margin-top: 35px; background: rgb(255, 255, 255) url(/wp-content/themes/Ibiza-Theme/assets/images/fold-bg.png) repeat-x scroll 0px 0px;" class="fullwidth">
 
     <section class="row" id="second-band">
 
@@ -140,7 +140,7 @@
 
         <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
 
-        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns" style="padding: 0">
+        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns">
 
             <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
 
@@ -166,7 +166,7 @@
 
         <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
 
-        <article class="learning__item box1--videos mobile-full tablet-and-up-half large-6 columns">
+        <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
 
             <?php dynamic_sidebar('homepagebelowmaincontent_right'); ?>
 
@@ -179,7 +179,7 @@
         
         <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
 
-        <article class="large-12 columns padding-1">
+        <article class="large-12">
 
             <?php dynamic_sidebar('homepagebelowmaincontent_full'); ?>
 

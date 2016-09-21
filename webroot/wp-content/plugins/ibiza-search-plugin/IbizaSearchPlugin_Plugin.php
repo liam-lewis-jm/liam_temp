@@ -130,13 +130,14 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
 
 // This is where you run the code and display the output
         ?>
-<div class="header-container">
+<div class="search-container">
             
-            <form method="get" action="/search/"  class="right">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/search-icon.png" title="" alt="" class="" />
-                <input type="search" title="Search for:" name="q" value="" placeholder="Search" class="search-field typeahead " />
-                <input type="submit" class="hide" />
-                
+    <form method="get" action="/search/" class="large-4">
+                <div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/search-icon.png" title="" alt="" class="" />
+                    <input type="search" title="Search for:" name="q" value="" placeholder="Search" class="search-field typeahead " />
+                    <input type="submit" class="hide" />
+                </div>
             </form>
             
         </div>

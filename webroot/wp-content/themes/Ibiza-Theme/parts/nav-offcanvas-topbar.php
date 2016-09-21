@@ -11,7 +11,18 @@
 
 
     <div class="menu large-4 columns">
-        <?php joints_top_nav(); ?>
+        
+        
+        <div class="top-bar" id="top-bar-menu">
+            <?php joints_top_nav(); ?>
+            <div class="top-bar-right float-right show-for-small-only">
+                <ul class="menu">
+                    <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
+                    <li><a data-toggle="off-canvas"><?php _e('Menu', 'jointswp'); ?></a></li>
+                </ul>
+            </div>
+        </div>        
+        
     </div>
 
 
@@ -19,14 +30,13 @@
     <div class="menu large-4 columns text-center">
         <a href="<?php echo home_url(); ?>"><img id="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpg" alt="<?php bloginfo('name'); ?>"  ></a>
     </div>
-    <div class="large-3  columns">
-        <?php if (is_active_sidebar('searchbar')) : ?>
-
-            <?php dynamic_sidebar('searchbar'); ?>
-
-        <?php endif; ?>
+    <div class="large-2  columns large-push-1">
+        <div class="header-container">
+            <img class="" alt="" title="" src="/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png">
+            <a href="#" class="search-link">SEARCH</a>
+        </div>
     </div>
-    <div class="large-1  columns" style="padding:0;">
+    <div class="large-2  columns">
         <?php if (is_active_sidebar('searchbar')) : ?>
         <div class="header-container">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/basket-icon.png" />
@@ -38,11 +48,3 @@
 
 <div style="clear:both"></div>
 
-<div class="top-bar" id="top-bar-menu">
-    <div class="top-bar-right float-right show-for-small-only">
-        <ul class="menu">
-            <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-            <li><a data-toggle="off-canvas"><?php _e('Menu', 'jointswp'); ?></a></li>
-        </ul>
-    </div>
-</div>

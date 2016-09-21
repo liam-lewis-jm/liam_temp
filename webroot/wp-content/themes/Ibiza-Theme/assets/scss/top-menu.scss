@@ -13,14 +13,22 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-
+.menus.row {
+    padding:0 30px;
+    border-top: 2px solid #e56f63;
+}
 .top-bar {
     padding: 0!important;
 
 }
 
+ 
 
 .top-bar .menu {
+    
+
+
+    
     &:first-child {
         a{
             &:hover + .ibiza-menu {
@@ -71,6 +79,8 @@ http://codex.wordpress.org/Creating_Admin_Themes
         a{
             font-weight:bold;
             color:#000;
+            height:30px;
+            margin-bottom:10px; 
         }
 
         a:hover {
@@ -89,10 +99,10 @@ http://codex.wordpress.org/Creating_Admin_Themes
 .ibiza-menu {
 
 
-      box-shadow: 0 5px 14px 0px #313131;
-
+    //box-shadow: 0 5px 14px 0px #313131;
+    top: 125px;
     display: none;
-    background: #fff none repeat scroll 0 0;
+    background: transparent none repeat scroll 0 0;
     position: absolute;
     width: 100%;
     margin-left: auto;
@@ -103,9 +113,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
     li.large-3 , li.medium-3 {
         width:15%;
     }
-    .row.menus{
-        padding:30px 0 30px 0;  
-    }    
+   
 }
 
 .ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child)
@@ -120,7 +128,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 .top-bar .ibiza-menu .row{
     margin: 0 auto !important;
-    max-width: 75rem;
+    max-width: 84rem;
 }
 
 .main-nav__backdrop {
@@ -129,7 +137,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
     height: 100%;
     left: 0;
     position: fixed;
-    top: 0;
+    top: 130px;
     visibility: hidden;
     width: 100%;
     z-index: 3999;
@@ -160,4 +168,20 @@ input.search-submit{
     font-weight:bold;
     text-indent:10px;
     color:#333;
+}
+
+.ibiza-menu ul ul li.menu-item{
+    border-left: 5px solid #000;
+    height: 13px;
+    margin: 0 10px 10px 0 !important;
+    overflow: hidden;
+    padding-left: 7px;
+    
+}
+
+.header .menu a{
+    height:63px;
+}
+.header .menu  a:hover{
+    color:#e56f63;
 }
