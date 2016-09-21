@@ -307,16 +307,17 @@ function sanitize($string, $force_lowercase = true, $anal = false) {
 }
 
 function get_product_by_mongo_product_code($product_code) {
-
-    return reset(json_decode(file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/' . $product_code)));
+    global $abizia_api;
+    return reset(json_decode(file_get_contents($abizia_api::api_location . '/ProductCatalog.Api/api/document/data.productcode/' . $product_code)));
 }
 
 function get_product_by_mongo_id($mongo_id) {
-    $data = json_decode(file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id));
+    global $abizia_api;
+    $data = json_decode(file_get_contents($abizia_api::api_location . '/ProductCatalog.Api/api/document/' . $mongo_id));
 
     return $data;
 
 
 
-    return reset(json_decode(file_get_contents('http://52.18.1.60/ProductCatalog.Api/api/document/' . $mongo_id)));
+    return reset(json_decode(file_get_contents($abizia_api::api_location . '/ProductCatalog.Api/api/document/' . $mongo_id)));
 }

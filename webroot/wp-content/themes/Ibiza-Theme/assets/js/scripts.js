@@ -11,7 +11,7 @@ var mongoHubModule = (function() {
         // Starts connection with Hub and call Hub functions.
         startServer: function() {
             var self = this;
-            self.mongoHub.connection.url = "http://52.18.1.60/ProductCatalog.Api/signalr";
+            self.mongoHub.connection.url = "<?php echo api_location; ?>/ProductCatalog.Api/signalr";
             self.mongoHub.connection.start()
                 .done(function() {
                     self.mongoHub.server.startMongoHub();

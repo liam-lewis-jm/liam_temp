@@ -32,7 +32,7 @@
         <!-- Drop Google Analytics here -->
         <!-- end analytics -->
 
-
+        <script>var api_location = "<?php global $ibiza_api; echo $ibiza_api::api_location; ?>";</script>
     </head>
 
     <!-- Uncomment this line if using the Off-Canvas Menu --> 

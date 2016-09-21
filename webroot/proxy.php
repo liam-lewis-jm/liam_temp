@@ -32,8 +32,8 @@
     return $ipaddress;
 }
 
-
-$url            = 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/addTobasket';                                                                               
+global $ibiza_api;
+$url            = $ibiza_api::api_location . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
 $ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];

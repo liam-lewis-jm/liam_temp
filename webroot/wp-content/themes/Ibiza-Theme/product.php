@@ -448,7 +448,7 @@ $breadcrumbs = breacdcrumbs( 'cat-' . (int)$response->category[0] , 'post' ,  'p
 	});
 
 
-        jQuery.getJSON( '<?php echo 'http://ibizaschemas.product/productcatalog.api/api/metadata/' . get_query_var('products'); ?>' , function( data ) {
+        jQuery.getJSON( '<?php echo $ibiza_api::api_location . '/productcatalog.api/api/metadata/' . get_query_var('products'); ?>' , function( data ) {
             
             
             if( !data ){
