@@ -12,6 +12,9 @@
  * @var bool
  */
 
+
+require('wp-config.php');
+
  
  function get_client_ip() {
     $ipaddress = '';
@@ -32,8 +35,8 @@
     return $ipaddress;
 }
 
-global $ibiza_api;
-$url            = $ibiza_api::api_location . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
+
+$url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
 $ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];
@@ -46,16 +49,15 @@ if( $quantity <=0 ) {
 
 
 parse_str($cookieStr, $output);
-
  
  $data_string =  '{
     "BasketID"          : 0,
     "AuctionID"         : null,
     "Ip"                : "'.  get_client_ip()  .'",
-    "WebsiteId"         : 7,
-    "ProductSourceId"   : 7,
+    "WebsiteId"         : 83,
+    "ProductSourceId"   : 83,
     "ProductCode"       : "'. $productCode . '" ,
-    "ProductDetailId"   : '. $productDetailId . ' ,
+    "ProductDetailId"   : "'. $productDetailId . '" ,
     "Quantity"          : '. $quantity .',
     "WishListId"        : null,
     "CurrencyId"        : 1,
