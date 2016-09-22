@@ -104,6 +104,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
     
     
     function my_dashboard_widget_function_howtos(){
+        global $ibiza_api;
         // widget content goes here
         ?>
         
@@ -117,7 +118,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         function getHowTo()
         {
             if(jQuery('#title').val().length>0)
-            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/document/" + jQuery('#title').val()   , function( dataIn ) {
+            jQuery.getJSON("<?php echo $ibiza_api::api_location ?>/ProductCatalog.Api/api/document/" + jQuery('#title').val()   , function( dataIn ) {
                 var items = [];
                 //console.log( dataIn.data.name );
                 jQuery( '#product_name p' ).text( dataIn.data.name  );
@@ -200,6 +201,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
     
     
     function my_dashboard_widget_function() {
+        global $ibiza_api;
         // widget content goes here
         ?>
         
@@ -215,7 +217,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         function getProduct()
         {
             
-            jQuery.getJSON( "http://52.18.1.60/ProductCatalog.Api/api/document/data.productcode/" + jQuery('#title').val()   , function( dataIn ) {
+            jQuery.getJSON("<?php echo $ibiza_api::api_location ?>/ProductCatalog.Api/api/document/data.productcode/" + jQuery('#title').val()   , function( dataIn ) {
                 var items = [];
                  
                 jQuery( '#product_name p' ).text( dataIn[0]['data'].name );
@@ -277,8 +279,8 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         // http://plugin.michael-simpson.com/?page_id=39
         // Register AJAX hooks
         // http://plugin.michael-simpson.com/?page_id=41
-
-        (isset($_REQUEST['post_type']) ? $post_type = $_REQUEST['post_type'] : null);
+            
+        ((isset($_REQUEST['post_type'])) ? $post_type = $_REQUEST['post_type'] : null);
         if ($post_type !== 'page' && $post_type !== 'presenters' && $post_type !== 'home') {
             add_filter( 'manage_edit-' . $post_type . '_columns', array($this, 'column_header' ));
             add_action( 'manage_' . $post_type . '_posts_custom_column', array($this, 'column_content'), 10, 2);
@@ -286,12 +288,12 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
             add_filter( 'request', array($this,'column_sorted'));
         }
     }
-    
+
     function column_header() {
         $columns  = array(
             'cb' => '<input type="checkbox"/>',
-            'title' => 'Id',
             'name' => 'Name',
+            'title' => 'Id',
             'schedule' => 'Schedule',
             'schedule_date' => 'Schedule Date',
             'date' => __('Date')
@@ -309,13 +311,13 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                 
                 if ($_REQUEST['post_type'] === 'home_product') {
                     $product = $ibiza_api->get_product($itemCode->post_title);
-                    echo $product[0]->data->name;
+                    echo ($product[0]->data->name ? $product[0]->data->name : '');
                 } else if ($_REQUEST['post_type'] === 'howtos') {
                     $howto = $ibiza_api->get_howto($itemCode->post_title);
-                    echo $howto->data->name;
+                    echo ($howto->data->name ? $howto->data->name : '');
                 } elseif ($_REQUEST['post_type'] === 'featured_categories') {
                     $category = $ibiza_api->get_category($itemCode->post_title);
-                    echo $category[0]->title;
+                    echo ($category[0]->title ? $category[0]->title : '');
                 }
                 break;
             case 'schedule':

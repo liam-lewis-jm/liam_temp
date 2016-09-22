@@ -92,12 +92,28 @@ CSS file.
 
 #menu-main-1 .ibiza-menu .menu-item-has-children
 {
-    height:400px;
+    height:250px;
 }
 
 #menu-main-1 {
     display: flex;
     height:92px;
+}
+
+#channels{
+    background: white none repeat scroll 0% 0%; 
+    width: 1331px; 
+    padding: 20px 60px;
+}
+
+#channels img{
+    float:right;
+}
+
+#channels .hide-for-small-only p{
+    
+    border-right:1px solid #000;
+    
 }
 
 
@@ -111,12 +127,7 @@ CSS file.
 #menu-main-1 li a{
     color: #1a2433;
     display: block;
-    height: 12px;
     line-height: 12px !important;
-}
-
-li.menu-item-type-post_type a , li.menu-item-object-custom a {
-    text-align: center;
 }
 
 
@@ -603,7 +614,7 @@ p.ng-binding {
 .tv-product{
     
     background:rgba(255,255,255, 0.75);
-    width:97%;
+    width:100%;
 }
 
 .tv-product p{

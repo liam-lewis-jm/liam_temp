@@ -32,7 +32,7 @@
         <!-- Drop Google Analytics here -->
         <!-- end analytics -->
 
-
+        <script>var api_location = "<?php global $ibiza_api; echo $ibiza_api::api_location; ?>";</script>
     </head>
 
     <!-- Uncomment this line if using the Off-Canvas Menu --> 
@@ -52,7 +52,7 @@
 
                 <div class="off-canvas-content" data-off-canvas-content>
                     <div class="fullwidth site-top-bar">
-                        <div class="row show-for-xlarge-only">
+                        <div class="row">
 
                             <div class="large-4 columns">
                                 <p class="font-small rating-text">
@@ -128,7 +128,7 @@
                     </div>
                     <div class="clear">&nbsp;</div>
                     
-                    <div style="background: white none repeat scroll 0% 0%; padding: 20px;" class="row">
+                    <div id="channels" class="row">
                         <div>
                         <div class="large-3 small-3 columns tv-channel-con">
                             <div class="row">

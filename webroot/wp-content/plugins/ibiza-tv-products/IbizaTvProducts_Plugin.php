@@ -144,7 +144,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
     // Creating widget front-end
     // This is where the action happens
     public function widget($args, $instance) {
-        
+        global $ibiza_api;
         
         if ( is_front_page() ) {
          //   wp_enqueue_script('my-script', plugins_url('/js/tv-products.js', __FILE__));
@@ -160,7 +160,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
 
         // This is where you run the code and display the output
         
-        $data = json_decode(  file_get_contents( 'http://ibizaschemas.product.uat/ProductCatalog.api/api/legacy/productsontv/6/full' ) );
+        $data = json_decode(  file_get_contents($ibiza_api::api_location . '/ProductCatalog.api/api/legacy/productsontv/6/full' ) );
         
         if( !isset( $data[0] ) )
         {

@@ -1,7 +1,7 @@
 <?php
 function site_scripts() {
   global $wp_styles; // Call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-
+  global $ibiza_api;
     // Load What-Input files in footer
     wp_enqueue_script( 'what-input', get_template_directory_uri() . '/vendor/what-input/what-input.min.js', array(), '', true );
     
@@ -22,7 +22,7 @@ function site_scripts() {
     
     
     
-    wp_enqueue_script( 'hub-js',  'http://52.18.1.60/ProductCatalog.Api/signalr/hubs', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'hub-js',  $ibiza_api::api_location . '/ProductCatalog.Api/signalr/hubs', array( 'jquery' ), '', true );
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
 
     // Register main stylesheet

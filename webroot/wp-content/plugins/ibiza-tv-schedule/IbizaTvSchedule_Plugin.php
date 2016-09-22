@@ -117,10 +117,9 @@ class IbizaTvSchedule_Widget extends WP_Widget {
     // Creating widget front-end
     // This is where the action happens
     public function widget($args, $instance) {
-        
         global $ibiza_api;
         
-        $data = json_decode( file_get_contents( 'http://ibizaschemas.product/ProductCatalog.api/api/legacy/tvschedule/89/fulls' ) );
+        $data = json_decode( file_get_contents($ibiza_api::api_location . '/ProductCatalog.api/api/legacy/tvschedule/89/fulls' ) );
         
         if( !isset( $data[0] ) )
         {
