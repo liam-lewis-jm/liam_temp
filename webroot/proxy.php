@@ -34,9 +34,9 @@ require('wp-config.php');
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-
+die('here');
 if (!$_COOKIE['nsec'])  {
-    setcookie('ann', $_SERVER['REMOTE_ADDR'] . getdate(), time()+3600);
+    setcookie('ann', get_client_ip() . getdate(), time()+3600);
 }
 
 $url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';
@@ -70,14 +70,14 @@ parse_str($cookieStr, $output);
     ' . (($_COOKIE['nsec']) ? '"NonSecurityKey"    : "'. $output['sk'] .'" }' : '}');
  
 error_log($data_string, 1, 'daniel.whitehurst@jewellerymaker.com');
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
-    'Content-Type: application/json',                                                                                
-    'Content-Length: ' . strlen($data_string))                                                                       
-);                                                                                                                   
-         
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Content-Length: ' . strlen($data_string))
+);
+
 
 
 $result = curl_exec($ch);
