@@ -34,13 +34,10 @@ require('wp-config.php');
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-die('here');
-if (!$_COOKIE['nsec'])  {
-    setcookie('ann', get_client_ip() . getdate(), time()+3600);
-}
 
-$url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';
-$ch             = curl_init( $url );
+
+$url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
+$ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];
 $productCode    = $_GET['productCode'];
@@ -52,6 +49,15 @@ if( $quantity <=0 ) {
 
 
 parse_str($cookieStr, $output);
+
+
+if( $quantity <=0 ) {
+     $quantity  = 1;
+}
+
+
+parse_str($cookieStr, $output);
+
  
  $data_string =  '{
     "BasketID"          : 0,
@@ -60,24 +66,24 @@ parse_str($cookieStr, $output);
     "WebsiteId"         : 83,
     "ProductSourceId"   : 83,
     "ProductCode"       : "'. $productCode . '" ,
-    "ProductDetailId"   : "'. $productDetailId . '" ,
+    "ProductDetailId"   : '. $productDetailId . ' ,
     "Quantity"          : '. $quantity .',
     "WishListId"        : null,
     "CurrencyId"        : 1,
-    ' . (($_COOKIE['nsec']) ? '"CustomerId": ' . $output['ci'] .',' : '"CookieId": ' . $_COOKIE['ann'] . ',') . '
+    "CustomerId"        : '. $output['ci'] .',
     "DeliveryCountryId" : 49,
     "Language"          : 23,
-    ' . (($_COOKIE['nsec']) ? '"NonSecurityKey"    : "'. $output['sk'] .'" }' : '}');
+    "NonSecurityKey"    : "'. $output['sk'] .'" }';
  
-error_log($data_string, 1, 'daniel.whitehurst@jewellerymaker.com');
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen($data_string))
-);
 
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+    'Content-Type: application/json',                                                                                
+    'Content-Length: ' . strlen($data_string))                                                                       
+);                                                                                                                   
+         
 
 
 $result = curl_exec($ch);
