@@ -35,6 +35,9 @@ require('wp-config.php');
     return $ipaddress;
 }
 
+if (!$_COOKIE['nsec'])  {
+    setcookie('ann', get_client_ip() . getdate(), time()+3600);
+}
 
 $url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
 $ch             = curl_init( $url );                                                                      
@@ -70,10 +73,10 @@ parse_str($cookieStr, $output);
     "Quantity"          : '. $quantity .',
     "WishListId"        : null,
     "CurrencyId"        : 1,
-    "CustomerId"        : '. $output['ci'] .',
+    ' . (($_COOKIE['nsec']) ? '"CustomerId": ' . $output['ci'] .',' : '"CookieId": ' . $_COOKIE['ann'] . ',') . '
     "DeliveryCountryId" : 49,
     "Language"          : 23,
-    "NonSecurityKey"    : "'. $output['sk'] .'" }';
+    ' . (($_COOKIE['nsec']) ? '"NonSecurityKey"    : "'. $output['sk'] .'" }' : '}');
  
 
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
