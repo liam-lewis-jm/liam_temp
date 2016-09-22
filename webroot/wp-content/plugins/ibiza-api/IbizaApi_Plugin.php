@@ -179,7 +179,7 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
     /**
      * start class variables
      */
-    const api_location = 'http://ibizaschemas.product.uat';
+    const api_location = API_URL;
 
     public $top_level_category = array('32', '23935');
 

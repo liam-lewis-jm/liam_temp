@@ -12,6 +12,9 @@
  * @var bool
  */
 
+
+require('wp-config.php');
+
  
  function get_client_ip() {
     $ipaddress = '';
@@ -32,8 +35,8 @@
     return $ipaddress;
 }
 
-global $ibiza_api;
-$url            = $ibiza_api::api_location . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
+
+$url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
 $ch             = curl_init( $url );                                                                      
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];

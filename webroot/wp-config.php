@@ -36,6 +36,9 @@ if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8mb4');
     
+    define('API_URL', 'http://ibizaschemas.product');
+    
+    
 
 }else if( $_SERVER['SERVER_ADDR'] == '172.31.1.0' ){
     /** MySQL database username */
@@ -50,6 +53,8 @@ if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8mb4');
     
+    define('API_URL', 'http://ibizaschemas.product.uat');
+    
 }else if ($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
 	/** MySQL database username */
     define('DB_USER', 'root');
@@ -62,6 +67,8 @@ if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
 
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8mb4');
+    
+    define('API_URL', 'http://ibizaschemas.product');
 }
 else{
     
@@ -76,6 +83,8 @@ else{
 
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8mb4');    
+    
+    define('API_URL', 'http://ibizaschemas.product');
     
 }
 
