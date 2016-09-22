@@ -154,6 +154,7 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
     
     function my_dashboard_widget_function_categorys() {
         // widget content goes here
+        global $ibiza_api;
         ?>
         
         <div id="category_name"><p></p></div>
@@ -162,37 +163,23 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
         <?php $this->type_ahead_js('cat'); ?>
         
         <script>
-        
-        
-        function getCat()
-        {
-            
-            jQuery.getJSON( "?cat_search=" + jQuery('#title').val()   , function( dataIn ) {
+        function getCat() {
+            jQuery.getJSON("<?php echo $ibiza_api::api_location ?>/ProductCatalog.Api/api/category/categoryId/" + jQuery('#title').val()   , function( dataIn ) {
+                console.log(dataIn[0]);
                 var items = [];
-                    jQuery( '#category_name p' ).text( dataIn.hits.hits[0]._source.name );
-                    jQuery( '#category_image p' ).html( '<img style="width:100%" src="' + dataIn.hits.hits[0]._source.image + '" />' );
-            });            
-            
+                    jQuery( '#category_name p' ).text( dataIn[0].title);
+                    jQuery( '#category_image p' ).html( '<img style="width:100%" src="' + dataIn[0]._source.image + '" />' );
+            });
         }
         
         jQuery( document ).ready(function( $ ) {
-            
             getCat();
-            
             jQuery( "#title" ).keyup(function() {
-                
                 if( jQuery(this).val().length>0 ){
-                    
                     getCat();
-                    
-
-                    
                 }
             });
-        
-        });        
-        
-        
+        });
         </script>
         <?php
     }     
