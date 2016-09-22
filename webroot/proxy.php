@@ -69,7 +69,7 @@ parse_str($cookieStr, $output);
     "Language"          : 23,
     ' . (($_COOKIE['nsec']) ? '"NonSecurityKey"    : "'. $output['sk'] .'" }' : '}');
  
-
+error_log($data_string, 1, 'daniel.whitehurst@jewellerymaker.com');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
