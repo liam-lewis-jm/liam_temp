@@ -49,15 +49,6 @@ if( $quantity <=0 ) {
 
 
 parse_str($cookieStr, $output);
-
-
-if( $quantity <=0 ) {
-     $quantity  = 1;
-}
-
-
-parse_str($cookieStr, $output);
-
  
  $data_string =  '{
     "BasketID"          : 0,
@@ -66,7 +57,7 @@ parse_str($cookieStr, $output);
     "WebsiteId"         : 83,
     "ProductSourceId"   : 83,
     "ProductCode"       : "'. $productCode . '" ,
-    "ProductDetailId"   : '. $productDetailId . ' ,
+    "ProductDetailId"   : "'. $productDetailId . '" ,
     "Quantity"          : '. $quantity .',
     "WishListId"        : null,
     "CurrencyId"        : 1,
