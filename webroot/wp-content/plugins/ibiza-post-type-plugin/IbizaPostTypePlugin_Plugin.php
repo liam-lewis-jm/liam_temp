@@ -309,8 +309,17 @@ class IbizaPostTypePlugin_Plugin extends IbizaPostTypePlugin_LifeCycle {
                 break;
             case 'schedule':
                 $post = get_post_meta($post_id);
+                
                 if ($post['_cs-enable-schedule'][0]) {
-                    echo $post['_cs-enable-schedule'][0];
+                    if ($post['_cs-enable-schedule'][0] === 'Enable') {
+                        if (date("d-M-Y") > gmdate("d-M-Y", $post['_cs-expire-date'][0])) {
+                            echo 'Expired';
+                        } else {
+                            echo 'Scheduled';
+                        }
+                    } else {
+                        echo 'Not Scheduled';
+                    }
                 } else {
                     echo 'N/A';
                 }
