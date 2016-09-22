@@ -69,7 +69,6 @@ parse_str($cookieStr, $output);
     "WebsiteId"         : 83,
     "ProductSourceId"   : 83,
     "ProductCode"       : "'. $productCode . '" ,
-    "ProductDetailId"   : '. $productDetailId . ' ,
     "Quantity"          : '. $quantity .',
     "WishListId"        : null,
     "CurrencyId"        : 1,
