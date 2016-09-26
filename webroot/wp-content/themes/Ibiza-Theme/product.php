@@ -11,6 +11,10 @@ $rst                    = $ibiza_api->get_product(get_query_var('products'));
 $response               = $rst[0]->data;
 $schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
 
+if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
+    setcookie('ann', $_SERVER['REMOTE_ADDR'] . '.' .  date('d.m.Y.h.i.s'), time()+3600, '/', '.' . $_SERVER['SERVER_NAME']);
+}
+
 /**
  * Handle a JSON request
  */
