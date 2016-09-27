@@ -42,7 +42,7 @@
                 </div>       
 
                 <!-- temp inline as design not final -->
-                <div class="text-center" id="tv-options">
+                <div class="text-center show-for-xlarge" id="tv-options">
                     <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a></div>
                     <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a></div>
                 </div>
@@ -72,7 +72,7 @@
 </div> <!-- end #content -->
 
 
-<div class="row">
+<div class="row show-for-xxlarge">
         <div class="medium-6 medium-centered">
                <div class="row">
 

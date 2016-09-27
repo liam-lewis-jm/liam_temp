@@ -90,37 +90,130 @@ CSS file.
     width: 100%;
 }
 
-#menu-main-1 .ibiza-menu .menu-item-has-children
-{
-    height:250px;
-}
+
 
 #menu-main-1 {
-    display: flex;
-    height:92px;
+/*    display: flex;*/
+/*    height:92px;*/
 }
 
 #channels{
     background: white none repeat scroll 0% 0%; 
-    width: 1331px; 
-    padding: 20px 60px;
+    padding: 20px 0px;
+    max-width: 1334px;
 }
 
-#channels img{
+/*#channels img{
     float:right;
-}
+}*/
 
 #channels .hide-for-small-only p{
      
     border-right:1px solid #000;
 }
 
+.large-push-1-xtra {
+  @extend .large-push-1;
+  left:4%;
+}
+
+.large-12-xtra {
+  @extend .large-12;
+  width: 1335px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media #{$small-up} {
+    
+    
+    div.swiper-container-banner{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+    }
+    div.swiper-container-banner div.swiper-slide {
+        height:100%;
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+@media #{$xlarge-up} {
+    
+    div.swiper-container-banner{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        height:676px;
+    }
+    div.swiper-container-banner div.swiper-slide {
+        height:676px;
+    }
+    
+}
+
+@media #{$medium-up} {
+
+    .header-container {
+        margin: 1.625rem 0 0;
+        text-align: right;
+    }
+    .active-product{
+        display:block!important;
+    } 
+}
+
+
+@media #{$small-only} {
+
+    .small-top-margin-push { 
+        padding-top: 6%;
+    }
+    .box1--videos{
+        clear:both;
+    }
+
+}
+
+
+.upw-posts article {
+    margin-bottom: 0em;
+}
+
+.upw-posts .entry-title {
+    margin-bottom: 0;
+}
+
+.header-container a{
+    color:#000;
+}
+
+
+
 
 #menu-main-1 li{
     flex-grow: 1;
     text-transform: uppercase;
-    margin-top:29px;
-    margin-bottom:29px;
+/*    margin-top:29px;
+    margin-bottom:29px;*/
 }
 
 #menu-main-1 li a{
@@ -407,10 +500,6 @@ p.ng-binding {
     text-align: center;
 
 }
-#sticky-posts-12 h4{
-    text-align: center;
-    margin:20px 0;
-}
 
 .home_product.type-home_product.status-publish.hentry p {
     font-size: 12px;
@@ -430,13 +519,8 @@ p.ng-binding {
     overflow: hidden;
 }
 
-.header-container{
-    margin: rem-calc( 26 0 0 0 );
-    text-align: right;
-}
-.header-container a{
-    color:#000;
-}
+ 
+
 .typeahead {
     width:180px;
     float:left;
@@ -451,6 +535,7 @@ p.ng-binding {
     height: 24px;
     margin: 0 0 0 0;
     padding: 0;
+    top:3px;
 }
 .typeahea::-webkit-input-placeholder {
     color: #000;  
@@ -482,9 +567,14 @@ p.ng-binding {
     color:#ccc;
 }
 
+.upw-posts .columns{
+    overflow:hidden;
+}
+
 .upw-posts article {
     overflow: hidden;
 }
+
 
 .fullwidth {
     width: 100%;
@@ -515,6 +605,7 @@ p.ng-binding {
 
 .rating-text span{
     margin: rem-calc(0 0 0 8);
+    color:#fff;
 }
 
 .site-top-bar li a{
@@ -523,6 +614,7 @@ p.ng-binding {
     padding-right: 0px;
     text-transform: uppercase;
     font-weight:bold;
+    color:#fff;
 }
 .upper{
     text-transform: uppercase;
@@ -549,7 +641,7 @@ p.ng-binding {
 }
 
 #logo{
-    margin:17px 0 22px 0;
+    margin:15px 0 10px 0;
 }
 
 .tv-products{
@@ -569,6 +661,18 @@ p.ng-binding {
     padding-bottom:15px;
 }
 
+#tri{
+    
+    border-color: transparent transparent #e57063;
+    border-style: solid;
+    border-width: 0 25px 25px;
+    height: 0;    
+    position: absolute;
+    width: 0;
+    z-index: -1;
+    margin-top: 7px
+}
+
 #triangle-outter{
     width: 0;
     height: 0;
@@ -579,27 +683,25 @@ p.ng-binding {
     _border-color: #000000 #fff #000000 #000000;
     _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
     position: absolute;
-    left: -60px;
+    right: 100%;
     display:none;
 }
 #triangle{
-    border-color: transparent #e57063 transparent transparent;
-    border-style: solid;
-    border-width: 66.5px 58px 66.5px 0;
-    height: 0;
-    left: -58px;
-    line-height: 0;
-    top: 1px;
-    width: 0;
-    z-index: 9;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-    position: absolute;
-    display:none;
+    border-color    : transparent #e57063 transparent transparent;
+    border-style    : solid;
+    border-width    : 66.5px 58px 66.5px 0;
+    height          : 0;
+    right           : 100%;
+    line-height     : 0;
+    top             : 1px;
+    width           : 0;
+    z-index         : 9;
+    _filter         : progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+    position        : absolute;
+    display         : none;
 }
 
-.active-product{
-    display:block!important;
-}
+
 
 .tv-product.active-product {
     background:#e57063;
@@ -607,13 +709,13 @@ p.ng-binding {
     border-bottom:1px solid #fff;
     border-right:1px solid #fff;
     height:135px;
-
+    width:100%;
 }
 
 .tv-product{
     
     background:rgba(255,255,255, 0.75);
-    width:100%;
+    width:97%;
 }
 
 .tv-product p{
@@ -691,10 +793,12 @@ p.ng-binding {
     padding:0px;
     padding-top:0px;
 }
+
+ 
 .featured_categories h4.entry-title{
-    padding: 42% 0px; 
+    padding: 44.2% 0; 
     text-align: center; 
-    background: rgba(255, 255, 255, 0.75) none repeat scroll 0px 0px; 
+    background: rgba(255, 255, 255, 0.75) none no-repeat scroll 0px 0px; 
     color: #e56f63;
 }
 
@@ -771,12 +875,13 @@ p.ng-binding {
 
 
 #second-band{
-    left: -4px;
+  /*  left: -4px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    width: 1328px;
+    width: 1328px;*/
 }
+
 
 .search-container{
     text-align: center;
@@ -793,4 +898,8 @@ p.ng-binding {
 .search-container  img{
     width: 20px; 
     vertical-align: baseline;
+}
+
+.twitter-typeahead{
+    width:66px;
 }

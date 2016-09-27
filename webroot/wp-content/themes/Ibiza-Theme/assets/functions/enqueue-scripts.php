@@ -19,6 +19,7 @@ function site_scripts() {
     wp_enqueue_script( 'fancybox-js', get_template_directory_uri() . '/vendor/fancybox/source/jquery.fancybox.js', array( 'jquery' ), '', true );
    
     wp_enqueue_script( 'signalr-js', get_template_directory_uri() . '/vendor/signalr/jquery.signalR.min.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'masonry-js', get_template_directory_uri() . '/vendor/masonry/dist/masonry.pkgd.js', array( 'jquery' ), '', true );
     
     
     

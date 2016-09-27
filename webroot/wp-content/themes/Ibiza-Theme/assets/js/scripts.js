@@ -48,30 +48,49 @@ jQuery(document).ready(function () {
         loop: true
     });
 
-    //initialize swiper when document ready  
-    var mySwiper = new Swiper('.swiper-container-banner', {
-        // Optional parameters
-        loop                : true ,
-        pagination          : '.swiper-pagination',
-        paginationClickable : true
-    });
 
 
 
 
+    jQuery('.ibiza-menu  > .menus').first().after('<ul style="width: 100%; height: 57px; background: rgb(255, 0, 0) none repeat scroll 0% 0% ! important;"><img src="/wp-content/themes/Ibiza-Theme/assets/images/menu-banner.png" /></ul>');
+    
+    var grid_arr = new Array();
+    var grid_ops = { itemSelector: '.menu-item-has-children',  columnWidth: 322 };
 
-
-    jQuery(".top-bar .menu-item")
+    jQuery(".top-bar  .menu-item")
         .mouseover(function () {
 
             if ( jQuery(' > .ibiza-menu ul' , this  ).length > 0 ) {
-
+                
                 jQuery('.main-nav__backdrop').css( { 'opacity' : 1 ,   'visibility' : 'visible'  } );
-
+                
+                
+                jQuery('a',this).first().append('<div id="tri"></div>');
+                //
+                var index = jQuery('li' ,this).index('#menu-main-1 li');
+                if( !jQuery('.menus' ,this ).hasClass('masonry') ){
+                    
+                    var $grid       =  jQuery('.menus' ,this).masonry(grid_ops);
+                    grid_arr[index] = $grid;
+                    jQuery('.menus' ,this ).addClass('masonry');
+                    
+                }else{
+                    
+                    grid_arr[index].masonry('destroy');
+                    grid_arr[index] =  jQuery('.menus' ,this).masonry(grid_ops);                    
+                    
+                }
            }
 
-        })
-        .mouseout(function () {
+        }).mouseout(function () {
+            
+            //jQuery('#tri').remove();
+            jQuery('.main-nav__backdrop').css({ 'visibility' : 'hidden' , 'opacity' : 0  } );
+        });
+        
+        
+        jQuery(".ibiza-menu").mouseleave(function () {
+            //jQuery('#tri').remove();
             jQuery('.main-nav__backdrop').css({ 'visibility' : 'hidden' , 'opacity' : 0  } );
         });
         

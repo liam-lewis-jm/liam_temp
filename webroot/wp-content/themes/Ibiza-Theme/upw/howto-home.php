@@ -9,7 +9,7 @@ $image              = '';
 $cats               = explode( ',' ,  $instance['cats'] ) ;
 $slider             = 0;
 $container_class    = 'howto_widget';
-$row_class          = ' large-3 columns';
+$row_class          = ' large-3 small-6 columns';
 $swiper_data        = '';
 $style= '';
 if( $slider == 1 ){

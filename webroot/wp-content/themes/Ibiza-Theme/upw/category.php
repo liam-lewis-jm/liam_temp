@@ -22,7 +22,7 @@ $cats           =  explode( ',' ,  $instance['cats'] ) ;
 
 $slider             = 0;
 $container_class    = 'category_widget';
-$row_class          = ' large-6 columns';
+$row_class          = ' large-6 small-6 columns';
 $swiper_data        = '';
 if( $slider == 1 ){
     $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';
@@ -140,7 +140,7 @@ if($rowArrs)
         
     
         
-        <div class="<?php echo $row_class; ?>" style="height:326px">
+        <div class="<?php echo $row_class; ?>">
         
             
     

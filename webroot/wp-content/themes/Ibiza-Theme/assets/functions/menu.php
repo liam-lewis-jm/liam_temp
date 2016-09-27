@@ -17,7 +17,7 @@ function joints_top_nav() {
         //'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
         'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="">%3$s</ul>',
         'theme_location' => 'main-nav', // Where it's located in the theme
-        'depth' => 3, // Limit the depth of the nav
+        'depth' => 5, // Limit the depth of the nav
         'fallback_cb' => false, // Fallback function (see below)
         'walker' => new Topbar_Menu_Walker() ,
          
@@ -33,7 +33,7 @@ class Topbar_Menu_Walker extends Walker_Nav_Menu {
         $rowClass = '';
         
         if($depth == 0){
-           $rowClass  = ' row';
+           $rowClass  = ' ';
         }
         
         $output .= "\n$indent<ul class=\"menus$rowClass\">\n";
@@ -54,7 +54,7 @@ class Topbar_Menu_Walker extends Walker_Nav_Menu {
         }
 
         if ($depth === 1) {
-            $item->classes[] = 'large-3 medium-3 columns';
+            $item->classes[] = '';
         }
 
         parent::start_el($output, $item, $depth, $args, $id);

@@ -54,20 +54,21 @@
                     <div class="fullwidth site-top-bar">
                         <div class="row">
 
-                            <div class="large-4 columns">
+                            <div class="large-4 columns small-12 text-center medium-text-left">
                                 <p class="font-small rating-text">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />
-                                    <span>Rated excellent by our customers</span>
+                                    <span class="show-for-medium">Rated excellent by our customers</span>
+                                    <span  class="show-for-small-only">Excellent</span>
                                 </p>
                             </div>
 
 
-                            <div class="large-4 columns text-center">
+                            <div class="large-4 columns text-center show-for-large">
                                 <img class="slogan" src="<?php echo get_template_directory_uri(); ?>/assets/images/slogan.png" title="" alt="" />
                             </div>                            
 
 
-                            <div class="large-4 columns panel clearfix">
+                            <div class="large-4 columns panel show-for-large clearfix">
 
                                 <ul class="menu right ">
 
@@ -128,19 +129,19 @@
                     </div>
                     <div class="clear">&nbsp;</div>
                     
-                    <div id="channels" class="row">
-                        <div>
-                        <div class="large-3 small-3 columns tv-channel-con">
+                    <div class="row" id="channels" style="large-12-xtra">
+                        <div class="large-push-1-xtra">
+                        <div class="large-3 small-3 columns tv-channel-con text-center medium-text-left">
                             <div class="row">
-                                <div class="large-3  columns small-12" style="padding: 0px;">
+                                <div class="large-2  columns small-12" style="padding: 0px;">
                                     <img src="/wp-content/themes/Ibiza-Theme/assets/images/virgin-icon.png">
                                 </div>
 
-                                <div class="large-2  columns">
+                                <div class="large-2  small-12 columns" style="padding:0">
                                     <p style="font-size: 22px;margin:0; text-align: center;">80</p>
                                 </div>
 
-                                <div class="large-6  columns end  hide-for-small-only" style="padding:  7px 0 0 6px ;">
+                                <div class="large-6  columns end  hide-for-small-only" style="padding:  7px 0 0 0;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -148,17 +149,17 @@
 
                         </div>
 
-                        <div class="large-3 small-3   columns  tv-channel-con">
+                        <div class="large-3 small-3   columns  tv-channel-con text-center medium-text-left">
                             <div class="row">
-                                <div class="large-3  columns" style="padding: 0px;">
+                                <div class="large-2  columns" style="padding: 0px;">
                                     <img src="/wp-content/themes/Ibiza-Theme/assets/images/freesat-icon.png">
                                 </div>
 
-                                <div style="padding: 0px 0px;" class="large-2  columns">
+                                <div style="padding: 0" class="large-2  columns">
                                     <p style="font-size: 22px;margin:0;  text-align: center;">813</p>
                                 </div>
 
-                                <div class="large-6  columns  hide-for-small-only  end " style="padding:  7px 0 0 6px ;;">
+                                <div class="large-6  columns  hide-for-small-only  end " style="padding:  7px 0 0 0;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -166,17 +167,17 @@
 
                         </div>
 
-                        <div class="large-3 small-3   columns  tv-channel-con">
+                        <div class="large-3 small-3   columns  tv-channel-con text-center medium-text-left">
                             <div class="row">
-                                <div class="large-3  columns" style="padding: 0px;">
+                                <div class="large-2  columns" style="padding: 0px;">
                                     <img src="/wp-content/themes/Ibiza-Theme/assets/images/sky-icon.png">
                                 </div>
 
-                                <div style="padding: 0px 0px;" class="large-2  columns">
+                                <div style="padding: 0" class="large-2  columns">
                                     <p style="font-size: 22px;margin:0;  text-align: center;">617</p>
                                 </div>
 
-                                <div class="large-6  columns end  hide-for-small-only" style="padding: 7px 0 0 6px ;">
+                                <div class="large-6  columns end  hide-for-small-only" style="padding: 7px 0 0 0;">
                                     <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
@@ -184,18 +185,18 @@
 
                         </div>
 
-                        <div class="large-3 small-3   columns   tv-channel-con">
+                        <div class="large-3 small-3   columns   tv-channel-con text-center medium-text-left">
                             <div class="row">
-                                <div class="large-3  columns" style="padding: 0px;">
+                                <div class="large-2  columns" style="padding: 0px;">
                                     <img src="/wp-content/themes/Ibiza-Theme/assets/images/freeview-icon.png">
                                 </div>
 
-                                <div style="padding: 0px 0px;" class="large-2  columns">
-                                    <p style="font-size: 22px;margin:0; ; text-align: center;">76</p>
+                                <div style="padding: 0;" class="large-2  columns">
+                                    <p style="font-size: 22px;margin:0;text-align: center;">76</p>
                                 </div>
 
-                                <div class="large-6  columns end   hide-for-small-only" style="padding:  7px 0 0 6px ;">
-                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
+                                <div class="large-6  columns end   hide-for-small-only" style="padding:  7px 0 0 0 ;">
+                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;border:0">8am until midnight<br>7 days a weeks</p>
                                 </div>
                             </div>
 
@@ -204,4 +205,4 @@
 
                         </div>
 
-                    </div>                 
+                    </div>

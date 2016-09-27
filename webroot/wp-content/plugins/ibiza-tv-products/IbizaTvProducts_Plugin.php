@@ -184,14 +184,14 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
                     }
                     ?>
                     
-                    <div id="triangle" class="<?php echo  $active; ?>"></div>                    
-                    <div id="triangle-outter" class="<?php echo $active; ?>"></div>
+                    <div id="triangle" class="<?php echo  $active; ?>  show-for-large "></div>                    
+                    <div id="triangle-outter" class="<?php echo $active; ?>  show-for-large "></div>
                     <div class="tv-product <?php echo $active;?>">
                         <div class="row ">
-                            <div class="column large-3">
+                            <div class="column large-3 small-3">
                                 <img src="<?php  echo $r->imageUrl;?>" />
                             </div>
-                            <div  class="column large-9">
+                            <div  class="column large-9 small-9">
                                 <p><a href="/p/<?php echo $r->productCode; ?>"><?php echo trim($r->name); ?></a></p>
                                 <p><strong>&pound;<?php echo  number_format( $r->price , 2  ) ?></strong></p>
                                 <button style="background: #00B109" data-toggle="example-dropdown2" type="button" class="button" class="add-basket" aria-controls="example-dropdown2" data-is-focus="false" data-yeti-box="example-dropdown2" aria-haspopup="true" aria-expanded="false">Add to basket</button>

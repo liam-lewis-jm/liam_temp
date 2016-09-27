@@ -14,8 +14,9 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
 .menus.row {
-    padding:0 30px;
+    padding:30px 30px 0 0;
     border-top: 2px solid #e56f63;
+    min-height: 650px;
 }
 .top-bar {
     padding: 0!important;
@@ -47,14 +48,14 @@ http://codex.wordpress.org/Creating_Admin_Themes
     }
 }
 
-
+/*
 .top-bar ul.menu li:hover > a {
     background-color: #fff;
     position:relative;
     z-index: 9999999;
     color:#000!important;
 }
-
+*/
 
 
 
@@ -62,6 +63,26 @@ http://codex.wordpress.org/Creating_Admin_Themes
 .top-bar, .top-bar ul {
     background-color: #fff!important;
 }
+
+
+#menu-main-1 > .menu-item > a:first-child{
+    height:56px;
+}
+
+#menu-main-1 > .menu-item > a:first-child:hover{
+    color:#e56f63;
+}
+
+.ibiza-menu > .menus > .menu-item-has-children > a:first-child
+{
+            font-weight:bold;
+            color:#fff!important;
+            display:inline-block!important;
+            margin-bottom:20px; 
+            background:#ec695d;
+            padding:10px;
+}
+
 .ibiza-menu  ul{
 
     list-style: none;
@@ -69,7 +90,8 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 
     ul  a{
-        font-weight:normal!important;
+        font-weight:normal;
+        background:#fff;
         font-size:14px;
 
     }     
@@ -77,10 +99,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
     .menu-item-has-children{
 
         a{
-            font-weight:bold;
-            color:#000;
-            height:30px;
-            margin-bottom:10px; 
+
         }
 
         a:hover {
@@ -96,19 +115,27 @@ http://codex.wordpress.org/Creating_Admin_Themes
 }
 
 
+.menu-item-32 {
+    
+}
+
 .ibiza-menu {
 
 
     //box-shadow: 0 5px 14px 0px #313131;
-    top: 125px;
-    display: none;
     background: transparent none repeat scroll 0 0;
-    position: absolute;
-    width: 100%;
+    border-top: 2px solid #e56f63;
+    display: none;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
     margin-left: auto;
     margin-right: auto;
-    max-width: initial;
-    left:0;
+    position: absolute;
+    top: 111px;
+    width: 1334px;
+    
     z-index: 999999;
     li.large-3 , li.medium-3 {
         width:15%;
@@ -137,7 +164,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
     height: 100%;
     left: 0;
     position: fixed;
-    top: 130px;
+    top: 145px;
     visibility: hidden;
     width: 100%;
     z-index: 3999;
@@ -170,18 +197,48 @@ input.search-submit{
     color:#333;
 }
 
-.ibiza-menu ul ul li.menu-item{
+.ibiza-menu > ul > li > ul > li.menu-item a{
     border-left: 5px solid #000;
-    height: 13px;
-    margin: 0 10px 10px 0 !important;
-    overflow: hidden;
+    height: auto;
+    margin: 0 10px 10px 0;
     padding-left: 7px;
-    
+    font-weight:bold;
 }
 
+.ibiza-menu > ul > li > ul > li.menu-item .menu-item a{
+    
+    
+   border-left: none;
+   font-weight:normal;
+}
+
+
 .header .menu a{
-    height:63px;
+    height:auto;
+    
 }
 .header .menu  a:hover{
     color:#e56f63;
+}
+
+#top-bar-menu{
+    margin-top:23px;
+}
+
+.ibiza-menu {
+    padding:20px;
+    background:#fff;
+}
+
+.menu-item-has-children{
+    margin-bottom:10px;
+}
+
+#top-bar-menu li:hover > a {
+    color: #e56f63;
+    
+}
+
+#top-bar-menu li:hover > a div{
+    z-index: 1!important;
 }

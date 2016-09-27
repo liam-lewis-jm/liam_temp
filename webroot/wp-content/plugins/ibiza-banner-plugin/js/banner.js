@@ -10,8 +10,16 @@ var mySwiperBanner = null;
 jQuery( document ).ready(function() {
     //initialize swiper when document ready  
     mySwiperBanner = new Swiper('.swiper-container-banner', {
-        loop : false ,
-        autoHeight :true
+        loop                : false ,
+        pagination          : '.swiper-pagination',
+        paginationClickable : true 
+    });
+    
+    jQuery( window ).resize(function() {
+        var height = jQuery('.swiper-container-banner .swiper-slide').css('width');
+        jQuery('.swiper-container-banner .swiper-slide').height(height);
+    
     });    
     
-});
+});    
+    
