@@ -8437,12 +8437,17 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 574, ../scss/style.scss */
+/* line 576, ../scss/style.scss */
+.howto_widget .columns {
+  margin-top: 10px;
+}
+
+/* line 582, ../scss/style.scss */
 .upw-posts article {
   overflow: hidden;
 }
 
-/* line 579, ../scss/style.scss */
+/* line 587, ../scss/style.scss */
 .fullwidth {
   width: 100%;
   height: 100%;
@@ -8451,36 +8456,36 @@ p.ng-binding {
   max-width: initial;
 }
 
-/* line 587, ../scss/style.scss */
+/* line 595, ../scss/style.scss */
 .site-top-bar {
-  background: #4ceae8;
+  background: #01bcb3;
 }
 
-/* line 592, ../scss/style.scss */
+/* line 600, ../scss/style.scss */
 .font-small {
   font-size: 0.625rem;
   margin: 0;
   padding: 0;
 }
 
-/* line 598, ../scss/style.scss */
+/* line 606, ../scss/style.scss */
 .rating-text {
   font-weight: bold;
   line-height: 32px;
 }
 
-/* line 602, ../scss/style.scss */
+/* line 610, ../scss/style.scss */
 .rating-text img {
   vertical-align: text-bottom;
 }
 
-/* line 606, ../scss/style.scss */
+/* line 614, ../scss/style.scss */
 .rating-text span {
   margin: 0 0 0 0.5rem;
   color: #fff;
 }
 
-/* line 611, ../scss/style.scss */
+/* line 619, ../scss/style.scss */
 .site-top-bar li a {
   display: inline-block;
   padding-left: 1px;
@@ -8490,61 +8495,61 @@ p.ng-binding {
   color: #fff;
 }
 
-/* line 619, ../scss/style.scss */
+/* line 627, ../scss/style.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 623, ../scss/style.scss */
+/* line 631, ../scss/style.scss */
 .separator {
   padding: 0 0.8125rem 0 0.875rem;
 }
 
-/* line 627, ../scss/style.scss */
+/* line 635, ../scss/style.scss */
 .right {
   float: right;
 }
 
-/* line 631, ../scss/style.scss */
+/* line 639, ../scss/style.scss */
 .left {
   float: left;
 }
 
-/* line 635, ../scss/style.scss */
+/* line 643, ../scss/style.scss */
 .slogan {
   margin: 0.5625rem 0 0 0;
 }
 
-/* line 638, ../scss/style.scss */
+/* line 646, ../scss/style.scss */
 .header-outter {
   background: #fff;
-  border-bottom: 0.125rem solid #4ceae8;
+  border-bottom: 0.125rem solid #01bcb3;
 }
 
-/* line 643, ../scss/style.scss */
+/* line 651, ../scss/style.scss */
 #logo {
   margin: 15px 0 10px 0;
 }
 
-/* line 647, ../scss/style.scss */
+/* line 655, ../scss/style.scss */
 .tv-products {
   position: relative;
 }
 
-/* line 653, ../scss/style.scss */
+/* line 661, ../scss/style.scss */
 .tv-products p {
   margin: 4px 0 4px 0;
   font-size: 75%;
 }
 
-/* line 658, ../scss/style.scss */
+/* line 666, ../scss/style.scss */
 .tv-products .large-3 {
   padding-right: 0;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-/* line 664, ../scss/style.scss */
+/* line 672, ../scss/style.scss */
 #tri {
   border-color: transparent transparent #e57063;
   border-style: solid;
@@ -8556,7 +8561,7 @@ p.ng-binding {
   margin-top: 7px;
 }
 
-/* line 676, ../scss/style.scss */
+/* line 684, ../scss/style.scss */
 #triangle-outter {
   width: 0;
   height: 0;
@@ -8571,7 +8576,7 @@ p.ng-binding {
   display: none;
 }
 
-/* line 689, ../scss/style.scss */
+/* line 697, ../scss/style.scss */
 #triangle {
   border-color: transparent #e57063 transparent transparent;
   border-style: solid;
@@ -8587,7 +8592,7 @@ p.ng-binding {
   display: none;
 }
 
-/* line 706, ../scss/style.scss */
+/* line 714, ../scss/style.scss */
 .tv-product.active-product {
   background: #e57063;
   border-top: 1px solid #fff;
@@ -8597,49 +8602,49 @@ p.ng-binding {
   width: 100%;
 }
 
-/* line 715, ../scss/style.scss */
+/* line 723, ../scss/style.scss */
 .tv-product {
   background: rgba(255, 255, 255, 0.75);
   width: 97%;
 }
 
-/* line 721, ../scss/style.scss */
+/* line 729, ../scss/style.scss */
 .tv-product p {
   width: 97%;
 }
 
-/* line 725, ../scss/style.scss */
+/* line 733, ../scss/style.scss */
 .tv-product .row {
   padding: 5px 0 0;
 }
 
-/* line 729, ../scss/style.scss */
+/* line 737, ../scss/style.scss */
 .tv-product img {
   bottom: 8px;
   left: 7px;
   position: relative;
 }
 
-/* line 737, ../scss/style.scss */
+/* line 745, ../scss/style.scss */
 .active-product p, .active-product p a {
   color: #fff;
   font-weight: bold;
 }
 
-/* line 745, ../scss/style.scss */
+/* line 753, ../scss/style.scss */
 #tv-options .large-6 {
   background-clip: content-box;
   background-color: #fff;
   height: 64px;
 }
 
-/* line 751, ../scss/style.scss */
+/* line 759, ../scss/style.scss */
 #tv-options .large-6 a {
   line-height: 64px;
   color: #E57063;
 }
 
-/* line 756, ../scss/style.scss */
+/* line 764, ../scss/style.scss */
 .blue-arrow {
   width: 0;
   height: 0;
@@ -8648,25 +8653,25 @@ p.ng-binding {
   border-color: transparent transparent transparent #4cebe8;
 }
 
-/* line 766, ../scss/style.scss */
+/* line 774, ../scss/style.scss */
 .tv-schedule-details {
   display: inline-block;
   margin: 0 0 9px 20px;
 }
 
-/* line 772, ../scss/style.scss */
+/* line 780, ../scss/style.scss */
 .tv-schedule-details p {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
 }
 
-/* line 778, ../scss/style.scss */
+/* line 786, ../scss/style.scss */
 #second-band {
-  padding: 52px 0;
+  padding: 52px 0 20px;
 }
 
-/* line 784, ../scss/style.scss */
+/* line 792, ../scss/style.scss */
 #second-band .more-link {
   color: #e56f63;
   display: block;
@@ -8675,13 +8680,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 792, ../scss/style.scss */
+/* line 800, ../scss/style.scss */
 .padding-1 {
   padding: 0px;
   padding-top: 0px;
 }
 
-/* line 798, ../scss/style.scss */
+/* line 806, ../scss/style.scss */
 .featured_categories h4.entry-title {
   padding: 44.2% 0;
   text-align: center;
@@ -8689,49 +8694,56 @@ p.ng-binding {
   color: #e56f63;
 }
 
-/* line 805, ../scss/style.scss */
+/* line 813, ../scss/style.scss */
 .featured_categories .entry-title a {
   border-bottom: 3px solid #e56f63;
   text-transform: uppercase;
   font-size: 19px;
 }
 
-/* line 810, ../scss/style.scss */
+/* line 818, ../scss/style.scss */
 .howtos {
   background: #fff;
+  margin-bottom: 25px;
 }
 
-/* line 813, ../scss/style.scss */
+/* line 826, ../scss/style.scss */
 .how-to-holder {
   padding: 10px;
   text-align: left;
+  height: 130px;
 }
 
-/* line 818, ../scss/style.scss */
+/* line 832, ../scss/style.scss */
+.howto_widget header {
+  height: 310px;
+}
+
+/* line 837, ../scss/style.scss */
 .howtos .entry-content p {
   font-size: 14px;
 }
 
-/* line 823, ../scss/style.scss */
+/* line 842, ../scss/style.scss */
 .how-to-holder a {
   color: #e56f63;
   text-transform: uppercase;
 }
 
-/* line 828, ../scss/style.scss */
+/* line 847, ../scss/style.scss */
 .howtos p.how-to-image-holder {
   height: 308px;
   overflow: hidden;
 }
 
-/* line 833, ../scss/style.scss */
+/* line 852, ../scss/style.scss */
 .footer {
   background: #fff;
-  border-top: 5px solid #4ceae8;
+  border-top: 5px solid #01bcb3;
   padding: 35px 0;
 }
 
-/* line 840, ../scss/style.scss */
+/* line 859, ../scss/style.scss */
 .footer input {
   background: #efefef none repeat scroll 0 0;
   border: 1px solid #efefef;
@@ -8740,24 +8752,24 @@ p.ng-binding {
   width: 210px;
 }
 
-/* line 849, ../scss/style.scss */
+/* line 868, ../scss/style.scss */
 .footer button {
   background: #e56f63;
   height: 37px;
   text-transform: uppercase;
 }
 
-/* line 855, ../scss/style.scss */
+/* line 874, ../scss/style.scss */
 .copyright {
   font-size: 0.75rem;
 }
 
-/* line 858, ../scss/style.scss */
+/* line 877, ../scss/style.scss */
 #third-band .widget {
   text-align: center;
 }
 
-/* line 863, ../scss/style.scss */
+/* line 882, ../scss/style.scss */
 #third-band h4 {
   background: white none repeat scroll 0 0;
   display: inline-block;
@@ -8767,12 +8779,12 @@ p.ng-binding {
   text-align: center;
 }
 
-/* line 872, ../scss/style.scss */
+/* line 891, ../scss/style.scss */
 #second-band .large-6, #second-band .large-3 {
   padding: 0.21875rem;
 }
 
-/* line 877, ../scss/style.scss */
+/* line 896, ../scss/style.scss */
 #second-band {
   /*  left: -4px;
     margin: 0 auto;
@@ -8781,14 +8793,14 @@ p.ng-binding {
     width: 1328px;*/
 }
 
-/* line 886, ../scss/style.scss */
+/* line 905, ../scss/style.scss */
 .search-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
   display: none;
 }
 
-/* line 892, ../scss/style.scss */
+/* line 911, ../scss/style.scss */
 .search-container form {
   display: inline-block;
   background: white none repeat scroll 0% 0%;
@@ -8796,13 +8808,31 @@ p.ng-binding {
   margin: 13px;
 }
 
-/* line 898, ../scss/style.scss */
+/* line 917, ../scss/style.scss */
 .search-container img {
   width: 20px;
   vertical-align: baseline;
 }
 
-/* line 903, ../scss/style.scss */
+/* line 922, ../scss/style.scss */
 .twitter-typeahead {
   width: 66px;
+}
+
+/* line 926, ../scss/style.scss */
+.upw-after p {
+  text-align: center;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+/* line 932, ../scss/style.scss */
+.upw-after .layout-button {
+  background: #ec695d;
+  color: #fff;
+  clear: both;
+  display: inline-block;
+  margin: 30px auto 0;
+  padding: 25px 65px;
+  text-align: center;
 }

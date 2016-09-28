@@ -77,23 +77,21 @@
                <div class="row">
 
                         <div style="background: white none repeat scroll 0% 0%; padding-left: 0px;" class="medium-6 columns">
-                          <div style="position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: rgb(76, 235, 233) none repeat scroll 0px 0px; padding: 0px 10px;">
-                          On Now
-                          <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent rgb(76, 235, 232); position: absolute; top: 0px; right: -21px;">
-                              
-                          </div>
-                          </div>
+                            <div style="color:#fff;position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: #00bcb4 none repeat scroll 0px 0px; padding: 0px 10px;">
+                                On Now
+                                <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent #00bcb4; position: absolute; top: 0px; right: -21px;"></div>
+                            </div>
                             
                             <div class="tv-schedule-details">
-                              <p>08:00 - 09:00</p>
-                              <p>Title of the show and who the presenter</p>
+                                <p>08:00 - 09:00</p>
+                                <p>Title of the show and who the presenter</p>
                             </div>
                         </div>
                    
                         <div style="background: white none repeat scroll 0% 0%; padding-left: 0px;" class="medium-6 columns">
-                          <div style="position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: rgb(76, 235, 233) none repeat scroll 0px 0px; padding: 0px 10px;">
+                          <div style="color:#fff;position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: #00bcb4 none repeat scroll 0px 0px; padding: 0px 10px;">
                           On Next
-                            <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent rgb(76, 235, 232); position: absolute; top: 0px; right: -21px;"></div>
+                            <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent #00bcb4; position: absolute; top: 0px; right: -21px;"></div>
                           </div>
 
                             <div class="tv-schedule-details">

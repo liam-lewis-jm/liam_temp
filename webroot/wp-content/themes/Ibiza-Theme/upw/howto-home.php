@@ -109,17 +109,23 @@ if( count( $ids ) >0 )
         <?php $howto =  get_product_by_mongo_id( $post->post_title ) ;  print_r($product); ?>
      <div class="<?php echo $row_class; ?>">
         
-    
+         <article <?php post_class($current_post); ?>>
+         
+         
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
-              <article <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
+              <header <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>)  no-repeat  #fff; border: 1px solid #ddd;
     padding: 17px;" >
+                  
+        <?php elseif ($howto->data->image) : ?>              
+             <header <?php post_class($current_post); ?>  style="background:url(<?php echo $howto->data->image; ?>) no-repeat #fff; border: 1px solid #ddd;
+         padding: 17px;" >
         <?php else:?>
-            <article <?php post_class($current_post); ?>>
+            <header <?php post_class($current_post); ?>>
         <?php endif; ?>    
     
         
 
-          <header>
+          
 
 
 
@@ -168,7 +174,7 @@ if( count( $ids ) >0 )
 
           </header>
 
-            <p class="how-to-image-holder"><img src="<?php echo $howto->data->image; ?>" alt="" /></p>    
+            
             <div class="how-to-holder">
                 
                 <h6><a href="/h/<?php echo $howto->_id;?>/"><?php echo  $howto->data->name; ?></a></h6>
