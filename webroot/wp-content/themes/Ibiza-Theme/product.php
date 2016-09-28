@@ -11,25 +11,32 @@ $rst                    = $ibiza_api->get_product(get_query_var('products'));
 $response               = $rst[0]->data;
 $schema                 = $ibiza_api->get_product_schema( $rst[0]->{'$schema'});
 
+if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
+    setcookie('ann', $_SERVER['REMOTE_ADDR'] . '.' .  date('d.m.Y.h.i.s'), time()+3600, '/', '.' . $_SERVER['SERVER_NAME']);
+}
+
 /**
  * Handle a JSON request
  */
-if( isset( $_GET['json'] ) ){
-    echo json_encode( $response );
+if(isset($_GET['json'])) {
+    echo json_encode($response);
     die;
 }
 
 /**
  * Handle a bundle request
  */
-if( isset( $_GET['bundle'] ) ){
-
+if(isset($_GET['bundle'])) {
     return require('product-bundle.php');
-    
 }
 $breadcrumbs = breacdcrumbs( 'cat-' . (int)$response->category[0] , 'post' ,  'publish' ,$response->name);
  
-
+/**
+ * Set ann cookie if you are not logged in and have nsec cookie for the add to basket section
+ */
+if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
+    setcookie('ann', $_SERVER['REMOTE_ADDR'] . '.' .  date('d.m.Y.h.i.s'), time()+3600, '/', '.' . $_SERVER['SERVER_NAME']);
+}
 ?>
 
 <?php get_header(); ?>

@@ -12,9 +12,7 @@
  * @var bool
  */
 
-
 require('wp-config.php');
-
  
  function get_client_ip() {
     $ipaddress = '';
@@ -35,50 +33,43 @@ require('wp-config.php');
     return $ipaddress;
 }
 
-
-$url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';                                                                               
-$ch             = curl_init( $url );                                                                      
+$url            = API_URL . '/ProductCatalog.api/api/legacy/addTobasket';
+$ch             = curl_init( $url );
 $cookieStr      = $_COOKIE['nsec'];
 $quantity       = $_GET['quantity'];
 $productCode    = $_GET['productCode'];
 $productDetailId= $_GET['productDetailID'];
 
-if( $quantity <=0 ) {
-     $quantity  = 1;
+if($quantity <=0) {
+    $quantity  = 1;
 }
 
-
 parse_str($cookieStr, $output);
- 
- $data_string =  '{
+
+$data_string =  '{
     "BasketID"          : 0,
     "AuctionID"         : null,
     "Ip"                : "'.  get_client_ip()  .'",
     "WebsiteId"         : 83,
     "ProductSourceId"   : 83,
     "ProductCode"       : "'. $productCode . '" ,
-    "ProductDetailId"   : "'. $productDetailId . '" ,
     "Quantity"          : '. $quantity .',
     "WishListId"        : null,
     "CurrencyId"        : 1,
-    "CustomerId"        : '. $output['ci'] .',
+    ' . (($_COOKIE['nsec']) ? '"CustomerId": ' . $output['ci'] .',' : '"CookieId": "' . $_COOKIE['ann'] . '",') . '
     "DeliveryCountryId" : 49,
     "Language"          : 23,
-    "NonSecurityKey"    : "'. $output['sk'] .'" }';
- 
+    ' . (($_COOKIE['nsec']) ? '"NonSecurityKey"    : "'. $output['sk'] .'" }' : '}');
 
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
-    'Content-Type: application/json',                                                                                
-    'Content-Length: ' . strlen($data_string))                                                                       
-);                                                                                                                   
-         
-
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("Cookie: test=cookie"));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Content-Length: ' . strlen($data_string)));
 
 $result = curl_exec($ch);
- 
 curl_close($ch);
 
 echo $result;
