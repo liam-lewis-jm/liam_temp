@@ -178,9 +178,9 @@ apache:
         - rewrite
     vhosts:
         av_9pv44gcpgzu4:
-            servername: jewellerymaker.com
+            servername: ibiza.dev
             serveraliases:
-                - www.jewellerymaker.com
+                - www.ibiza.dev
             docroot: /vagrant/webroot
             port: '80'
             setenv:

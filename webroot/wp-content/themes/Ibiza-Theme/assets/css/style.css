@@ -8546,7 +8546,7 @@ p.ng-binding {
 .tv-products .large-3 {
   padding-right: 0;
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 /* line 672, ../scss/style.scss */
@@ -8835,4 +8835,9 @@ p.ng-binding {
   margin: 30px auto 0;
   padding: 25px 65px;
   text-align: center;
+}
+
+/* line 944, ../scss/style.scss */
+#inner-footer .large-1 {
+  padding: 6px 0 0;
 }

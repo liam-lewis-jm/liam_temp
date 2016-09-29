@@ -363,11 +363,11 @@ class IbizaCategoriesPullPlugin_Plugin extends IbizaCategoriesPullPlugin_LifeCyc
             'echo' => false,
             'fallback_cb' => false, // Fallback function (see below)
             'walker' => $a = new Topbar1_Menu_Walker($data),
+            'menu' => '2',
         ));
 
 
-        $this->data = $a->data;
-
+        $this->data     = $a->data;
         $menuname       = 'Main';
         $menu_exists    = wp_get_nav_menu_object($menuname);
         $menu_id        = $menu_exists->term_id;
