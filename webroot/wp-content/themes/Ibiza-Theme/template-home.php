@@ -14,11 +14,11 @@
 
         <?php if (is_front_page()): ?>
 
-            <main id="main" class="large-8 medium-8 columns" role="main">
+            <main id="main" class="large-8 medium-12 columns" role="main">
 
             <?php else: ?>
 
-            <main id="main" class="large-8 medium-8 columns" role="main">
+            <main id="main" class="large-8 medium-12 columns" role="main">
 
             <?php endif; ?>
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -43,18 +43,32 @@
 
                 <!-- temp inline as design not final -->
                 <div class="text-center show-for-xlarge" id="tv-options">
-                    <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a></div>
-                    <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a></div>
+                    <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
+                    </div>
+                    <div class="large-6 columns" style="padding-left: 0">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a>
+                    </div>
                 </div>
                 
                 <?php if (is_active_sidebar('homepageleft')) : ?>
 
                     <?php dynamic_sidebar('homepageleft'); ?>
 
-                <?php endif; ?>                
+                <?php endif; ?>  
+                
+                
+              
+                
 
             </main> <!-- end #main -->
 
+            
+            <div class="text-center show-for-medium medium-4 column" id="tv-options" style="padding-top:10px">
+                <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a></div>
+                <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a></div>
+            </div>            
+            
             
             <?php if (is_active_sidebar('homepagesidebar')) : ?>
 

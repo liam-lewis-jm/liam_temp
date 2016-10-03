@@ -19,7 +19,7 @@
     </div>
 
 
-    <div class="small-2 show-for-small-only columns small-top-margin-push">
+    <div class="small-2 medium-4  hide-for-large columns medium-top-margin-push small-top-margin-push">
         <a data-toggle="off-canvas"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/menu.png" title="" alt="" /></a>
     </div> 
 

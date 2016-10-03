@@ -169,6 +169,11 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
         
         ?>
 
+
+
+
+
+
         <div  class="tv-products">
                 <?php foreach($data[0]->products as $key=>$r):
                     
@@ -184,8 +189,8 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
                     }
                     ?>
                     
-                    <div id="triangle" class="<?php echo  $active; ?>  show-for-large "></div>                    
-                    <div id="triangle-outter" class="<?php echo $active; ?>  show-for-large "></div>
+                    <div id="triangle" class="<?php echo  $active; ?>   "></div>                    
+                    <div id="triangle-outter" class="<?php echo $active; ?>  "></div>
                     <div class="tv-product <?php echo $active;?>">
                         <div class="row ">
                             <div class="column large-3 small-3">
@@ -209,14 +214,14 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
         echo $args['after_widget'];
     }
 
-// Widget Backend 
+    // Widget Backend 
     public function form($instance) {
         if (isset($instance['title'])) {
             $title = $instance['title'];
         } else {
             $title = __('New title', 'wpb_widget_domain');
         }
-// Widget admin form
+        // Widget admin form
         ?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 

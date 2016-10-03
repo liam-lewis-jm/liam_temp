@@ -93,8 +93,8 @@ CSS file.
 
 
 #menu-main-1 {
-/*    display: flex;*/
-/*    height:92px;*/
+    /*    display: flex;*/
+    /*    height:92px;*/
 }
 
 #channels{
@@ -108,33 +108,78 @@ CSS file.
 }*/
 
 #channels .hide-for-small-only p{
-     
+
     border-right:1px solid #000;
 }
 
 .large-push-1-xtra {
-  @extend .large-push-1;
-  left:4%;
+    @extend .large-push-1;
+    left:4%;
 }
 
 .large-12-xtra {
-  @extend .large-12;
-  width: 1335px;
+    @extend .large-12;
+    width: 1335px;
 }
-
-
-
-
-
-
 
 
 
 
 
 @media #{$small-up} {
-    
-    
+
+
+    #triangle-outter{
+
+
+
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 14px 11px 14px;
+        border-color: transparent transparent #fff transparent;
+        line-height: 0px;
+        _border-color: #000000 #000000 #e57063 #000000;
+        _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');        
+        right           : 50%;
+        top             : -11px;
+        z-index         : 8;
+        position        : absolute;
+        display         : none;        
+
+    }
+    #triangle{
+
+
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 14px 11px 14px;
+        border-color: transparent transparent #e57063 transparent;
+        line-height: 0px;
+        _border-color: #000000 #000000 #e57063 #000000;
+        _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');      
+        right: 50%;
+        top: -9px;
+        z-index         : 9;
+        position        : absolute;
+        display         : none;
+    }
+
+    .tv-products .large-3 {
+        padding: 15px 0 10px 20px;
+    }
+
+    .tv-product.active-product {
+        
+        border:1px solid #fff;
+    }
+
+
+
+
+
+
     div.swiper-container-banner{
         margin: 0 auto;
         overflow: hidden;
@@ -148,7 +193,7 @@ CSS file.
         height:100%;
         width: 100%;
     }
-    
+
 }
 
 
@@ -156,6 +201,10 @@ CSS file.
 
 
 @media #{$xlarge-up} {
+
+    .tv-product.active-product {
+        height:135px;
+    }    
     
     div.swiper-container-banner{
         margin: 0 auto;
@@ -167,10 +216,97 @@ CSS file.
     div.swiper-container-banner div.swiper-slide {
         height:676px;
     }
-    
+
 }
 
+
+
+.tv-product.active-product {
+    background:#e57063;
+}
+
+.tv-product{
+
+    background:rgba(255,255,255, 0.75);
+}
+
+
+@media #{$medium-only} {
+    .medium-top-margin-push { 
+        padding-top: 2%;
+    }
+}
+
+
+@media #{$large-up} {
+    #triangle-outter{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 67.5px 59px 67.5px 0;
+        border-color: transparent #fff transparent transparent;
+        line-height: 0px;
+        _border-color: #000000 #fff #000000 #000000;
+        _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+        position: absolute;
+        right: 100%;
+        display:none;
+        top:auto;
+    }
+
+    #triangle{
+        border-color    : transparent #e57063 transparent transparent;
+        border-style    : solid;
+        border-width    : 66.5px 58px 66.5px 0;
+        height          : 0;
+        right           : 99.90%;
+        line-height     : 0;
+        top             : 1px;
+        width           : 0;
+        z-index         : 9;
+        _filter         : progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+        position        : absolute;
+        display         : none;
+    }   
+}
+
+
 @media #{$medium-up} {
+
+    #inner-footer .large-1{
+        padding: 6px 0 0;
+    }
+
+    .tv-product.active-product {
+        background:#e57063;
+        border-top:1px solid #fff;
+        border-bottom:1px solid #fff;
+        border-right:1px solid #fff;
+        width:100%;
+    }
+
+    .tv-product{
+
+        background:rgba(255,255,255, 0.75);
+        width:97%;
+    }
+
+    .tv-product p{
+        width:97%;
+    }
+
+    .tv-product .row{
+        padding: 5px 0 0;
+    }
+
+    .tv-product img {
+
+        bottom: 8px;
+        left: 7px;
+        position: relative;
+
+    }
+
 
     .header-container {
         margin: 1.625rem 0 0;
@@ -179,7 +315,14 @@ CSS file.
     .active-product{
         display:block!important;
     } 
+
 }
+
+
+
+
+
+
 
 
 @media #{$small-only} {
@@ -190,6 +333,30 @@ CSS file.
     .box1--videos{
         clear:both;
     }
+
+    .active-product {
+
+        display: block !important
+
+    }   
+
+
+
+
+
+    .tv-product.active-product {
+
+        height:auto;
+
+    }    
+
+    .widget_wpb_tv_product_widget ,#main{
+        padding:0;
+    }
+    .tv-product{
+        width:100%
+    }    
+
 
 }
 
@@ -212,8 +379,8 @@ CSS file.
 #menu-main-1 li{
     flex-grow: 1;
     text-transform: uppercase;
-/*    margin-top:29px;
-    margin-bottom:29px;*/
+    /*    margin-top:29px;
+        margin-bottom:29px;*/
 }
 
 #menu-main-1 li a{
@@ -519,7 +686,7 @@ p.ng-binding {
     overflow: hidden;
 }
 
- 
+
 
 .typeahead {
     width:180px;
@@ -569,7 +736,7 @@ p.ng-binding {
 
 .upw-posts .columns{
     overflow:hidden;
-    
+
 }
 
 
@@ -670,7 +837,7 @@ p.ng-binding {
 }
 
 #tri{
-    
+
     border-color: transparent transparent #e57063;
     border-style: solid;
     border-width: 0 25px 25px;
@@ -681,66 +848,6 @@ p.ng-binding {
     margin-top: 7px
 }
 
-#triangle-outter{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 67.5px 59px 67.5px 0;
-    border-color: transparent #fff transparent transparent;
-    line-height: 0px;
-    _border-color: #000000 #fff #000000 #000000;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-    position: absolute;
-    right: 100%;
-    display:none;
-}
-#triangle{
-    border-color    : transparent #e57063 transparent transparent;
-    border-style    : solid;
-    border-width    : 66.5px 58px 66.5px 0;
-    height          : 0;
-    right           : 100%;
-    line-height     : 0;
-    top             : 1px;
-    width           : 0;
-    z-index         : 9;
-    _filter         : progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-    position        : absolute;
-    display         : none;
-}
-
-
-
-.tv-product.active-product {
-    background:#e57063;
-    border-top:1px solid #fff;
-    border-bottom:1px solid #fff;
-    border-right:1px solid #fff;
-    height:135px;
-    width:100%;
-}
-
-.tv-product{
-    
-    background:rgba(255,255,255, 0.75);
-    width:97%;
-}
-
-.tv-product p{
-    width:97%;
-}
-
-.tv-product .row{
-    padding: 5px 0 0;
-}
-
-.tv-product img {
-
-    bottom: 8px;
-    left: 7px;
-    position: relative;
-
-}
 
 .active-product p , .active-product p a {
     color:#fff;
@@ -802,7 +909,7 @@ p.ng-binding {
     padding-top:0px;
 }
 
- 
+
 .featured_categories h4.entry-title{
     padding: 44.2% 0; 
     text-align: center; 
@@ -817,7 +924,7 @@ p.ng-binding {
 }
 .howtos {
     background: #fff;
-    margin-bottom:25px;
+    margin-bottom:6px;
 
 }
 
@@ -826,11 +933,17 @@ p.ng-binding {
 .how-to-holder {
     padding:10px;
     text-align:left;
-    height:130px;
+    height:195px;
 }
 
 .howto_widget header{
     height:310px;
+}
+
+
+footer .menu-item a{
+    margin:0;
+    padding:0;
 }
 
 
@@ -850,7 +963,7 @@ p.ng-binding {
 }
 
 .footer{
-    
+
     background:#fff;
     border-top: 5px solid #01bcb3;
     padding:35px 0;
@@ -862,7 +975,7 @@ p.ng-binding {
     font-size: 13px;
     text-indent: 10px;
     width: 210px;
-     
+
 }
 
 .footer button{
@@ -894,11 +1007,11 @@ p.ng-binding {
 
 
 #second-band{
-  /*  left: -4px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    width: 1328px;*/
+    /*  left: -4px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      width: 1328px;*/
 }
 
 
@@ -930,7 +1043,7 @@ p.ng-binding {
 }
 
 .upw-after .layout-button{
-    
+
     background: #ec695d;
     color:#fff;
     clear: both;
@@ -938,9 +1051,9 @@ p.ng-binding {
     margin: 30px auto 0;
     padding:25px 65px;
     text-align: center;
-    
+
 }
 
-#inner-footer .large-1{
-    padding: 6px 0 0;
-}
+
+
+

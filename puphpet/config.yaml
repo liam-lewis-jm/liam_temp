@@ -19,16 +19,16 @@ vagrantfile:
                         check_guest_tools: 0
                         update_guest_tools: 0
                 machines:
-                    vflm_rpuz66ekqmea:
-                        id: ibiza
+                    vflm_24mos59lkrkp:
+                        id: machine1
                         hostname: machine1.puphpet
                         network:
                             private_network: 192.168.56.101
                             forwarded_port:
-                                vflmnfp_8xuuztpvfdee:
-                                    host: '9200'
-                                    guest: '9200'
-                        memory: '512'
+                                vflmnfp_5pkupzgkfuif:
+                                    host: '5272'
+                                    guest: '22'
+                        memory: '1024'
                         cpus: '1'
         provision:
             puppet:
@@ -38,8 +38,8 @@ vagrantfile:
                     - '--verbose'
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
         synced_folder:
-            vflsf_g8vb3ylixnkk:
-                source: webroot
+            vflsf_wphuj4a5dtl3:
+                source: 'C:\\Development\\ProjectIbiza-Frontend\\webroot'
                 target: /vagrant/webroot
                 sync_type: default
                 smb:
@@ -82,6 +82,7 @@ vagrantfile:
         https: ''
         ftp: ''
         no_proxy: ''
+        enabled: '0'
 server:
     install: '1'
     packages: {  }
@@ -92,7 +93,7 @@ users_groups:
 locale:
     install: '1'
     settings:
-        default_locale: en_US.UTF-8
+        default_locale: en_GB.UTF-8
         locales:
             - en_GB.UTF-8
             - en_US.UTF-8
@@ -115,7 +116,7 @@ nginx:
         names_hash_bucket_size: 128
     upstreams: {  }
     vhosts:
-        nxv_gdrs6dbhwln1:
+        nxv_f8gq8n2wgy2p:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -135,7 +136,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_5xniswsd2hsf:
+                nxvl_cmu6nei1orw2:
                     location: /
                     try_files:
                         - $uri
@@ -146,7 +147,7 @@ nginx:
                     fastcgi_split_path: ''
                     proxy: ''
                     proxy_redirect: ''
-                nxvl_l3mylxz94fb8:
+                nxvl_09ud39gtwuhn:
                     location: '~ \.php$'
                     try_files:
                         - $uri
@@ -177,7 +178,7 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_9pv44gcpgzu4:
+        av_5kat2txkqy50:
             servername: ibiza.dev
             serveraliases:
                 - www.ibiza.dev
@@ -196,7 +197,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_xxl5wv5f5xp0:
+                avd_gnpxa8p0an7d:
                     path: /vagrant/webroot
                     options:
                         - Indexes
@@ -208,7 +209,7 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_fk0fbons0qtt:
+                        avdfm_6brf8r8uu0yv:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
@@ -227,9 +228,8 @@ php:
         php:
             - cli
             - intl
-            - gd
-            - imagick
             - curl
+            - mbstring
         pear: {  }
         pecl: {  }
     ini:
@@ -240,7 +240,7 @@ php:
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_5tnkic13kcdt:
+        phpfp_4p5tnp4putsv:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -282,15 +282,7 @@ drush:
     version: 8.0.5
 ruby:
     install: '1'
-    versions:
-        rv_g6ti2d69wvla:
-            default: '1'
-            bundler: '1'
-            version: 1.9.3
-            gems:
-                - deep_merge
-                - activesupport
-                - vine
+    versions: {  }
 python:
     install: '1'
     packages: {  }
@@ -302,6 +294,8 @@ nodejs:
     npm_packages:
         - bower
         - gulp
+        - npm
+        - grunt
 hhvm:
     install: '0'
     nightly: 0
@@ -325,15 +319,15 @@ mariadb:
         override_options: {  }
     adminer: 0
     users:
-        mariadbnu_6c3p2d7qeg14:
+        mariadbnu_2enxz1hgfz8j:
             name: dbuser
             password: '123'
     databases:
-        mariadbnd_hmoyfuxjkbxj:
+        mariadbnd_7s3clerc1ogz:
             name: dbname
             sql: ''
     grants:
-        mariadbng_x1m4c04o3wsm:
+        mariadbng_uf5nl1fwfn1f:
             user: dbuser
             table: '*.*'
             privileges:
@@ -346,15 +340,15 @@ mysql:
         override_options: {  }
     adminer: 0
     users:
-        mysqlnu_nlh9j31ijzfw:
+        mysqlnu_3d1a8uz6jv2o:
             name: ibiza
             password: d3v0p5
     databases:
-        mysqlnd_tomx7zmjn87u:
+        mysqlnd_ku6h4nvq65s2:
             name: ibiza
             sql: /vagrant/webroot/ibiza.sql
     grants:
-        mysqlng_t5v29uv795bb:
+        mysqlng_rtz5o15vn61g:
             user: ibiza
             table: '*.*'
             privileges:
@@ -419,7 +413,7 @@ elastic_search:
         version: 2.3.1
         java_install: true
     instances:
-        esi_1eqwxt1wclox:
+        esi_0kbilsrutb2d:
             name: es-01
 solr:
     install: '0'
