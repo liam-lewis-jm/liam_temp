@@ -22,27 +22,27 @@
 
             <?php endif; ?>
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
+                
                         <!-- To see additional archive styles, visit the /parts directory -->
                         <?php get_template_part('parts/loop', 'archive'); ?>
-
+                
                     <?php endwhile; ?>	
 
                     <?php joints_page_navi(); ?>
-
+                
                 <?php else : ?>
-
+                
                     <?php get_template_part('parts/content', 'missing'); ?>
-
+                
                 <?php endif; ?>
-
+                
                 <!-- Temp style -->
                 <div id="dvVideoHolderHome" style="background-color: #000">
                     <img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" />
                 </div>       
 
                 <!-- temp inline as design not final -->
-                <div class="text-center show-for-xlarge" id="tv-options">
+                <div class="text-center show-for-large" id="tv-options">
                     <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
                     </div>
@@ -64,10 +64,7 @@
             </main> <!-- end #main -->
 
             
-            <div class="text-center show-for-medium medium-4 column" id="tv-options" style="padding-top:10px">
-                <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a></div>
-                <div class="large-6 columns" style="padding-left: 0"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a></div>
-            </div>            
+        
             
             
             <?php if (is_active_sidebar('homepagesidebar')) : ?>
@@ -75,6 +72,37 @@
                 <?php dynamic_sidebar('homepagesidebar'); ?>
 
             <?php endif; ?>
+            
+            
+            
+            
+            <div class="text-center medium-4 small-12 column show-for-small hide-for-large" id="tv-options">
+                <div class="medium-6 small-6 columns" style="padding-left: 0;">
+                    
+                    <div class="block">
+                        <div class="centered">
+                    
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> 
+                            <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
+                    
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="medium-6 small-6 columns" style="padding-left: 0">
+                    
+                    <div class="block">
+                        <div class="centered">
+                    
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" />
+                            <a href="" class="upper">View all products from Today</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>                
+            
+            
 
     </div> <!-- end #inner-content -->
     

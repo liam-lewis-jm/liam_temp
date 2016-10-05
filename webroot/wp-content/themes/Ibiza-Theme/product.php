@@ -42,7 +42,7 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
 <?php get_header(); ?>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
- 
+<div class="full">
 <div class="row columns">
     <nav aria-label="You are here:" role="navigation">
         
@@ -54,6 +54,7 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
             
         </ul>
     </nav>
+</div>
 </div>
 <div id="result">
     <div class="row" id="prodcut_main">
@@ -79,7 +80,7 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
                             <a  rel="group"  class="gallery" href="<?php echo $image->url; ?>"
                                data-zoom-image="<?php echo $image->url; ?>"  
                                data-image="<?php echo $image->url; ?>">                        
-                            <img data-zoom-image="<?php echo $image->url; ?>" src="<?php echo $image->url; ?>">
+                                <img data-zoom-image="<?php echo $image->url; ?>" src="<?php echo $image->url; ?>">
                             </a>
 
                         </div>
@@ -97,36 +98,63 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
 
 
             <h3 id="product_name"><?php echo $response->name; ?></h3>
-            <p><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> Read Reviews (15)</p>
+            <p><img src="/wp-content/themes/Ibiza-Theme/assets/images/stars-product-page.png"> Write the first Review </p>
             <p>Product code: <strong><span id="product_code" class="strong"><?php print get_query_var('products'); ?></span></strong></p>
 
 
-            <div class="row column" style="background:#F4F4F4;padding:30px">
+            <div class="row column" style="background: transparent url(/wp-content/themes/Ibiza-Theme/assets/images/bg.png) repeat scroll 0% 0%; padding: 20px;">
+                <div class="product-meta1" style="background: white none repeat scroll 0% 0%; padding: 15px;">
+                    
+                    
 
-                <div class="medium-4 large-4 columns">
-                    <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response->price , 2); ?> </h4>
-                    <input type="text" id="middle-label" placeholder="One fish two fish">
-                </div>
-
-                <div class="medium-4 large-4 columns">
-                    <p>In Stock</p>
-                </div>
-
-                <div class="medium-4 large-4 columns">
-                    <p>Delivery From<br/>&pound;2.99</p>
-                </div>
-
-                <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2" style="background: #00B109">Add to basket</button>
-                <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
-                    <div class="column large-6">
-                        <img   class="thumbnail" data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>">
-                    </div>
-                    <div class="column large-6">
-                        <p id="basket-description"><?php echo $response->name; ?></p>
-                        <p id="basket-total">Total &pound;</p>
-                        <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx'">Checkout</button>
+                    
+                    <div class="medium-4 large-3 columns">
+                        <h4 id="product_price"><?php echo $schema->properties->price->prepend ?><?php echo number_format( $response->price , 2); ?> </h4>                        
                     </div>
 
+                    
+                    <div class="large-3 columns">
+                        
+                        <div class="large-2 columns increment">
+                            <a href="">-</a>
+                        </div>
+                        
+                        <div class="large-6 columns" style="padding:0;">
+                            <input type="text" id="quantity" value="1">
+                        </div>
+                        
+                        <div class="large-2 columns increment end">
+                            <a href="">+</a>
+                        </div>
+                    </div>                    
+                    
+                    <div class="medium-4 large-3 columns">
+                        <p>
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/tick-icon.png">
+                            In Stock</p>
+                    </div>
+
+                    <div class="medium-4 large-3 columns">
+                        <div class="large-3 columns">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/del-icon.png">
+                        </div>
+                        <div class="large-9 columns">
+                            <p style="font-size: 12px; line-height: 1.1; margin-left: 15px;">Delivery From<br/>&pound;2.99</p>
+                        </div>
+                    </div>
+
+                    <button id="add-basket" class="button large expanded" type="button" data-toggle="example-dropdown2" style="background: #e56f63;text-transform:uppercase">Add to basket</button>
+                    <div class="dropdown-pane top column row" id="example-dropdown2" data-dropdown>
+                        <div class="column large-6">
+                            <img   class="thumbnail" data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>">
+                        </div>
+                        <div class="column large-6">
+                            <p id="basket-description"><?php echo $response->name; ?></p>
+                            <p id="basket-total">Total &pound;</p>
+                            <button class="button large expanded" type="button" data-toggle="example-dropdown2" onclick="window.location='https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx'">Checkout</button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
@@ -134,8 +162,8 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
 
 
             <ul class="tabs" data-tabs id="example-tabs">
-                <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>
-                <li class="tabs-title"><a href="#panel2">Specifications</a></li>
+                <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><span>Description</span></a></li>
+                <li class="tabs-title"><a href="#panel2"><span>Specifications</span></a></li>
             </ul>
             
             <div class="tabs-content" data-tabs-content="example-tabs">
@@ -455,18 +483,19 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
 	});
 
 
-        jQuery.getJSON( '<?php echo $ibiza_api::api_location . '/productcatalog.api/api/metadata/' . get_query_var('products'); ?>' , function( data ) {
+        jQuery.getJSON( '<?php echo $ibiza_api::api_location . '/productcatalog.api/api/variantgroup/variants.id/' . get_query_var('products'); ?>' , function( data ) {
             
             
             if( !data ){
                 return;
             }
             
+            data            = data[0];
             var el          = jQuery( '<div/>' );
             variants        = data;
             //console.log( el );
             
-            console.log( data );
+            //console.log( data[0] );
             
             jQuery.each( data.dimensions  , function( key, val ) {
                 

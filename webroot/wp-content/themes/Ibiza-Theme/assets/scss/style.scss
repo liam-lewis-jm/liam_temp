@@ -171,7 +171,7 @@ CSS file.
     }
 
     .tv-product.active-product {
-        
+
         border:1px solid #fff;
     }
 
@@ -202,19 +202,24 @@ CSS file.
 
 @media #{$xlarge-up} {
 
+
+    div#tv-options img {
+        display: inline;
+    }    
+    
     .tv-product.active-product {
         height:135px;
     }    
-    
+
     div.swiper-container-banner{
         margin: 0 auto;
         overflow: hidden;
         position: relative;
         z-index: 1;
-        height:676px;
+        max-height:676px;
     }
     div.swiper-container-banner div.swiper-slide {
-        height:676px;
+        max-height:676px;
     }
 
 }
@@ -239,6 +244,17 @@ CSS file.
 
 
 @media #{$large-up} {
+    
+    
+#sticky-posts-10{
+    overflow: hidden;
+}    
+        
+    
+    div#tv-options{
+        float:none;
+    }
+    
     #triangle-outter{
         width: 0;
         height: 0;
@@ -272,6 +288,49 @@ CSS file.
 
 
 @media #{$medium-up} {
+
+    .small-top-margin-push{
+        padding-top:2%;
+    }
+    
+    .block{
+        text-align: center; margin-top: 40%;
+    }
+
+    #tv-options{
+        float:left;
+    }
+    
+    .widget_wpb_tv_product_widget{
+        float:right;
+    }
+    
+
+    #tv-options img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    #tv-options .medium-6
+    {
+
+        background          : rgb(255, 255, 255) none repeat scroll 0% 0%; 
+        margin              : 25px 0; 
+        padding-bottom      : 100%;
+        background-clip     : initial!important;
+        background-color    : #fff;
+        height              : 64px;
+        width               : 100%;
+    }
+
+    #tv-options .medium-6 a {
+        color               : #e57063;
+        display             : block;
+        margin              : 0 auto;
+        width               : 175px !important;
+    }    
+
+
 
     #inner-footer .large-1{
         padding: 6px 0 0;
@@ -307,9 +366,7 @@ CSS file.
 
     }
 
-
     .header-container {
-        margin: 1.625rem 0 0;
         text-align: right;
     }
     .active-product{
@@ -327,9 +384,42 @@ CSS file.
 
 @media #{$small-only} {
 
-    .small-top-margin-push { 
-        padding-top: 6%;
+    
+    #tv-options .small-6
+    {
+        background          : rgb(255, 255, 255) none repeat scroll 0% 0%; 
+        margin              : 25px 0; 
+        padding-bottom      : 50%;
+        background-clip     : initial!important;
+        background-color    : #fff;
+        height              : 64px;
+        padding-bottom      : 47%;
+        width               : 47%;        
+    }    
+    
+    #tv-options .small-6 a
+    {
+        
+        color: #e57063;
+        display: block;
+        margin: 0 auto;
+        width: 160px;
+        
+    }    
+    
+    #tv-options .small-6 img
+    {
+        padding : 20% 0 0;
+        display : block;
+        margin  : 0 auto;
+        
     }
+    
+    
+    .small-top-margin-push { 
+        padding-top: rem-calc(20);
+    }
+    
     .box1--videos{
         clear:both;
     }
@@ -339,15 +429,11 @@ CSS file.
         display: block !important
 
     }   
-
-
-
-
-
+    
     .tv-product.active-product {
-
+        
         height:auto;
-
+    
     }    
 
     .widget_wpb_tv_product_widget ,#main{
@@ -657,8 +743,6 @@ p.ng-binding {
 }
 .swiper-container-scheduled-home .home_product {
     padding: 25px;
-}#sticky-posts-10{
-    overflow: hidden;
 }
 .swiper-container-howto img{
     height:200px;
@@ -967,6 +1051,7 @@ footer .menu-item a{
     background:#fff;
     border-top: 5px solid #01bcb3;
     padding:35px 0;
+    margin:0;
 }
 
 .footer input{
@@ -1055,5 +1140,41 @@ footer .menu-item a{
 }
 
 
+ #result , .full{
+    background:$white;
+}
 
+.zoomContainer{
+    border:1px solid #ccc;
+}
+.breadcrumbs{
+    margin:10px 0;
+}
+
+
+div.product-meta1 div.columns{
+    padding:0;
+}
+
+#quantity{
+    border:1px solid #e56f63;
+    width:38px;
+    height:25px;
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.increment{
+    background:#e56f63;
+    text-align: center;
+    padding:0;
+}
+
+.increment a{
+    color:#fff;
+    height:25px;
+    width:25px;
+}
 

@@ -160,7 +160,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
 
         // This is where you run the code and display the output
         
-        $data = json_decode(  file_get_contents($ibiza_api::api_location . '/ProductCatalog.api/api/legacy/productsontv/6/full' ) );
+        $data = json_decode(  file_get_contents($ibiza_api::api_location . '/ProductCatalog.api/api/legacy/productsontv/full' ) );
         
         if( !isset( $data[0] ) )
         {
@@ -174,7 +174,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
 
 
 
-        <div  class="tv-products">
+        <div class="tv-products">
                 <?php foreach($data[0]->products as $key=>$r):
                     
                     
@@ -189,7 +189,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
                     }
                     ?>
                     
-                    <div id="triangle" class="<?php echo  $active; ?>   "></div>                    
+                    <div id="triangle" class="<?php echo  $active; ?>"></div>                    
                     <div id="triangle-outter" class="<?php echo $active; ?>  "></div>
                     <div class="tv-product <?php echo $active;?>">
                         <div class="row ">
