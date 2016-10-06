@@ -237,6 +237,20 @@ CSS file.
 
 
 @media #{$medium-only} {
+    
+    
+    #prodcut_main{
+        position: relative;
+        padding-top:10rem;
+    }
+    
+    #title-area {
+        left: 0px; 
+        position: absolute; 
+        top: 0px;
+    }    
+    
+    
     .medium-top-margin-push { 
         padding-top: 2%;
     }
@@ -245,6 +259,11 @@ CSS file.
 
 @media #{$large-up} {
     
+
+    div#title-area {
+        position: static; 
+        float:none;
+    }
     
 #sticky-posts-10{
     overflow: hidden;
@@ -289,6 +308,12 @@ CSS file.
 
 @media #{$medium-up} {
 
+    
+    
+    
+
+    
+    
     .small-top-margin-push{
         padding-top:2%;
     }
@@ -384,6 +409,22 @@ CSS file.
 
 @media #{$small-only} {
 
+    
+    #prodcut_main{
+        position: relative;
+        padding-top:10rem;
+    }
+    
+    #title-area {
+        left: 0px; 
+        position: absolute; 
+        top: 0px;
+    }    
+    
+    .zoomContainer{
+        display:none;
+    
+    }
     
     #tv-options .small-6
     {
@@ -1178,3 +1219,53 @@ div.product-meta1 div.columns{
     width:25px;
 }
 
+.tabs{
+    
+    margin: 0 0 10px 0;
+    
+}
+
+li.tabs-title a{
+    background: transparent!important;
+    padding:0 0 0 0 ;
+}
+
+.tabs-panel{
+    padding:0;
+}
+
+#panel2-label span{
+    border:0;
+}
+
+.tabs-title span{
+    border-right: 1px solid $black;
+    margin      : 0 10px 0 0;
+    padding     : 0 10px 0 0;
+}
+    
+.tabs, .tabs-content{
+     border: 0 none !important;
+}
+.is-active span{
+    font-weight:bold;
+}
+
+.swiper-container-products{
+ height:100%;   
+}
+
+
+.swiper-container-products .swiper-button-prev{
+    background-image    : url(../images/left-arrow.png);
+    width               : 28px;
+    height              : 28px;
+    background-size     : cover;
+}
+
+.swiper-container-products .swiper-button-next{
+    background-image    : url(../images/right-arrow.png);
+    width               : 28px;
+    height              : 28px;    
+    background-size     : cover;
+}

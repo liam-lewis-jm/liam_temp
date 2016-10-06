@@ -49,8 +49,6 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
         <ul class="breadcrumbs">
             
             <?php echo  implode( '' , $breadcrumbs ) ; ?>
-
-
             
         </ul>
     </nav>
@@ -60,12 +58,12 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
     <div class="row" id="prodcut_main">
 
 
-        <div class="medium-6 columns">
-            <div class="text-center">
+        <div class="medium-12 large-6 columns">
+            <div class="text-center  large-12 medium-10 hide-for-small-only columns">
                 <a href="<?php echo $response->images[0]->url; ?>" id="zoom" class="text-center"> <img id="zoom_01"   data-zoom-image="<?php echo $response->images[0]->url; ?>" src="<?php echo $response->images[0]->url; ?>"></a>
             </div>
-            <div class="clear">&nbsp;</div>
-            <div class="">
+<!--            <div class="clear">&nbsp;</div>-->
+            <div class="medium-2 large-12 columns small-12">
 
 
                 <!-- Slider main container -->
@@ -86,22 +84,33 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
                         </div>
 
                         <?php endforeach; ?>
-                    </div>
 
+                        
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
 
                 </div>
 
             </div>
+            <div style="clear:both">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/facebook-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/twitter-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/pin-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/google-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/print-icon.png">
+                
+            </div>
 
         </div>
-        <div class="medium-6 large-6 columns">
+        <div class="medium-12 large-6 columns">
 
-
+            <div id="title-area"  class="column">
             <h3 id="product_name"><?php echo $response->name; ?></h3>
             <p><img src="/wp-content/themes/Ibiza-Theme/assets/images/stars-product-page.png"> Write the first Review </p>
             <p>Product code: <strong><span id="product_code" class="strong"><?php print get_query_var('products'); ?></span></strong></p>
-
-
+            </div>
+            
             <div class="row column" style="background: transparent url(/wp-content/themes/Ibiza-Theme/assets/images/bg.png) repeat scroll 0% 0%; padding: 20px;">
                 <div class="product-meta1" style="background: white none repeat scroll 0% 0%; padding: 15px;">
                     
@@ -169,7 +178,7 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
             <div class="tabs-content" data-tabs-content="example-tabs">
                 <div class="tabs-panel is-active" id="panel1">
                     <h4>Description</h4>
-                    <p  id="product_description"><?php echo $response->description; ?></p>
+                    <p  id="product_description"><?php echo nl2br( $response->description ); ?></p>
                 </div>
                 <div class="tabs-panel" id="panel2">
 
@@ -255,6 +264,17 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
 
 
         </div>
+        
+        <div class="medium-12 large-6 columns small-12" style="clear:left;float:left">
+                <div class="row column" style="background: transparent url(/wp-content/themes/Ibiza-Theme/assets/images/bg.png) repeat scroll 0% 0%; padding: 20px;margin:20px 0">
+                    <div class="product-meta1" style="background: white none repeat scroll 0% 0%; padding: 15px;">
+
+                        <p>Customer Reviews <img src="/wp-content/themes/Ibiza-Theme/assets/images/stars-product-page.png"></p>
+
+                    </div>
+                </div>            
+            </div>        
+        
     </div>
 </div>
 <!-- Footer -->
@@ -591,23 +611,27 @@ if ((!$_COOKIE['nsec']) && (!$_COOKIE['ann']))  {
         mySwiper_products = new Swiper('.swiper-container-products', {
             // Optional parameters
             loop: false,
-            slidesPerView: 4,
+            nextButton : '.swiper-button-next',
+            prevButton : '.swiper-button-prev',            
+            slidesPerView: 7,
             spaceBetween: 4,
             breakpoints: {
                 // when window width is <= 320px
                 320: {
                     slidesPerView: 1,
-                    spaceBetweenSlides: 10
+                    spaceBetweenSlides: 10,
                 },
                 // when window width is <= 480px
                 480: {
-                    slidesPerView: 2,
-                    spaceBetweenSlides: 20
+                    slidesPerView: 1,
+                    spaceBetweenSlides: 20 ,
                 },
                 // when window width is <= 640px
                 640: {
                     slidesPerView: 3,
-                    spaceBetweenSlides: 30
+                    spaceBetweenSlides: 30 ,
+                    direction:'vertical' ,
+                    autoHeight :true
                 }
 
             }
