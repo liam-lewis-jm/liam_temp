@@ -159,9 +159,9 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
             echo $args['before_title'] . $title . $args['after_title'];
 
         // This is where you run the code and display the output
-        $data = json_decode(file_get_contents($ibiza_api::api_location . '/ProductCatalog.api/api/legacy/todaysproducts')); ?>
+        
 
-        <div  class="tv-products">
+        <div class="tv-products">
             <!-- built using Javascript --> 
         </div>
 

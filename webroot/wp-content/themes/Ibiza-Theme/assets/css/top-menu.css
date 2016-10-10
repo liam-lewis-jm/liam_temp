@@ -171,47 +171,46 @@ input.search-submit {
   height: auto;
   margin: 0 10px 10px 0;
   padding-left: 7px;
-  font-weight: bold;
 }
 
-/* line 208, ../scss/top-menu.scss */
+/* line 207, ../scss/top-menu.scss */
 .ibiza-menu > ul > li > ul > li.menu-item .menu-item a {
   border-left: none;
   font-weight: normal;
 }
 
-/* line 216, ../scss/top-menu.scss */
+/* line 215, ../scss/top-menu.scss */
 .header .menu a {
   height: auto;
 }
 
-/* line 220, ../scss/top-menu.scss */
+/* line 219, ../scss/top-menu.scss */
 .header .menu a:hover {
   color: #e56f63;
 }
 
-/* line 224, ../scss/top-menu.scss */
+/* line 223, ../scss/top-menu.scss */
 #top-bar-menu {
   margin-top: 23px;
 }
 
-/* line 228, ../scss/top-menu.scss */
+/* line 227, ../scss/top-menu.scss */
 .ibiza-menu {
   padding: 20px;
   background: #fff;
 }
 
-/* line 233, ../scss/top-menu.scss */
+/* line 232, ../scss/top-menu.scss */
 .menu-item-has-children {
   margin-bottom: 10px;
 }
 
-/* line 237, ../scss/top-menu.scss */
+/* line 236, ../scss/top-menu.scss */
 #top-bar-menu li:hover > a {
   color: #e56f63;
 }
 
-/* line 242, ../scss/top-menu.scss */
+/* line 241, ../scss/top-menu.scss */
 #top-bar-menu li:hover > a div {
   z-index: 1 !important;
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-
+<?php $is_home  = is_front_page(); ?>
 <html class="no-js"  <?php language_attributes(); ?>>
 
     <head>
@@ -54,7 +54,7 @@
                     <div class="fullwidth site-top-bar">
                         <div class="row">
 
-                            <div class="large-4 columns small-12 text-center medium-text-left">
+                            <div class="large-4  medium-6 columns small-12 text-center medium-text-left">
                                 <p class="font-small rating-text">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />
                                     <span class="show-for-medium">Rated excellent by our customers</span>
@@ -63,33 +63,33 @@
                             </div>
 
 
-                            <div class="large-4 columns text-center show-for-large">
+                            <div class="large-4 columns text-center show-for-large ">
                                 <img class="slogan" src="<?php echo get_template_directory_uri(); ?>/assets/images/slogan.png" title="" alt="" />
                             </div>                            
 
 
-                            <div class="large-4 columns panel show-for-large clearfix">
+                            <div class="large-4 columns panel  clearfix medium-6">
 
                                 <ul class="menu right ">
 
                                     <?php if (_LOGGED_IN): ?>
 
-                                        <li><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
-                                        <li class="separator">|</li>
-                                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+                                    <li class="show-for-large"><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+                                        <li class="separator show-for-large">|</li>
+                                        <li  class="show-for-large"><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
 
                                     <?php else: ?>
 
-                                        <li>
+                                        <li  class="show-for-large">
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-icon.png" title="" alt="" />
                                             <a class="font-small"   style="display: inline-block" href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Login / Register </a>
                                         </li>
 
                                     <?php endif; ?>
 
-                                    <li class="separator">|</li>
+                                    <li class="separator show-for-large">|</li>
 
-                                    <li>
+                                    <li class="show-for-medium">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tel-icon.png" title="" alt="" />
                                         <a class="font-small" style="display: inline-block" href="tel:0800 6444 655">0800 6444 655</a>
                                     </li>
@@ -127,6 +127,8 @@
                         <?php endif; ?>
                         </div>                    
                     </div>
+                    
+                    <?php if( $is_home ): ?>
                     <div class="clear">&nbsp;</div>
                     
                     <div class="row" id="channels" style="large-12-xtra">
@@ -206,3 +208,4 @@
                         </div>
 
                     </div>
+                    <?php endif; ?>
