@@ -1,3 +1,5 @@
 puphpet/config-custom.yaml
 /webroot/nbproject/private/
 /.vagrant
+/nbproject/private/
+puphpet
