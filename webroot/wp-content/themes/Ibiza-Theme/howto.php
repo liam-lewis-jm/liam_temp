@@ -7,9 +7,6 @@
 
 global $ibiza_api;
 $product_type           = sanitize( $_GET['type'] );
-
-
-
 $response               = $ibiza_api->get_howto(get_query_var('the_id'));
 $core['name']           = 1;
 $core['category']       = 1;
@@ -26,27 +23,29 @@ if( isset( $_GET['json'] ) ){
     die;
 }
 
+
+
 ?>
 
 <?php get_header(); ?>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
- 
-<div class="row columns">
-    <nav aria-label="You are here:" role="navigation">
-        
-        <ul class="breadcrumbs">
-            
-            <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response->data->category[0]  ) ) ; ?>
+<div>
+    <div class="row columns">
+        <nav aria-label="You are here:" role="navigation">
 
-            <li>
-                <span class="show-for-sr">Current: </span> <?php echo $response->data->name; ?>
-            </li>
-            
-        </ul>
-    </nav>
+            <ul class="breadcrumbs">
+
+                <?php echo  implode( '' , breacdcrumbs( 'cat-' . (int)$response->data->category[0]  ) ) ; ?>
+
+                <li>
+                    <span class="show-for-sr">Current: </span> <?php echo $response->data->name; ?>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
 </div>
-
 <div id="result">
     <div class="row" id="prodcut_main">
 
@@ -136,8 +135,8 @@ if( isset( $_GET['json'] ) ){
         </div>
 
         <div class="medium-6 columns">
-
-            <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image; ?>" /></a>
+            <?php ///print_r( $response->data->image ); ?>
+            <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image[0]->url; ?>" /></a>
             <div class="clear">&nbsp;</div>
             <div class="row">
                 <!-- Slider main container -->

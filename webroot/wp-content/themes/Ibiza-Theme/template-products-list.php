@@ -68,7 +68,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
     <!-- Side Bar -->
-    <div id="inner-content" class="row" <?php echo $filter_cat_str1;?>>
+    <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
          
         
         <nav aria-label="You are here:" role="navigation"   class="column">

@@ -206,7 +206,7 @@ CSS file.
     div#tv-options img {
         display: inline;
     }    
-    
+
     .tv-product.active-product {
         height:135px;
     }    
@@ -237,20 +237,32 @@ CSS file.
 
 
 @media #{$medium-only} {
-    
-    
+
+
+    .swiper-container-products .swiper-button-prev{
+        left                : 37%;
+        top                 : 25px;    
+    }
+
+    .swiper-container-products .swiper-button-next{
+        bottom              : 0 !important;
+        left                : 37%;
+        top                 : auto;
+    }    
+
+
     #prodcut_main{
         position: relative;
         padding-top:10rem;
     }
-    
+
     #title-area {
         left: 0px; 
         position: absolute; 
         top: 0px;
     }    
-    
-    
+
+
     .medium-top-margin-push { 
         padding-top: 2%;
     }
@@ -258,22 +270,22 @@ CSS file.
 
 
 @media #{$large-up} {
-    
+
 
     div#title-area {
         position: static; 
         float:none;
     }
-    
-#sticky-posts-10{
-    overflow: hidden;
-}    
-        
-    
+
+    #sticky-posts-10{
+        overflow: hidden;
+    }    
+
+
     div#tv-options{
         float:none;
     }
-    
+
     #triangle-outter{
         width: 0;
         height: 0;
@@ -308,16 +320,16 @@ CSS file.
 
 @media #{$medium-up} {
 
-    
-    
-    
 
-    
-    
+
+
+
+
+
     .small-top-margin-push{
         padding-top:2%;
     }
-    
+
     .block{
         text-align: center; margin-top: 40%;
     }
@@ -325,11 +337,11 @@ CSS file.
     #tv-options{
         float:left;
     }
-    
+
     .widget_wpb_tv_product_widget{
         float:right;
     }
-    
+
 
     #tv-options img {
         display: block;
@@ -409,23 +421,25 @@ CSS file.
 
 @media #{$small-only} {
 
-    
+
+       
+
     #prodcut_main{
         position: relative;
         padding-top:10rem;
     }
-    
+
     #title-area {
         left: 0px; 
         position: absolute; 
         top: 0px;
     }    
-    
+
     .zoomContainer{
         display:none;
-    
+
     }
-    
+
     #tv-options .small-6
     {
         background          : rgb(255, 255, 255) none repeat scroll 0% 0%; 
@@ -437,30 +451,30 @@ CSS file.
         padding-bottom      : 47%;
         width               : 47%;        
     }    
-    
+
     #tv-options .small-6 a
     {
-        
+
         color: #e57063;
         display: block;
         margin: 0 auto;
         width: 160px;
-        
+
     }    
-    
+
     #tv-options .small-6 img
     {
         padding : 20% 0 0;
         display : block;
         margin  : 0 auto;
-        
+
     }
-    
-    
+
+
     .small-top-margin-push { 
         padding-top: rem-calc(20);
     }
-    
+
     .box1--videos{
         clear:both;
     }
@@ -470,11 +484,11 @@ CSS file.
         display: block !important
 
     }   
-    
+
     .tv-product.active-product {
-        
+
         height:auto;
-    
+
     }    
 
     .widget_wpb_tv_product_widget ,#main{
@@ -1181,13 +1195,10 @@ footer .menu-item a{
 }
 
 
- #result , .full{
+#result , .full{
     background:$white;
 }
-
-.zoomContainer{
-    border:1px solid #ccc;
-}
+ 
 .breadcrumbs{
     margin:10px 0;
 }
@@ -1220,9 +1231,9 @@ div.product-meta1 div.columns{
 }
 
 .tabs{
-    
+
     margin: 0 0 10px 0;
-    
+
 }
 
 li.tabs-title a{
@@ -1243,16 +1254,16 @@ li.tabs-title a{
     margin      : 0 10px 0 0;
     padding     : 0 10px 0 0;
 }
-    
+
 .tabs, .tabs-content{
-     border: 0 none !important;
+    border: 0 none !important;
 }
 .is-active span{
     font-weight:bold;
 }
 
-.swiper-container-products{
- height:100%;   
+.swiper-container-products .swiper-slide{
+    height:auto!important;   
 }
 
 
@@ -1261,6 +1272,7 @@ li.tabs-title a{
     width               : 28px;
     height              : 28px;
     background-size     : cover;
+
 }
 
 .swiper-container-products .swiper-button-next{
@@ -1268,4 +1280,12 @@ li.tabs-title a{
     width               : 28px;
     height              : 28px;    
     background-size     : cover;
+    bottom              : 0 !important;
+
+}
+
+
+#inner-content-product-list {
+    @extend #inner-content;
+    background:$white;
 }
