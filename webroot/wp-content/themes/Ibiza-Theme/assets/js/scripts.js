@@ -158,7 +158,8 @@ function buildAuction(data) {
 
 function buildRecentAuctions(data) {
     var html = "";
-    for (var i = 0; i < 3; i++) {
+    var numberOfProducts = (document.querySelectorAll(".part-sell")[0] ? 2 : 3);
+    for (var i = 0; i < numberOfProducts; i++) {
         html += "<div class=\"tv-product\">";
         html += "<div class=\"row\">";
         html += "<div class=\"column large-3 small-3\">";
