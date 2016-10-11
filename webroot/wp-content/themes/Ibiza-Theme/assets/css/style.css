@@ -9170,3 +9170,8 @@ li.tabs-title a {
 #inner-content-product-list {
   background: #fefefe;
 }
+
+/* line 1294, ../scss/style.scss */
+.menu .active > a {
+  background: transparent;
+}

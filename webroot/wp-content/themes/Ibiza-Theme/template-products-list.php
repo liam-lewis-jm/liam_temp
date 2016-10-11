@@ -100,7 +100,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
                 </ul>
-                <p>Reset All</p>
+                <p><a href="#" id="reset">Reset All</a></p>
             </div>
             
             
@@ -680,6 +680,13 @@ jQuery( document ).ready(function() {
         jQuery('#s-box').val(  jQuery.url().param('q') );
     }        
         
+        
+    jQuery('#reset').click( function(){
+        
+        
+        
+    });
+    
         
     jQuery('.top-bar-left a').click( function(){
         

@@ -1289,3 +1289,8 @@ li.tabs-title a{
     @extend #inner-content;
     background:$white;
 }
+
+
+.menu .active > a{
+    background:transparent;
+}
