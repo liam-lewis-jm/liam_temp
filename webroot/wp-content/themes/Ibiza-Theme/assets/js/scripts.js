@@ -6,7 +6,6 @@ jQuery(document).foundation();
 
 var ibizaHubProxy = (function() {
     getCurrentAuction();
-    getRecentAuctions();
     return {
         ibizaHubProxy: jQuery.connection.ibizaHubProxy,
 
@@ -22,21 +21,16 @@ var ibizaHubProxy = (function() {
             var self = this;
 
             this.ibizaHubProxy.client.auctionUpdate = function (data) {
-                console.log('auctionUpdate');
                 getCurrentAuction();
             };
                         
             this.ibizaHubProxy.client.todaysProductsRefresh = function () {
-                // used when a new product becomes the current auction
-                console.log('productsRefresh');
                 getCurrentAuction();
-                getRecentAuctions();
             };
             
             this.ibizaHubProxy.client.auctionRefresh = function () {
-                console.log('auctionRefresh');
                 getCurrentAuction();
-                getRecentAuctions();
+                
             };
         },
 
@@ -63,12 +57,23 @@ function getCurrentAuction() {
                 data[i]["data"]["price"] = data[i]["data"]["price"].toFixed(2);
             }
         }
-        
-        if (window.location.href.indexOf("todays-products") > 1) {
-          buildTodaysProductsAuction(data);
-        } else {
-            buildAuction(data);
+        if (data[0]) {
+            document.getElementById("triangle").classList.add("active-product");
+            document.getElementById("triangle-outter").classList.add("active-product");
+            document.getElementById("product_0").classList.add("active-product");
+            document.getElementById("productImg_0").src = data[0]["data"]["images"][0]["url"];
+            document.getElementById("productName_0").innerHTML = "<a href=\"/p/" + data[0]["data"]["productcode"] + "\">" + data[0]["data"]["name"].trim() + "</a>";
+            document.getElementById("productPrice_0").innerHTML = "<strong>&pound;" + numberWithCommas(data[0]["data"]["price"]) + "</strong>";
         }
+        if (data[1]) {
+            document.getElementById("product_1").classList.add("part-sell");
+            document.getElementById("productImg_1").src = data[1]["data"]["images"][1]["url"];
+            document.getElementById("productName_1").innerHTML = "<a href=\"/p/" + data[1]["data"]["productcode"] + "\">" + data[1]["data"]["name"].trim() + "</a>";
+            document.getElementById("productPrice_1").innerHTML = "<strong>&pound;" + numberWithCommas(data[1]["data"]["price"]) + "</strong>";
+        } else {
+            document.getElementById("product_1").classList.remove("part-sell");
+        }
+        getRecentAuctions();
     });
 };
 
@@ -88,11 +93,16 @@ function getRecentAuctions() {
                 data[i]["data"]["price"] = data[i]["data"]["price"].toFixed(2);
             }
         }
-        
-        if (window.location.href.indexOf("todays-products") > 1) {
-            buildTodaysProducts(data);
-        } else {
-            buildRecentAuctions(data);
+        var i, j
+        for (i = 1, j = 0; i < 5; i++, j++) {
+            if (document.getElementById("product_" + [i]).classList.contains("part-sell") === true) {
+                j--;
+                continue;
+            } else {
+                document.getElementById("productImg_" + [i]).src = (data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]);
+                document.getElementById("productName_" + [i]).innerHTML = "<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>";
+                document.getElementById("productPrice_" + [i]).innerHTML = "<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>";
+            }
         }
     });
 };
@@ -128,55 +138,6 @@ function buildTodaysProducts(data) {
     document.getElementById("dvDayShowProducts").innerHTML = html;
 }
 
-function buildAuction(data) {
-    var html = "";
-    for (var i = 0; i < data.length; i++) {
-        console.log();
-        if (data[i]["auction"]["partsell"] === true) {
-            var activeProduct = "part-sell";
-        } else {
-            var activeProduct = "active-product";
-        }
-        html += "<div id=\"triangle\" class=\"" + activeProduct + "\"></div>";
-        html += "<div id=\"triangle-outter\" class=\"" + activeProduct + "\"></div>";
-        html += "<div class=\"tv-product " + activeProduct + "\">";
-        html += "<div class=\"row\">";
-        html += "<div class=\"column large-3 small-3\">";
-        html += "<img src=\"" + data[i]["data"]["images"][0]["url"] + "\"/>";
-        html += "</div>";
-        html += "<div  class=\"column large-9 small-9\">";
-        html += "<p><a href=\"/p/" + data[i]["data"]["productcode"] + "\">" + data[i]["data"]["name"].trim() + "</a></p>";
-        html += "<p id=\"auctionPrice\"><strong>&pound;" + numberWithCommas(data[i]["data"]["price"]) + "</strong></p>";
-        html += "<button style=\"background: #00B109\" data-toggle=\"example-dropdown2\" type=\"button\" class=\"button\" class=\"add-basket\" aria-controls=\"example-dropdown2\" data-is-focus=\"false\" data-yeti-box=\"example-dropdown2\" aria-haspopup=\"true\" aria-expanded=\"false\">Add to basket</button>";
-        html += "</div>";
-        html += "</div>";
-        html += "</div>";
-    }
-    var currentHTML = document.querySelectorAll(".tv-products")[0].innerHTML;
-    document.querySelectorAll(".tv-products")[0].innerHTML = html + currentHTML;
-};
-
-function buildRecentAuctions(data) {
-    var html = "";
-    var numberOfProducts = (document.querySelectorAll(".part-sell")[0] ? 2 : 3);
-    for (var i = 0; i < numberOfProducts; i++) {
-        html += "<div class=\"tv-product\">";
-        html += "<div class=\"row\">";
-        html += "<div class=\"column large-3 small-3\">";
-        html += "<img src=\"" + (data[i]["data"]["images"][0]["url"] ? data[i]["data"]["images"][0]["url"] : data[i]["data"]["imageUrl"]) + "\"/>";
-        html += "</div>";
-        html += "<div  class=\"column large-9 small-9\">";
-        html += "<p><a href=\"/p/" + data[i]["data"]["productcode"] + "\">" + data[i]["data"]["name"].trim() + "</a></p>";
-        html += "<p id=\"auctionPrice\"><strong>&pound;" + numberWithCommas(data[i]["data"]["price"]) + "</strong></p>";
-        html += "<button style=\"background: #00B109\" data-toggle=\"example-dropdown2\" type=\"button\" class=\"button\" class=\"add-basket\" aria-controls=\"example-dropdown2\" data-is-focus=\"false\" data-yeti-box=\"example-dropdown2\" aria-haspopup=\"true\" aria-expanded=\"false\">Add to basket</button>";
-        html += "</div>";
-        html += "</div>";
-        html += "</div>";
-    }
-    var currentHTML = document.querySelectorAll(".tv-products")[0].innerHTML;
-    document.querySelectorAll(".tv-products")[0].innerHTML = currentHTML + html;
-};
-        
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
