@@ -1297,6 +1297,12 @@ li.tabs-title a{
     background:$white;
 }
 
+
+.menu .active > a{
+    background:transparent;
+}
+}
+
 #sort_order {
     border: 1px solid #01BCB3;
 }
