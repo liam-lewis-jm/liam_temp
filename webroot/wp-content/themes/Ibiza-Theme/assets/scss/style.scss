@@ -1038,7 +1038,7 @@ p.ng-binding {
 }
 
 #second-band .more-link{
-    color: #e56f63;
+    color: $brand-color;
     display: block;
     font-size: 14px;
     margin: 10px 0 0;
@@ -1055,11 +1055,11 @@ p.ng-binding {
     padding: 44.2% 0; 
     text-align: center; 
     background: rgba(255, 255, 255, 0.75) none no-repeat scroll 0px 0px; 
-    color: #e56f63;
+    color: $brand-color;
 }
 
 .featured_categories .entry-title a{
-    border-bottom: 3px solid #e56f63;
+    border-bottom: 3px solid $brand-color;
     text-transform: uppercase;
     font-size: 19px;
 }
@@ -1094,7 +1094,7 @@ footer .menu-item a{
 
 
 .how-to-holder a{
-    color:#e56f63;
+    color:$brand-color;
     text-transform: uppercase;
 }
 
@@ -1121,7 +1121,7 @@ footer .menu-item a{
 }
 
 .footer button{
-    background: #e56f63;
+    background: $brand-color;
     height: 37px;   
     text-transform: uppercase;
 }
@@ -1186,7 +1186,7 @@ footer .menu-item a{
 
 .upw-after .layout-button{
 
-    background: #ec695d;
+    background: $brand-color;
     color:#fff;
     clear: both;
     display: inline-block;
@@ -1216,7 +1216,7 @@ div.product-meta1 div.columns{
 }
 
 #quantity{
-    border:1px solid #e56f63;
+    border:1px solid $brand-color;
     width:38px;
     height:25px;
     margin: 0;
@@ -1226,7 +1226,7 @@ div.product-meta1 div.columns{
 }
 
 .increment{
-    background:#e56f63;
+    background:$brand-color;
     text-align: center;
     padding:0;
 }
@@ -1300,7 +1300,6 @@ li.tabs-title a{
 
 .menu .active > a{
     background:transparent;
-}
 }
 
 #sort_order {
