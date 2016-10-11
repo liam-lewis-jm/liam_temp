@@ -13,28 +13,20 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-/* line 16, ../scss/top-menu.scss */
 .menus.row {
   padding: 30px 30px 0 0;
-  border-top: 2px solid #e56f63;
-  min-height: 650px;
-}
+  border-top: 2px solid #00bcb4;
+  min-height: 650px; }
 
-/* line 21, ../scss/top-menu.scss */
 .top-bar {
-  padding: 0 !important;
-}
+  padding: 0 !important; }
 
-/* line 35, ../scss/top-menu.scss */
 .top-bar .menu:first-child a:hover + .ibiza-menu {
   display: block;
-  z-index: 4101;
-}
-/* line 41, ../scss/top-menu.scss */
+  z-index: 4101; }
 .top-bar .menu:first-child a:hover {
   position: relative;
-  z-index: 9999999;
-}
+  z-index: 9999999; }
 
 /*
 .top-bar ul.menu li:hover > a {
@@ -44,51 +36,36 @@ http://codex.wordpress.org/Creating_Admin_Themes
     color:#000!important;
 }
 */
-/* line 63, ../scss/top-menu.scss */
 .top-bar, .top-bar ul {
-  background-color: #fff !important;
-}
+  background-color: #fff !important; }
 
-/* line 68, ../scss/top-menu.scss */
 #menu-main-1 > .menu-item > a:first-child {
-  height: 56px;
-}
+  height: 56px; }
 
-/* line 72, ../scss/top-menu.scss */
 #menu-main-1 > .menu-item > a:first-child:hover {
-  color: #e56f63;
-}
+  color: #00bcb4; }
 
-/* line 76, ../scss/top-menu.scss */
 .ibiza-menu > .menus > .menu-item-has-children > a:first-child {
   font-weight: bold;
   color: #fff !important;
   display: inline-block !important;
   margin-bottom: 20px;
-  background: #ec695d;
-  padding: 10px;
-}
+  background: #00bcb4;
+  padding: 10px; }
 
-/* line 86, ../scss/top-menu.scss */
 .ibiza-menu ul {
   list-style: none;
-  margin-left: 0;
-}
-/* line 92, ../scss/top-menu.scss */
-.ibiza-menu ul ul a {
-  font-weight: normal;
-  background: #fff;
-  font-size: 14px;
-}
-/* line 105, ../scss/top-menu.scss */
-.ibiza-menu ul .menu-item-has-children a:hover {
-  text-decoration: underline;
-}
+  margin-left: 0; }
+  .ibiza-menu ul ul a {
+    font-weight: normal;
+    background: #fff;
+    font-size: 14px; }
+  .ibiza-menu ul .menu-item-has-children a:hover {
+    text-decoration: underline; }
 
-/* line 122, ../scss/top-menu.scss */
 .ibiza-menu {
   background: transparent none repeat scroll 0 0;
-  border-top: 2px solid #e56f63;
+  border-top: 2px solid #00bcb4;
   display: none;
   left: 0;
   right: 0;
@@ -99,30 +76,20 @@ http://codex.wordpress.org/Creating_Admin_Themes
   position: absolute;
   top: 111px;
   width: 1334px;
-  z-index: 999999;
-}
-/* line 140, ../scss/top-menu.scss */
-.ibiza-menu li.large-3, .ibiza-menu li.medium-3 {
-  width: 15%;
-}
+  z-index: 999999; }
+  .ibiza-menu li.large-3, .ibiza-menu li.medium-3 {
+    width: 15%; }
 
-/* line 146, ../scss/top-menu.scss */
 .ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child) {
-  float: left;
-}
+  float: left; }
 
-/* line 152, ../scss/top-menu.scss */
 .ibiza-menu:hover {
-  display: block;
-}
+  display: block; }
 
-/* line 156, ../scss/top-menu.scss */
 .top-bar .ibiza-menu .row {
   margin: 0 auto !important;
-  max-width: 84rem;
-}
+  max-width: 84rem; }
 
-/* line 161, ../scss/top-menu.scss */
 .main-nav__backdrop {
   background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
   display: block;
@@ -132,85 +99,58 @@ http://codex.wordpress.org/Creating_Admin_Themes
   top: 145px;
   visibility: hidden;
   width: 100%;
-  z-index: 3999;
-}
+  z-index: 3999; }
 
-/* line 174, ../scss/top-menu.scss */
 #content {
-  /*    box-shadow: 0 7px 7px -7px #313131 inset;*/
-}
+  /*    box-shadow: 0 7px 7px -7px #313131 inset;*/ }
 
-/* line 178, ../scss/top-menu.scss */
 .swiper-container-products {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  z-index: 1;
-}
+  z-index: 1; }
 
-/* line 185, ../scss/top-menu.scss */
 .large-4.small-6.columns.ng-scope {
-  height: 485px;
-}
+  height: 485px; }
 
-/* line 190, ../scss/top-menu.scss */
 input.search-submit {
-  display: none;
-}
+  display: none; }
 
-/* line 194, ../scss/top-menu.scss */
 .swiper-slide div {
   font-weight: bold;
   text-indent: 10px;
-  color: #333;
-}
+  color: #333; }
 
-/* line 200, ../scss/top-menu.scss */
 .ibiza-menu > ul > li > ul > li.menu-item a {
   border-left: 5px solid #000;
   height: auto;
   margin: 0 10px 10px 0;
-  padding-left: 7px;
-}
+  padding-left: 7px; }
 
-/* line 207, ../scss/top-menu.scss */
 .ibiza-menu > ul > li > ul > li.menu-item .menu-item a {
   border-left: none;
-  font-weight: normal;
-}
+  font-weight: normal; }
 
-/* line 215, ../scss/top-menu.scss */
 .header .menu a {
-  height: auto;
-}
+  height: auto; }
 
-/* line 219, ../scss/top-menu.scss */
 .header .menu a:hover {
-  color: #e56f63;
-}
+  color: #00bcb4; }
 
-/* line 223, ../scss/top-menu.scss */
 #top-bar-menu {
-  margin-top: 23px;
-}
+  margin-top: 23px; }
 
-/* line 227, ../scss/top-menu.scss */
 .ibiza-menu {
   padding: 20px;
-  background: #fff;
-}
+  background: #fff; }
 
-/* line 232, ../scss/top-menu.scss */
 .menu-item-has-children {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
-/* line 236, ../scss/top-menu.scss */
 #top-bar-menu li:hover > a {
-  color: #e56f63;
-}
+  color: #00bcb4; }
 
-/* line 241, ../scss/top-menu.scss */
 #top-bar-menu li:hover > a div {
-  z-index: 1 !important;
-}
+  z-index: 1 !important; }
+
+/*# sourceMappingURL=top-menu.css.map */

@@ -197,7 +197,7 @@ jQuery(document).ready(function () {
         
         
         jQuery(".ibiza-menu").mouseleave(function () {
-            //jQuery('#tri').remove();
+            jQuery('#tri').remove();
             jQuery('.main-nav__backdrop').css({ 'visibility' : 'hidden' , 'opacity' : 0  } );
         });
         
