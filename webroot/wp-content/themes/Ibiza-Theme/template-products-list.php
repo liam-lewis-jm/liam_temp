@@ -71,11 +71,30 @@ if( $segments[0] == 'how-to-guides'  ){
     <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
          
         
-        <nav aria-label="You are here:" role="navigation"   class="column">
+        <div class="columns cat-desc" >
+            
+            <nav aria-label="You are here:" role="navigation"   class="column">
             <ul class="breadcrumbs">
                 <?php echo implode('', $breadcrumbs); ?>
             </ul>
         </nav>
+                    
+                    <?php if($ibiza_api->cat_data->bannerimage):?>
+                    <div style="height:200px;overflow: hidden">
+                        <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
+                    </div>
+                    <?php endif; ?>
+                    
+                    <h3><?php echo ucwords($cat_title); ?></h3>
+                    
+                    <?php if($ibiza_api->cat_data->description): ?>
+                    <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
+                    <?php else:?>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <?php endif; ?>
+                </div>
+        
+        
         <div class="sidebar large-3 columns show-for-large " role="complementary">
             
             <?php if($index=='howto'): ?>
@@ -93,14 +112,15 @@ if( $segments[0] == 'how-to-guides'  ){
           
             
             
-            <div>
+            
+            
+            
+            
+            
+            <div class="applied-filters">
                 <p>Applied Filters</p>
-                <ul class="add_facets">
-
-
-
-                </ul>
-                <p><a href="#" id="reset">Reset All</a></p>
+                <ul class="add_facets"></ul>
+                <p>Reset All</p>
             </div>
             
             
@@ -146,6 +166,15 @@ if( $segments[0] == 'how-to-guides'  ){
 
             </div>
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <?php else: ?>
             
             <ul>
@@ -169,26 +198,11 @@ if( $segments[0] == 'how-to-guides'  ){
         
         <!-- Thumbnails -->
         <main id="main" class="large-9 medium-12 small-12 columns" role="main" >
-
             <div class="row">
 
-                <div class="columns" >
-                    
-                    <?php if($ibiza_api->cat_data->bannerimage):?>
-                    <div style="height:200px;overflow: hidden">
-                        <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
-                    </div>
-                    <?php endif; ?>
-                    
-                    <h3><?php echo ucwords( $cat_title );    ?></h3>
-                    
-                    <?php if($ibiza_api->cat_data->description): ?>
-                    <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
-                    <?php else:?>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <?php endif; ?>
-                    
-                    <hr />
+                
+                
+                <div class="columns">
                     <?php if($top_level == false): ?>
                     
                     <div class="top-bar-left float-left show-for-small-only">
@@ -242,12 +256,13 @@ if( $segments[0] == 'how-to-guides'  ){
                 </div>
                 
                 
-                
-                
-                
                 <?php if($top_level == false): ?>
                 
                 <div></div>
+                
+                
+                
+                
                 <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  ng-class="!$last ? '' : 'end'">
 
                     
@@ -680,13 +695,6 @@ jQuery( document ).ready(function() {
         jQuery('#s-box').val(  jQuery.url().param('q') );
     }        
         
-        
-    jQuery('#reset').click( function(){
-        
-        
-        
-    });
-    
         
     jQuery('.top-bar-left a').click( function(){
         

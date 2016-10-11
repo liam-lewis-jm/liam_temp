@@ -139,7 +139,7 @@ CSS file.
         border-width: 0 14px 11px 14px;
         border-color: transparent transparent #fff transparent;
         line-height: 0px;
-        _border-color: #000000 #000000 #e57063 #000000;
+        _border-color: #000000 #000000 #00bcb4 #000000;
         _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');        
         right           : 50%;
         top             : -11px;
@@ -155,9 +155,9 @@ CSS file.
         height: 0;
         border-style: solid;
         border-width: 0 14px 11px 14px;
-        border-color: transparent transparent #e57063 transparent;
+        border-color: transparent transparent #00bcb4 transparent;
         line-height: 0px;
-        _border-color: #000000 #000000 #e57063 #000000;
+        _border-color: #000000 #000000 #00bcb4 #000000;
         _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');      
         right: 50%;
         top: -9px;
@@ -224,10 +224,12 @@ CSS file.
 
 }
 
-
+.tv-product.part-sell {
+    background-color: rgba(253, 243, 212, 1);
+}
 
 .tv-product.active-product {
-    background:#e57063;
+    background:#00bcb4;
 }
 
 .tv-product{
@@ -302,7 +304,7 @@ CSS file.
     }
 
     #triangle{
-        border-color    : transparent #e57063 transparent transparent;
+        border-color    : transparent #00bcb4 transparent transparent;
         border-style    : solid;
         border-width    : 66.5px 58px 66.5px 0;
         height          : 0;
@@ -374,7 +376,7 @@ CSS file.
     }
 
     .tv-product.active-product {
-        background:#e57063;
+        background:#00bcb4;
         border-top:1px solid #fff;
         border-bottom:1px solid #fff;
         border-right:1px solid #fff;
@@ -977,7 +979,7 @@ p.ng-binding {
 
 #tri{
 
-    border-color: transparent transparent #e57063;
+    border-color: transparent transparent #00bcb4;
     border-style: solid;
     border-width: 0 25px 25px;
     height: 0;    
@@ -1004,7 +1006,7 @@ p.ng-binding {
 
 #tv-options .large-6 a{
     line-height: 64px;
-    color:#E57063;
+    color:#00bcb4;
 }
 
 .blue-arrow{

@@ -10,7 +10,7 @@
     
     <div id="operationLogInfo"></div>
     
-    <div id="inner-content" class="row">
+    <div id="inner-content-product-list" class="row">
 
         <?php if (is_front_page()): ?>
 
@@ -39,7 +39,7 @@
                 <!-- Temp style -->
                 <div id="dvVideoHolderHome" style="background-color: #000">
                     <img style="width:100%" src="//cdn.jewellerymaker.com/global/img/tv-preview.jpg" />
-                </div>       
+                </div>
 
                 <!-- temp inline as design not final -->
                 <div class="text-center show-for-large" id="tv-options">
@@ -47,7 +47,7 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
                     </div>
                     <div class="large-6 columns" style="padding-left: 0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="" class="upper">View all products from Today</a>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="/todays-products/" class="upper">View all products from Today</a>
                     </div>
                 </div>
                 
