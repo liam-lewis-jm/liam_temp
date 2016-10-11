@@ -57,21 +57,25 @@ function getCurrentAuction() {
                 data[i]["data"]["price"] = data[i]["data"]["price"].toFixed(2);
             }
         }
-        if (data[0]) {
-            document.getElementById("triangle").classList.add("active-product");
-            document.getElementById("triangle-outter").classList.add("active-product");
-            document.getElementById("product_0").classList.add("active-product");
-            document.getElementById("productImg_0").src = data[0]["data"]["images"][0]["url"];
-            document.getElementById("productName_0").innerHTML = "<a href=\"/p/" + data[0]["data"]["productcode"] + "\">" + data[0]["data"]["name"].trim() + "</a>";
-            document.getElementById("productPrice_0").innerHTML = "<strong>&pound;" + numberWithCommas(data[0]["data"]["price"]) + "</strong>";
-        }
-        if (data[1]) {
-            document.getElementById("product_1").classList.add("part-sell");
-            document.getElementById("productImg_1").src = data[1]["data"]["images"][1]["url"];
-            document.getElementById("productName_1").innerHTML = "<a href=\"/p/" + data[1]["data"]["productcode"] + "\">" + data[1]["data"]["name"].trim() + "</a>";
-            document.getElementById("productPrice_1").innerHTML = "<strong>&pound;" + numberWithCommas(data[1]["data"]["price"]) + "</strong>";
+        if (window.location.href.indexOf("todays-products") > 1) {
+          buildTodaysProductsAuction(data);
         } else {
-            document.getElementById("product_1").classList.remove("part-sell");
+            if (data[0]) {
+                document.getElementById("triangle").classList.add("active-product");
+                document.getElementById("triangle-outter").classList.add("active-product");
+                document.getElementById("product_0").classList.add("active-product");
+                document.getElementById("productImg_0").src = data[0]["data"]["images"][0]["url"];
+                document.getElementById("productName_0").innerHTML = "<a href=\"/p/" + data[0]["data"]["productcode"] + "\">" + data[0]["data"]["name"].trim() + "</a>";
+                document.getElementById("productPrice_0").innerHTML = "<strong>&pound;" + numberWithCommas(data[0]["data"]["price"]) + "</strong>";
+            }
+            if (data[1]) {
+                document.getElementById("product_1").classList.add("part-sell");
+                document.getElementById("productImg_1").src = data[1]["data"]["images"][1]["url"];
+                document.getElementById("productName_1").innerHTML = "<a href=\"/p/" + data[1]["data"]["productcode"] + "\">" + data[1]["data"]["name"].trim() + "</a>";
+                document.getElementById("productPrice_1").innerHTML = "<strong>&pound;" + numberWithCommas(data[1]["data"]["price"]) + "</strong>";
+            } else {
+                document.getElementById("product_1").classList.remove("part-sell");
+            }
         }
         getRecentAuctions();
     });
@@ -93,15 +97,19 @@ function getRecentAuctions() {
                 data[i]["data"]["price"] = data[i]["data"]["price"].toFixed(2);
             }
         }
-        var i, j
-        for (i = 1, j = 0; i < 5; i++, j++) {
-            if (document.getElementById("product_" + [i]).classList.contains("part-sell") === true) {
-                j--;
-                continue;
-            } else {
-                document.getElementById("productImg_" + [i]).src = (data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]);
-                document.getElementById("productName_" + [i]).innerHTML = "<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>";
-                document.getElementById("productPrice_" + [i]).innerHTML = "<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>";
+        if (window.location.href.indexOf("todays-products") > 1) {
+            buildTodaysProducts(data);
+        } else {
+            var i, j
+            for (i = 1, j = 0; i < 5; i++, j++) {
+                if (document.getElementById("product_" + [i]).classList.contains("part-sell") === true) {
+                    j--;
+                    continue;
+                } else {
+                    document.getElementById("productImg_" + [i]).src = (data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]);
+                    document.getElementById("productName_" + [i]).innerHTML = "<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>";
+                    document.getElementById("productPrice_" + [i]).innerHTML = "<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>";
+                }
             }
         }
     });
