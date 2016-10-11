@@ -119,7 +119,7 @@ if( $segments[0] == 'how-to-guides'  ){
             <div class="applied-filters">
                 <p>Applied Filters</p>
                 <ul class="add_facets"></ul>
-                <p>Reset All</p>
+                <p><a href="" id="reset-filter">Reset All</a></p>
             </div>
             
             
@@ -516,7 +516,7 @@ function addSelectedFilter( changedEl , selectedFacet )
 
     jQuery( document ).on( "click", 'li[data-idx="'+ jQuery( changedEl ).attr('data-id') +'"]', function() {
 
-        jQuery('#inner-content input[data-id="'+ jQuery( changedEl ).attr('data-id') +'"]').click();
+        jQuery('#inner-content-product-list input[data-id="'+ jQuery( changedEl ).attr('data-id') +'"]').click();
 
     });    
     
@@ -680,7 +680,7 @@ function addMobileMenu()
 
     jQuery('#off-canvas-left input').click( function(){
 
-       jQuery('#inner-content input[data-id="'+ jQuery( this ).attr('data-id') +'"]').click();
+       jQuery('#inner-content-product-list input[data-id="'+ jQuery( this ).attr('data-id') +'"]').click();
 
     });       
 }
@@ -689,10 +689,24 @@ jQuery( document ).ready(function() {
         
     var qIn = jQuery.url().param('q');         
     
+    
+    jQuery('#reset-filter').click( function(){
+
+       jQuery('#inner-content-product-list input:checked').click();
+
+    });     
+    
     if(typeof  qIn != 'undefined' )
     {
         jQuery('#s-box').val(  jQuery.url().param('q') );
     }        
+        
+        
+    jQuery('.top-bar-left a').click( function(){
+       
+       
+       
+    });
         
         
     jQuery('.top-bar-left a').click( function(){
@@ -841,7 +855,7 @@ jQuery( document ).ready(function() {
         
     });
     
-    jQuery('#inner-content').on('change', '.ng-scope input[type="checkbox"]', function(e) {
+    jQuery('#inner-content-product-list').on('change', '.ng-scope input[type="checkbox"]', function(e) {
         
         console.log( e );
         //fadeContainerIn();

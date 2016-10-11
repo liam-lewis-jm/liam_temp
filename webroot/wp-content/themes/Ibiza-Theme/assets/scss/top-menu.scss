@@ -13,6 +13,9 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
+
+@import "settings";
+
 .menus.row {
     padding:30px 30px 0 0;
     border-top: 2px solid $brand-color;
