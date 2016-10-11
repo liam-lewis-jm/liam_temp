@@ -10,7 +10,7 @@
     
     <div id="operationLogInfo"></div>
     
-    <div id="inner-content" class="row">
+    <div id="inner-content-product-list" class="row">
 
         <?php if (is_front_page()): ?>
 

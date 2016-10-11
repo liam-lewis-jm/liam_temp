@@ -159,7 +159,7 @@ class IbizaTvProductsPlugin_Widget extends WP_Widget {
             echo $args['before_title'] . $title . $args['after_title'];
 
         // This is where you run the code and display the output
-        
+        ?>
 
         <div class="tv-products">
             <!-- built using Javascript --> 
