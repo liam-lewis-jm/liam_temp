@@ -308,7 +308,7 @@ function sanitize($string, $force_lowercase = true, $anal = false) {
 
 function get_product_by_mongo_product_code($product_code) {
     global $ibiza_api;
-    return reset(json_decode(file_get_contents($ibizia_api::api_location . '/ProductCatalog.Api/api/document/data.productcode/' . $product_code)));
+    return reset(json_decode(file_get_contents($ibiza_api::api_location . '/ProductCatalog.Api/api/document/data.productcode/' . $product_code)));
 }
 
 function get_product_by_mongo_id($mongo_id) {
