@@ -786,6 +786,7 @@ p.ng-binding {
 
 .add_facets li{
     cursor: pointer;
+    list-style: none;
 }
 
 #inner-content{
@@ -1290,17 +1291,40 @@ li.tabs-title a{
 
 }
 
-
-#inner-content-product-list {
-    @extend #inner-content;
-    background:$white;
-}
-
-
 .menu .active > a{
     background:transparent;
 }
 
 #sort_order {
     border: 1px solid #01BCB3;
+}
+
+.applied-filters {
+    border: 1px solid #e3e3e3;
+    padding: 15px;
+}
+.applied-filters p {
+    font-weight: bold;
+}
+#reset-filter {
+    background: #00bcb4 none repeat scroll 0 0;
+    height: 37px;
+}
+
+#side-facets ul {
+    list-style: none;
+}
+#side-facets ul li label {
+    cursor: pointer;
+}
+
+.cat-desc {
+    background-color: #fff;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+}
+.product-list-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
 }

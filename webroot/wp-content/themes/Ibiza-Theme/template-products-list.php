@@ -68,287 +68,268 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
     <!-- Side Bar -->
-    <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
-         
-        
-        <div class="columns cat-desc" >
-            <nav aria-label="You are here:" role="navigation">
+    <div class="columns cat-desc row">
+        <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
                 <?php echo implode('', $breadcrumbs); ?>
             </ul>
         </nav>
-                    
-                    <?php if($ibiza_api->cat_data->bannerimage):?>
-                    <div style="height:200px;overflow: hidden">
-                        <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
-                    </div>
-                    <?php endif; ?>
-                    
-                    <h3><?php echo ucwords($cat_title); ?></h3>
-                    
-                    <?php if($ibiza_api->cat_data->description): ?>
-                    <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
-                    <?php else:?>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <?php endif; ?>
+        <?php if($ibiza_api->cat_data->bannerimage):?>
+            <div style="height:200px;overflow: hidden">
+                <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
+            </div>
+        <?php endif; ?>
+
+        <h3><?php echo ucwords($cat_title); ?></h3>
+
+        <?php if($ibiza_api->cat_data->description): ?>
+            <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
+        <?php else:?>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <?php endif; ?>
+    </div>
+    <div class="product-list-container">
+        <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
+            <div class="sidebar large-2 columns show-for-large " role="complementary">
+
+                <?php if($index=='howto'): ?>
+                <div id="side-facets">
+
+                      <h3>Search</h3>
+
+                      <eui-searchboxx>
+                          <p onclick="toggleFacets(jQuery(this).parent());">></p>
+                      </eui-searchboxx> 
                 </div>
-        
-        
-        <div class="sidebar large-3 columns show-for-large " role="complementary">
-            
-            <?php if($index=='howto'): ?>
-            <div id="side-facets">
+                <?php endif; ?>
 
-                  <h3>Search</h3>
+                <?php if($top_level == false && $index=='product'): ?>
 
-                  <eui-searchboxx></eui-searchboxx> 
-            </div>
-            <?php endif; ?>
-            
-            <?php if($top_level == false && $index=='product'): ?>
-            
-            
-          
-            
-            
-            
-            
-            
-            
-            
-            <div class="applied-filters">
-                <p>Applied Filters</p>
-                <ul class="add_facets"></ul>
-                <p><a href="" id="reset-filter">Reset All</a></p>
-            </div>
-            
-            
-            <div id="side-facets">
 
-                <h3>Search</h3>
-                
-                <eui-searchboxx></eui-searchboxx> 
 
-                <?php
-                if(count($facets))
-                foreach( $facets as $facet ): 
-                    
-                ?>
- 
 
-                <?php 
-                    
-                    switch ( $facet->name ):
-                        case 'price':
-                            
-                ?>
-                <h3><?php echo ucwords( $facet->displayname ); ?></h3>
 
-                <?php foreach($range->ranges as $the_the_range):  ?>
-                
-                <eui-range display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'"  min="'<?php echo $the_the_range->start ?>'"  max="'<?php echo $the_the_range->end ?>'"   size="10"></eui-range>
 
-                <?php endforeach;?>
-                <?php 
-                
-                    break;
-                    default: 
-                ?>
-                <eui-checklist  display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'" size="10"></eui-checklist> <!-- ACTION: change to field to use as facet -->
 
-                
-                <?php 
-                    endswitch; 
-                ?>
+
+
+
+                <div class="applied-filters">
+                    <p>Applied Filters</p>
+                    <ul class="add_facets"></ul>
+                    <button id="reset-filter" aria-expanded="false" aria-haspopup="true" data-yeti-box="example-dropdown2" data-is-focus="false" aria-controls="example-dropdown2" class="button" style="vertical-align: top">RESET ALL</button>
+                </div>
+
+
+
+
+                <div id="side-facets">
+                    <?php
+                    if(count($facets))
+                    foreach( $facets as $facet ): 
+
+                    ?>
+
+
+                    <?php 
+
+                        switch ( $facet->name ):
+                            case 'price':
+                    ?>
+                    <h3><?php echo ucwords( $facet->displayname ); ?></h3>
+
+                    <?php foreach($range->ranges as $the_the_range):  ?>
+                    <eui-range display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'"  min="'<?php echo $the_the_range->start ?>'"  max="'<?php echo $the_the_range->end ?>'"   size="10"></eui-range>
+
+                    <?php endforeach;?>
+                    <?php
+
+                        break;
+                        default:
+                    ?>
+                    <hr>
+                    <eui-checklist  display="'<?php echo ucwords( $facet->displayname ); ?>'" field="'<?php echo $facet->name; ?>.raw'" size="10"><p onclick="toggleFacets(jQuery(this).parent());">toggle</p></eui-checklist> <!-- ACTION: change to field to use as facet -->
+                    <?php 
+                        endswitch; 
+                    ?>
+
+                    <?php endforeach; ?>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <?php else: ?>
+
+                <ul>
+
+                <?php foreach($catss as $cat): ?>
+
+                    <li><a href="<?php echo $cat->url; ?>"><?php echo $cat->post_title; ?></a></li>
 
                 <?php endforeach; ?>
 
+
+                </ul>
+
+                <?php endif; ?>
             </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <?php else: ?>
-            
-            <ul>
-            
-            <?php foreach($catss as $cat): ?>
-            
-                <li><a href="<?php echo $cat->url; ?>"><?php echo $cat->post_title; ?></a></li>
-            
-            <?php endforeach; ?>
-            
-                
-            </ul>
-                
-            <?php endif; ?>
-        </div>
 
 
 
-        <!-- End Side Bar -->
-
-        
-        <!-- Thumbnails -->
-        <main id="main" class="large-9 medium-12 small-12 columns" role="main" >
-            <div class="row">
-
-                
-                
-                <div class="columns">
-                    <?php if($top_level == false): ?>
-                    
-                    <div class="top-bar-left float-left show-for-small-only">
-                        <ul class="menu">
-                            <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-                            <li><a data-toggle="off-canvas-left" aria-expanded="false" aria-controls="off-canvas">Filter</a></li>
-                        </ul>
-                    </div>                      
-                    
-                    <div class="large-4 columns">
-                        
-                        
-                        <?php if( count( $sort ) ): ?>
-                        <select id="sort_order" data-id="sort">
+            <!-- End Side Bar -->
 
 
-                            <?php foreach( $sort as $key => $sort_opt ): ?>
+            <!-- Thumbnails -->
+            <main id="main" class="large-10 medium-12 small-12 columns" role="main" >
+                <div class="row">
+                    <div class="columns">
+                        <?php if($top_level == false): ?>
 
-                            <option value="<?php echo $key; ?>" ><?php echo $sort_opt; ?></option>
+                        <div class="top-bar-left float-left show-for-small-only">
+                            <ul class="menu">
+                                <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
+                                <li><a data-toggle="off-canvas-left" aria-expanded="false" aria-controls="off-canvas">Filter</a></li>
+                            </ul>
+                        </div>                      
 
-                            <?php endforeach; ?>
+                        <div class="large-4 columns">
 
-                        </select>                        
-                        <?php endif; ?>
-                    </div>
-                    
-                    
-                    <div class="large-4 columns">
-                        
-                        <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
-                            <?php foreach( $page_sizes as $key => $page_size ): 
 
-                            $selected == 'selected="selected"';
+                            <?php if( count( $sort ) ): ?>
+                            <select id="sort_order" data-id="sort">
 
-                            if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
+
+                                <?php foreach( $sort as $key => $sort_opt ): ?>
+
+                                <option value="<?php echo $key; ?>" ><?php echo $sort_opt; ?></option>
+
+                                <?php endforeach; ?>
+
+                            </select>                        
+                            <?php endif; ?>
+                        </div>
+
+
+                        <div class="large-4 columns">
+
+                            <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
+                                <?php foreach( $page_sizes as $key => $page_size ): 
 
                                 $selected == 'selected="selected"';
 
-                            }
-                            ?>
-                            <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
-                            <?php endforeach; ?>                    
-                        </select>                        
-                        
+                                if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
+
+                                    $selected == 'selected="selected"';
+
+                                }
+                                ?>
+                                <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
+                                <?php endforeach; ?>                    
+                            </select>                        
+
+                        </div>
+
+                        <div class="large-4 columns">
+                            <eui-simple-paging></eui-simple-paging>
+                        </div>
+                        <?php endif; ?>
                     </div>
-                    
-                    <div class="large-4 columns">
-                        <eui-simple-paging></eui-simple-paging>
-                    </div>
-                    <?php endif; ?>
-                </div>
-                
-                
-                <?php if($top_level == false): ?>
-                
-                <div></div>
-                
-                
-                
-                
-                <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  ng-class="!$last ? '' : 'end'">
+                    <hr>
 
-                    
+                    <?php if($top_level == false): ?>
 
-                    <div class="panel"  ng-if="doc._index=='product'" >
-                        <img src="{{doc._source.images[0].url}}" />
-                        <h5><a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
+                    <div></div>
 
-                        <p style="font-size:12px;">{{doc._source.description}}</p>
 
-                        <h6 class="subheader">&pound;{{ doc._source.price | number : 2}}</h6>
-                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                    </div>
 
-                    <div class="panel"  ng-if="doc._index=='howto'" >
-                        <img src="{{doc._source.image}}" />
-                        <h5><a href="/h/{{doc._id}}/{{doc._source.name}}">{{doc._source.name}}</a></h5>
 
-                        <p style="font-size:12px;">{{doc._source.introduction}}</p>
+                    <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  ng-class="!$last ? '' : 'end'">
+
+
+
+                        <div class="panel"  ng-if="doc._index=='product'" >
+                            <img src="{{doc._source.images[0].url}}" />
+                            <h5><a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
+
+                            <!--<p style="font-size:12px;">{{doc._source.description}}</p>-->
+
+                            <h6><strong>&pound;{{ doc._source.price | number : 2}}</strong></h6>
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+
+                        <div class="panel"  ng-if="doc._index=='howto'" >
+                            <img src="{{doc._source.image}}" />
+                            <h5><a href="/h/{{doc._id}}/{{doc._source.name}}">{{doc._source.name}}</a></h5>
+
+                            <p style="font-size:12px;">{{doc._source.introduction}}</p>
+
+                        </div>
 
                     </div>
 
-                </div>
- 
-                
-            <?php else: ?>    
-                
-                <?php 
-                
-                $i      = 0;
-                $total  = 0;
-                
-                foreach($catss as $cat){
-                    if( $cat->post_content==1 ){
-                        $total++;
+
+                <?php else: ?>    
+
+                    <?php 
+
+                    $i      = 0;
+                    $total  = 0;
+
+                    foreach($catss as $cat){
+                        if( $cat->post_content==1 ){
+                            $total++;
+                        }
                     }
-                }
-                    
-                ?>                
-                
-                <?php $i = 0;?>
-                
-                
-                
-                
-                <?php foreach($catss as $cat):  ?>
-                
-                  
-                    <?php if( $cat->post_content==1 ):?>
-                    
-                    <?php $q_s= parse_url($cat->url); $out; ?>
-                
-                    <?php parse_str( $q_s['query'] ,$out ) ;  ?>
-                    <?php $cat_data     =  get_post_meta( $cat->ID ) ; 
-                          $cat_data_ob  =  json_decode( $cat_data['cat-' . $out['cat']][0] );
-                    
-                    ?>
-                
-                <div class="large-3 medium-3 columns padded-column box <?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
-                    <img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" />
-                    <a href="<?php print $cat->url; ?>">
-                    <span class="caption fade-caption">
-			<h3><?php echo $cat->post_title;?></h3>
-			<p><?php echo $cat_data_ob->intro ? $cat_data_ob->intro :'nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'; ?></p>
-                    </span>                    
-                    </a>
+
+                    ?>                
+
+                    <?php $i = 0;?>
+
+
+
+
+                    <?php foreach($catss as $cat):  ?>
+
+
+                        <?php if( $cat->post_content==1 ):?>
+
+                        <?php $q_s= parse_url($cat->url); $out; ?>
+
+                        <?php parse_str( $q_s['query'] ,$out ) ;  ?>
+                        <?php $cat_data     =  get_post_meta( $cat->ID ) ; 
+                              $cat_data_ob  =  json_decode( $cat_data['cat-' . $out['cat']][0] );
+
+                        ?>
+
+                    <div class="large-3 medium-3 columns padded-column box <?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
+                        <img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" />
+                        <a href="<?php print $cat->url; ?>">
+                        <span class="caption fade-caption">
+                            <h3><?php echo $cat->post_title;?></h3>
+                            <p><?php echo $cat_data_ob->intro ? $cat_data_ob->intro :'nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'; ?></p>
+                        </span>                    
+                        </a>
+                    </div>
+
+
+                    <?php $i++;?>   
+                        <?php endif; ?>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
                 </div>
-                
-                
-                <?php $i++;?>   
-                    <?php endif; ?>
-                
-                <?php endforeach; ?>
-                
-            <?php endif; ?>     
-                
-            
-            
-                
-            </div>
-
-        
-            
-            <!-- End Thumbnails -->
-
-        </main>
-        
+                <!-- End Thumbnails -->
+            </main>
+        </div>
     </div>
 </div>
 
