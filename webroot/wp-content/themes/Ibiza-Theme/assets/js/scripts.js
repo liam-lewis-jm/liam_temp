@@ -12,7 +12,7 @@ var ibizaHubProxy = (function() {
         // Starts connection with Hub and call Hub functions.
         startServer: function() {
             var self = this;
-            self.ibizaHubProxy.connection.url = "http://ibizaschemas.product/ProductCatalog.Api/signalr";
+            self.ibizaHubProxy.connection.url =  api_location + "/ProductCatalog.Api/signalr";
             self.ibizaHubProxy.connection.start();
         },
 
@@ -21,15 +21,15 @@ var ibizaHubProxy = (function() {
             var self = this;
 
             this.ibizaHubProxy.client.auctionUpdate = function (data) {
-                getCurrentAuction();
+                getCurrentAuction(1);
             };
                         
             this.ibizaHubProxy.client.todaysProductsRefresh = function () {
-                getCurrentAuction();
+                getCurrentAuction(1);
             };
             
             this.ibizaHubProxy.client.auctionRefresh = function () {
-                getCurrentAuction();
+                getCurrentAuction(1);
                 
             };
         },
@@ -41,10 +41,10 @@ var ibizaHubProxy = (function() {
     };
 })();
 
-function getCurrentAuction() {
+function getCurrentAuction(update) {
     jQuery.ajax({
         dataType: "json",
-        url: "http://ibizaschemas.product/ProductCatalog.api/api/legacy/auction"
+        url:  api_location + "/ProductCatalog.api/api/legacy/auction"
     }).done(function(data) {
         if (!data) {
             return;
@@ -57,6 +57,24 @@ function getCurrentAuction() {
                 data[i]["data"]["price"] = data[i]["data"]["price"].toFixed(2);
             }
         }
+        
+        if( update ==1 ){
+
+            Push.create("Price Update", {
+                body: "The price for " + data[0]["data"]["name"].trim() + " is now £" +  data[0]["data"]["price"],
+                icon: data[0]["data"]["images"][0]["url"],
+                timeout: 14000,
+                onClick: function () {
+                    
+                    if (window.location.href.indexOf("todays-products") == -1 ) {
+                        window.location.href = '/todays-products';
+                    }                    
+                    this.close();
+                }
+            });
+            
+        }
+        
         if (window.location.href.indexOf("todays-products") > 1) {
           buildTodaysProductsAuction(data);
         } else {
@@ -84,7 +102,7 @@ function getCurrentAuction() {
 function getRecentAuctions() {
     jQuery.ajax({
         dataType: "json",
-        url: "http://ibizaschemas.product/ProductCatalog.api/api/legacy/todaysproducts"
+        url:api_location + "/ProductCatalog.api/api/legacy/todaysproducts"
     }).done(function(data) {
         if (!data) {
             return;

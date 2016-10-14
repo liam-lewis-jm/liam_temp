@@ -12,6 +12,7 @@ function site_scripts() {
     
     // Adding swiper scripts file in the footer
     wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/vendor/Swiper/dist/js/swiper.jquery.min.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'push-js', get_template_directory_uri() . '/vendor/push.js/push.js', array( ), '', true );
     
     
     
@@ -34,6 +35,9 @@ function site_scripts() {
    
     // Register main swiper stylesheet
     wp_enqueue_style( 'fancy-css', get_template_directory_uri() . '/vendor/fancybox/source/jquery.fancybox.css', array(), '', 'all' );
+   
+    
+    
 
     
     // Comment reply script for threaded comments
