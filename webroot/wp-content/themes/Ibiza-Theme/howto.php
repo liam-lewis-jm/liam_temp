@@ -46,95 +46,115 @@ if( isset( $_GET['json'] ) ){
         </nav>
     </div>
 </div>
+
 <div id="result">
     <div class="row" id="prodcut_main">
 
-        <div class="medium-6 large-6 columns">
-            <h3 id="product_name"><?php echo $response->data->name; ?></h3>
+        <div class="medium-6 large-6 columns right">
+            <h3 id="product_name">Project: <?php echo $response->data->name; ?></h3>
 
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pound-icon.png" /> &pound;75.00
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/level-icon.png" /><?php echo( $response->data->level[0] ); ?>
+            
+            <p  id="product_description"><?php echo $response->data->introduction; ?></p>
 
-            <fieldset>
-                <p>Click on the links below to shop for products you will need:</p>
-                <ul>
-                <?php foreach($response->data->products as $key => $product): ?>
-
-                    <li><a rel="groups" href="/p/<?php echo $product->product ?>/?bundle=2" class="howto_products" ><?php echo $product->title; ?></a></li>
-
-                <?php endforeach; ?>
-                </ul>
-            </fieldset>
-
-
-
-            <p  id="product_description"><?php echo $response->data->description; ?></p>
-
-            <?php if(0)foreach($schema->properties as $key => $property): ?>
-            <?php   if( !isset( $core[$key] ) && isset($response['_source'][$key]) ): ?>
-
-            <div class="medium-6 large-6 columns">
-                <p><?php echo $property->title; ?></p>
-            </div>
-
-
-            <div class="medium-6 large-6 columns">
-                <p><?php echo  $property->prepend .  $response['_source'][$key] . $property->append; ?></p>
-            </div>         
-
-
-
-            <?php endif; ?>   
-
-
-            <?php endforeach; ?>
-
-
-    <!--        <ul class="inline-list row">
-
-
-                <?php   if(0 && $variantProducts): ?>
-
-                <?php       foreach($variantProducts->variants as $product):?>
-
-                <li style="    display: block;
-                                float: left;
-                                list-style: outside none none;
-                                margin-left: 1.22222rem;"><a class="product_refresh" data-name="<?php echo $product->name ?>" data-id="<?php echo $product->id ?>" title="<?php echo $product->name ?>" href="/products-list/<?php echo $product->id ?>/<?php echo $product->name ?>"><img src="<?php echo $product->image ?>" /></a></li>
-
-                <?php       endforeach; ?>
-
-
-                <?php endif ?>
-
-            </ul>        -->
+            
+            <div style="clear:both;margin:10px 0">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/facebook-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/twitter-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/pin-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/google-icon.png">
+                <img src="/wp-content/themes/Ibiza-Theme/assets/images/print-icon.png">
+            </div>            
 
 
             <div class="row">
 
-                <div class="columns">
+                <div class="medium-6 large-6 columns">
 
                     <h5><?php echo  $response->data->subtitle ?></h5>
                     <p><?php echo  $response->data->introduction ?></p>
                 </div>
+                
+                
+                <div class="medium-6 large-6  columns">
+                    <?php ///print_r( $response->data->image ); ?>
+                    <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image[0]->url; ?>" /></a>
+                </div>                 
+                
+                
             </div>
 
-            <div class="row">
-                <div class="large-12 columns">
-                    <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
-                    <?php foreach( $response->data->steps  as $step ): ?>
-
-                        <li>
-                            <h5><?php echo $step->title ?></h5>
-                            <p style="font-size:12px;"><?php echo $step->description; ?></p>
-                        </li>
-                        <?php $i++ ?>
-
-                    <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
+            
+      
+    
+    
         </div>
 
-        <div class="medium-6 columns">
+        
+     
+        
+        <div class="row">
+        
+        <div class="medium-4 large-4 columns">                    
+            
+            <ul class="tabs" data-tabs id="example-tabs">
+                <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><span>What you will need</span></a></li>
+                <li class="tabs-title"><a href="#panel2"><span>Notes</span></a></li>
+            </ul>
+
+            <div class="tabs-content" data-tabs-content="example-tabs">
+                <div class="tabs-panel is-active" id="panel1">
+                    
+                        <p>Click on the links below to shop for products you will need:</p>
+                        <?php 
+                            foreach($response->data->products as $key => $product):  
+                        ?>
+                            <div class="required-products row" id="product-<?php echo $product->product;?>">
+                                
+                                <div class="product-meta">
+                                    <div class="product-image large-3 columns"><img src=""/></div>
+                                    <div class="product-info large-9  columns hidden">
+                                        <p class="product-title"><a rel="groups" href="/p/<?php echo $product->product ?>/?bundle=2" class="howto_products" ><?php echo $product->title; ?></a></p>
+                                        <p class="product-price"></p>
+                                        <input type="submit" value="Add to Basket" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
+                    
+                    
+                </div>
+                <div class="tabs-panel" id="panel2">
+                    <div class="row medium-up-12 large-up-12">
+                        <div class="column">
+
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            
+            
+            <form>
+            <fieldset>
+                <legend><img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail-icon.png" />Email Newsletter Sign Up</legend>
+                    
+                <input class="large-6 column" name="first_name" placeholder="First name" />
+
+
+                <input class="large-6 column" name="last_name" placeholder="Last name" />
+
+                <input class="large-12 column" name="email" placeholder="Email Address" />
+                    
+                
+                <input type="submit" value="Submit" />
+                
+            </fieldset>
+            </form>
+        </div>
+        
+        <div class="medium-8 large-8 columns">
             <?php ///print_r( $response->data->image ); ?>
             <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image[0]->url; ?>" /></a>
             <div class="clear">&nbsp;</div>
@@ -142,16 +162,19 @@ if( isset( $_GET['json'] ) ){
                 <!-- Slider main container -->
                     <!-- Additional required wrapper -->
 
-                    <?php foreach( $response->data->steps  as $key=> $step_image ): ?>
+                    <?php foreach( $response->data->steps  as $key=> $step ): ?>
 
                     <div class="large-6 columns">
 
                         <span style="display: inline-block; background: red none repeat scroll 0% 0%; height: 25px; width: 25px; border-radius: 15px; text-align: center; line-height: 25px; color: rgb(255, 255, 255);"><?php echo $key+1; ?></span>
 
-                        <a rel="groups" class="th various" href="<?php echo $step_image->image; ?>"
-                           data-zoom-image="<?php echo $step_image->image; ?>"  
-                           data-image="<?php echo $step_image->image; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step_image->description; ?>">                        
-                        <img  src="<?php echo $step_image->image; ?>">
+                        <h5><?php echo $step->title ?></h5>
+                        <p style="font-size:12px;"><?php echo $step->description; ?></p>                        
+                        
+                        <a rel="groups" class="th various" href="<?php echo $step->image; ?>"
+                           data-zoom-image="<?php echo $step->image; ?>"  
+                           data-image="<?php echo $step->image; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step_image->description; ?>">                        
+                        <img  src="<?php echo $step->image; ?>">
                         </a>
 
                     </div>
@@ -159,6 +182,7 @@ if( isset( $_GET['json'] ) ){
                     <?php endforeach; ?>
             </div>
         </div>    
+        </div>
     </div>
 </div>
 <!-- Footer -->
@@ -173,7 +197,25 @@ if( isset( $_GET['json'] ) ){
     
     jQuery( document ).ready(function() {
 
+                
+        jQuery( ".required-products a" ).each(function( index ) {
 
+            var url = jQuery(this).attr( 'href' ).replace('bundle' , 'json' );
+            
+            jQuery.getJSON( url , function( data ) {
+
+               console.log(data.images[0].url);
+                
+                jQuery( '.product-image img' ,  '#product-' + data.productcode ).attr( 'src' , data.images[0].url );
+                jQuery( '.product-price' ,  '#product-' + data.productcode ).text( '£' + data.price.toFixed(2) );
+                
+                
+            });
+
+
+        });
+        
+        
 	jQuery(".various").fancybox({
 		maxWidth	: 800   ,
 		maxHeight	: 600   ,

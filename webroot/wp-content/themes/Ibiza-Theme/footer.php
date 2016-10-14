@@ -19,6 +19,16 @@
                                                             
                                                             <p>Sign up to hear about our latest news and special offers</p>
                                                             <input type="" style="height: 37px" placeholder="yourname@emailaddress.co.uk" /><button aria-expanded="false" aria-haspopup="true" data-yeti-box="example-dropdown2" data-is-focus="false" aria-controls="example-dropdown2" class="button" type="submit" style="vertical-align: top">Submit</button>
+                                                            
+                                                            <div style="clear:both;margin:10px 0">
+                                                                <img src="/wp-content/themes/Ibiza-Theme/assets/images/facebook-icon.png">
+                                                                <img src="/wp-content/themes/Ibiza-Theme/assets/images/twitter-icon.png">
+                                                                <img src="/wp-content/themes/Ibiza-Theme/assets/images/pin-icon.png">
+                                                                <img src="/wp-content/themes/Ibiza-Theme/assets/images/google-icon.png">
+                                                                <img src="/wp-content/themes/Ibiza-Theme/assets/images/print-icon.png">
+
+                                                            </div>                                                            
+                                                            
                                                         </div>
 							<div class="large-1 medium-1 columns small-3">
                                                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/immediate-logo.png" />
