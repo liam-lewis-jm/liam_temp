@@ -3,3 +3,4 @@ puphpet/config-custom.yaml
 /.vagrant
 /nbproject/private/
 puphpet
+.sass-cache
