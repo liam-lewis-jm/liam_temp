@@ -119,14 +119,14 @@ function getRecentAuctions() {
             buildTodaysProducts(data);
         } else {
             var i, j
-            for (i = 1, j = 0; i < 5; i++, j++) {
-                if (document.getElementById("product_" + [i]).classList.contains("part-sell") === true) {
+            for (i = 1, j = 0; i < 4; i++, j++) {
+                if (jQuery("#product_" + i).hasClass("part-sell") === true) {
                     j--;
                     continue;
                 } else {
-                    document.getElementById("productImg_" + [i]).src = (data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]);
-                    document.getElementById("productName_" + [i]).innerHTML = "<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>";
-                    document.getElementById("productPrice_" + [i]).innerHTML = "<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>";
+                    document.getElementById("productImg_" + i).src = (data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]);
+                    document.getElementById("productName_" + i).innerHTML = "<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>";
+                    document.getElementById("productPrice_" + i).innerHTML = "<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>";
                 }
             }
         }
@@ -166,6 +166,10 @@ function buildTodaysProducts(data) {
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+function toggleFacets(e) {
+    console.log(e);
 };
 
 jQuery(document).ready(function () {
@@ -248,3 +252,4 @@ jQuery(document).ready(function () {
      
     ibizaHubProxy.init();
 });
+

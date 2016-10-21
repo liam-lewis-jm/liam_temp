@@ -211,6 +211,13 @@ CSS file.
         height:135px;
     }    
 
+    .swiper-container-howto-main{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;        
+    }
+    
     div.swiper-container-banner{
         margin: 0 auto;
         overflow: hidden;
@@ -786,6 +793,7 @@ p.ng-binding {
 
 .add_facets li{
     cursor: pointer;
+    list-style: none;
 }
 
 #inner-content{
@@ -1273,7 +1281,7 @@ li.tabs-title a{
 }
 
 
-.swiper-container-products .swiper-button-prev{
+.swiper-container-products .swiper-button-prev , .swiper-container-howto-main .swiper-button-prev{
     background-image    : url(../images/left-arrow.png);
     width               : 28px;
     height              : 28px;
@@ -1281,7 +1289,7 @@ li.tabs-title a{
 
 }
 
-.swiper-container-products .swiper-button-next{
+.swiper-container-products .swiper-button-next ,  .swiper-container-howto-main  .swiper-button-next{
     background-image    : url(../images/right-arrow.png);
     width               : 28px;
     height              : 28px;    
@@ -1289,13 +1297,6 @@ li.tabs-title a{
     bottom              : 0 !important;
 
 }
-
-
-#inner-content-product-list {
-    @extend #inner-content;
-    background:$white;
-}
-
 
 .menu .active > a{
     background:transparent;
@@ -1305,8 +1306,127 @@ li.tabs-title a{
     border: 1px solid #01BCB3;
 }
 
+ 
 fieldset {
-    border: 1px solid #000;;
+    border: 1px solid $brand-color;
     margin: initial;
-    padding: 0 0 0 15px;
+    padding: 0 0 10px 15px;
 }
+.applied-filters {
+    border: 1px solid #e3e3e3;
+    padding: 15px;
+}
+.applied-filters p {
+    font-weight: bold;
+}
+#reset-filter {
+    background: #00bcb4 none repeat scroll 0 0;
+    height: 37px;
+}
+
+#side-facets ul {
+    list-style: none;
+}
+#side-facets ul li label {
+    cursor: pointer;
+}
+
+.cat-desc {
+    background-color: #fff;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+}
+.product-list-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+}
+
+.arrow{
+    background: rgba(0, 0, 0, 0) url("../images/arrow.png") no-repeat scroll 0 center;
+    text-indent: 19px;
+}
+.sq-border{
+    background: transparent url("../images/border.gif") repeat-x scroll 0 bottom;
+    padding: 25px 0 10px;
+}
+
+#product_name span{
+    
+    color:#ababab;
+    
+}
+
+.icon_text{
+    margin:0 50px 0 10px;
+}
+
+
+#howto-tabs .tabs-title{
+    
+    width:50%;
+    text-align: center;
+    border-right:1px solid #e1e1e1;
+    border-top:1px solid #e1e1e1;
+    height:50px;
+    
+    
+}
+#howto-tabs span{
+    border:0;
+    line-height: 50px;
+    text-transform: uppercase;
+    margin: 0;
+    padding:0;
+}
+
+#howto-tabs  .tri{
+    
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 6px 0 6px;
+    border-color: #000000 transparent transparent transparent;
+    margin: -15px auto;
+    
+}
+
+.sq-border .product-title , .sq-border  .product-price{
+    font-size:12px;
+    margin:0;
+}
+.sq-border .arrow{
+    font-size:12px;
+}
+
+fieldset legend  span{
+    background: rgba(0, 0, 0, 0) url("http://ibiza.dev/wp-content/themes/Ibiza-Theme/assets/images/mail-icon.png") no-repeat scroll 0 0;
+    display: inline-block;
+    margin: 0 7px;
+    text-indent: 33px;
+    vertical-align: -moz-middle-with-baseline;
+    font-size:12px;
+}
+
+fieldset input{
+    border:0;
+    border-bottom:1px solid $black;
+    width:95%;
+    margin: 0 0 15px 0;
+    font-size:12px;
+}
+
+fieldset p{
+    font-size:12px;
+}
+
+
+.submit{
+    background: $brand-color;
+    border:0;
+    color:$white;
+    font-size:12px;
+    padding:10px 20px;
+    margin:0;
+}
+

@@ -30,7 +30,7 @@ if( isset( $_GET['json'] ) ){
 <?php get_header(); ?>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
-<div>
+<div class="full">
     <div class="row columns">
         <nav aria-label="You are here:" role="navigation">
 
@@ -50,12 +50,12 @@ if( isset( $_GET['json'] ) ){
 <div id="result">
     <div class="row" id="prodcut_main">
 
-        <div class="medium-6 large-6 columns right">
-            <h3 id="product_name">Project: <?php echo $response->data->name; ?></h3>
+        <div class="small-12 medium-12 large-6 columns right">
+            <h3 id="product_name"><span>Project:</span> <?php echo $response->data->name; ?></h3>
 
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pound-icon.png" /> &pound;75.00
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/level-icon.png" /><?php echo( $response->data->level[0] ); ?>
-            
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pound-icon.png" /><span class="icon_text">&pound;75.00</span>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/level-icon.png" /><span class="icon_text"><?php echo( $response->data->level[0] ); ?></span>
+            <h5><?php echo  $response->data->subtitle ?></h5>
             <p  id="product_description"><?php echo $response->data->introduction; ?></p>
 
             
@@ -66,62 +66,65 @@ if( isset( $_GET['json'] ) ){
                 <img src="/wp-content/themes/Ibiza-Theme/assets/images/google-icon.png">
                 <img src="/wp-content/themes/Ibiza-Theme/assets/images/print-icon.png">
             </div>            
-
-
-            <div class="row">
-
-                <div class="medium-6 large-6 columns">
-
-                    <h5><?php echo  $response->data->subtitle ?></h5>
-                    <p><?php echo  $response->data->introduction ?></p>
-                </div>
-                
-                
-                <div class="medium-6 large-6  columns">
-                    <?php ///print_r( $response->data->image ); ?>
-                    <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image[0]->url; ?>" /></a>
-                </div>                 
-                
-                
-            </div>
-
-            
-      
-    
-    
         </div>
+                
+                
+        <div class="medium-6 large-6  columns">
+            
 
-        
+            <div class="swiper-container-howto-main">
+                
+                <div class="swiper-wrapper">
+                    <?php foreach( $response->data->image as $image ): ?>
+                    <div class="swiper-slide">
+                        <a href="<?php echo $image->url; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $image->url; ?>" /></a>
+                    </div>
+                    <?php endforeach; ?>   
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>                 
+                
+                
+    </div>
      
-        
+    <div>&nbsp;</div>  
         <div class="row">
         
         <div class="medium-4 large-4 columns">                    
             
-            <ul class="tabs" data-tabs id="example-tabs">
-                <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><span>What you will need</span></a></li>
-                <li class="tabs-title"><a href="#panel2"><span>Notes</span></a></li>
+            <ul class="tabs" data-tabs id="howto-tabs">
+                <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><span>What you will need</span></a><div class="tri"></div></li>
+                <li class="tabs-title"><a href="#panel2"><span>Notes</span></a><div class="tri"></div></li>
             </ul>
 
-            <div class="tabs-content" data-tabs-content="example-tabs">
+            <div class="tabs-content" data-tabs-content="howto-tabs">
                 <div class="tabs-panel is-active" id="panel1">
                     
-                        <p>Click on the links below to shop for products you will need:</p>
                         <?php 
-                            foreach($response->data->products as $key => $product):  
+                            foreach($response->data->products as $key => $productGroups):  
                         ?>
+                        
+                    <div class="sq-border">
+                        <p class="arrow"><?php echo $productGroups->title; ?></p>
+                        
+                        <?php foreach($productGroups->productgroup as $product):?>
+                        
                             <div class="required-products row" id="product-<?php echo $product->product;?>">
                                 
                                 <div class="product-meta">
-                                    <div class="product-image large-3 columns"><img src=""/></div>
-                                    <div class="product-info large-9  columns hidden">
+                                    <div class="product-image  small-3 medium-3 large-3 columns"><img src=""/></div>
+                                    <div class="product-info  small-9 medium-9  large-9  columns hidden">
                                         <p class="product-title"><a rel="groups" href="/p/<?php echo $product->product ?>/?bundle=2" class="howto_products" ><?php echo $product->title; ?></a></p>
                                         <p class="product-price"></p>
-                                        <input type="submit" value="Add to Basket" />
+                                        <input value="Add to Basket" style="background: rgb(229, 111, 99) none repeat scroll 0% 0%; color: rgb(255, 255, 255); border: 0px none; text-transform: uppercase; font-size: 12px; padding: 4px 16px;" type="submit">
                                     </div>
                                 </div>
                             </div>
 
+                            <?php endforeach; ?>
+                        </div>
                         <?php endforeach; ?>
                     
                     
@@ -138,51 +141,88 @@ if( isset( $_GET['json'] ) ){
             
             <form>
             <fieldset>
-                <legend><img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail-icon.png" />Email Newsletter Sign Up</legend>
+                <legend><span>Email Newsletter Sign Up</span></legend>
                     
-                <input class="large-6 column" name="first_name" placeholder="First name" />
+                <p>Aswell as hearing about all the latest news &amp; offers from The Sewing Quarter, you’ll also receive, tips, guides and projects.</p>
+                
+                <input class="large-5 column" name="first_name" placeholder="First name" />
 
 
-                <input class="large-6 column" name="last_name" placeholder="Last name" />
+                <input class="large-5 large-push-1 column" name="last_name" placeholder="Last name" />
 
-                <input class="large-12 column" name="email" placeholder="Email Address" />
+                <input class="large-11 column" name="email" placeholder="Email Address" />
                     
                 
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" class="submit" />
                 
             </fieldset>
             </form>
         </div>
         
-        <div class="medium-8 large-8 columns">
+        <div class="small-12  large-8 columns" style="">
+            <div style="background: transparent url(&quot;http://ibiza.dev/wp-content/themes/Ibiza-Theme/assets/css/../images/bg.png&quot;) repeat scroll 0% 0%; padding: 27px 40px;">
+            <div class="row" style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 19px;">
             <?php ///print_r( $response->data->image ); ?>
-            <a href="<?php echo $response->data->image; ?>" rel="groups" class="th various" title="<?php echo $response->data->name; ?>"><img src="<?php echo $response->data->image[0]->url; ?>" /></a>
-            <div class="clear">&nbsp;</div>
-            <div class="row">
                 <!-- Slider main container -->
                     <!-- Additional required wrapper -->
-
-                    <?php foreach( $response->data->steps  as $key=> $step ): ?>
-
-                    <div class="large-6 columns">
-
-                        <span style="display: inline-block; background: red none repeat scroll 0% 0%; height: 25px; width: 25px; border-radius: 15px; text-align: center; line-height: 25px; color: rgb(255, 255, 255);"><?php echo $key+1; ?></span>
-
-                        <h5><?php echo $step->title ?></h5>
-                        <p style="font-size:12px;"><?php echo $step->description; ?></p>                        
-                        
-                        <a rel="groups" class="th various" href="<?php echo $step->image; ?>"
-                           data-zoom-image="<?php echo $step->image; ?>"  
-                           data-image="<?php echo $step->image; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step_image->description; ?>">                        
-                        <img  src="<?php echo $step->image; ?>">
-                        </a>
-
-                    </div>
-
+                    
+                    <?php $i =0; ?>
+                    
+                    <?php foreach( $response->data->steps  as $key=> $steproups ): ?>
+                    <h5><?php echo $steproups->title ?></h5>
+                        <?php foreach( $steproups->stepgroup  as $key_inner=> $step ): ?>
+                    
+                    
+                        <?php $i++;  ?>
+                    
+                    <div class="large-12 columns" style="padding:0">
+                            <div class="large-1 columns" style="padding:0">
+                                <span style="display: inline-block; background: #00bcb4; height: 25px; width: 25px; border-radius: 15px; text-align: center; line-height: 25px; color: rgb(255, 255, 255);"><?php echo $i; ?></span>
+                            </div>
+                            
+                            <div class="large-11 columns" style="padding: 0px; left: -20px; position: relative;">
+                                <h5><?php echo $step->title ?></h5>
+                                <p style="font-size:12px;"><?php echo $step->description; ?></p>                        
+                            
+                            
+                            <?php 
+                            $col = 12;
+                            switch ( count($step->image) )
+                            {
+                                case 1:
+                                    $col = 12;
+                                    break;
+                                case 2:
+                                    $col = 6;
+                                    break;
+                                case 3:
+                                    $col = 4;
+                                    break;
+                                case 4:
+                                    $col = 3;
+                                    break;
+                                default:
+                                    $col = 2;
+                                    break;
+                            }
+                            ?>
+                            
+                            <?php foreach($step->image as $image):   ?>
+                                <div class="medium-<?php echo $col; ?> large-<?php echo $col; ?> columns" style="padding:0 2px 0 0">
+                                <a rel="groups" class="th various" href="<?php echo $image->url; ?>"
+                                   data-zoom-image="<?php echo $image->url; ?>"  
+                                   data-image="<?php echo $image->url; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step->description; ?>">                        
+                                <img  src="<?php echo $image->url; ?>">
+                                </a>
+                            </div>
+                            <?php endforeach; ?>
+                           </div>
+                        </div>
+                        <?php endforeach; ?>
                     <?php endforeach; ?>
             </div>
+            </div>
         </div>    
-        </div>
     </div>
 </div>
 <!-- Footer -->
@@ -257,6 +297,17 @@ if( isset( $_GET['json'] ) ){
 	});
 
 
+
+        var mySwiper = new Swiper('.swiper-container-howto-main', {
+            // Optional parameters
+            loop: true ,
+            slidesPerView: 1,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'            
+        });
+
+
+
         //initialize swiper when document ready  
         var mySwiper_products = new Swiper('.swiper-container-products', {
             // Optional parameters
@@ -271,12 +322,12 @@ if( isset( $_GET['json'] ) ){
                 },
                 // when window width is <= 480px
                 480: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetweenSlides: 20
                 },
                 // when window width is <= 640px
                 640: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetweenSlides: 30
                 }
 
