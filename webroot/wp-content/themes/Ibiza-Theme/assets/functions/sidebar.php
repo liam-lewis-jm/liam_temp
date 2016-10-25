@@ -160,6 +160,36 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+	register_sidebar(array(
+		'id' => 'pop-cat-1',
+		'name' => __('Popular categories 1', 'jointswp'),
+		'description' => __('Popular categories big image.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'pop-cat-2',
+		'name' => __('Popular categories 2', 'jointswp'),
+		'description' => __('Popular categories big image.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'pop-cat-3',
+		'name' => __('Popular categories 3', 'jointswp'),
+		'description' => __('Popular categories big image.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
         
         
         

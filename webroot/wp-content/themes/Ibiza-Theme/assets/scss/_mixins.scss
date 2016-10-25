@@ -45,6 +45,15 @@ span.amp {
   font-style: italic;
 }
 
+@mixin dotted-border-bottom($colour) {
+	font-size: inherit;
+	padding: 30px 0;
+	background-image: linear-gradient(to right, $colour 10%, rgba(255, 255, 255, 0) 0%);
+	background-position: bottom;
+	background-size: 10px 1px;
+	background-repeat: repeat-x;
+}
+
 /*********************
 CSS3 GRADIENTS.
 *********************/
