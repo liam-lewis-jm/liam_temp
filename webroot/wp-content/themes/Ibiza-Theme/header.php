@@ -74,9 +74,14 @@
 
                                     <?php if (_LOGGED_IN): ?>
                                     
-                                    <li class="show-for-large"><a class="font-small"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+                                        <li class="show-for-large">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-icon.png" title="" alt="" />
+                                            <a class="font-small"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a>
+                                        </li>
                                         <li class="separator show-for-large">|</li>
-                                        <li  class="show-for-large"><a class="font-small"  href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+                                        <li  class="show-for-large">
+                                            <a class="font-small"  href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a>
+                                        </li>
 
                                     <?php else: ?>
 
@@ -129,83 +134,25 @@
                     </div>
                     
                     <?php if( $is_home ): ?>
-                    <div class="clear">&nbsp;</div>
-                    
-                    <div class="row" id="channels" style="large-12-xtra">
-                        <div class="large-push-1-xtra">
-                        <div class="large-3 small-3 columns tv-channel-con text-center medium-text-left">
-                            <div class="row">
-                                <div class="large-2  columns small-12" style="padding: 0px;">
-                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/virgin-icon.png">
-                                </div>
+                    <div style="background:#fff;">
+                    <div class="row" id="channels" style="large-12-xtra" style="text-align: center;">
+                        
+                        <div class="small-4 columns tv-channel-con text-center medium-text-left">
 
-                                <div class="large-2  small-12 columns" style="padding:0">
-                                    <p style="font-size: 22px;margin:0; text-align: center;">80</p>
-                                </div>
-
-                                <div class="large-6  columns end  hide-for-small-only" style="padding:  7px 0 0 0;">
-                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
-                                </div>
-                            </div>
-
+                            <p>Free Beginner, intermediate &amp; Advanced Tutorials</p>
 
                         </div>
+                        <div class="small-4 columns  tv-channel-con text-center medium-text-left" style="border-left:1px solid #000;border-right:1px solid #000;">
 
-                        <div class="large-3 small-3   columns  tv-channel-con text-center medium-text-left">
-                            <div class="row">
-                                <div class="large-2  columns" style="padding: 0px;">
-                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/freesat-icon.png">
-                                </div>
-
-                                <div style="padding: 0" class="large-2  columns">
-                                    <p style="font-size: 22px;margin:0;  text-align: center;">813</p>
-                                </div>
-
-                                <div class="large-6  columns  hide-for-small-only  end " style="padding:  7px 0 0 0;">
-                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
-                                </div>
-                            </div>
-
+                            <p>Buy Online - Standard Delivery Only &pound;2.99</p>
 
                         </div>
+                        <div class="small-4 columns  tv-channel-con text-center medium-text-left">
 
-                        <div class="large-3 small-3   columns  tv-channel-con text-center medium-text-left">
-                            <div class="row">
-                                <div class="large-2  columns" style="padding: 0px;">
-                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/sky-icon.png">
-                                </div>
-
-                                <div style="padding: 0" class="large-2  columns">
-                                    <p style="font-size: 22px;margin:0;  text-align: center;">617</p>
-                                </div>
-
-                                <div class="large-6  columns end  hide-for-small-only" style="padding: 7px 0 0 0;">
-                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;">8am until midnight<br>7 days a weeks</p>
-                                </div>
-                            </div>
-
-
+                            <p>Watch Online or Available on Channel 74</p>
+                            
                         </div>
 
-                        <div class="large-3 small-3   columns   tv-channel-con text-center medium-text-left">
-                            <div class="row">
-                                <div class="large-2  columns" style="padding: 0px;">
-                                    <img src="/wp-content/themes/Ibiza-Theme/assets/images/freeview-icon.png">
-                                </div>
-
-                                <div style="padding: 0;" class="large-2  columns">
-                                    <p style="font-size: 22px;margin:0;text-align: center;">76</p>
-                                </div>
-
-                                <div class="large-6  columns end   hide-for-small-only" style="padding:  7px 0 0 0 ;">
-                                    <p style="font-weight: bold; font-size: 9px;margin:0;line-height:9px;border:0">8am until midnight<br>7 days a weeks</p>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        </div>
-
+                    </div>
                     </div>
                     <?php endif; ?>

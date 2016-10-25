@@ -99,7 +99,7 @@ CSS file.
 
 #channels{
     background: white none repeat scroll 0% 0%; 
-    padding: 20px 0px;
+    padding: 15px 0px;
     max-width: 1334px;
 }
 
@@ -128,6 +128,27 @@ CSS file.
 
 @media #{$small-up} {
 
+    
+    #howto-tabs .tabs-title {
+        border-right: 1px solid #e1e1e1;
+        border-top: 1px solid #e1e1e1;
+        height: 50px;
+        text-align: left!important;
+        width: 100%!important;
+    }    
+    
+    
+    
+    #howto-tabs .tri {
+        border-color: #000000 transparent transparent;
+        border-style: solid;
+        border-width: 8px 6px 0;
+        float: right;
+        height: 0;
+        margin: -29px 14px 0 0!important;
+        width: 0;
+    }
+    
 
     #triangle-outter{
 
@@ -305,7 +326,7 @@ CSS file.
         _border-color: #000000 #fff #000000 #000000;
         _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
         position: absolute;
-        right: 100%;
+        left            : -59px;
         display:none;
         top:auto;
     }
@@ -315,7 +336,7 @@ CSS file.
         border-style    : solid;
         border-width    : 66.5px 58px 66.5px 0;
         height          : 0;
-        right           : 99.90%;
+        left            : -57px;
         line-height     : 0;
         top             : 1px;
         width           : 0;
@@ -822,10 +843,29 @@ p.ng-binding {
     margin: 0;
 }
 
+#search-cancel{
+    cursor:pointer; 
+    float: right; 
+    position: relative; 
+    left: -28%; 
+    top: 16px; 
+    color: rgb(255, 255, 255);
+    background:url(../images/close-search.png) no-repeat;
+    text-indent: 25px;
+}
+
 .tt-menu{  
 
-    border: 1px solid #ccc;
-    background: white;
+    background: white none repeat scroll 0 0;
+    margin: 5px -25px 0;
+    position: static!important;
+    right: 0;
+    text-align: left;
+    top: 100%;
+    width: 100%;
+    z-index: 100; 
+    margin-top: 40px;
+    
 }
 .tt-menu p{  
 
@@ -870,6 +910,11 @@ p.ng-binding {
 
 
 }
+
+.tt-suggestion img{
+    display:none;
+}
+
 
 .typeahead :-ms-input-placeholder {  
     color: #000;  
@@ -1169,21 +1214,40 @@ footer .menu-item a{
     text-align: center;
     background:rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
     display:none;
+    height:60px;
+    position: relative;
 }
 
 .search-container form{
-    display: inline-block; 
-    background: rgb(255, 255, 255) none repeat scroll 0% 0%; 
-    border-radius: 34px; 
-    margin: 13px;
+    background: white none repeat scroll 0 0;
+    border-radius: 15px;
+    display: inline-block;
+    height: auto;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    z-index: 900;
 }
 .search-container  img{
-    width: 20px; 
-    vertical-align: baseline;
+    
+    height: 23px;
+    position: relative;
+    vertical-align: top;
+    z-index: 9999;    
+    margin-top: 5px;
+    
+}
+
+.search-field{
+    top:3px!important;
 }
 
 .twitter-typeahead{
-    width:66px;
+    width:90%;
 }
 
 .upw-after p{
@@ -1429,6 +1493,27 @@ fieldset p{
     padding:10px 20px;
     margin:0;
 }
+
+#channels p{
+    text-align: center;
+    margin: 0;
+    font-size:14px; 
+}
+
+.upw-after, .upw-before {
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+
+#howto_main .swiper-container-howto-main{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+}
+
 
 @font-face {
   font-family: 'fpicons';

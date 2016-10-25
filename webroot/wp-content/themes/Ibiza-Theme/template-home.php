@@ -36,10 +36,14 @@
                 
                 <?php endif; ?>
                 
-                <!-- Temp style -->
-                <div id="dvVideoHolderHome" style="background-color: #000" class="flowplayer no-brand is-error is-mouseout" data-flowplayer-instance-id="0">
-                    <div class="fp-ratio" style="padding-top: 56.25%;"></div><div class="fp-player"><img style="width: 100%" src="http://www.jewellerymaker.com/global/img/tv-preview.jpg"><div class="fp-ui" title="Hit ? for help" style="display: none;">         <div class="fp-waiting"><em></em><em></em><em></em></div>         <a class="fp-fullscreen"></a>         <a class="fp-unload"></a>         <p class="fp-speed"></p>         <div class="fp-controls">            <a class="fp-play"></a>            <div class="fp-timeline">               <div class="fp-buffer"></div>               <div class="fp-progress"></div>            </div>            <div class="fp-timeline-tooltip fp-tooltip"></div>            <div class="fp-volume">               <a class="fp-mute"></a>               <div class="fp-volumeslider">                  <div class="fp-volumelevel"></div>               </div>            </div>         </div>         <div class="fp-time">            <em class="fp-elapsed">00:00</em>            <em class="fp-remaining"></em>            <em class="fp-duration">00:00</em>         </div>         <div class="fp-message"><h2>html5: Unsupported video format. Try installing Adobe Flash.</h2><p>http://get.adobe.com/flashplayer/</p></div><a class="fp-embed" title="Copy to your site"></a><div class="fp-embed-code"><label>Paste this HTML code on your site to embed.</label><textarea></textarea></div></div><div class="fp-help">         <a class="fp-close"></a>         <div class="fp-help-section fp-help-basics">            <p><em>space</em>play / pause</p>            <p><em>q</em>unload | stop</p>            <p><em>f</em>fullscreen</p><p><em>shift</em> + <em>←</em><em>→</em>slower / faster</p>         </div>         <div class="fp-help-section">            <p><em>↑</em><em>↓</em>volume</p>            <p><em>m</em>mute</p>         </div>         <div class="fp-help-section">            <p><em>←</em><em>→</em>seek</p>            <p><em>&nbsp;. </em>seek to previous            </p><p><em>1</em><em>2</em>… <em>6</em> seek to 10%, 20% … 60% </p>         </div>   </div></div></div>
-                <!-- temp inline as design not final -->
+                        <!-- Temp style -->
+
+                <div id="dvVideoHolderHome" style="background-color: #000">
+                    <img style="width: 100%" src="/global/img/tv-preview.jpg" />
+                </div>
+                        
+                        
+                        <!-- temp inline as design not final -->
                 <div class="text-center show-for-large" id="tv-options">
                     <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
@@ -245,22 +249,25 @@
 
     </section>
 
-
-<script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/vendor/plugins/jwplayer/jwplayer.js"></script>
-    <script src="http://www.jewellerymaker.com/global/js/vendor/plugins/flowplayer/flowplayer.min.js"></script>
+<script src="http://www.jewellerymaker.com/global/js/vendor/plugins/flowplayer/flowplayer.min.js"></script>
+    <script type="text/javascript" src="http://www.jewellerymaker.com/global/js/vendor/plugins/hls/hls.min.js"></script>
+    
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/video.js"></script>
 <script type="text/javascript">
     jQuery(function () {
 
+
         jQuery('[id$="dvVideoHolderHome"]').Video({
-            container      : 'dvVideoHolderHome',
-            channel        : 'JEWELLERYMAKER',
-            autoStart      : true,
-            controls       : false,
-            mute           : true,
-            pageIdentifier : 'homepage',
-            edge           : ''
-        });
+            container: 'dvVideoHolderHome',
+            channel: 'JEWELLERYMAKER',
+            autoStart: true,
+            controls: false,
+            mute: true,
+            //quality: 'thumbnail',
+            pageIdentifier: 'homepage',
+            edge: '',
+         });
+
 
        jQuery('#add-basket').click( function( e ){
 
