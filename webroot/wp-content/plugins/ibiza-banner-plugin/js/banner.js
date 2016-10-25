@@ -7,19 +7,26 @@
 
 var mySwiperBanner = null;
 
+function setHeight()
+{
+    var height = jQuery('.swiper-container-banner .swiper-slide').css('width');
+    jQuery('.swiper-container-banner .swiper-slide').height(height);
+}
+
 jQuery( document ).ready(function() {
     //initialize swiper when document ready  
     mySwiperBanner = new Swiper('.swiper-container-banner', {
         loop                : false ,
         pagination          : '.swiper-pagination',
-        paginationClickable : true 
+        paginationClickable : true ,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
     });
     
     jQuery( window ).resize(function() {
-        var height = jQuery('.swiper-container-banner .swiper-slide').css('width');
-        jQuery('.swiper-container-banner .swiper-slide').height(height);
+        setHeight();
     
     });    
-    
+    setHeight();
 });    
     

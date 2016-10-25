@@ -73,10 +73,10 @@
                                 <ul class="menu right ">
 
                                     <?php if (_LOGGED_IN): ?>
-
-                                    <li class="show-for-large"><a href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
+                                    
+                                    <li class="show-for-large"><a class="font-small"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a></li>
                                         <li class="separator show-for-large">|</li>
-                                        <li  class="show-for-large"><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
+                                        <li  class="show-for-large"><a class="font-small"  href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a></li>
 
                                     <?php else: ?>
 
