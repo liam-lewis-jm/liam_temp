@@ -75,6 +75,9 @@ CSS file.
 // Import your print styles
 @import "print";
 
+// Import Categories
+@import "category";
+
 #dvVideoHolderHome {
     position: absolute;
     top: 0px;
@@ -1335,11 +1338,6 @@ fieldset {
     background-color: #fff;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
-}
-.product-list-container {
-    background-color: #fff;
-    width: 100%;
-    max-width: 100%;
 }
 
 .arrow{
