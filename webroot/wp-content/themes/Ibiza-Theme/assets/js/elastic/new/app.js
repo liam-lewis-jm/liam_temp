@@ -1,8 +1,19 @@
-var app = angular.module('ibiza', ['elasticui']);
+var app = angular.module('ibiza', ['elasticui', 'mm.foundation']);
 
 app.constant('euiHost', api_location + '/ProductCatalog.Api/api/elastic');
 app.controller('IndexController', function ($scope) {
     $scope.indexName = "product";
+    
+    
+    $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+    };
+
+
+    $scope.min = function(val, minVal) {
+      var value = Math.min(val, minVal);
+      return value;
+    };
 });
 
 app.filter('makeUppercase', function () {
