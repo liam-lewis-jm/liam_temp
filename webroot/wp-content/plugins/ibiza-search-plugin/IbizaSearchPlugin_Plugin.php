@@ -139,7 +139,7 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
                     <input type="submit" class="hide" />
                 </div>
             </form>
-            
+            <div id="search-cancel">CANCEL</div>
         </div>
 
 
@@ -189,6 +189,20 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
         ?>
         
         <script>
+            
+            
+            
+            
+            jQuery( document ).ready(function() {
+                
+                jQuery('#search-cancel').click(function(){
+                    jQuery('.search-link').first().click();
+                    
+                });
+                
+            });            
+            
+            
             var cats_engine = new Bloodhound({  
                datumTokenizer: function(hits) {
 
@@ -297,7 +311,7 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
 
                  },
                  source: howto_engine.ttAdapter(),
-                 limit : 2,
+                 limit : 4,
                  templates: {
                      header : '<h5>How To Guides</h5>',
                      suggestion: function (data) {

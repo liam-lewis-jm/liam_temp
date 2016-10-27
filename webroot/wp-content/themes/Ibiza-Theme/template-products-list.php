@@ -196,11 +196,9 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
             <!-- Thumbnails -->
-            <main id="main" class="large-10 medium-12 small-12 columns" role="main" >
-                <div class="row">
-                    <div class="columns">
-                        <?php if($top_level == false): ?>
+            <main id="main" class="large-10 medium-12 small-12 product-category-page columns" role="main" >
 
+                             
                         <div class="small-6 top-bar-left float-left hide-for-large columns">
                             <ul class="menu">
                                 <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
@@ -209,128 +207,66 @@ if( $segments[0] == 'how-to-guides'  ){
                         </div>
 
                         <div class="large-3 medium-6 small-6 columns">
+                    <?php if (is_active_sidebar('pop-cat-1') && is_active_sidebar('pop-cat-2') ) : ?>
+
+                    <article class="large-6 category-boxes columns">
+
+                        <?php dynamic_sidebar('pop-cat-1'); ?>
+
+                    </article>          
+
+                    <article class="large-6 category-boxes columns">
+
+                        <?php dynamic_sidebar('pop-cat-2'); ?>
+
+                    </article>          
 
 
-                            <?php if( count( $sort ) ): ?>
-                            <select id="sort_order" data-id="sort">
+                    <?php else: ?>
 
-
-                                <?php foreach( $sort as $key => $sort_opt ): ?>
-
-                                <option value="<?php echo $key; ?>" ><?php echo $sort_opt; ?></option>
-
-                                <?php endforeach; ?>
-
-                            </select>                        
-                            <?php endif; ?>
-                        </div>
-
-
-                        <div class="large-4 columns">
                             <p>Showing {{indexVM.pageSize * indexVM.page - indexVM.pageSize + 1}} - {{min(indexVM.pageSize * indexVM.page, indexVM.results.hits.total)}} of {{indexVM.results.hits.total}} products</p>
-                            <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
-                                <?php
-                                foreach( $page_sizes as $key => $page_size ): 
-                                $selected == 'selected="selected"';
-                                if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
-                                    $selected == 'selected="selected"';
-                                }
-                                ?>
-                                <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
-                                <?php endforeach; ?>                    
-                            </select>
-                        </div>
 
-                        <div class="large-4 columns">
-                            <eui-simple-paging></eui-simple-paging>
-                        </div>
+                    <?php if (is_active_sidebar('pop-cat-1')) : ?>
+                    <article class="large-6 category-boxes columns">
+                        <?php dynamic_sidebar('pop-cat-1'); ?>
+                    </article>          
                         <?php endif; ?>
+                    
                     </div>
                     <hr class="show-for-large">
 
-                    <?php if($top_level == false): ?>
+                    <?php if (is_active_sidebar('pop-cat-2')) : ?>
 
-                    <div></div>
+                    <article class="large-6 category-boxes columns">
+
+                        <?php dynamic_sidebar('pop-cat-2'); ?>
+
+                    </article>          
+
+                    <?php endif; ?>     
 
 
 
 
-                    <div class="large-3 medium-4 small-6 columns" ng-repeat="doc in indexVM.results.hits.hits"  ng-class="!$last ? '' : 'end'">
+                    <?php endif; ?> 
 
-
-
-                        <div class="panel"  ng-if="doc._index=='product'" >
-                            <img src="{{doc._source.images[0].url}}" />
-                            <h5><a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
-
-                            <!--<p style="font-size:12px;">{{doc._source.description}}</p>-->
+                    <div class="clear"></div>
 
                             <h6><strong>&pound;{{ doc._source.price | number : 2}} per metre</strong></h6>
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
                         </div>
 
-                        <div class="panel"  ng-if="doc._index=='howto'" >
-                            <img src="{{doc._source.image}}" />
-                            <h5><a href="/h/{{doc._id}}/{{doc._source.name}}">{{doc._source.name}}</a></h5>
+                    <?php if (is_active_sidebar('pop-cat-3')) : ?>
 
-                            <p style="font-size:12px;">{{doc._source.introduction}}</p>
+                    <article class="large-12">
 
-                        </div>
+                        <?php dynamic_sidebar('pop-cat-3'); ?>
 
-                    </div>
+                    </article>
 
-
-                <?php else: ?>    
-
-                    <?php 
-
-                    $i      = 0;
-                    $total  = 0;
-
-                    foreach($catss as $cat){
-                        if( $cat->post_content==1 ){
-                            $total++;
-                        }
-                    }
-
-                    ?>                
-
-                    <?php $i = 0;?>
-
-
-
-
-                    <?php foreach($catss as $cat):  ?>
-
-
-                        <?php if( $cat->post_content==1 ):?>
-
-                        <?php $q_s= parse_url($cat->url); $out; ?>
-
-                        <?php parse_str( $q_s['query'] ,$out ) ;  ?>
-                        <?php $cat_data     =  get_post_meta( $cat->ID ) ; 
-                              $cat_data_ob  =  json_decode( $cat_data['cat-' . $out['cat']][0] );
-
-                        ?>
-
-                    <div class="large-3 medium-3 columns padded-column box <?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
-                        <img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" />
-                        <a href="<?php print $cat->url; ?>">
-                        <span class="caption fade-caption">
-                            <h3><?php echo $cat->post_title;?></h3>
-                            <p><?php echo $cat_data_ob->intro ? $cat_data_ob->intro :'nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'; ?></p>
-                        </span>                    
-                        </a>
-                    </div>
-
-
-                    <?php $i++;?>   
                         <?php endif; ?>
+                </section>        
 
-                    <?php endforeach; ?>
-
-                <?php endif; ?>
-                </div>
                 <!-- End Thumbnails -->
                 <div class="large-4 columns">
                     <ul class="pager" data-id="pager">

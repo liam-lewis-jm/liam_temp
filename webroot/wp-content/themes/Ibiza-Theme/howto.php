@@ -48,7 +48,7 @@ if( isset( $_GET['json'] ) ){
 </div>
 
 <div id="result">
-    <div class="row" id="prodcut_main">
+    <div class="row" id="howto_main">
 
         <div class="small-12 medium-12 large-6 columns right">
             <h3 id="product_name"><span>Project:</span> <?php echo $response->data->name; ?></h3>
@@ -59,7 +59,7 @@ if( isset( $_GET['json'] ) ){
             <p  id="product_description"><?php echo $response->data->introduction; ?></p>
 
             
-            <div style="clear:both;margin:10px 0">
+            <div style="clear:both;margin:10px 0" class="show-for-xlarge">
                 <img src="/wp-content/themes/Ibiza-Theme/assets/images/facebook-icon.png">
                 <img src="/wp-content/themes/Ibiza-Theme/assets/images/twitter-icon.png">
                 <img src="/wp-content/themes/Ibiza-Theme/assets/images/pin-icon.png">
@@ -69,7 +69,7 @@ if( isset( $_GET['json'] ) ){
         </div>
                 
                 
-        <div class="medium-6 large-6  columns">
+        <div class="small-12 large-6  columns">
             
 
             <div class="swiper-container-howto-main">
@@ -159,8 +159,8 @@ if( isset( $_GET['json'] ) ){
             </form>
         </div>
         
-        <div class="small-12  large-8 columns" style="">
-            <div style="background: transparent url(&quot;http://ibiza.dev/wp-content/themes/Ibiza-Theme/assets/css/../images/bg.png&quot;) repeat scroll 0% 0%; padding: 27px 40px;">
+        <div class="small-12  large-8 columns">
+            <div style="margin:10px 0;background: transparent url(&quot;http://ibiza.dev/wp-content/themes/Ibiza-Theme/assets/css/../images/bg.png&quot;) repeat scroll 0% 0%; padding: 27px 40px;">
             <div class="row" style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 19px;">
             <?php ///print_r( $response->data->image ); ?>
                 <!-- Slider main container -->
@@ -176,11 +176,11 @@ if( isset( $_GET['json'] ) ){
                         <?php $i++;  ?>
                     
                     <div class="large-12 columns" style="padding:0">
-                            <div class="large-1 columns" style="padding:0">
+                            <div class="large-1 small-1 columns" style="padding:0">
                                 <span style="display: inline-block; background: #00bcb4; height: 25px; width: 25px; border-radius: 15px; text-align: center; line-height: 25px; color: rgb(255, 255, 255);"><?php echo $i; ?></span>
                             </div>
                             
-                            <div class="large-11 columns" style="padding: 0px; left: -20px; position: relative;">
+                            <div class="large-11 small-11 columns">
                                 <h5><?php echo $step->title ?></h5>
                                 <p style="font-size:12px;"><?php echo $step->description; ?></p>                        
                             
@@ -209,14 +209,14 @@ if( isset( $_GET['json'] ) ){
                             
                             <?php foreach($step->image as $image):   ?>
                                 <div class="medium-<?php echo $col; ?> large-<?php echo $col; ?> columns" style="padding:0 2px 0 0">
-                                <a rel="groups" class="th various" href="<?php echo $image->url; ?>"
-                                   data-zoom-image="<?php echo $image->url; ?>"  
-                                   data-image="<?php echo $image->url; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step->description; ?>">                        
-                                <img  src="<?php echo $image->url; ?>">
-                                </a>
-                            </div>
+                                    <a rel="groups" class="th various" href="<?php echo $image->url; ?>"
+                                       data-zoom-image="<?php echo $image->url; ?>"  
+                                       data-image="<?php echo $image->url; ?>" title="&lt;b&gt;<?php echo $step->title ?>&lt;/b&gt; <?php echo $step->description; ?>">                        
+                                    <img  src="<?php echo $image->url; ?>">
+                                    </a>
+                                </div>
                             <?php endforeach; ?>
-                           </div>
+                            </div>
                         </div>
                         <?php endforeach; ?>
                     <?php endforeach; ?>

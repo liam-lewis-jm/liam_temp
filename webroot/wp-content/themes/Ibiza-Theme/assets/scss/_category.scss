@@ -1,0 +1,26 @@
+
+.product-list-container{
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    .sidebar{
+    	ul{
+    		list-style:none;
+    		margin: 0;
+    	}
+    	li{
+    		@include dotted-border-bottom(#1a2433);
+    	}
+    }
+}
+
+.product-category-page{
+	#second-band{
+		.category-boxes{
+			padding: 0;
+			.large-12{
+				padding: 0.21875rem;
+			}
+		}
+	}
+}
