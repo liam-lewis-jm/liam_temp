@@ -70,12 +70,19 @@ if( $segments[0] == 'how-to-guides'  ){
     <!-- Side Bar -->
     <div class="columns cat-desc row">
         <nav aria-label="You are here:" role="navigation">
-            <ul class="breadcrumbs">
+            <ul class="breadcrumbs show-for-medium">
                 <?php echo implode('', $breadcrumbs); ?>
+            </ul>
+            <ul class="breadcrumbs show-for-small-only">
+                <?php
+                for ($i = 0; $i < count($segments) - 1 ;$i++) {
+                    $previousSegments .= $segments[$i] . '/';
+                } ?>
+                <a href="<?php echo '/' . $previousSegments; ?>" class="previous-segement">< BACK</a>
             </ul>
         </nav>
         <?php if($ibiza_api->cat_data->bannerimage):?>
-            <div style="height:200px;overflow: hidden">
+            <div class="show-for-large"style="height:200px;overflow: hidden">
                 <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
             </div>
         <?php endif; ?>
@@ -87,6 +94,7 @@ if( $segments[0] == 'how-to-guides'  ){
         <?php else:?>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <?php endif; ?>
+            <p class="show-for-small-only">Read More</p>
     </div>
     <div class="product-list-container">
         <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
@@ -113,9 +121,9 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
 
-
+                <p class="show-for-large">Refine Results:</p>
                 <div class="applied-filters">
-                    <p>Applied Filters</p>
+                    <p>Applied Filters:</p>
                     <ul class="add_facets"></ul>
                     <button id="reset-filter" aria-expanded="false" aria-haspopup="true" data-yeti-box="example-dropdown2" data-is-focus="false" aria-controls="example-dropdown2" class="button" style="vertical-align: top">RESET ALL</button>
                 </div>
@@ -193,14 +201,14 @@ if( $segments[0] == 'how-to-guides'  ){
                     <div class="columns">
                         <?php if($top_level == false): ?>
 
-                        <div class="top-bar-left float-left show-for-small-only">
+                        <div class="small-6 top-bar-left float-left hide-for-large columns">
                             <ul class="menu">
                                 <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-                                <li><a data-toggle="off-canvas-left" aria-expanded="false" aria-controls="off-canvas">Filter</a></li>
+                                <li class="refine-results"><a data-toggle="off-canvas-left" aria-expanded="false" aria-controls="off-canvas">Refine Results</a></li>
                             </ul>
-                        </div>                      
+                        </div>
 
-                        <div class="large-4 columns">
+                        <div class="large-3 medium-6 small-6 columns">
 
 
                             <?php if( count( $sort ) ): ?>
@@ -219,22 +227,18 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
                         <div class="large-4 columns">
-
+                            <p>Showing {{indexVM.pageSize * indexVM.page - indexVM.pageSize + 1}} - {{min(indexVM.pageSize * indexVM.page, indexVM.results.hits.total)}} of {{indexVM.results.hits.total}} products</p>
                             <select ng-model="indexVM.pageSize" id="count" data-id="the_count">
-                                <?php foreach( $page_sizes as $key => $page_size ): 
-
+                                <?php
+                                foreach( $page_sizes as $key => $page_size ): 
                                 $selected == 'selected="selected"';
-
                                 if( isset( $_GET['count'] ) &&  $_GET['count'] == $$page_size ){
-
                                     $selected == 'selected="selected"';
-
                                 }
                                 ?>
                                 <option value="<?php echo $page_size; ?>"  <?php echo $selected;?>><?php echo $page_size; ?></option>
                                 <?php endforeach; ?>                    
-                            </select>                        
-
+                            </select>
                         </div>
 
                         <div class="large-4 columns">
@@ -242,7 +246,7 @@ if( $segments[0] == 'how-to-guides'  ){
                         </div>
                         <?php endif; ?>
                     </div>
-                    <hr>
+                    <hr class="show-for-large">
 
                     <?php if($top_level == false): ?>
 
@@ -261,7 +265,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
                             <!--<p style="font-size:12px;">{{doc._source.description}}</p>-->
 
-                            <h6><strong>&pound;{{ doc._source.price | number : 2}}</strong></h6>
+                            <h6><strong>&pound;{{ doc._source.price | number : 2}} per metre</strong></h6>
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
 
@@ -328,6 +332,12 @@ if( $segments[0] == 'how-to-guides'  ){
                 <?php endif; ?>
                 </div>
                 <!-- End Thumbnails -->
+                <div class="large-4 columns">
+                    <ul class="pager" data-id="pager">
+                        <!--<eui-simple-pagination></eui-simple-pagination>-->
+                        <li><pagination total-items="100" page="1" items-per-page="2" max-size="4" rotate="false" num-pages="numPages" previous-text="<" next-text=">" ng-click="></pagination></li>
+                    </ul>
+                </div>
             </main>
         </div>
     </div>
@@ -340,6 +350,7 @@ if( $segments[0] == 'how-to-guides'  ){
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/new/elastic.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/new/elasticui.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/elastic/new/app.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/vendor/angular-foundation-6/dist/angular-foundation.js"</script>
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/history.js/scripts/compressed/history.adapter.jquery.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/vendor/history.js/scripts/compressed/history.js"></script>
 
@@ -390,13 +401,14 @@ function setSort( sortIn )
 
 function setPage( pageIn )
 {
-        
+        console.log('here')
     var page        = parseInt( pageIn );
     indexVm.page    = null;
     
     if( page ) {
         
         indexVm.page = page ;
+        console.log(indexVm.page);
         
     }        
     
@@ -491,7 +503,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
 function addSelectedFilter( changedEl , selectedFacet )
 {
 
-    var elSelectedFacet =  '<li data-idx="'+ jQuery( changedEl ).attr('data-id') +'"> X ' + selectedFacet + '</li>';
+    var elSelectedFacet =  '<li data-idx="'+ jQuery( changedEl ).attr('data-id') +'"> <span class="remove-filter">X</span> ' + selectedFacet + '</li>';
         
     jQuery( elSelectedFacet ).appendTo( '.add_facets' );
 
