@@ -783,7 +783,9 @@ p.ng-binding {
     transform: translateX(200px);
 }
 
-
+.add_facets {
+    margin-left: 0px;
+}
 .add_facets li{
     cursor: pointer;
     list-style: none;
@@ -1297,6 +1299,8 @@ li.tabs-title a{
 
 #sort_order {
     border: 1px solid #01BCB3;
+    font-weight: bold;
+    text-align: center;
 }
 
 .applied-filters {
@@ -1306,25 +1310,103 @@ li.tabs-title a{
 .applied-filters p {
     font-weight: bold;
 }
-#reset-filter {
+#reset-filter, .pager .ng-scope {
     background: #00bcb4 none repeat scroll 0 0;
     height: 37px;
+}
+.pager {
+    list-style: none;
+    float: right;
+    margin: 0px;
+}
+
+.refine-results a, .previous-segement {
+    background: #00bcb4 none repeat scroll 0 0;
+    color: #fefefe;
+    text-decoration: none;
+}
+.previous-segement {
+    padding: 0.6em;
+}
+
+.pager .ng-scope {
+    @extend #reset-filter;
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 30px;
+    float: left;
+    line-height: 2.5em;
+    /*@extend .button;*/
+}
+
+.pager li a {
+    color: #fefefe;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+.pager .page-count {
+    float: left;
+    list-style: none;
+    text-align: center;
+    line-height: 1;
+    font-size: 0.9rem;   
+    margin: 0 0 1rem;
+    padding: 0.85em 3em;
 }
 
 #side-facets ul {
     list-style: none;
+    margin: 0;
 }
 #side-facets ul li label {
     cursor: pointer;
 }
-
 .cat-desc {
     background-color: #fff;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
 }
 .product-list-container {
     background-color: #fff;
     width: 100%;
     max-width: 100%;
+    padding-top: 2em;
+}
+.remove-filter {
+    color: #00bcb4;
+    border: 1px solid #00bcb4;
+    border-radius: 15px;
+    padding: 1px 4px 0px 4px;
+}
+.pagination {
+    width: 450px;
+}
+.pagination .ng-scope {
+    background: #fff none repeat scroll 0 0;
+    color: #000;
+}
+.pagination .pagination-next .ng-scope, .pagination .pagination-previous .ng-scope, .pagination .right, .pagination .left, .pagination a:hover, .pagination button:hover {
+    background: #00bcb4 none repeat scroll 0 0;
+    color: #fff;
+}
+.pagination .pagination-previous {
+    margin-right: 1rem
+}
+.pagination .pagination-next {
+    margin-left: 1rem
+}
+.pagination-previous a::before, .pagination-previous a::after, .pagination-next a::after {
+    content: "";
+    margin: 0;
+}
+.pagination .current {
+    padding: 0;
+    border: 0;
+}
+.pagination .current span {
+    border: 1px solid #00bcb4;
 }

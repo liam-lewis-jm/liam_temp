@@ -8617,18 +8617,23 @@ p.ng-binding {
   transform: translateX(200px);
 }
 
-/* line 787, ../scss/style.scss */
+/* line 786, ../scss/style.scss */
+.add_facets {
+  margin-left: 0px;
+}
+
+/* line 789, ../scss/style.scss */
 .add_facets li {
   cursor: pointer;
   list-style: none;
 }
 
-/* line 792, ../scss/style.scss */
+/* line 794, ../scss/style.scss */
 #inner-content {
   min-height: 600px;
 }
 
-/* line 796, ../scss/style.scss */
+/* line 798, ../scss/style.scss */
 .swiper {
   margin: 0 auto;
   overflow: hidden;
@@ -8636,34 +8641,34 @@ p.ng-binding {
   z-index: 1;
 }
 
-/* line 802, ../scss/style.scss */
+/* line 804, ../scss/style.scss */
 .swiper-container-scheduled-home .home_product {
   padding: 25px;
 }
 
-/* line 805, ../scss/style.scss */
+/* line 807, ../scss/style.scss */
 .swiper-container-howto img {
   height: 200px;
 }
 
-/* line 808, ../scss/style.scss */
+/* line 810, ../scss/style.scss */
 .swiper-container-howto article {
   text-align: center;
 }
 
-/* line 813, ../scss/style.scss */
+/* line 815, ../scss/style.scss */
 .home_product.type-home_product.status-publish.hentry p {
   font-size: 12px;
   margin: 0;
 }
 
-/* line 818, ../scss/style.scss */
+/* line 820, ../scss/style.scss */
 .tt-menu {
   border: 1px solid #ccc;
   background: white;
 }
 
-/* line 823, ../scss/style.scss */
+/* line 825, ../scss/style.scss */
 .tt-menu p {
   cursor: pointer;
   font-size: 75%;
@@ -8671,7 +8676,7 @@ p.ng-binding {
   overflow: hidden;
 }
 
-/* line 833, ../scss/style.scss */
+/* line 835, ../scss/style.scss */
 .typeahead {
   width: 180px;
   float: left;
@@ -8689,20 +8694,20 @@ p.ng-binding {
   top: 3px;
 }
 
-/* line 849, ../scss/style.scss */
+/* line 851, ../scss/style.scss */
 .typeahea::-webkit-input-placeholder {
   color: #000;
   opacity: 1;
 }
 
-/* line 854, ../scss/style.scss */
+/* line 856, ../scss/style.scss */
 .typeahead:-moz-placeholder {
   /* Firefox 18- */
   color: #000;
   opacity: 1;
 }
 
-/* line 859, ../scss/style.scss */
+/* line 861, ../scss/style.scss */
 .typeahead::-moz-placeholder {
   /* Firefox 19+ */
   color: #000;
@@ -8710,13 +8715,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 867, ../scss/style.scss */
+/* line 869, ../scss/style.scss */
 .typeahead :-ms-input-placeholder {
   color: #000;
   opacity: 1;
 }
 
-/* line 871, ../scss/style.scss */
+/* line 873, ../scss/style.scss */
 .tt-menu h5 {
   background: #333;
   clear: both;
@@ -8724,22 +8729,22 @@ p.ng-binding {
   color: #ccc;
 }
 
-/* line 879, ../scss/style.scss */
+/* line 881, ../scss/style.scss */
 .upw-posts .columns {
   overflow: hidden;
 }
 
-/* line 885, ../scss/style.scss */
+/* line 887, ../scss/style.scss */
 .howto_widget .columns {
   margin-top: 10px;
 }
 
-/* line 891, ../scss/style.scss */
+/* line 893, ../scss/style.scss */
 .upw-posts article {
   overflow: hidden;
 }
 
-/* line 896, ../scss/style.scss */
+/* line 898, ../scss/style.scss */
 .fullwidth {
   width: 100%;
   height: 100%;
@@ -8748,36 +8753,36 @@ p.ng-binding {
   max-width: initial;
 }
 
-/* line 904, ../scss/style.scss */
+/* line 906, ../scss/style.scss */
 .site-top-bar {
   background: #00bcb4;
 }
 
-/* line 909, ../scss/style.scss */
+/* line 911, ../scss/style.scss */
 .font-small {
   font-size: 0.625rem;
   margin: 0;
   padding: 0;
 }
 
-/* line 915, ../scss/style.scss */
+/* line 917, ../scss/style.scss */
 .rating-text {
   font-weight: bold;
   line-height: 32px;
 }
 
-/* line 919, ../scss/style.scss */
+/* line 921, ../scss/style.scss */
 .rating-text img {
   vertical-align: text-bottom;
 }
 
-/* line 923, ../scss/style.scss */
+/* line 925, ../scss/style.scss */
 .rating-text span {
   margin: 0 0 0 0.5rem;
   color: #fff;
 }
 
-/* line 928, ../scss/style.scss */
+/* line 930, ../scss/style.scss */
 .site-top-bar li a {
   display: inline-block;
   padding-left: 1px;
@@ -8787,61 +8792,61 @@ p.ng-binding {
   color: #fff;
 }
 
-/* line 936, ../scss/style.scss */
+/* line 938, ../scss/style.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 940, ../scss/style.scss */
+/* line 942, ../scss/style.scss */
 .separator {
   padding: 0 0.8125rem 0 0.875rem;
 }
 
-/* line 944, ../scss/style.scss */
+/* line 946, ../scss/style.scss */
 .right {
   float: right;
 }
 
-/* line 948, ../scss/style.scss */
+/* line 950, ../scss/style.scss */
 .left {
   float: left;
 }
 
-/* line 952, ../scss/style.scss */
+/* line 954, ../scss/style.scss */
 .slogan {
   margin: 0.5625rem 0 0 0;
 }
 
-/* line 955, ../scss/style.scss */
+/* line 957, ../scss/style.scss */
 .header-outter {
   background: #fff;
   border-bottom: 0.125rem solid #00bcb4;
 }
 
-/* line 960, ../scss/style.scss */
+/* line 962, ../scss/style.scss */
 #logo {
   margin: 15px 0 10px 0;
 }
 
-/* line 964, ../scss/style.scss */
+/* line 966, ../scss/style.scss */
 .tv-products {
   position: relative;
 }
 
-/* line 970, ../scss/style.scss */
+/* line 972, ../scss/style.scss */
 .tv-products p {
   margin: 4px 0 4px 0;
   font-size: 75%;
 }
 
-/* line 975, ../scss/style.scss */
+/* line 977, ../scss/style.scss */
 .tv-products .large-3 {
   padding-right: 0;
   padding-top: 15px;
   padding-bottom: 10px;
 }
 
-/* line 981, ../scss/style.scss */
+/* line 983, ../scss/style.scss */
 #tri {
   border-color: transparent transparent #00bcb4;
   border-style: solid;
@@ -8853,26 +8858,26 @@ p.ng-binding {
   margin-top: 7px;
 }
 
-/* line 994, ../scss/style.scss */
+/* line 996, ../scss/style.scss */
 .active-product p, .active-product p a {
   color: #fff;
   font-weight: bold;
 }
 
-/* line 1002, ../scss/style.scss */
+/* line 1004, ../scss/style.scss */
 #tv-options .large-6 {
   background-clip: content-box;
   background-color: #fff;
   height: 64px;
 }
 
-/* line 1008, ../scss/style.scss */
+/* line 1010, ../scss/style.scss */
 #tv-options .large-6 a {
   line-height: 64px;
   color: #00bcb4;
 }
 
-/* line 1013, ../scss/style.scss */
+/* line 1015, ../scss/style.scss */
 .blue-arrow {
   width: 0;
   height: 0;
@@ -8881,25 +8886,25 @@ p.ng-binding {
   border-color: transparent transparent transparent #4cebe8;
 }
 
-/* line 1023, ../scss/style.scss */
+/* line 1025, ../scss/style.scss */
 .tv-schedule-details {
   display: inline-block;
   margin: 0 0 9px 20px;
 }
 
-/* line 1029, ../scss/style.scss */
+/* line 1031, ../scss/style.scss */
 .tv-schedule-details p {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
 }
 
-/* line 1035, ../scss/style.scss */
+/* line 1037, ../scss/style.scss */
 #second-band {
   padding: 52px 0 20px;
 }
 
-/* line 1041, ../scss/style.scss */
+/* line 1043, ../scss/style.scss */
 #second-band .more-link {
   color: #00bcb4;
   display: block;
@@ -8908,13 +8913,13 @@ p.ng-binding {
   text-transform: uppercase;
 }
 
-/* line 1049, ../scss/style.scss */
+/* line 1051, ../scss/style.scss */
 .padding-1 {
   padding: 0px;
   padding-top: 0px;
 }
 
-/* line 1055, ../scss/style.scss */
+/* line 1057, ../scss/style.scss */
 .featured_categories h4.entry-title {
   padding: 44.2% 0;
   text-align: center;
@@ -8922,55 +8927,55 @@ p.ng-binding {
   color: #00bcb4;
 }
 
-/* line 1062, ../scss/style.scss */
+/* line 1064, ../scss/style.scss */
 .featured_categories .entry-title a {
   border-bottom: 3px solid #00bcb4;
   text-transform: uppercase;
   font-size: 19px;
 }
 
-/* line 1067, ../scss/style.scss */
+/* line 1069, ../scss/style.scss */
 .howtos {
   background: #fff;
   margin-bottom: 6px;
 }
 
-/* line 1075, ../scss/style.scss */
+/* line 1077, ../scss/style.scss */
 .how-to-holder {
   padding: 10px;
   text-align: left;
   height: 195px;
 }
 
-/* line 1081, ../scss/style.scss */
+/* line 1083, ../scss/style.scss */
 .howto_widget header {
   height: 310px;
 }
 
-/* line 1086, ../scss/style.scss */
+/* line 1088, ../scss/style.scss */
 footer .menu-item a {
   margin: 0;
   padding: 0;
 }
 
-/* line 1092, ../scss/style.scss */
+/* line 1094, ../scss/style.scss */
 .howtos .entry-content p {
   font-size: 14px;
 }
 
-/* line 1097, ../scss/style.scss */
+/* line 1099, ../scss/style.scss */
 .how-to-holder a {
   color: #00bcb4;
   text-transform: uppercase;
 }
 
-/* line 1102, ../scss/style.scss */
+/* line 1104, ../scss/style.scss */
 .howtos p.how-to-image-holder {
   height: 308px;
   overflow: hidden;
 }
 
-/* line 1107, ../scss/style.scss */
+/* line 1109, ../scss/style.scss */
 .footer {
   background: #fff;
   border-top: 5px solid #01bcb3;
@@ -8978,7 +8983,7 @@ footer .menu-item a {
   margin: 0;
 }
 
-/* line 1115, ../scss/style.scss */
+/* line 1117, ../scss/style.scss */
 .footer input {
   background: #efefef none repeat scroll 0 0;
   border: 1px solid #efefef;
@@ -8987,24 +8992,24 @@ footer .menu-item a {
   width: 210px;
 }
 
-/* line 1124, ../scss/style.scss */
+/* line 1126, ../scss/style.scss */
 .footer button {
   background: #00bcb4;
   height: 37px;
   text-transform: uppercase;
 }
 
-/* line 1130, ../scss/style.scss */
+/* line 1132, ../scss/style.scss */
 .copyright {
   font-size: 0.75rem;
 }
 
-/* line 1133, ../scss/style.scss */
+/* line 1135, ../scss/style.scss */
 #third-band .widget {
   text-align: center;
 }
 
-/* line 1138, ../scss/style.scss */
+/* line 1140, ../scss/style.scss */
 #third-band h4 {
   background: white none repeat scroll 0 0;
   display: inline-block;
@@ -9014,12 +9019,12 @@ footer .menu-item a {
   text-align: center;
 }
 
-/* line 1147, ../scss/style.scss */
+/* line 1149, ../scss/style.scss */
 #second-band .large-6, #second-band .large-3 {
   padding: 0.21875rem;
 }
 
-/* line 1152, ../scss/style.scss */
+/* line 1154, ../scss/style.scss */
 #second-band {
   /*  left: -4px;
     margin: 0 auto;
@@ -9028,14 +9033,14 @@ footer .menu-item a {
     width: 1328px;*/
 }
 
-/* line 1161, ../scss/style.scss */
+/* line 1163, ../scss/style.scss */
 .search-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
   display: none;
 }
 
-/* line 1167, ../scss/style.scss */
+/* line 1169, ../scss/style.scss */
 .search-container form {
   display: inline-block;
   background: white none repeat scroll 0% 0%;
@@ -9043,25 +9048,25 @@ footer .menu-item a {
   margin: 13px;
 }
 
-/* line 1173, ../scss/style.scss */
+/* line 1175, ../scss/style.scss */
 .search-container img {
   width: 20px;
   vertical-align: baseline;
 }
 
-/* line 1178, ../scss/style.scss */
+/* line 1180, ../scss/style.scss */
 .twitter-typeahead {
   width: 66px;
 }
 
-/* line 1182, ../scss/style.scss */
+/* line 1184, ../scss/style.scss */
 .upw-after p {
   text-align: center;
   line-height: 16px;
   text-transform: uppercase;
 }
 
-/* line 1188, ../scss/style.scss */
+/* line 1190, ../scss/style.scss */
 .upw-after .layout-button {
   background: #00bcb4;
   color: #fff;
@@ -9072,29 +9077,29 @@ footer .menu-item a {
   text-align: center;
 }
 
-/* line 1200, ../scss/style.scss */
+/* line 1202, ../scss/style.scss */
 #result, .full {
   background: #fefefe;
 }
 
-/* line 1204, ../scss/style.scss */
+/* line 1206, ../scss/style.scss */
 .breadcrumbs {
   margin: 10px 0;
   font-weight: bold;
 }
 
-/* line 1208, ../scss/style.scss */
+/* line 1210, ../scss/style.scss */
 .breadcrumbs li:not(:last-child)::after {
   color: #0a0a0a;
   content: ">";
 }
 
-/* line 1214, ../scss/style.scss */
+/* line 1216, ../scss/style.scss */
 div.product-meta1 div.columns {
   padding: 0;
 }
 
-/* line 1218, ../scss/style.scss */
+/* line 1220, ../scss/style.scss */
 #quantity {
   border: 1px solid #00bcb4;
   width: 38px;
@@ -9105,64 +9110,64 @@ div.product-meta1 div.columns {
   text-align: center;
 }
 
-/* line 1228, ../scss/style.scss */
+/* line 1230, ../scss/style.scss */
 .increment {
   background: #00bcb4;
   text-align: center;
   padding: 0;
 }
 
-/* line 1234, ../scss/style.scss */
+/* line 1236, ../scss/style.scss */
 .increment a {
   color: #fff;
   height: 25px;
   width: 25px;
 }
 
-/* line 1240, ../scss/style.scss */
+/* line 1242, ../scss/style.scss */
 .tabs {
   margin: 0 0 10px 0;
 }
 
-/* line 1246, ../scss/style.scss */
+/* line 1248, ../scss/style.scss */
 li.tabs-title a {
   background: transparent !important;
   padding: 0 0 0 0;
 }
 
-/* line 1251, ../scss/style.scss */
+/* line 1253, ../scss/style.scss */
 .tabs-panel {
   padding: 0;
 }
 
-/* line 1255, ../scss/style.scss */
+/* line 1257, ../scss/style.scss */
 #panel2-label span {
   border: 0;
 }
 
-/* line 1259, ../scss/style.scss */
+/* line 1261, ../scss/style.scss */
 .tabs-title span {
   border-right: 1px solid #0a0a0a;
   margin: 0 10px 0 0;
   padding: 0 10px 0 0;
 }
 
-/* line 1265, ../scss/style.scss */
+/* line 1267, ../scss/style.scss */
 .tabs, .tabs-content {
   border: 0 none !important;
 }
 
-/* line 1268, ../scss/style.scss */
+/* line 1270, ../scss/style.scss */
 .is-active span {
   font-weight: bold;
 }
 
-/* line 1272, ../scss/style.scss */
+/* line 1274, ../scss/style.scss */
 .swiper-container-products .swiper-slide {
   height: auto !important;
 }
 
-/* line 1277, ../scss/style.scss */
+/* line 1279, ../scss/style.scss */
 .swiper-container-products .swiper-button-prev {
   background-image: url(../images/left-arrow.png);
   width: 28px;
@@ -9170,7 +9175,7 @@ li.tabs-title a {
   background-size: cover;
 }
 
-/* line 1285, ../scss/style.scss */
+/* line 1287, ../scss/style.scss */
 .swiper-container-products .swiper-button-next {
   background-image: url(../images/right-arrow.png);
   width: 28px;
@@ -9179,53 +9184,160 @@ li.tabs-title a {
   bottom: 0 !important;
 }
 
-/* line 1294, ../scss/style.scss */
+/* line 1296, ../scss/style.scss */
 .menu .active > a {
   background: transparent;
 }
 
-/* line 1298, ../scss/style.scss */
+/* line 1300, ../scss/style.scss */
 #sort_order {
   border: 1px solid #01BCB3;
+  font-weight: bold;
+  text-align: center;
 }
 
-/* line 1302, ../scss/style.scss */
+/* line 1306, ../scss/style.scss */
 .applied-filters {
   border: 1px solid #e3e3e3;
   padding: 15px;
 }
 
-/* line 1306, ../scss/style.scss */
+/* line 1310, ../scss/style.scss */
 .applied-filters p {
   font-weight: bold;
 }
 
-/* line 1309, ../scss/style.scss */
-#reset-filter {
+/* line 1313, ../scss/style.scss */
+#reset-filter, .pager .ng-scope, .pager .ng-scope {
   background: #00bcb4 none repeat scroll 0 0;
   height: 37px;
 }
 
-/* line 1314, ../scss/style.scss */
-#side-facets ul {
+/* line 1317, ../scss/style.scss */
+.pager {
   list-style: none;
+  float: right;
+  margin: 0px;
 }
 
-/* line 1317, ../scss/style.scss */
+/* line 1323, ../scss/style.scss */
+.refine-results a, .previous-segement {
+  background: #00bcb4 none repeat scroll 0 0;
+  color: #fefefe;
+  text-decoration: none;
+}
+
+/* line 1328, ../scss/style.scss */
+.previous-segement {
+  padding: 0.6em;
+}
+
+/* line 1332, ../scss/style.scss */
+.pager .ng-scope {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 30px;
+  float: left;
+  line-height: 2.5em;
+  /*@extend .button;*/
+}
+
+/* line 1344, ../scss/style.scss */
+.pager li a {
+  color: #fefefe;
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 1350, ../scss/style.scss */
+.pager .page-count {
+  float: left;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+  padding: 0.85em 3em;
+}
+
+/* line 1360, ../scss/style.scss */
+#side-facets ul {
+  list-style: none;
+  margin: 0;
+}
+
+/* line 1364, ../scss/style.scss */
 #side-facets ul li label {
   cursor: pointer;
 }
 
-/* line 1321, ../scss/style.scss */
+/* line 1367, ../scss/style.scss */
 .cat-desc {
   background-color: #fff;
   margin-top: 2.5em;
   margin-bottom: 2.5em;
+  padding-bottom: 1.5em;
 }
 
-/* line 1326, ../scss/style.scss */
+/* line 1373, ../scss/style.scss */
 .product-list-container {
   background-color: #fff;
   width: 100%;
   max-width: 100%;
+  padding-top: 2em;
+}
+
+/* line 1379, ../scss/style.scss */
+.remove-filter {
+  color: #00bcb4;
+  border: 1px solid #00bcb4;
+  border-radius: 15px;
+  padding: 1px 4px 0px 4px;
+}
+
+/* line 1385, ../scss/style.scss */
+.pagination {
+  width: 450px;
+}
+
+/* line 1388, ../scss/style.scss */
+.pagination .ng-scope {
+  background: #fff none repeat scroll 0 0;
+  color: #000;
+}
+
+/* line 1392, ../scss/style.scss */
+.pagination .pagination-next .ng-scope, .pagination .pagination-previous .ng-scope, .pagination .right, .pagination .left, .pagination a:hover, .pagination button:hover {
+  background: #00bcb4 none repeat scroll 0 0;
+  color: #fff;
+}
+
+/* line 1396, ../scss/style.scss */
+.pagination .pagination-previous {
+  margin-right: 1rem;
+}
+
+/* line 1399, ../scss/style.scss */
+.pagination .pagination-next {
+  margin-left: 1rem;
+}
+
+/* line 1402, ../scss/style.scss */
+.pagination-previous a::before, .pagination-previous a::after, .pagination-next a::after {
+  content: "";
+  margin: 0;
+}
+
+/* line 1406, ../scss/style.scss */
+.pagination .current {
+  padding: 0;
+  border: 0;
+}
+
+/* line 1410, ../scss/style.scss */
+.pagination .current span {
+  border: 1px solid #00bcb4;
 }
