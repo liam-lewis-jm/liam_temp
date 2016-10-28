@@ -79,20 +79,20 @@ function getCurrentAuction(update) {
           buildTodaysProductsAuction(data);
         } else {
             if (data[0]) {
-                document.getElementById("triangle").classList.add("active-product");
-                document.getElementById("triangle-outter").classList.add("active-product");
-                document.getElementById("product_0").classList.add("active-product");
-                document.getElementById("productImg_0").src = data[0]["data"]["images"][0]["url"];
-                document.getElementById("productName_0").innerHTML = "<a href=\"/p/" + data[0]["data"]["productcode"] + "\">" + data[0]["data"]["name"].trim() + "</a>";
-                document.getElementById("productPrice_0").innerHTML = "<strong>&pound;" + numberWithCommas(data[0]["data"]["price"]) + "</strong>";
+                jQuery("#triangle").addClass("active-product");
+                jQuery("#triangle-outter").addClass("active-product");
+                jQuery("#product_0").addClass("active-product");
+                jQuery("#productImg_0").attr("src", data[0]["data"]["images"][0]["url"]);
+                jQuery("#productName_0").html("<a href=\"/p/" + data[0]["data"]["productcode"] + "\">" + data[0]["data"]["name"].trim() + "</a>");
+                jQuery("#productPrice_0").html("<strong>&pound;" + numberWithCommas(data[0]["data"]["price"]) + "</strong>");
             }
             if (data[1]) {
-                document.getElementById("product_1").classList.add("part-sell");
-                document.getElementById("productImg_1").src = data[1]["data"]["images"][1]["url"];
-                document.getElementById("productName_1").innerHTML = "<a href=\"/p/" + data[1]["data"]["productcode"] + "\">" + data[1]["data"]["name"].trim() + "</a>";
-                document.getElementById("productPrice_1").innerHTML = "<strong>&pound;" + numberWithCommas(data[1]["data"]["price"]) + "</strong>";
+                jQuery("#product_1").addClass("part-sell");
+                jQuery("#productImg_1").attr("src",data[1]["data"]["images"][1]["url"]);
+                jQuery("#productName_1").html("<a href=\"/p/" + data[1]["data"]["productcode"] + "\">" + data[1]["data"]["name"].trim() + "</a>");
+                jQuery("#productPrice_1").html("<strong>&pound;" + numberWithCommas(data[1]["data"]["price"]) + "</strong>");
             } else {
-                document.getElementById("product_1").classList.remove("part-sell");
+                jQuery("#product_1").removeClass("part-sell");
             }
         }
         getRecentAuctions();
@@ -124,9 +124,9 @@ function getRecentAuctions() {
                     j--;
                     continue;
                 } else {
-                    document.getElementById("productImg_" + i).src = (data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]);
-                    document.getElementById("productName_" + i).innerHTML = "<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>";
-                    document.getElementById("productPrice_" + i).innerHTML = "<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>";
+                    jQuery("#productImg_" + i).attr("src",(data[j]["data"]["images"][0]["url"] ? data[j]["data"]["images"][0]["url"] : data[j]["data"]["imageUrl"]));
+                    jQuery("#productName_" + i).html("<a href=\"/p/" + data[j]["data"]["productcode"] + "\">" + data[j]["data"]["name"].trim() + "</a>");
+                    jQuery("#productPrice_" + i).html("<strong>&pound;" + numberWithCommas(data[j]["data"]["price"]) + "</strong>");
                 }
             }
         }
@@ -145,7 +145,7 @@ function buildTodaysProductsAuction(data) {
         html += "<button style=\"background: #00B109\" data-toggle=\"example-dropdown2\" type=\"button\" class=\"button\" class=\"add-basket\" aria-controls=\"example-dropdown2\" data-is-focus=\"false\" data-yeti-box=\"example-dropdown2\" aria-haspopup=\"true\" aria-expanded=\"false\">Add to basket</button>";
         html += "</div>";   
     }
-    document.getElementById("current-product").innerHTML = html;
+    jQuery("#current-product").html(html);
 };
 
 function buildTodaysProducts(data) {
@@ -161,7 +161,7 @@ function buildTodaysProducts(data) {
         html += "</a>";
         html += "</article>";
     }
-    document.getElementById("dvDayShowProducts").innerHTML = html;
+    jQuery("#dvDayShowProducts").html(html);
 }
 
 function numberWithCommas(x) {

@@ -192,8 +192,9 @@ class IbizaApi_Plugin extends IbizaApi_LifeCycle {
         'product_schema' => '/productcatalog.api/api/schema/title/',
     );
     public $is_top_level = false;
-    private $sort = array(0 => 'Default', 1 => 'Price (Low - High)', 2 => 'Price (High - Low)');
-    private $page_sizes = array(1, 5, 12, 20, 50, 100, 200);
+//    private $sort = array(0 => 'Sort By', 1 => 'Price (Low - High)', 2 => 'Price (High - Low)');
+    private $page_sizes = 48;
+//    private $page_sizes = array(1, 5, 12, 20, 50, 100, 200);
     private $ignore_query_strs = array('cat', 'title', 'count', 'sort', 'pager', 'q');
     private $facetsOb = null;
     private $sub_cats = array();

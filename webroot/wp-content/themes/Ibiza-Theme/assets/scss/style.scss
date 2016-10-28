@@ -102,7 +102,7 @@ CSS file.
 
 #channels{
     background: white none repeat scroll 0% 0%; 
-    padding: 20px 0px;
+    padding: 15px 0px;
     max-width: 1334px;
 }
 
@@ -131,6 +131,27 @@ CSS file.
 
 @media #{$small-up} {
 
+
+    #howto-tabs .tabs-title {
+        border-right: 1px solid #e1e1e1;
+        border-top: 1px solid #e1e1e1;
+        height: 50px;
+        text-align: left!important;
+        width: 100%!important;
+    }    
+    
+    
+    
+    #howto-tabs .tri {
+        border-color: #000000 transparent transparent;
+        border-style: solid;
+        border-width: 8px 6px 0;
+        float: right;
+        height: 0;
+        margin: -29px 14px 0 0!important;
+        width: 0;
+    }
+    
 
     #triangle-outter{
 
@@ -308,7 +329,7 @@ CSS file.
         _border-color: #000000 #fff #000000 #000000;
         _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
         position: absolute;
-        right: 100%;
+        left            : -59px;
         display:none;
         top:auto;
     }
@@ -318,7 +339,7 @@ CSS file.
         border-style    : solid;
         border-width    : 66.5px 58px 66.5px 0;
         height          : 0;
-        right           : 99.90%;
+        left            : -57px;
         line-height     : 0;
         top             : 1px;
         width           : 0;
@@ -793,7 +814,9 @@ p.ng-binding {
     transform: translateX(200px);
 }
 
-
+.add_facets {
+    margin-left: 0px;
+}
 .add_facets li{
     cursor: pointer;
     list-style: none;
@@ -825,10 +848,29 @@ p.ng-binding {
     margin: 0;
 }
 
+#search-cancel{
+    cursor:pointer; 
+    float: right; 
+    position: relative; 
+    left: -28%; 
+    top: 16px; 
+    color: rgb(255, 255, 255);
+    background:url(../images/close-search.png) no-repeat;
+    text-indent: 25px;
+}
+
 .tt-menu{  
 
-    border: 1px solid #ccc;
-    background: white;
+    background: white none repeat scroll 0 0;
+    margin: 5px -25px 0;
+    position: static!important;
+    right: 0;
+    text-align: left;
+    top: 100%;
+    width: 100%;
+    z-index: 100; 
+    margin-top: 40px;
+    
 }
 .tt-menu p{  
 
@@ -873,6 +915,11 @@ p.ng-binding {
 
 
 }
+
+.tt-suggestion img{
+    display:none;
+}
+
 
 .typeahead :-ms-input-placeholder {  
     color: #000;  
@@ -1172,21 +1219,40 @@ footer .menu-item a{
     text-align: center;
     background:rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
     display:none;
+    height:60px;
+    position: relative;
 }
 
 .search-container form{
+    background: white none repeat scroll 0 0;
+    border-radius: 15px;
     display: inline-block; 
-    background: rgb(255, 255, 255) none repeat scroll 0% 0%; 
-    border-radius: 34px; 
-    margin: 13px;
+    height: auto;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    z-index: 900;
 }
 .search-container  img{
-    width: 20px; 
-    vertical-align: baseline;
+    
+    height: 23px;
+    position: relative;
+    vertical-align: top;
+    z-index: 9999;    
+    margin-top: 5px;
+    
+}
+
+.search-field{
+    top:3px!important;
 }
 
 .twitter-typeahead{
-    width:66px;
+    width:90%;
 }
 
 .upw-after p{
@@ -1307,6 +1373,8 @@ li.tabs-title a{
 
 #sort_order {
     border: 1px solid #01BCB3;
+    font-weight: bold;
+    text-align: center;
 }
 
  
@@ -1322,24 +1390,72 @@ fieldset {
 .applied-filters p {
     font-weight: bold;
 }
-#reset-filter {
+#reset-filter, .pager .ng-scope {
     background: #00bcb4 none repeat scroll 0 0;
     height: 37px;
+}
+.pager {
+    list-style: none;
+    float: right;
+    margin: 0px;
+}
+
+.refine-results a, .previous-segement {
+    background: #00bcb4 none repeat scroll 0 0;
+    color: #fefefe;
+    text-decoration: none;
+}
+.previous-segement {
+    padding: 0.6em;
+}
+
+.pager .ng-scope {
+    @extend #reset-filter;
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 30px;
+    float: left;
+    line-height: 2.5em;
+    /*@extend .button;*/
+}
+
+.pager li a {
+    color: #fefefe;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+.pager .page-count {
+    float: left;
+    list-style: none;
+    text-align: center;
+    line-height: 1;
+    font-size: 0.9rem;   
+    margin: 0 0 1rem;
+    padding: 0.85em 3em;
 }
 
 #side-facets ul {
     list-style: none;
+    margin: 0;
 }
 #side-facets ul li label {
     cursor: pointer;
 }
-
 .cat-desc {
     background-color: #fff;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
 }
-
+.product-list-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 2em;
+}
 .arrow{
     background: rgba(0, 0, 0, 0) url("../images/arrow.png") no-repeat scroll 0 center;
     text-indent: 19px;
@@ -1428,6 +1544,27 @@ fieldset p{
     margin:0;
 }
 
+#channels p{
+    text-align: center;
+    margin: 0;
+    font-size:14px; 
+}
+
+.upw-after, .upw-before {
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+
+#howto_main .swiper-container-howto-main{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+}
+
+
 @font-face {
   font-family: 'fpicons';
   src:url('fonts/fpicons.eot?yg5dv7');
@@ -1452,6 +1589,44 @@ fieldset p{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.remove-filter {
+    color: #00bcb4;
+    border: 1px solid #00bcb4;
+    border-radius: 15px;
+    padding: 1px 4px 0px 4px;
+}
+.pagination {
+    width: 450px;
+}
+.pagination .ng-scope {
+    background: #fff none repeat scroll 0 0;
+    color: #000;
+}
+.pagination .pagination-next .ng-scope, .pagination .pagination-previous .ng-scope, .pagination .right, .pagination .left, .pagination a:hover, .pagination button:hover {
+    background: #00bcb4 none repeat scroll 0 0;
+    color: #fff;
+}
+.pagination .pagination-previous {
+    margin-right: 1rem
+}
+.pagination .pagination-next {
+    margin-left: 1rem
+}
+.pagination-previous a::before, .pagination-previous a::after, .pagination-next a::after {
+    content: "";
+    margin: 0;
+}
+.pagination .current {
+    padding: 0;
+    border: 0;
+}
+.pagination .current span {
+    border: 1px solid #00bcb4;
+}
+
+
+
 .flowplayer{position:relative;width:100%;counter-increment:flowplayer;background-size:contain;background-repeat:no-repeat;background-position:center center;display:inline-block;}
 .flowplayer *{font-weight:inherit;font-family:inherit;font-style:inherit;text-decoration:inherit;font-size:100%;padding:0;border:0;margin:0;list-style-type:none}
 .flowplayer a:focus{outline:0}
@@ -1765,5 +1940,4 @@ fieldset p{
 }@-ms-keyframes functional-controls-hide{0%{opacity:0;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0)}
 100%{bottom:0;right:0;left:0;opacity:1;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100)}
 }@keyframes functional-controls-hide{0%{opacity:0;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0)}
-100%{bottom:0;right:0;left:0;opacity:1;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100)}
-}
+100%{bottom:0;right:0;left:0;opacity:1;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100)}}
