@@ -68,29 +68,32 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
     <!-- Side Bar -->
-    <div class="columns cat-desc row">
-        <nav aria-label="You are here:" role="navigation">
-            <ul class="breadcrumbs">
-                <?php echo implode('', $breadcrumbs); ?>
-            </ul>
-        </nav>
-        <?php if($ibiza_api->cat_data->bannerimage):?>
-            <div style="height:200px;overflow: hidden">
-                <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
-            </div>
-        <?php endif; ?>
+    <div class="medium-10 medium-offset-1">
+        <div class="columns cat-desc row">
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <?php echo implode('', $breadcrumbs); ?>
+                </ul>
+            </nav>
+            <?php if($ibiza_api->cat_data->bannerimage):?>
+                <div style="height:200px;overflow: hidden">
+                    <img style="width: 100%" src="<?php echo$ibiza_api->cat_data->bannerimage; ?>" />
+                </div>
+            <?php endif; ?>
 
-        <h3><?php echo ucwords($cat_title); ?></h3>
+            <h3><?php echo ucwords($cat_title); ?></h3>
 
-        <?php if($ibiza_api->cat_data->description): ?>
-            <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
-        <?php else:?>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <?php endif; ?>
+            <?php if($ibiza_api->cat_data->description): ?>
+                <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
+            <?php else:?>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <?php endif; ?>
+        </div>
     </div>
+
     <div class="product-list-container">
         <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
-            <div class="sidebar large-2 columns show-for-large " role="complementary">
+            <div class="sidebar columns large-2 medium-12 small-12 large-text-left text-center" role="complementary">
 
                 <?php if($index=='howto'): ?>
                 <div id="side-facets">
@@ -188,19 +191,19 @@ if( $segments[0] == 'how-to-guides'  ){
 
 
             <!-- Thumbnails -->
-            <main id="main" class="large-10 medium-12 small-12 product-category-page columns" role="main" >
+            <main id="main" class="large-10 show-for-large product-category-page columns" role="main" >
 
                 <section class="row" id="second-band">
 
                     <?php if (is_active_sidebar('pop-cat-1') && is_active_sidebar('pop-cat-2') ) : ?>
 
-                    <article class="large-6 category-boxes columns">
+                    <article class="large-6 category-boxes catLarge columns">
 
                         <?php dynamic_sidebar('pop-cat-1'); ?>
 
                     </article>          
 
-                    <article class="large-6 category-boxes columns">
+                    <article class="large-6 category-boxes catLargeRight columns">
 
                         <?php dynamic_sidebar('pop-cat-2'); ?>
 
@@ -213,7 +216,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
                     <?php if (is_active_sidebar('pop-cat-1')) : ?>
 
-                    <article class="large-6 category-boxes columns">
+                    <article class="large-6 category-boxes catLarge columns">
 
                         <?php dynamic_sidebar('pop-cat-1'); ?>
 
@@ -223,7 +226,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
                     <?php if (is_active_sidebar('pop-cat-2')) : ?>
 
-                    <article class="large-6 category-boxes columns">
+                    <article class="large-6 category-boxes catLargeRight columns">
 
                         <?php dynamic_sidebar('pop-cat-2'); ?>
 
@@ -248,7 +251,13 @@ if( $segments[0] == 'how-to-guides'  ){
                     </article>
 
                     <?php endif; ?>        
-                </section>        
+                </section>
+
+                <section class="row">
+                    <article class="large-12 columns">
+                        <?php dynamic_sidebar('featured-products'); ?>
+                    </article>
+                </section>
 
                 <!-- End Thumbnails -->
             </main>
@@ -804,7 +813,21 @@ jQuery( document ).ready(function() {
 
         }
     });
- });    
+ });
+
+// Height matching code
+function heightMatcher(A,B){
+    jQuery(B).height('auto');
+    jQuery(B).height(jQuery(B).height());
+    jQuery(A).height(jQuery(B).height());
+};
+jQuery(document).ready(function(){
+    heightMatcher('.catLarge','.catLargeRight');
+    jQuery('.catLarge').find('*').css('height','100%');
+});
+jQuery(window).resize(function(){
+    heightMatcher('.catLarge','.catLargeRight');
+});
 </script>
 
 

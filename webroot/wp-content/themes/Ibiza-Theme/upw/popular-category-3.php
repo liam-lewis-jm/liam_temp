@@ -22,7 +22,7 @@ $cats           =  explode( ',' ,  $instance['cats'] ) ;
 
 $slider             = 0;
 $container_class    = 'category_widget';
-$row_class          = ' large-3 small-3 columns';
+$row_class          = ' large-3 small-6 columns';
 $swiper_data        = '';
 if( $slider == 1 ){
     $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';
@@ -145,7 +145,7 @@ if($rowArrs)
             
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
-              <article <?php post_class($current_post); ?>  style="    height: 100%;background-size:cover;background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
+              <article <?php post_class($current_post); ?>  style="    height: 100%;background-size:cover;background-image:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
     padding: 17px;" >
         <?php else:?>
                   
@@ -155,7 +155,7 @@ if($rowArrs)
             
             ?>
                   
-            <article <?php post_class($current_post); ?> style="    height: 100%;background-size:cover;background:url(<?php echo $rowArrTitles[trim(get_the_title())]['image'];; ?>); border: 1px solid #ddd;
+            <article <?php post_class($current_post); ?> style="    height: 100%;background-size:cover;background-image:url(<?php echo $rowArrTitles[trim(get_the_title())]['image'];; ?>); border: 1px solid #ddd;
     padding: 17px;" >
         <?php endif; ?>    
     

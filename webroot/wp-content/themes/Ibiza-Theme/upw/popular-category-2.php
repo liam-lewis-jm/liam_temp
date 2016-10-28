@@ -145,7 +145,7 @@ if($rowArrs)
             
     
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
-              <article <?php post_class($current_post); ?>  style="    height: 100%;background-size:cover;background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
+              <article <?php post_class($current_post); ?>  style="    height: 100%;background-size:cover;background-image:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); border: 1px solid #ddd;
     padding: 17px;" >
         <?php else:?>
                   
@@ -155,7 +155,7 @@ if($rowArrs)
             
             ?>
                   
-            <article <?php post_class($current_post); ?> style="    height: 100%;background-size:cover;background:url(<?php echo $rowArrTitles[trim(get_the_title())]['image'];; ?>); border: 1px solid #ddd;
+            <article <?php post_class($current_post); ?> style="    height: 100%;background-size:cover;background-image:url(<?php echo $rowArrTitles[trim(get_the_title())]['image'];; ?>); border: 1px solid #ddd;
     padding: 17px;" >
         <?php endif; ?>    
     

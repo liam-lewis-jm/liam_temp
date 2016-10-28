@@ -173,7 +173,7 @@ function joints_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'pop-cat-2',
 		'name' => __('Popular categories 2', 'jointswp'),
-		'description' => __('Popular categories big image.', 'jointswp'),
+		'description' => __('Popular categories four images to the right of the big image.', 'jointswp'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -183,7 +183,17 @@ function joints_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'pop-cat-3',
 		'name' => __('Popular categories 3', 'jointswp'),
-		'description' => __('Popular categories big image.', 'jointswp'),
+		'description' => __('Popular categories four images below big image.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+	register_sidebar(array(
+		'id' => 'featured-products',
+		'name' => __('Featured Products', 'jointswp'),
+		'description' => __('Featured product slider.', 'jointswp'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
