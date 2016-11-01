@@ -133,26 +133,24 @@
                         </div>                    
                     </div>
                     
-                    <?php if( $is_home ): ?>
                     <div style="background:#fff;">
-                    <div class="row" id="channels" style="large-12-xtra" style="text-align: center;">
-                        
-                        <div class="small-4 columns tv-channel-con text-center medium-text-left">
+                        <div class="row" id="channels" style="large-12-xtra" style="text-align: center;">
 
-                            <p>Free Beginner, intermediate &amp; Advanced Tutorials</p>
+                            <div class="small-4 columns tv-channel-con text-center medium-text-left">
+
+                                <p>Free Beginner, intermediate &amp; Advanced Tutorials</p>
+
+                            </div>
+                            <div class="small-4 columns  tv-channel-con text-center medium-text-left" style="border-left:1px solid #000;border-right:1px solid #000;">
+
+                                <p>Buy Online - Standard Delivery Only &pound;2.99</p>
+
+                            </div>
+                            <div class="small-4 columns  tv-channel-con text-center medium-text-left">
+
+                                <p>Watch Online or Available on Channel 74</p>
+
+                            </div>
 
                         </div>
-                        <div class="small-4 columns  tv-channel-con text-center medium-text-left" style="border-left:1px solid #000;border-right:1px solid #000;">
-
-                            <p>Buy Online - Standard Delivery Only &pound;2.99</p>
-
-                        </div>
-                        <div class="small-4 columns  tv-channel-con text-center medium-text-left">
-
-                            <p>Watch Online or Available on Channel 74</p>
-                            
-                        </div>
-
                     </div>
-                    </div>
-                    <?php endif; ?>
