@@ -176,6 +176,13 @@ h4{
 
 @media #{$small-up} {
 
+ 
+.paging-container{
+        float: none;
+    max-width: 210px;
+    width: 100%;
+    margin:0 auto;
+}
 
     #howto-tabs .tabs-title {
         border-right: 1px solid #e1e1e1;
@@ -348,7 +355,16 @@ h4{
 
 
 @media #{$large-up} {
-
+    
+    p.ng-binding {
+    text-align: left!important;
+}
+    
+.paging-container{
+        float: right;
+    max-width: 210px;
+    width: 100%;
+}
 
     div#title-area {
         position: static; 
@@ -660,8 +676,11 @@ li.dimension{
 }
 
 p.ng-binding {
-    height: 60px;
+    //display: inline;
+    line-height: 39px;
+    margin: 0;
     overflow: hidden;
+    text-align: center;
 }
 /*
 .row{
@@ -669,7 +688,26 @@ p.ng-binding {
 }*/
 
 #main .panel{
-    height:550px;
+    margin:0 0 30px 0 ;
+}
+
+
+
+.product-list-container .large-3 img{
+    border:1px solid #414141;
+}
+
+.product-list-container h5{
+    margin:15px 0;
+    font-size:14px;
+    height:30px;
+}
+
+
+#side-facets h3 {
+    background: rgba(0, 0, 0, 0) url("../images/Icon_Accordian.png") no-repeat scroll right center;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 
@@ -1420,6 +1458,7 @@ li.tabs-title a{
     border: 1px solid #01BCB3;
     font-weight: bold;
     text-align: center;
+    margin:0;
 }
 
  
@@ -1437,12 +1476,18 @@ fieldset {
 }
 #reset-filter, .pager .ng-scope {
     background: #00bcb4 none repeat scroll 0 0;
-    height: 37px;
 }
 .pager {
     list-style: none;
-    float: right;
     margin: 0px;
+    display:inline-block;
+}
+
+li.refine-results{
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
 }
 
 .refine-results a, .previous-segement {
@@ -1463,14 +1508,15 @@ fieldset {
     width: 30px;
     float: left;
     line-height: 2.5em;
+    
     /*@extend .button;*/
 }
 
 .pager li a {
-    color: #fefefe;
     float: left;
     height: 100%;
     width: 100%;
+    padding:0;
 }
 .pager .page-count {
     float: left;
@@ -1491,19 +1537,18 @@ fieldset {
 }
 .cat-desc {
     background-color: #fff;
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
-    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    padding: 0.5em 1.5em;
 }
 .product-list-container {
     background-color: #fff;
-    width: 100%;
-    max-width: 100%;
-    padding-top: 2em;
+}
+.product-list-container #inner-content-product-list{
+    padding-top:rem-calc(35);
 }
 .arrow{
     background: rgba(0, 0, 0, 0) url("../images/arrow.png") no-repeat scroll 0 center;
-    text-indent: 19px;
 }
 .sq-border{
     background: transparent url("../images/border.gif") repeat-x scroll 0 bottom;
@@ -1610,6 +1655,19 @@ fieldset p{
 }
 
 
+
+
+.paging-meta{
+    
+    display: block;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 82px;
+    
+}
 @font-face {
   font-family: 'fpicons';
   src:url('fonts/fpicons.eot?yg5dv7');
@@ -1641,17 +1699,40 @@ fieldset p{
     border-radius: 15px;
     padding: 1px 4px 0px 4px;
 }
-.pagination {
-    width: 450px;
+ 
+.paging-info{
+    position: relative;
 }
-.pagination .ng-scope {
+
+.paging-info li:last-child{
+    float:right;
+}
+
+.pagination li.ng-scope {
     background: #fff none repeat scroll 0 0;
     color: #000;
 }
-.pagination .pagination-next .ng-scope, .pagination .pagination-previous .ng-scope, .pagination .right, .pagination .left, .pagination a:hover, .pagination button:hover {
+ .paging-info .pagination a, .pagination button:hover , .pager .arrow:first-child , .pager .arrow:last-child {
     background: #00bcb4 none repeat scroll 0 0;
-    color: #fff;
+    text-align: center;
+    display: inline;
+    color:#fff;
 }
+
+.pager .arrow:first-child , .pager .arrow:last-child {
+    
+   margin:0 20px;
+   
+    
+}
+
+.pager .arrow:first-child a, .pager .arrow:last-child a{
+    
+    color:#fff!important;
+   
+    
+}
+
 .pagination .pagination-previous {
     margin-right: 1rem
 }
