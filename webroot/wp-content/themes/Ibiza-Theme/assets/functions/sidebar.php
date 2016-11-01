@@ -91,7 +91,6 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
-
 	register_sidebar(array(
 		'id' => 'howtoguides',
 		'name' => __('How to Guides Products', 'jointswp'),
@@ -101,8 +100,6 @@ function joints_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-
-
 
 	register_sidebar(array(
 		'id' => 'products',
@@ -114,11 +111,6 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
-        
-       
-
-
-
 	register_sidebar(array(
 		'id' => 'homepagebelowmaincontent_full',
 		'name' => __('Homepage panel below content full', 'jointswp'),
@@ -129,11 +121,25 @@ function joints_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+	register_sidebar(array(
+		'id' => 'homepagebelowmaincontent_4by2_first',
+		'name' => __('Homepage panel below content four by two - first', 'jointswp'),
+		'description' => __('The upper four by two blocks on the homepage.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
-        
-       
-
-
+	register_sidebar(array(
+		'id' => 'homepagebelowmaincontent_4by2_second',
+		'name' => __('Homepage panel below content four by two - second', 'jointswp'),
+		'description' => __('The lower four by two blocks on the homepager.', 'jointswp'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
 	register_sidebar(array(
 		'id' => 'homepagebelowmaincontent_full2',
@@ -144,11 +150,6 @@ function joints_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-
-        
-       
-
-
 
 	register_sidebar(array(
 		'id' => 'presenters',

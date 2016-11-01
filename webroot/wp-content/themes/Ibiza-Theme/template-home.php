@@ -14,11 +14,11 @@
 
         <?php if (is_front_page()): ?>
 
-            <main id="main" class="large-8 medium-12 columns" role="main">
+            <main id="main" class="large-6 medium-12 columns" role="main">
 
             <?php else: ?>
 
-            <main id="main" class="large-8 medium-12 columns" role="main">
+            <main id="main" class="large-6 medium-12 columns" role="main">
 
             <?php endif; ?>
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -51,32 +51,21 @@
                     <div class="large-6 columns" style="padding-left: 0">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="/todays-products/" class="upper">View all products from Today</a>
                     </div>
-                </div>
-                
-                <?php if (is_active_sidebar('homepageleft')) : ?>
-
-                    <?php dynamic_sidebar('homepageleft'); ?>
-
-                <?php endif; ?>  
+                </div> 
                 
                 
-              
-                
-
             </main> <!-- end #main -->
 
             
-        
             
-            
-            <?php if (is_active_sidebar('homepagesidebar')) : ?>
-
-                <?php dynamic_sidebar('homepagesidebar'); ?>
+            <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
+                <div class="large-6 medium-12 columns">
+                    <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
+                </div>
 
             <?php endif; ?>
             
-            
-            
+
             
             <div class="text-center medium-4 small-12 column show-for-small hide-for-large" id="tv-options">
                 <div class="medium-6 small-6 columns" style="padding-left: 0;">
@@ -116,42 +105,7 @@
 </div> <!-- end #content -->
 
 
-<div class="row show-for-xxlarge">
-        <div class="medium-6 medium-centered">
-               <div class="row">
-
-                        <div style="background: white none repeat scroll 0% 0%; padding-left: 0px;" class="medium-6 columns">
-                            <div style="color:#fff;position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: #00bcb4 none repeat scroll 0px 0px; padding: 0px 10px;">
-                                On Now
-                                <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent #00bcb4; position: absolute; top: 0px; right: -21px;"></div>
-                            </div>
-                            
-                            <div class="tv-schedule-details">
-                                <p>08:00 - 09:00</p>
-                                <p>Title of the show and who the presenter</p>
-                            </div>
-                        </div>
-                   
-                        <div style="background: white none repeat scroll 0% 0%; padding-left: 0px;" class="medium-6 columns">
-                          <div style="color:#fff;position: relative; vertical-align: bottom; height: 49px; line-height: 49px; display: inline-block; background: #00bcb4 none repeat scroll 0px 0px; padding: 0px 10px;">
-                          On Next
-                            <div style="width: 0px; height: 0px; border-style: solid; border-width: 24.5px 0px 24.5px 21px; border-color: transparent transparent transparent #00bcb4; position: absolute; top: 0px; right: -21px;"></div>
-                          </div>
-
-                            <div class="tv-schedule-details">
-                              <p>08:00 - 09:00</p>
-                              <p>Title of the show and who the presenter</p>
-                            </div>                            
-                            
-
-                        </div>                        
-               
-               
-               </div><!-- /.row -->
-        </div><!-- /.medium-6.center -->
-</div>
-
-<div style="margin-top: 35px; background: rgb(255, 255, 255) url(/wp-content/themes/Ibiza-Theme/assets/images/fold-bg.png) repeat-x scroll 0px 0px;" class="fullwidth">
+<div style="margin-top: 35px; background: rgb(255, 255, 255);" class="fullwidth">
 
     <section class="row" id="second-band">
 
@@ -160,35 +114,7 @@
                 <?php dynamic_sidebar('homepagebelowmaincontent'); ?>
         </div>
         <?php endif; ?>
-
-        <?php if (is_active_sidebar('homepagebelowmaincontent_left1') && is_active_sidebar('homepagebelowmaincontent_left2') ) : ?>
-
-        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
-
-            <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
-
-        </article>          
-
-        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-3 columns">
-
-            <?php dynamic_sidebar('homepagebelowmaincontent_left2'); ?>
-
-        </article>          
-
-
-        <?php else: ?>
-
-
-
-        <?php if (is_active_sidebar('homepagebelowmaincontent_left1')) : ?>
-
-        <article class="learning__item box3--getting-started mobile-half tablet-and-up-half desktop-quarter large-6 columns">
-
-            <?php dynamic_sidebar('homepagebelowmaincontent_left1'); ?>
-
-        </article>          
-
-        <?php endif; ?>     
+    
 
         <?php if (is_active_sidebar('homepagebelowmaincontent_left2')) : ?>
 
@@ -201,12 +127,7 @@
         <?php endif; ?>     
 
 
-
-
-        <?php endif; ?> 
-
-
-        <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
+        <?php if (1 == 2 && is_active_sidebar('homepagebelowmaincontent_right')) : ?>
 
         <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
 
@@ -219,7 +140,7 @@
         <div class="clear"></div>
         
         
-        <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
+        <?php if (1 == 2 && is_active_sidebar('homepagebelowmaincontent_full')) : ?>
 
         <article class="large-12">
 
@@ -227,7 +148,18 @@
 
         </article>
 
-        <?php endif; ?>        
+        <?php endif; ?>
+
+
+        <?php if (is_active_sidebar('homepagebelowmaincontent_4by2_first')) : ?>
+
+        <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
+
+            <?php dynamic_sidebar('homepagebelowmaincontent_4by2_first'); ?>
+
+        </article>         
+
+        <?php endif; ?>          
         
 
     </section>        
@@ -237,11 +169,11 @@
 
     <section class="row" id="third-band">
 
-        <?php if (is_active_sidebar('homepagebelowmaincontent_full2')) : ?>
+        <?php if (is_active_sidebar('homepagebelowmaincontent_4by2_second')) : ?>
 
         <article class="">
 
-            <?php dynamic_sidebar('homepagebelowmaincontent_full2'); ?>
+            <?php dynamic_sidebar('homepagebelowmaincontent_4by2_second'); ?>
 
         </article>
 
