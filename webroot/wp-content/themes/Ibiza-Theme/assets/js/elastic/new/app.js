@@ -12,6 +12,7 @@ app.controller('PaginationDemoCtrl', function ($scope) {
   $scope.currentPage = indexVm.page;
   $scope.maxSize = 3;
   $scope.itemsPerPage = indexVm.pageSize;
+  $scope.prevText = '<img src="https://s3-eu-west-1.amazonaws.com/project-ibiza-dev/images/f48e3691-5b64-4a6f-94b4-083e8ec40434.jpg" />';
  
   $scope.setPage = function (pageNo) {
     $scope.currentPage = pageNo;
