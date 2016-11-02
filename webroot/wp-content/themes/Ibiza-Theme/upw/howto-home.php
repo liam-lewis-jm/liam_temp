@@ -106,7 +106,7 @@ if( count( $ids ) >0 )
     
         
     
-        <?php $howto =  get_product_by_mongo_id( $post->post_title ) ;  print_r($product); ?>
+        <?php $howto =  get_product_by_mongo_id( $post->post_title ) ; /// print_r($product); ?>
      <div class="<?php echo $row_class; ?>">
         
          <article <?php post_class($current_post); ?>>

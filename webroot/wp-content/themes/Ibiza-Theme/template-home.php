@@ -161,19 +161,31 @@
 
         <?php endif; ?>          
         
+        
+        <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
+
+        <article class="large-12">
+
+            <?php dynamic_sidebar('homepagebelowmaincontent_full'); ?>
+
+        </article>
+
+        <?php endif; ?>          
+        
 
     </section>        
 
 </div>
 
 
+
     <section class="row" id="third-band">
 
-        <?php if (is_active_sidebar('homepagebelowmaincontent_4by2_second')) : ?>
+        <?php if (is_active_sidebar('homepagebelowmaincontent_full2')) : ?>
 
         <article class="">
 
-            <?php dynamic_sidebar('homepagebelowmaincontent_4by2_second'); ?>
+            <?php dynamic_sidebar('homepagebelowmaincontent_full2'); ?>
 
         </article>
 
