@@ -120,20 +120,25 @@ h4{
 
 #third-band{
     .post-block{
-        article{
-            background-size: cover;
-        }
         padding: 0.9375rem;
-        header{
+        .post-block-container{
             background: white;
             text-align: left;
-            padding: 13px 18px;
-            h4{
-                a{
-                    color: inherit;
+            .post-block-thumb{
+                background-size: cover;
+            }
+            header{
+                padding: 13px 18px 0;
+                h4{
+                    a{
+                        color: inherit;
+                    }
+                    padding: initial;
+                    margin: 0;
                 }
-                padding: initial;
-                margin: 0;
+            }
+            article{
+                padding: 0 18px;
             }
         }
     }
