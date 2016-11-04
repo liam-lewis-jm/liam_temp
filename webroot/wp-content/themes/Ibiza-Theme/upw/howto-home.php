@@ -113,11 +113,11 @@ if( count( $ids ) >0 )
          
          
         <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>              
-              <header <?php post_class($current_post); ?>  style="background:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>)  no-repeat  #fff; border: 1px solid #ddd;
+              <header <?php post_class($current_post); ?>  style="background-image:url(<?php the_post_thumbnail_url($instance['thumb_size']); ?>); background-size: cover;
     padding: 17px;" >
                   
         <?php elseif ($howto->data->image) : ?>              
-             <header <?php post_class($current_post); ?>  style="background:url(<?php echo $howto->data->image; ?>) no-repeat #fff; border: 1px solid #ddd;
+             <header <?php post_class($current_post); ?>  style="background-image:url(<?php echo $howto->data->image; ?>); background-size: cover;
          padding: 17px;" >
         <?php else:?>
             <header <?php post_class($current_post); ?>>
@@ -195,6 +195,9 @@ if( count( $ids ) >0 )
             </div>
           <?php endif; ?>
 
+          <div class="skill-level">
+            <p>Skill Level: Advanced</p>
+          </div>
             
         </div> 
                 

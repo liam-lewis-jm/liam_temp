@@ -10,7 +10,7 @@
     
     <div id="operationLogInfo"></div>
     
-    <div id="inner-content" class="row">
+    <div id="inner-content" class="home-inner-content row">
 
         <?php if (is_front_page()): ?>
 
@@ -127,7 +127,7 @@
         <?php endif; ?>     
 
 
-        <?php if (1 == 2 && is_active_sidebar('homepagebelowmaincontent_right')) : ?>
+        <?php if (is_active_sidebar('homepagebelowmaincontent_right')) : ?>
 
         <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
 
@@ -137,10 +137,21 @@
 
         <?php endif; ?>  
 
+        <!-- 4 by 2 section -->
+        <?php if (is_active_sidebar('homepagebelowmaincontent_4by2')) : ?>
+
+        <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
+
+            <?php dynamic_sidebar('homepagebelowmaincontent_4by2'); ?>
+
+        </article>         
+
+        <?php endif; ?> 
+
         <div class="clear"></div>
         
         
-        <?php if (1 == 2 && is_active_sidebar('homepagebelowmaincontent_full')) : ?>
+        <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
 
         <article class="large-12">
 
@@ -151,17 +162,6 @@
         <?php endif; ?>
 
 
-        <?php if (is_active_sidebar('homepagebelowmaincontent_4by2_first')) : ?>
-
-        <article class="learning__item box1--videos mobile-full tablet-and-up-half ">
-
-            <?php dynamic_sidebar('homepagebelowmaincontent_4by2_first'); ?>
-
-        </article>         
-
-        <?php endif; ?>          
-        
-        
         <?php if (is_active_sidebar('homepagebelowmaincontent_full')) : ?>
 
         <article class="large-12">
@@ -228,6 +228,11 @@
 
              });
         });              
+
+       //hero slider height
+        jQuery('.swiper-slide').each(function(){
+            jQuery(this).height(jQuery(this).parents('#inner-content').height());
+        });
 
     });
 </script>

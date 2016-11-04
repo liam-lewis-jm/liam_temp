@@ -7,12 +7,6 @@
 
 var mySwiperBanner = null;
 
-function setHeight()
-{
-    var height = jQuery('.swiper-container-banner .swiper-slide').css('width');
-    jQuery('.swiper-container-banner .swiper-slide').height(height);
-}
-
 jQuery( document ).ready(function() {
     //initialize swiper when document ready  
     mySwiperBanner = new Swiper('.swiper-container-banner', {
@@ -23,10 +17,5 @@ jQuery( document ).ready(function() {
         prevButton: '.swiper-button-prev'
     });
     
-    jQuery( window ).resize(function() {
-        setHeight();
-    
-    });    
-    setHeight();
 });    
     
