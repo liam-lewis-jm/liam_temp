@@ -33,6 +33,13 @@ $cat_title          = $ibiza_api->cat_data->title;
 $segments           = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
 
 
+if( $_GET['q'] ){
+
+    unset($breadcrumbs['']);
+    $breadcrumbs[]  = '<li>Search - ' . (string) htmlentities( $_GET['q'] ) . '</li>';
+}
+
+
 
 if( $segments[0] == 'how-to-guides'  ){
     $index              = 'howto';
@@ -96,6 +103,7 @@ if( $segments[0] == 'how-to-guides'  ){
                 <h3><?php echo ucwords($cat_title); ?></h3>
 
                 <?php if($ibiza_api->cat_data->description): ?>
+                    <h2><?php echo $ibiza_api->title; ?></h2>
                     <?php echo nl2br( $ibiza_api->cat_data->description);?>                   
                 <?php else:?>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -126,7 +134,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
                 <p class="show-for-large"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icon_RefineResults_Black.png" /> Refine Results:</p>
                 <div class="applied-filters">
-                    <p>Applied Filters:</p>
+                    <p class="bold">Applied Filters:</p>
                     <ul class="add_facets"></ul>
                     <button id="reset-filter" aria-expanded="false" aria-haspopup="true" data-yeti-box="example-dropdown2" data-is-focus="false" aria-controls="example-dropdown2" class="button" style="vertical-align: top"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icon_Productlist_ResetFilters.png" /> RESET ALL</button>
                 </div>

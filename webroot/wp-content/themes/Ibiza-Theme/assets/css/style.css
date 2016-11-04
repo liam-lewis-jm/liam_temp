@@ -177,16 +177,17 @@ http://codex.wordpress.org/Creating_Admin_Themes
   color: #e95968; }
 .header-container .basket-link {
   background: transparent url(../images/Icon_Basket_Black.png) no-repeat scroll 0px 0px;
-  padding-bottom: 8px;
+  padding-bottom: 13px;
   padding-left: 45px;
-  padding-top: 6px; }
+  padding-top: 1px; }
 .header-container .basket-link.active, .header-container .basket-link:hover {
   background-image: url(../images/Icon_Basket_Raspberry.png); }
 .header-container .search-link {
   background: transparent url(../images/Icon_Search_Black.png) no-repeat scroll 0px 0px;
-  padding-bottom: 8px;
+  padding-bottom: 13px;
   padding-left: 45px;
-  padding-top: 6px; }
+  padding-top: 1px;
+  margin-right: 37px; }
 .header-container .search-link.active, .header-container .search-link:hover {
   background-image: url(../images/Icon_Search_Raspberry.png); }
 
@@ -5824,6 +5825,9 @@ h4 {
   .small-top-margin-push {
     padding-top: 2%; }
 
+  .medium-right-align {
+    text-align: right; }
+
   .block {
     text-align: center;
     margin-top: 40%; }
@@ -5879,7 +5883,6 @@ h4 {
     position: relative; }
 
   .header-container {
-    text-align: right;
     margin: 2px 0 0; }
     .header-container a {
       font-size: 1.125rem;
@@ -5994,15 +5997,11 @@ li.dimension {
   display: none; }
 
 p.ng-binding {
-  line-height: 39px;
+  line-height: 31px;
   margin: 0;
   overflow: hidden;
   text-align: center; }
 
-/*
-.row{
-    max-width:98%!important;
-}*/
 #main .panel {
   margin: 0 0 30px 0; }
 
@@ -6014,10 +6013,19 @@ p.ng-binding {
   font-size: 14px;
   height: 60px; }
 
-#side-facets h3 {
-  background: transparent url("../images/Icon_Accordian.png") no-repeat scroll right center;
-  font-size: 16px;
-  cursor: pointer; }
+#side-facets {
+  margin: 2.1875rem 0; }
+  #side-facets h3 {
+    background: transparent url("../images/Icon_Accordian.png") no-repeat scroll right center;
+    font-size: 16px;
+    cursor: pointer; }
+    #side-facets h3:hover {
+      color: #ea516c; }
+  #side-facets ul {
+    list-style: none;
+    margin: 0; }
+  #side-facets ul li label {
+    cursor: pointer; }
 
 /* Image Box Style */
 #main .box {
@@ -6624,11 +6632,17 @@ fieldset {
   border: 1px solid #e3e3e3;
   padding: 15px; }
 
-.applied-filters p {
-  font-weight: bold; }
+.bold, #side-facets h3 {
+  font-family: 'CeraPRO-Medium'; }
 
 #reset-filter {
-  background: #00bcb4 none repeat scroll 0 0; }
+  background: #00bcb4 none repeat scroll 0 0;
+  margin: 0;
+  padding: 3px 15px; }
+  #reset-filter img {
+    vertical-align: text-bottom; }
+  #reset-filter:hover {
+    background: #ea516c; }
 
 .pager {
   list-style: none;
@@ -6649,7 +6663,7 @@ li.refine-results {
 .previous-segement {
   padding: 0.6em; }
 
-.pager .ng-scope {
+.pager p.ng-scope {
   list-style: none;
   cursor: pointer;
   font-size: 0.9rem;
@@ -6673,13 +6687,6 @@ li.refine-results {
   font-size: 0.9rem;
   margin: 0 0 1rem;
   padding: 0.85em 3em; }
-
-#side-facets ul {
-  list-style: none;
-  margin: 0; }
-
-#side-facets ul li label {
-  cursor: pointer; }
 
 .cat-desc {
   background-color: #fff;
@@ -6778,7 +6785,7 @@ fieldset p {
   margin: auto;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0.3125rem;
   width: 82px; }
 
 @font-face {
@@ -6800,10 +6807,23 @@ fieldset p {
   -moz-osx-font-smoothing: grayscale; }
 
 .remove-filter {
-  color: #00bcb4;
-  border: 1px solid #00bcb4;
-  border-radius: 15px;
-  padding: 1px 4px 0px 4px; }
+  background: transparent url("../images/Btn_Cancel_Green.png") no-repeat scroll 0 0;
+  display: inline-block;
+  height: 18px;
+  line-height: 15px;
+  text-indent: 25px;
+  width: 100%; }
+  .remove-filter:hover {
+    background-image: url(../images/Btn_Cancel_hover.png);
+    color: #e95968; }
+
+select {
+  background-image: url(../images/Btn_DropDownMenu_Green.png);
+  background-size: 26px 26px;
+  height: 1.9375rem;
+  padding: 2px 2px 2px 2px;
+  background-position: right top;
+  text-transform: uppercase; }
 
 .paging-info {
   position: relative; }
@@ -6819,7 +6839,16 @@ fieldset p {
   background: #00bcb4 none repeat scroll 0 0;
   text-align: center;
   display: inline;
-  color: #fff; }
+  color: #fff;
+  display: inline-block;
+  height: 26px;
+  padding: 0;
+  width: 26px; }
+  .paging-info .pagination a:hover, .pagination button:hover:hover, .pager .arrow:first-child:hover, .pager .arrow:last-child:hover {
+    background: #ea516c !important; }
+
+.pagination a:hover {
+  background: #ea516c !important; }
 
 .pager .arrow:first-child, .pager .arrow:last-child {
   margin: 0 20px; }

@@ -599,14 +599,12 @@ h4{
 
 @media #{$medium-up} {
 
-
-
-
-
-
-
     .small-top-margin-push{
         padding-top:2%;
+    }
+
+    .medium-right-align{
+        text-align: right;
     }
 
     .block{
@@ -683,7 +681,7 @@ h4{
     }
 
     .header-container {
-        text-align: right;
+        //text-align: right;
         margin: 2px 0 0;
         a{
             font-size:rem-calc(18);
@@ -864,16 +862,12 @@ li.dimension{
 }
 
 p.ng-binding {
-    //display: inline;
-    line-height: 39px;
+    line-height: 31px;
     margin: 0;
     overflow: hidden;
     text-align: center;
 }
-/*
-.row{
-    max-width:98%!important;
-}*/
+
 
 #main .panel{
     margin:0 0 30px 0 ;
@@ -892,10 +886,28 @@ p.ng-binding {
 }
 
 
-#side-facets h3 {
-    background: rgba(0, 0, 0, 0) url("../images/Icon_Accordian.png") no-repeat scroll right center;
-    font-size: 16px;
-    cursor: pointer;
+#side-facets {
+    
+    margin:rem-calc(35) 0;
+    
+    h3 {
+        background: rgba(0, 0, 0, 0) url("../images/Icon_Accordian.png") no-repeat scroll right center;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover{
+            color:#ea516c;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        margin: 0;
+    }    
+    ul li label {
+        cursor: pointer;
+    }    
+    
+    
 }
 
 
@@ -1662,11 +1674,21 @@ fieldset {
     border: 1px solid #e3e3e3;
     padding: 15px;
 }
-.applied-filters p {
-    font-weight: bold;
+
+.bold,#side-facets h3{
+    font-family: 'CeraPRO-Medium';
 }
+
 #reset-filter {
     background: #00bcb4 none repeat scroll 0 0;
+    margin:0;
+    padding:3px 15px;
+    img{
+        vertical-align: text-bottom;
+    }
+    &:hover{
+        background: #ea516c;
+    }
 }
 .pager {
     list-style: none;
@@ -1690,7 +1712,7 @@ li.refine-results{
     padding: 0.6em;
 }
 
-.pager .ng-scope {
+.pager p.ng-scope {
     
     list-style: none;
     cursor: pointer;
@@ -1719,13 +1741,8 @@ li.refine-results{
     padding: 0.85em 3em;
 }
 
-#side-facets ul {
-    list-style: none;
-    margin: 0;
-}
-#side-facets ul li label {
-    cursor: pointer;
-}
+
+
 .cat-desc {
     background-color: #fff;
     margin-bottom: 1.5em;
@@ -1851,7 +1868,7 @@ fieldset p{
     margin: auto;
     position: absolute;
     right: 0;
-    top: 0;
+    top: rem-calc(5);
     width: 82px;
     
 }
@@ -1881,11 +1898,26 @@ fieldset p{
 }
 
 .remove-filter {
-    color: #00bcb4;
-    border: 1px solid #00bcb4;
-    border-radius: 15px;
-    padding: 1px 4px 0px 4px;
+    background: rgba(0, 0, 0, 0) url("../images/Btn_Cancel_Green.png") no-repeat scroll 0 0;
+    display: inline-block;
+    height: 18px;
+    line-height: 15px;
+    text-indent: 25px;
+    width: 100%;
+    &:hover {
+        background-image:url( ../images/Btn_Cancel_hover.png );
+        color:#e95968;
+    }
 }
+select{
+    background-image:url(../images/Btn_DropDownMenu_Green.png);
+    background-size:26px 26px;
+    height:rem-calc(31);
+    padding:2px 2px 2px 2px;
+    background-position: right top;
+    text-transform:uppercase;
+}
+
  
 .paging-info{
     position: relative;
@@ -1904,6 +1936,20 @@ fieldset p{
     text-align: center;
     display: inline;
     color:#fff;
+    display: inline-block;
+    height: 26px;
+    padding: 0;
+    width: 26px;    
+    &:hover{
+        background:#ea516c!important;
+    }
+    
+}
+
+.pagination a   {
+        &:hover{
+        background:#ea516c!important;
+    }
 }
 
 .pager .arrow:first-child , .pager .arrow:last-child {

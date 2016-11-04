@@ -119,16 +119,17 @@ http://codex.wordpress.org/Creating_Admin_Themes
   color: #e95968; }
 .header-container .basket-link {
   background: transparent url(../images/Icon_Basket_Black.png) no-repeat scroll 0px 0px;
-  padding-bottom: 8px;
+  padding-bottom: 13px;
   padding-left: 45px;
-  padding-top: 6px; }
+  padding-top: 1px; }
 .header-container .basket-link.active, .header-container .basket-link:hover {
   background-image: url(../images/Icon_Basket_Raspberry.png); }
 .header-container .search-link {
   background: transparent url(../images/Icon_Search_Black.png) no-repeat scroll 0px 0px;
-  padding-bottom: 8px;
+  padding-bottom: 13px;
   padding-left: 45px;
-  padding-top: 6px; }
+  padding-top: 1px;
+  margin-right: 37px; }
 .header-container .search-link.active, .header-container .search-link:hover {
   background-image: url(../images/Icon_Search_Raspberry.png); }
 
