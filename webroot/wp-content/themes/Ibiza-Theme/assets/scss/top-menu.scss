@@ -30,9 +30,6 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 .top-bar .menu {
     
-
-
-    
     &:first-child {
         a{
             &:hover + .ibiza-menu {
@@ -43,7 +40,6 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
             &:hover {
                 position: relative;
-                
                 z-index: 9999999;
             }
         }
@@ -70,64 +66,106 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 #menu-main-1 > .menu-item > a:first-child{
     height:56px;
+    font-size:rem-calc(18);
+    font-family: 'CeraPRO-Medium';
 }
 
-#menu-main-1 > .menu-item > a:first-child:hover{
-    color:$brand-color;
+
+ 
+
+
+.ibiza-menu > ul > li > ul > li.menu-item a{
+    border-left: 5px solid #000;
+    height: auto;
+    margin: 0 10px 10px 0;
+    padding-left: 7px;
 }
+
+.ibiza-menu > ul > li > ul > li.menu-item .menu-item a{
+    
+    
+   border-left: none;
+   font-weight:normal;
+}
+
+
+#tri{
+
+    border-color: transparent transparent #e95968;
+    border-style: solid;
+    border-width: 0 25px 25px;
+    height: 0;    
+    position: absolute;
+    width: 0;
+    z-index: -1;
+    margin-top: 7px
+}
+
 
 .ibiza-menu > .menus > .menu-item-has-children > a:first-child
 {
-            font-weight:bold;
-            color:#fff!important;
-            display:inline-block!important;
-            margin-bottom:20px; 
-            background:$brand-color;
-            padding:10px;
-}
-
-.ibiza-menu  ul{
-
-    list-style: none;
-    margin-left:0;
-
-
-    ul  a{
-        font-weight:normal;
-        background:#fff;
-        font-size:14px;
-
-    }     
-
-    .menu-item-has-children{
-
-        a{
-
-        }
-
-        a:hover {
-            text-decoration: underline;
-
-        }
+    font-weight:bold;
+    color:#fff!important;
+    display:inline-block!important;
+    width: auto!important;
+    margin-bottom:10px; 
+    background:$brand-color;
+    padding:10px;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;       
+    &:hover{
+        background:#e95968;
+     
     }
-
-
-
-
-
-}
-
-
-.menu-item-32 {
     
 }
 
 .ibiza-menu {
 
+    
+    ul{
 
-    //box-shadow: 0 5px 14px 0px #313131;
-    background: transparent none repeat scroll 0 0;
-    border-top: 2px solid $brand-color;
+        list-style: none;
+        margin-left:0;
+
+
+        ul  a{
+                font-weight:normal;
+                background:#fff;
+                font-size:14px;
+
+        }     
+
+        .menu-item-has-children{
+
+            a{
+
+            }
+
+        }
+    
+    
+    }
+    
+    &:hover {
+        display:block;
+    }
+    
+    
+    column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child)
+    {
+        float:left;
+    }
+    
+    li.large-3 , li.medium-3 {
+        width:15%;
+    }    
+    
+
+    border-top: 2px solid #e95968;
     display: none;
     left: 0; 
     right: 0; 
@@ -136,30 +174,68 @@ http://codex.wordpress.org/Creating_Admin_Themes
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    top: 111px;
+    top: 117px;
     width: 1334px;
-    
+    padding:20px;
+    background:#fff;
     z-index: 999999;
-    li.large-3 , li.medium-3 {
-        width:15%;
-    }
+
    
 }
 
-.ibiza-menu .column:last-child:not(:first-child), .ibiza-menu .columns:last-child:not(:first-child)
-{
-    float:left;
-}
+ 
 
 
-.ibiza-menu:hover {
-    display:block;
-}
+ 
 
 .top-bar .ibiza-menu .row{
     margin: 0 auto !important;
     max-width: 84rem;
 }
+
+
+
+.header-container{
+    
+    a{
+        color:#000;
+    }
+    
+    a.active{
+        color:#e95968;
+    }
+    
+    .basket-link{
+        background: transparent url(../images/Icon_Basket_Black.png) no-repeat scroll 0px 0px; 
+        padding-bottom: 8px;
+        padding-left: 45px;
+        padding-top: 6px;
+    }
+    .basket-link.active,.basket-link:hover{
+        background-image: url(../images/Icon_Basket_Raspberry.png);
+    }
+    
+    .search-link{
+        background: transparent url(../images/Icon_Search_Black.png) no-repeat scroll 0px 0px; 
+        padding-bottom: 8px;
+        padding-left: 45px;
+        padding-top: 6px;
+    }    
+    .search-link.active,.search-link:hover{
+    
+        background-image: url(../images/Icon_Search_Raspberry.png);
+    
+    }
+}
+
+
+ 
+    
+    
+    
+
+
+
 
 .main-nav__backdrop {
     background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
@@ -199,19 +275,7 @@ input.search-submit{
     color:#333;
 }
 
-.ibiza-menu > ul > li > ul > li.menu-item a{
-    border-left: 5px solid #000;
-    height: auto;
-    margin: 0 10px 10px 0;
-    padding-left: 7px;
-}
 
-.ibiza-menu > ul > li > ul > li.menu-item .menu-item a{
-    
-    
-   border-left: none;
-   font-weight:normal;
-}
 
 
 .header .menu a{
@@ -219,24 +283,20 @@ input.search-submit{
     
 }
 .header .menu  a:hover{
-    color:$brand-color;
+    color:#e95968;
 }
 
 #top-bar-menu{
     margin-top:23px;
 }
 
-.ibiza-menu {
-    padding:20px;
-    background:#fff;
-}
 
 .menu-item-has-children{
     margin-bottom:10px;
 }
 
 #top-bar-menu li:hover > a {
-    color: $brand-color;
+    color: #e95968;
     
 }
 

@@ -50,7 +50,7 @@
                                 {{setPageTotal(indexVM.results.hits.total)}}
 <!--                                <pagination total-items="totalItems" page="currentPage" on-select-page="pageChanged(page)" items-per-page="itemsPerPage"  max-size="maxSize" class="pagination-sm" boundary-links="false" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>-->
                                 <div class="paging-info">
-                                    <pager total-items="totalItems" page="currentPage"  num-pages="numPages" previous-text="<" next-text=">" ></pager>
+                                    <pager total-items="totalItems" page="currentPage"  num-pages="numPages" previous-text="Icon_WhiteArrowPrev.png" next-text="Icon_WhiteArrowNext.png" ></pager>
                                     <span class="paging-meta">Page {{currentPage}} of {{numPages}}</span>
                                 </div>
                             </div>                            
@@ -152,7 +152,7 @@
                 
                 <div class="large-12 columns text-center">
                     <ul class="pager" data-id="pager"> 
-                        <li><pagination  total-items="totalItems" page="currentPage"  num-pages="numPages"     rotate="false" previous-text="<" next-text=">"></pagination></li>
+                        <li><pagination  total-items="totalItems" page="currentPage"  num-pages="numPages"     rotate="false" previous-text="Icon_WhiteArrowPrev.png" next-text="Icon_WhiteArrowNext.png"></pagination></li>
                     </ul>
                 </div>
             </main>

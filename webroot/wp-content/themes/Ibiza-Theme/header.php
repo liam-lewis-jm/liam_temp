@@ -55,16 +55,16 @@
                         <div class="row">
 
                             <div class="large-4  medium-6 columns small-12 text-center medium-text-left">
-                                <p class="font-small rating-text">
+                                <!--<p class="font-small rating-text">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />
                                     <span class="show-for-medium">Rated excellent by our customers</span>
                                     <span  class="show-for-small-only">Excellent</span>
-                                </p>
+                                </p>-->&nbsp;
                             </div>
 
 
                             <div class="large-4 columns text-center show-for-large ">
-                                <img class="slogan" src="<?php echo get_template_directory_uri(); ?>/assets/images/slogan.png" title="" alt="" />
+                                <strong><?php bloginfo('description');  ?></strong>
                             </div>                            
 
 
@@ -75,19 +75,17 @@
                                     <?php if (_LOGGED_IN): ?>
                                     
                                         <li class="show-for-large">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-icon.png" title="" alt="" />
-                                            <a class="font-small"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a>
+                                            <a class="font-small  account"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a>
                                         </li>
                                         <li class="separator show-for-large">|</li>
                                         <li  class="show-for-large">
-                                            <a class="font-small"  href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a>
+                                            <a class="font-small account"  href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?logout=1">Logout</a>
                                         </li>
 
                                     <?php else: ?>
 
                                         <li  class="show-for-large">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-icon.png" title="" alt="" />
-                                            <a class="font-small"   style="display: inline-block" href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Login / Register </a>
+                                            <a class="font-small account"   href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/login.aspx?_ga=1.246909059.624630137.1465816634">Login / Register </a>
                                         </li>
 
                                     <?php endif; ?>
@@ -95,8 +93,7 @@
                                     <li class="separator show-for-large">|</li>
 
                                     <li class="show-for-medium">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tel-icon.png" title="" alt="" />
-                                        <a class="font-small" style="display: inline-block" href="tel:0800 6444 655">0800 6444 655</a>
+                                        <a class="font-small tel-number" href="tel:0800 6444 655">0800 6444 655</a>
                                     </li>
                                 </ul>                    
 
@@ -138,7 +135,7 @@
 
                             <div class="small-4 columns tv-channel-con text-center medium-text-left">
 
-                                <p>Free Beginner, intermediate &amp; Advanced Tutorials</p>
+                                <p>Free Beginner, Intermediate &amp; Advanced Tutorials</p>
 
                             </div>
                             <div class="small-4 columns  tv-channel-con text-center medium-text-left" style="border-left:1px solid #000;border-right:1px solid #000;">
@@ -148,7 +145,7 @@
                             </div>
                             <div class="small-4 columns  tv-channel-con text-center medium-text-left">
 
-                                <p>Watch Online or Available on Channel 74</p>
+                                <p>Watch Online or Available on <img alt="Freeview Icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/Image_FreeviewLogo.png" style="position: relative; bottom: 3px;" /> Channel 74 </p>
 
                             </div>
 

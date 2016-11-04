@@ -34,15 +34,15 @@
     </div>
     <div class="large-2  small-2  columns small-top-margin-push large-push-1">
         <div class="header-container">
-            <a href="#" class="search-link"><img class="" alt="" title="" src="/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png"></a>
+<!--            <a href="#" class="search-link"><img class="" alt="" title="" src="/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png"></a>-->
             <a href="#" class="search-link show-for-large">SEARCH</a>
         </div>
     </div>
     <div class="large-2 small-2 columns small-top-margin-push end">
         <?php if (is_active_sidebar('searchbar')) : ?>
         <div class="header-container">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/basket-icon.png" />
-            <a href="#basket" class="upper  show-for-large">Basket</a>
+<!--            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/basket-icon.png" />-->
+            <a href="#basket" class="upper show-for-large basket-link">Basket</a>
         </div>
         <?php endif; ?>
     </div>

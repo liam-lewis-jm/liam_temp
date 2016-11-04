@@ -197,12 +197,14 @@ jQuery(document).ready(function () {
     jQuery(".top-bar  .menu-item")
         .mouseover(function () {
 
+            jQuery('#tri').remove();
+            jQuery('a',this).first().append('<div id="tri"></div>');
+
             if ( jQuery(' > .ibiza-menu ul' , this  ).length > 0 ) {
                 
                 jQuery('.main-nav__backdrop').css( { 'opacity' : 1 ,   'visibility' : 'visible'  } );
                 
-                
-                jQuery('a',this).first().append('<div id="tri"></div>');
+
                 //
                 var index = jQuery('li' ,this).index('#menu-main-1 li');
                 if( !jQuery('.menus' ,this ).hasClass('masonry') ){
@@ -217,6 +219,9 @@ jQuery(document).ready(function () {
                     grid_arr[index] =  jQuery('.menus' ,this).masonry(grid_ops);                    
                     
                 }
+           }else{
+               jQuery('.ibiza-menu',this).remove();
+               //no needed quick work around
            }
 
         }).mouseout(function () {
@@ -243,11 +248,18 @@ jQuery(document).ready(function () {
         }
     });
 
-
+    var sliding = 0;
     jQuery('.search-link').click( function(){
         
-        jQuery('.search-container').slideToggle();
         
+        if(sliding==1)
+            return;
+        
+        sliding = 1;
+        jQuery('.search-container').slideToggle(function(){
+            sliding = 0;
+        });
+        jQuery(this).toggleClass('active');
     });
      
     ibizaHubProxy.init();
