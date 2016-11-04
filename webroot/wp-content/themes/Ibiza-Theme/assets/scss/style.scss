@@ -50,7 +50,21 @@ CSS file.
 @include foundation-media-object;
 @include foundation-menu;
 @include foundation-menu-icon;
+
+$offcanvas-left-size: 50%;
 @include foundation-off-canvas;
+.is-open-left {
+    -webkit-transform: translateX($offcanvas-left-size);
+    -ms-transform: translateX($offcanvas-left-size);
+    transform: translateX($offcanvas-left-size);
+}
+
+.off-canvas.position-left {
+  width: $offcanvas-left-size;
+  left: -$offcanvas-left-size
+}
+
+
 @include foundation-orbit;
 @include foundation-pagination;
 @include foundation-progress-bar;
@@ -78,6 +92,24 @@ CSS file.
 // Import Categories
 @import "category";
 
+
+#off-canvas-left {
+    background: rgba(0, 0, 0, 0) url("../images/bg.png") repeat scroll 0 0;
+    padding: 40px;
+}
+
+
+#off-canvas-left .sidebar{
+    background:#fff;
+    padding: 30px;
+    text-align: left;
+
+}
+
+
+.off-canvas-content, .off-canvas-content {  
+    box-shadow: none;
+}
 
 /**
  * @license
@@ -202,13 +234,64 @@ html, body{
 p{
     line-height: 1.25;
 }
+
+
+a:hover{
+    color:#ea516c;
+}
+
+.site-top-bar {
+    
+    background:$brand-color;
+    
+    strong{
+       color:$white;
+       line-height: rem-calc(38);
+       font-weight:normal;
+       font-size:rem-calc(16);
+    }
+    
+
+    li{ 
+        
+        color:#fff;
+        
+        a{
+
+            font-size:rem-calc(16);
+            display: inline-block;
+            padding-left: 1px;
+            padding-right: 0px;
+            text-transform: uppercase;
+            color:#fff;
+            &:hover{
+                text-decoration: underline;
+            }        
+
+        }    
+    }
+    .tel-number{        
+        padding-left: 30px; 
+        background: transparent url(../images/Icon_Phone_White.png) no-repeat scroll 0px center;
+
+    }
+    
+    .account{
+        padding-left: 23px; 
+        background: transparent url(../images/Icon_User_White.png) no-repeat scroll 0 center;        
+    }
+    
+}
+
+
 h1{
     font-size: 2rem;
     color: #00a5a7;
+    font-family: 'CeraPRO-Regular', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+    line-height: 2.5rem;
 }
 h4{
     font-size: 1.125rem;
-    font-family: 'cera pro';
     &.green{
         color: $brand-color;
     }
@@ -220,36 +303,17 @@ h4{
         padding: 17px 17px 60% 17px;
         height: 100%;
         h4{
-            padding: 2.25rem 0;
+            padding: 1.2rem 0;
+            a{
+                font-weight: 500;
+                padding-bottom: 4px;
+                font-family: 'CeraPRO-Medium';
+            }
         }
     }
 }
 
-#third-band{
-    .post-block{
-        padding: 0.9375rem;
-        .post-block-container{
-            background: white;
-            text-align: left;
-            .post-block-thumb{
-                background-size: cover;
-            }
-            header{
-                padding: 13px 18px 0;
-                h4{
-                    a{
-                        color: inherit;
-                    }
-                    padding: initial;
-                    margin: 0;
-                }
-            }
-            article{
-                padding: 0 18px;
-            }
-        }
-    }
-}
+
 
 
 #menu-main-1 {
@@ -258,19 +322,27 @@ h4{
 }
 
 #channels{
+    
     background: white none repeat scroll 0% 0%; 
-    padding: 15px 0px;
+    padding: 8px 0px;
     max-width: 1334px;
+    
+    p{
+        text-align: center;
+        margin: 0;
+        font-size:14px; 
+    }    
+    
+    .hide-for-small-only{
+        p{
+            border-right:1px solid #000;
+        }    
+    }
 }
 
-/*#channels img{
-    float:right;
-}*/
+ 
 
-#channels .hide-for-small-only p{
-
-    border-right:1px solid #000;
-}
+ 
 
 .large-push-1-xtra {
     @extend .large-push-1;
@@ -611,6 +683,11 @@ h4{
 
     .header-container {
         text-align: right;
+        margin: 2px 0 0;
+        a{
+            font-size:rem-calc(18);
+            font-family: 'CeraPRO-Medium';
+        }
     }
     .active-product{
         display:block!important;
@@ -716,9 +793,7 @@ h4{
     margin-bottom: 0;
 }
 
-.header-container a{
-    color:#000;
-}
+
 
 
 
@@ -812,7 +887,7 @@ p.ng-binding {
 .product-list-container h5{
     margin:15px 0;
     font-size:14px;
-    height:30px;
+    height:60px;
 }
 
 
@@ -1047,16 +1122,30 @@ p.ng-binding {
 }
 
 #search-cancel{
-    cursor:pointer; 
-    float: right; 
-    position: relative; 
-    left: -28%; 
-    top: 16px; 
-    color: rgb(255, 255, 255);
-    background:url(../images/close-search.png) no-repeat;
+    background: rgba(0, 0, 0, 0) url("../images/Btn_Cancel_White.png") no-repeat scroll left center;
+    color: white;
+    cursor: pointer;
+    float: right;
+    left: -28%;
+    padding: 2px;
+    position: relative;
     text-indent: 25px;
+    top: 14px;
+    vertical-align: inherit;
+    &:hover{
+        background-image:url(../images/Btn_Cancel_hover.png);
+        color:#e95968;
+    }
 }
 
+input.search-field{
+    background-color: transparent;
+    height: 100%;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+}
+ 
 .tt-menu{  
 
     background: white none repeat scroll 0 0;
@@ -1081,7 +1170,6 @@ p.ng-binding {
 
 
 .typeahead {
-    width:180px;
     float:left;
     background-color: transparent;
     border-bottom:none !important;
@@ -1156,9 +1244,6 @@ p.ng-binding {
     max-width: initial;
 }
 
-.site-top-bar{
-    background:$brand-color;
-}
 
 
 .font-small{
@@ -1180,14 +1265,7 @@ p.ng-binding {
     color:#fff;
 }
 
-.site-top-bar li a{
-    display: inline-block;
-    padding-left: 1px;
-    padding-right: 0px;
-    text-transform: uppercase;
-    font-weight:bold;
-    color:#fff;
-}
+
 .upper{
     text-transform: uppercase;
 }
@@ -1233,17 +1311,6 @@ p.ng-binding {
     padding-bottom:10px;
 }
 
-#tri{
-
-    border-color: transparent transparent #00bcb4;
-    border-style: solid;
-    border-width: 0 25px 25px;
-    height: 0;    
-    position: absolute;
-    width: 0;
-    z-index: -1;
-    margin-top: 7px
-}
 
 
 .active-product p , .active-product p a {
@@ -1352,7 +1419,7 @@ footer .menu-item a{
 .how-to-holder{
     h6{
         font-size: 1.125rem;
-        font-family: 'cera pro';
+        font-family: 'CeraPRO-Medium';
         a{
             color:$brand-color;
         }
@@ -1390,18 +1457,27 @@ footer .menu-item a{
 .copyright{
     font-size:rem-calc(12);
 }
-#third-band .widget
+#third-band .widget, #second-band .widget
 {
     text-align: center;
 }
 
-#third-band h4{
+#third-band h1.widgettitle, #second-band h1.widgettitle{
     background: white none repeat scroll 0 0;
     display: inline-block;
-    line-height: 30px;
     margin: 20px auto;
     padding: 10px 55px 9px;
     text-align: center;    
+}
+
+#second-band{
+    .upw-before{
+        margin-bottom: 1.8rem;
+    }
+    h1.widgettitle{
+        margin: 0 0 0.56rem 0;
+        padding: 0;
+    }
 }
 
 #second-band .large-6, #second-band .large-3{
@@ -1424,35 +1500,41 @@ footer .menu-item a{
     display:none;
     height:60px;
     position: relative;
+    
+    img{
+    
+        height: 23px;
+        margin-bottom: 2px;
+        margin-top: 2px;
+        position: relative;
+        vertical-align: top;
+        z-index: 9999;
+    
+    }
+    
+    
+    form{
+        background: white none repeat scroll 0 0;
+        border-radius: 15px;
+        display: inline-block; 
+        height: auto;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 13px;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        z-index: 900;
+    }    
+    
+    
 }
 
-.search-container form{
-    background: white none repeat scroll 0 0;
-    border-radius: 15px;
-    display: inline-block; 
-    height: auto;
-    left: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 13px;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    z-index: 900;
-}
-.search-container  img{
-    
-    height: 23px;
-    position: relative;
-    vertical-align: top;
-    z-index: 9999;    
-    margin-top: 5px;
-    
-}
 
-.search-field{
-    top:3px!important;
-}
+ 
+
+
 
 .twitter-typeahead{
     width:90%;
@@ -1570,6 +1652,11 @@ li.tabs-title a{
 
 }
 
+#top-bar-menu .menu > li > a{
+    padding-left:0;
+    padding-right:rem-calc(45);
+}
+
 .menu .active > a{
     background:transparent;
 }
@@ -1594,7 +1681,7 @@ fieldset {
 .applied-filters p {
     font-weight: bold;
 }
-#reset-filter, .pager .ng-scope {
+#reset-filter {
     background: #00bcb4 none repeat scroll 0 0;
 }
 .pager {
@@ -1620,7 +1707,7 @@ li.refine-results{
 }
 
 .pager .ng-scope {
-    @extend #reset-filter;
+    
     list-style: none;
     cursor: pointer;
     font-size: 0.9rem;
@@ -1754,11 +1841,7 @@ fieldset p{
     margin:0;
 }
 
-#channels p{
-    text-align: center;
-    margin: 0;
-    font-size:14px; 
-}
+
 
 .upw-after, .upw-before {
     clear: both;
@@ -1840,7 +1923,7 @@ fieldset p{
 }
 
 .pager .arrow:first-child , .pager .arrow:last-child {
-    
+  
    margin:0 20px;
    
     
