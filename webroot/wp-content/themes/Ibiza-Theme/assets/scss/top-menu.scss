@@ -207,9 +207,9 @@ http://codex.wordpress.org/Creating_Admin_Themes
     
     .basket-link{
         background: transparent url(../images/Icon_Basket_Black.png) no-repeat scroll 0px 0px; 
-        padding-bottom: 8px;
+        padding-bottom: 13px;
         padding-left: 45px;
-        padding-top: 6px;
+        padding-top: 1px;
     }
     .basket-link.active,.basket-link:hover{
         background-image: url(../images/Icon_Basket_Raspberry.png);
@@ -217,9 +217,10 @@ http://codex.wordpress.org/Creating_Admin_Themes
     
     .search-link{
         background: transparent url(../images/Icon_Search_Black.png) no-repeat scroll 0px 0px; 
-        padding-bottom: 8px;
+        padding-bottom: 13px;
         padding-left: 45px;
-        padding-top: 6px;
+        padding-top: 1px;
+        margin-right:37px;
     }    
     .search-link.active,.search-link:hover{
     

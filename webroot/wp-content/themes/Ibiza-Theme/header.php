@@ -54,7 +54,7 @@
                     <div class="fullwidth site-top-bar">
                         <div class="row">
 
-                            <div class="large-4  medium-6 columns small-12 text-center medium-text-left">
+                            <div class="large-4 medium-4  columns small-12 text-center medium-text-left">
                                 <!--<p class="font-small rating-text">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" />
                                     <span class="show-for-medium">Rated excellent by our customers</span>
@@ -63,19 +63,19 @@
                             </div>
 
 
-                            <div class="large-4 columns text-center show-for-large ">
+                            <div class="large-4 medium-4 columns text-center show-for-medium ">
                                 <strong><?php bloginfo('description');  ?></strong>
                             </div>                            
 
 
-                            <div class="large-4 columns panel  clearfix medium-6">
+                            <div class="large-4 medium-4 columns panel  clearfix">
 
                                 <ul class="menu right ">
 
                                     <?php if (_LOGGED_IN): ?>
                                     
-                                        <li class="show-for-large">
-                                            <a class="font-small  account"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634">My Account</a>
+                                        <li>
+                                            <a class="font-small  account"  href="https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/account.aspx?_ga=1.111643779.624630137.1465816634"><span>My Account</span></a>
                                         </li>
                                         <li class="separator show-for-large">|</li>
                                         <li  class="show-for-large">

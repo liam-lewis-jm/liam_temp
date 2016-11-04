@@ -50,6 +50,7 @@ function wpse71305_register_types() {
     //Add 'country' tag.
     add_rewrite_tag('%products%', '([^&/]+)');
     add_rewrite_tag('%howto%', '([^&/]+)');
+    add_rewrite_tag('%search%', '([^&/]+)');
     add_rewrite_tag('%the_id%', '([^&/]+)');
     add_rewrite_tag('%cat%', '([^&/]+)');
 
@@ -97,12 +98,12 @@ function wpse71305_register_types() {
     $args = array(
         'has_archive' => false,
         'rewrite' => array(
-            'slug' => 'search/',
+            'slug' => 'search/%search%',
             'with_front' => false,
             'feed' => false,
             'pages' => false,
         ),
-        'query_var' => 'q',
+        'query_var' => 'search',
         'publicly_queryable' => true,
         'public' => true,
         'hierarchical' => false,

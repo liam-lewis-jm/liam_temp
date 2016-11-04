@@ -32,17 +32,15 @@
         <a href="<?php echo home_url(); ?>" class="show-for-small-only"><img id="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/mobile-logo.jpg" alt="<?php bloginfo('name'); ?>"  ></a>
         <a href="<?php echo home_url(); ?>" class="show-for-medium"><img id="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpg" alt="<?php bloginfo('name'); ?>"  ></a>
     </div>
-    <div class="large-2  small-2  columns small-top-margin-push large-push-1">
+    <div class="large-2  small-1 small-push-1 medium-push-2 columns small-top-margin-push large-push-1 medium-right-align">
         <div class="header-container">
-<!--            <a href="#" class="search-link"><img class="" alt="" title="" src="/wp-content/themes/Ibiza-Theme/assets/images/search-icon.png"></a>-->
-            <a href="#" class="search-link show-for-large">SEARCH</a>
+            <a href="#" class="search-link"><span class="show-for-large">Search</span></a>
         </div>
     </div>
-    <div class="large-2 small-2 columns small-top-margin-push end">
+    <div class="large-2 small-1  large-push-0  columns small-top-margin-push medium-right-align">
         <?php if (is_active_sidebar('searchbar')) : ?>
         <div class="header-container">
-<!--            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/basket-icon.png" />-->
-            <a href="#basket" class="upper show-for-large basket-link">Basket</a>
+            <a href="#basket" class="upper  basket-link"><span class="show-for-large">Basket</span></a>
         </div>
         <?php endif; ?>
     </div>

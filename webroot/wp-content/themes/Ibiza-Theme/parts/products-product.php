@@ -70,17 +70,14 @@
 
 
                         <div class="panel"  ng-if="doc._index=='product'" >
-                            <img src="{{doc._source.images[0].url}}" />
+                            <a href="/h/{{doc._id}}/{{doc._source.name}}"><img src="{{doc._source.images[0].url}}" alt="{{doc._source.name}} image" /></a>
                             <h5><a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
-
-                            <!--<p style="font-size:12px;">{{doc._source.description}}</p>-->
-
                             <h6><strong>&pound;{{ doc._source.price | number : 2}} per metre</strong></h6>
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+<!--                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
                         </div>
 
                         <div class="panel"  ng-if="doc._index=='howto'" >
-                            <img src="{{doc._source.image}}" />
+                            <a href="/h/{{doc._id}}/{{doc._source.name}}"><img src="{{doc._source.image}}" /></a>
                             <h5><a href="/h/{{doc._id}}/{{doc._source.name}}">{{doc._source.name}}</a></h5>
 
                             <p style="font-size:12px;">{{doc._source.introduction}}</p>
@@ -317,7 +314,7 @@ function elastic_callback(body, updateOnlyIfCountChanged) {
 function addSelectedFilter( changedEl , selectedFacet )
 {
 
-    var elSelectedFacet =  '<li data-idx="'+ jQuery( changedEl ).attr('data-id') +'"> <span class="remove-filter">X</span> ' + selectedFacet + '</li>';
+    var elSelectedFacet =  '<li data-idx="'+ jQuery( changedEl ).attr('data-id') +'"> <span class="remove-filter">' + selectedFacet + '</span></li>';
 
     jQuery( elSelectedFacet ).appendTo( '.add_facets' );
 
