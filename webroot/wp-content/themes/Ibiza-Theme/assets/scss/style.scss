@@ -291,7 +291,9 @@ h1{
     line-height: 2.5rem;
 }
 h4{
+    font-weight: 500;
     font-size: 1.125rem;
+    font-family: 'CeraPRO-Medium';
     &.green{
         color: $brand-color;
     }
@@ -305,11 +307,16 @@ h4{
         h4{
             padding: 1.2rem 0;
             a{
-                font-weight: 500;
                 padding-bottom: 4px;
-                font-family: 'CeraPRO-Medium';
+                line-height: 2.2rem;
             }
         }
+    }
+}
+
+.category-page{
+    a{
+        color: $brand-color;
     }
 }
 
@@ -339,6 +346,8 @@ h4{
         }    
     }
 }
+
+.no-padding{padding: 0;}
 
  
 
@@ -507,6 +516,14 @@ h4{
 
 @media #{$medium-only} {
 
+    .tv-options-1{
+        margin: 1rem 0;
+    }
+
+    #second-band article.featured_categories {
+      padding: 17px 17px 0 17px;
+      height: 350px;
+    }
 
     .swiper-container-products .swiper-button-prev{
         left                : 37%;
@@ -539,7 +556,7 @@ h4{
 
 
 @media #{$large-up} {
-    
+
     p.ng-binding {
     text-align: left!important;
 }
@@ -702,8 +719,14 @@ h4{
 
 @media #{$small-only} {
 
+    #second-band article.featured_categories {
+      height: 200px;
+    }
 
-       
+    .tv-options-1{
+        margin: 0 0 1rem 0;
+        background: green;
+    }
 
     #prodcut_main{
         position: relative;
@@ -729,7 +752,7 @@ h4{
         background-clip     : initial!important;
         background-color    : #fff;
         height              : 64px;
-        padding-bottom      : 47%;
+        padding-bottom      : 30%;
         width               : 47%;        
     }    
 

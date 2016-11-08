@@ -22,7 +22,7 @@ $cats           =  explode( ',' ,  $instance['cats'] ) ;
 
 $slider             = 0;
 $container_class    = 'category_widget';
-$row_class          = ' large-3 small-6 columns';
+$row_class          = ' large-3 small-6 columns height-as-width';
 $swiper_data        = '';
 if( $slider == 1 ){
     $swiper_data        = ' class="swiper-wrapper" style="box-sizing:border-box;" ';

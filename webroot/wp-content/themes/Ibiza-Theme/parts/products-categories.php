@@ -69,7 +69,7 @@ global $ibiza_api;
                 </section>
 
                 <section class="row">
-                    <article class="large-12 columns">
+                    <article class="large-12 columns no-padding">
                         <?php dynamic_sidebar('featured-products'); ?>
                     </article>
                 </section>
@@ -80,15 +80,20 @@ global $ibiza_api;
     // Height matching code
     function heightMatcher(A,B){
         jQuery(B).height('auto');
-        jQuery(B).height(jQuery(B).height());
+        jQuery(B).height(jQuery(B).height());/*This line stops decimal points*/
         jQuery(A).height(jQuery(B).height());
     };
     jQuery(document).ready(function(){
-        heightMatcher('.catLarge','.catLargeRight');
-        jQuery('.catLarge').find('*').css('height','100%');
+        jQuery('.height-as-width').height((jQuery('.height-as-width').width())*0.9);
+        setTimeout(function(){
+            heightMatcher('.catLarge','.catLargeRight');
+            jQuery('.catLarge').find('*:not(h4)').css('height','100%');
+        }, 300);
     });
     jQuery(window).resize(function(){
+        jQuery('.height-as-width').height((jQuery('.height-as-width').width())*0.9);
         heightMatcher('.catLarge','.catLargeRight');
+        //Put a minimum screen size in here where it is all reset to auto
     });
     </script>
     

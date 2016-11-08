@@ -116,7 +116,7 @@ if( $segments[0] == 'how-to-guides'  ){
 
     <div class="product-list-container columns">
         <div id="inner-content-product-list" class="row" <?php echo $filter_cat_str1;?>>
-            <div class="sidebar columns large-2 show-for-large large-text-left text-center <?php print $top_level == true ? 'category-page' : 'product-page' ; ?>" role="complementary">
+            <div class="sidebar columns large-2 large-text-left text-center <?php print $top_level == true ? 'category-page small-12' : 'product-page show-for-large' ; ?>" role="complementary">
 
                 <?php if($index=='howto'): ?>
                 <div id="side-facets">

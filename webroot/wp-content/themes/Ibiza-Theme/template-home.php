@@ -44,14 +44,41 @@
                         
                         
                         <!-- temp inline as design not final -->
-                <div class="text-center show-for-large" id="tv-options">
-                    <div class="large-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
+                <div class="text-center tv-options-1 small-12 show-for-medium-up hide-for-small-only" id="tv-options">
+                    <div class="large-6 small-6 columns" style="padding-right: 0;border-right: 1px solid #e1e1e1;">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> <a href="/tv-schedule/" class="upper">WATCH AND BUY ONLINE</a>
                     </div>
-                    <div class="large-6 columns" style="padding-left: 0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="/todays-products/" class="upper">View all products from Today</a>
+                    <div class="large-6 small-6 columns" style="padding-left: 0">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" /> <a href="/todays-products/" class="upper">PROGRAMME GUIDE</a>
                     </div>
                 </div> 
+
+                <div class="text-center tv-options-2 medium-12 small-12 column show-for-small-only" id="tv-options">
+                    <div class="medium-6 small-6 columns" style="padding-left: 0;">
+                        
+                        <div class="block">
+                            <div class="centered">
+                        
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> 
+                                <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
+                        
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="medium-6 small-6 columns" style="padding-left: 0">
+                        
+                        <div class="block">
+                            <div class="centered">
+                        
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" />
+                                <a href="" class="upper">View all products from Today</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
                 
             </main> <!-- end #main -->
@@ -65,33 +92,6 @@
 
             <?php endif; ?>
             
-
-            
-            <div class="text-center medium-4 small-12 column show-for-small hide-for-large" id="tv-options">
-                <div class="medium-6 small-6 columns" style="padding-left: 0;">
-                    
-                    <div class="block">
-                        <div class="centered">
-                    
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tv-icon.png" /> 
-                            <a href="/tv-schedule/" class="upper">View the TV Schedule</a>
-                    
-                        </div>
-                    </div>
-                </div>
-                    
-                <div class="medium-6 small-6 columns" style="padding-left: 0">
-                    
-                    <div class="block">
-                        <div class="centered">
-                    
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" />
-                            <a href="" class="upper">View all products from Today</a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>                
             
             
 
@@ -198,6 +198,18 @@
     
 <script type="text/javascript" src="//cdn.jewellerymaker.com/global/js/video.js"></script>
 <script type="text/javascript">
+    function resizeSlider(){
+        if(jQuery(window).width() <= 1023){
+            jQuery('.swiper-slide').each(function(){
+                jQuery(this).height(500);
+            });
+        }else{
+            jQuery('.swiper-slide').each(function(){
+                jQuery(this).height(jQuery(this).parents('#inner-content').height());
+            });
+        }
+    };
+
     jQuery(function () {
 
 
@@ -231,9 +243,14 @@
 
        //hero slider height
         jQuery('.swiper-slide').each(function(){
-            jQuery(this).height(jQuery(this).parents('#inner-content').height());
+            resizeSlider();
         });
 
     });
+
+    jQuery(window).resize(function(){
+        resizeSlider();
+    });
+
 </script>
 <?php get_footer(); ?>
