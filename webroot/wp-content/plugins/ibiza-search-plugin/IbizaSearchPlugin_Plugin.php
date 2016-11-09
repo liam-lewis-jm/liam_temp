@@ -178,7 +178,7 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
         $url_howto              = 'https://search-ibiza-zionowpdl7rywcwhx7jyiyni7e.eu-west-1.es.amazonaws.com/howto/_search?from=0&size=5&q=name:*%QUERY*';
         $url_categories         = '/?cat_search=*%QUERY*';
         
-        $template_products      = '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.images[0].url +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._source.productcode + \'</p>\'';
+        $template_products      = '';// '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.images[0].url +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._source.productcode + \'</p>\'';
         $template_categories    = '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.image +\'"/><strong>\' + data._source.name + \'</strong></p>\'';
         $template_howto         = '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.image +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._id + \'</p>\'';
         
