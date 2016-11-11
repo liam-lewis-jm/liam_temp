@@ -205,6 +205,9 @@
             });
         }else{
             jQuery('.swiper-slide').each(function(){
+                jQuery(this).height('auto');
+            });
+            jQuery('.swiper-slide').each(function(){
                 jQuery(this).height(jQuery(this).parents('#inner-content').height());
             });
         }

@@ -320,6 +320,17 @@ h4{
     }
 }
 
+/* Liams aution/watch styles  */
+$foundation-padding-large: 0.9375rem;
+.auction-page{
+    .row{
+        margin-top: $foundation-padding-large;
+        margin-bottom: $foundation-padding-large;
+    }
+}
+.breadcrumb-title{
+    background-color: white;
+}
 
 
 
@@ -1598,8 +1609,9 @@ footer .menu-item a{
 }
  
 .breadcrumbs{
-    margin:10px 0;
-    font-weight: bold;
+    margin: $foundation-padding-large 0 ($foundation-padding-large / 2) 0;
+    text-transform: capitalize;
+    font-family: 'CeraPRO-Bold';
 }
 .breadcrumbs li:not(:last-child)::after {
     color: #0a0a0a;
