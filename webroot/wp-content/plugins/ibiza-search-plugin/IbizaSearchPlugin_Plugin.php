@@ -132,14 +132,18 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
         ?>
 <div class="search-container">
             
-    <form method="get" action="/search/" class="large-4">
+            <form method="get" action="/search/" class="small-8 large-4 small-push-1 large-push-0 column">
                 <div>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/search-icon.png" title="" alt="" class="" />
                     <input type="search" title="Search for:" name="q" value="" placeholder="Search" class="search-field typeahead " />
                     <input type="submit" class="hide" />
                 </div>
             </form>
-            <div id="search-cancel">CANCEL</div>
+            <div class="small-4 column small-push-1 large-push-0" style="">
+                <div id="search-cancel" class="small-4 column">
+                CANCEL
+            </div>
+            </div>
         </div>
 
 
@@ -178,9 +182,9 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
         $url_howto              = 'https://search-ibiza-zionowpdl7rywcwhx7jyiyni7e.eu-west-1.es.amazonaws.com/howto/_search?from=0&size=5&q=name:*%QUERY*';
         $url_categories         = '/?cat_search=*%QUERY*';
         
-        $template_products      = '';// '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.images[0].url +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._source.productcode + \'</p>\'';
-        $template_categories    = '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.image +\'"/><strong>\' + data._source.name + \'</strong></p>\'';
-        $template_howto         = '\'<p style="background:white;padding:5px;clear:left"><img style="float:left;margin-right:10px;" width="55px" src="\'+ data._source.image +\'"/><strong>\' + data._source.name + \'</strong> - \' + data._id + \'</p>\'';
+        $template_products      = '\'<p style="background:white;padding:5px;clear:left"><strong>\' + data._source.name + \'</strong> - \' + data._source.productcode + \'</p>\'';
+        $template_categories    = '\'<p style="background:white;padding:5px;clear:left"><strong>\' + data._source.name + \'</strong></p>\'';
+        $template_howto         = '\'<p style="background:white;padding:5px;clear:left"><strong>\' + data._source.name + \'</strong> - \' + data._id + \'</p>\'';
         
         $callabck_product       = 'window.location.href = \'/p/\' + datum._source.productcode;';
         $callabck_howto         = 'window.location.href = \'/h/\' + datum._id;';
@@ -277,9 +281,10 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
 
                  },
                  source: product_engine.ttAdapter(),
-                 limit : 2,
+                 limit : 4,
                  templates: {
                      header : '<h5>Products</h5>',
+                     footer : '<p><a href="/search/?q=' + jQuery('.search-field').first().val() +  '&p=1">View all</a></p>',
                      suggestion: function (data) {
                          
                          return <?php echo $template_products; ?>;
@@ -294,9 +299,10 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
 
                  },
                  source: cats_engine.ttAdapter(),
-                 limit : 2,
+                 limit : 4,
                  templates: {
                      header : '<h5>Categories</h5>',
+                     
                      suggestion: function (data) {
                          
                          return <?php echo $template_categories; ?>;
@@ -314,6 +320,7 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
                  limit : 4,
                  templates: {
                      header : '<h5>How To Guides</h5>',
+                     footer : '<p><a href="/search/?q=' + jQuery('.search-field').first().val() +  '&p=0">View all</a></p>',
                      suggestion: function (data) {
                          
                          return <?php echo $template_howto; ?>;
@@ -324,14 +331,14 @@ class IbizaSearchPlugin_Widget extends WP_Widget {
 
             );     
 
-
             jQuery('.typeahead').bind('typeahead:selected', function(obj, datum, name) {      
 
-
+               
                 switch( datum._type )
                 {
                    
                     case 'product':
+                        
                         <?php echo $callabck_product; ?>
                         break;
                     case 'howto':
