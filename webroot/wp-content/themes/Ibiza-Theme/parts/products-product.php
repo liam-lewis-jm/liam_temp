@@ -96,13 +96,7 @@
                 <?php
                     $i      = 0;
                     $total  = 0;
-                    ?>
-                <section class="row">
-                    <article class="large-12 columns">
-                        <?php dynamic_sidebar('featured-products'); ?>
-                    </article>
-                </section>
-                    <?php
+
                     foreach($catss as $cat){
                         if( $cat->post_content==1 ){
                             $total++;

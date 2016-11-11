@@ -194,6 +194,25 @@ jQuery(document).ready(function () {
     var grid_arr = new Array();
     var grid_ops = { itemSelector: '.menu-item-has-children',  columnWidth: 322 };
 
+
+
+    jQuery(".header-container")
+        .mouseover(function () {
+
+            jQuery('#tri').remove();
+            jQuery('#tri').css({ margin:'5px auto' , 'z-index' : '1' });
+            jQuery('span',this).first().append('<div id="tri"></div>');
+
+
+        }).mouseout(function () {
+            
+            //jQuery('#tri').remove();
+        });
+
+
+
+
+
     jQuery(".top-bar  .menu-item")
         .mouseover(function () {
 
