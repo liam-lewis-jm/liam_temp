@@ -222,12 +222,13 @@ $offcanvas-left-size: 50%;
 }
 
 /* Liams home styles  */
+$body-text-black: #192332;
 
 /* Basic font */
 html, body{
     font-size: 16px;
     font-family: 'CeraPRO-Regular';
-    color: #192332;
+    color: $body-text-black;
     font-weight: 400;
     line-height: 1.25rem;
 }
@@ -887,7 +888,6 @@ li.dimension{
 
 .current{
     font-weight:bold;
-    border:1px solid #ccc;
 } 
 
 .rst_0 {
@@ -1610,12 +1610,23 @@ footer .menu-item a{
  
 .breadcrumbs{
     margin: $foundation-padding-large 0 ($foundation-padding-large / 2) 0;
-    text-transform: capitalize;
-    font-family: 'CeraPRO-Bold';
-}
-.breadcrumbs li:not(:last-child)::after {
-    color: #0a0a0a;
-    content: ">";
+    li{
+        text-transform: capitalize;
+        font-family: 'CeraPRO-Regular';
+        font-size: 1rem;
+        a{
+            color: $body-text-black;
+        }
+        &:last-child{
+            a{
+                color: darken($body-text-black,30%);
+            }
+        }
+    }
+    li:not(:last-child)::after {
+        color: #0a0a0a;
+        content: ">";
+    }
 }
 
 
