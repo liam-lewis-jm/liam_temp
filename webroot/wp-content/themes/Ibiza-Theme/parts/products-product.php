@@ -70,7 +70,7 @@
 
 
                         <div class="panel"  ng-if="doc._index=='product'" >
-                            <a href="/h/{{doc._id}}/{{doc._source.name}}"><img src="{{doc._source.images[0].url}}" alt="{{doc._source.name}} image" /></a>
+                            <a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}"><img src="{{doc._source.images[0].url}}" alt="{{doc._source.name}} image" /></a>
                             <h5><a href="/p/{{doc._source.productcode}}/{{doc._source['_friendly-uri-suffix']}}">{{doc._source.name}}</a></h5>
                             <h6><strong>&pound;{{ doc._source.price | number : 2}} per metre</strong></h6>
 <!--                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
@@ -130,7 +130,6 @@
                         ?>
 
                     <div class="large-3 medium-3 columns padded-column box <?php echo  $i == ( $total - 1) ? ' end ' : '' ; ?>">
-                        <img src="http://johnlewis.scene7.com/is/image/JohnLewis/electricals_area_img4_120315?$opacity-blur$" />
                         <a href="<?php print $cat->url; ?>">
                         <span class="caption fade-caption">
                             <h3><?php echo $cat->post_title;?></h3>

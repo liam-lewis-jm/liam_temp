@@ -63,8 +63,8 @@
                             </div>
 
 
-                            <div class="large-4 medium-4 columns text-center show-for-medium ">
-                                <strong><?php bloginfo('description');  ?></strong>
+                            <div class="large-4 medium-4 columns text-center show-for-medium">
+                                <strong class="slogan"><?php bloginfo('description');  ?></strong>
                             </div>                            
 
 

@@ -1,20 +1,21 @@
 
-.product-list-container{
+ .product-list-container {
     background-color: #fff;
     width: 100%;
     max-width: 100%;
-    .sidebar{
-    	ul{
-    		list-style:none;
-    		margin: 0;
-    		text-transform: uppercase;
-    	}
-    	li{
-    		@include dotted-border-bottom(#1a2433);
-    		&:last-child{
-    			margin-bottom: 2rem;
-    		}
-    	}
+    
+    .category-page{
+        ul{
+                list-style:none;
+                margin: 0;
+                text-transform: uppercase;
+        }
+        li{
+                @include dotted-border-bottom(#1a2433);
+                &:last-child{
+                        margin-bottom: 2rem;
+                }
+        }
     }
 }
 

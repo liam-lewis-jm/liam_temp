@@ -369,6 +369,10 @@ h4{
 
 @media #{$small-up} {
 
+.search-container form {
+    position: relative;
+}    
+    
  
 .paging-container{
         float: none;
@@ -516,6 +520,13 @@ h4{
 
 @media #{$medium-only} {
 
+    
+    strong.slogan{
+        position: absolute!important;
+        left:0;
+        right:0;
+    }
+    
     .tv-options-1{
         margin: 1rem 0;
     }
@@ -557,6 +568,18 @@ h4{
 
 @media #{$large-up} {
 
+    .search-container form {
+    position: absolute;
+            height: auto;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        right: 0;
+    
+}  
+    
+    
     p.ng-binding {
     text-align: left!important;
 }
@@ -663,7 +686,7 @@ h4{
 
 
     #inner-footer .large-1{
-        padding: 6px 0 0;
+        padding-top: 6px;
     }
 
     .tv-product.active-product {
@@ -1160,13 +1183,11 @@ p.ng-binding {
     background: rgba(0, 0, 0, 0) url("../images/Btn_Cancel_White.png") no-repeat scroll left center;
     color: white;
     cursor: pointer;
-    float: right;
-    left: -28%;
+    max-width:100px;
     padding: 2px;
-    position: relative;
+    display: inline-block;
     text-indent: 25px;
-    top: 14px;
-    vertical-align: inherit;
+    position: relative;
     &:hover{
         background-image:url(../images/Btn_Cancel_hover.png);
         color:#e95968;
@@ -1195,11 +1216,12 @@ input.search-field{
     
 }
 .tt-menu p{  
-
+    
     cursor: pointer;
     font-size:75%;
     margin-bottom:5px;
     overflow: hidden;
+    position: relative;
 }
 
 
@@ -1247,11 +1269,27 @@ input.search-field{
     opacity: 1 ; 
 }
 .tt-menu h5{
-
-    background: #333;
+    
     clear:both;
-    text-indent: 10px;
-    color:#ccc;
+    text-indent: 5px;
+    color:#000;
+    font-size:75%;
+    font-family:'CeraPRO-Bold';
+}
+.tt-menu  strong{
+    font-weight: normal;
+}
+.tt-menu  a{
+    
+    color:$brand-color;
+    text-indent: 5px;
+    
+}
+.tt-dataset {
+    background: rgba(0, 0, 0, 0) url("/wp-content/themes/Ibiza-Theme/assets/images/border.gif") repeat-x scroll left bottom;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    width: 121%;
 }
 
 .upw-posts .columns{
@@ -1317,9 +1355,7 @@ input.search-field{
     float:left;
 }
 
-.slogan{
-    margin:rem-calc( 9 0 0 0 );
-}
+ 
 .header-outter {
     background:#fff;
     border-bottom:rem-calc(2) solid  $brand-color;
@@ -1519,6 +1555,9 @@ footer .menu-item a{
     padding:rem-calc(3.5); 
 }
 
+.slogan{
+    position: static;
+}
 
 #second-band{
     /*  left: -4px;
@@ -1535,11 +1574,13 @@ footer .menu-item a{
     display:none;
     height:60px;
     position: relative;
-    
+    padding-top:15px;
     img{
     
+        float: left;
         height: 23px;
         margin-bottom: 2px;
+        margin-left: 10px;
         margin-top: 2px;
         position: relative;
         vertical-align: top;
@@ -1552,14 +1593,7 @@ footer .menu-item a{
         background: white none repeat scroll 0 0;
         border-radius: 15px;
         display: inline-block; 
-        height: auto;
-        left: 0;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 13px;
         overflow: hidden;
-        position: absolute;
-        right: 0;
         z-index: 900;
     }    
     
@@ -1572,7 +1606,8 @@ footer .menu-item a{
 
 
 .twitter-typeahead{
-    width:90%;
+    width:80%;
+    float:left;
 }
 
 .upw-after p{
@@ -1689,7 +1724,7 @@ li.tabs-title a{
 
 #top-bar-menu .menu > li > a{
     padding-left:0;
-    padding-right:rem-calc(45);
+    padding-right:45%;
 }
 
 .menu .active > a{
@@ -2023,6 +2058,39 @@ select{
     border: 1px solid #00bcb4;
 }
 
+.nav-menu-icon{
+    height:264px;
+    height:100%;
+    overflow: hidden;
+}
+
+.nav-menu-icon div{
+    
+    font-size: 12px;
+    padding: 25% 0;
+}   
+
+
+.nav-menu-icon img{
+    
+    display: inline-block;
+    
+}   
+
+.nav-menu-icon strong{
+       display: block;
+    margin: 10px 0; 
+}
+
+.social{
+    
+    clear:both;
+    margin:10px 0;
+    img{
+        margin: 0 0 0 3px;
+    }
+    
+}
 
 
 .flowplayer{position:relative;width:100%;counter-increment:flowplayer;background-size:contain;background-repeat:no-repeat;background-position:center center;display:inline-block;}
