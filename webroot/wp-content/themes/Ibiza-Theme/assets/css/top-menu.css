@@ -13,6 +13,17 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
+/*|L*/
+/* line 242, ../scss/_settings.scss */
+.add-to-basket {
+  background: #EA516C;
+  border: none;
+  color: white;
+  font-family: 'CeraPRO-Medium';
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
 /* line 19, ../scss/top-menu.scss */
 .menus.row {
   padding: 30px 30px 0 0;

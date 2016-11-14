@@ -18,17 +18,69 @@
                 <div class="large-12 columns breadcrumb-title">
                     <ul class="breadcrumbs show-for-medium">
                     <li><a href="<?php get_template_directory_uri(); ?>">Home</a></li>
-                    <li><a href="<?php get_template_directory_uri(); ?>">Watch</a></li>
+                    <li class="current"><a href="<?php get_template_directory_uri(); ?>">Watch</a></li>
                     </ul>
                     <h1><?php the_title(); ?></h1>
                 </div>
             </div>
 
             <div class="row">
-                <div class="large-6">
+                <div class="large-8 columns">
                     <div id="dvVideoHolderHome" style="background-color: #000">
                         <img style="width: 100%" src="/global/img/tv-preview.jpg" />
                     </div>
+                    <div class="show-for-large medium-12 no-padding columns">
+                        <h1 style="background:red;">LARGE onNext</h1>
+                    </div>
+                </div>
+                <div class="large-4 medium-8 columns auction-buy-panel">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>The Sewing Quarter Japanese Veg Dyed Fashion Fabric, Charcoal</h3>
+                            <p>Product Code: <span>123456789</span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-8 columns">
+                            <h4>£20.00 <span>per metre</span></h4>
+                        </div>
+                        <div class="large-4 columns">
+                            <p>- [] +</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <input type="button" value="LOGIN TO BUY" class="add-to-basket" />
+                        </div>
+                        <div class="large-6 columns">
+                            <p>or <a href="#">Create an account</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-10 columns">
+                            <img src="http://ibiza.dev/wp-content/themes/Ibiza-Theme/assets/images/howto4.jpg" />
+                        </div>
+                        <div class="large-2 columns">
+                            <ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="hide-for-large medium-4 columns">
+                    <h1 style="background:red;">SMALLER onNext</h1>
+                    <h1 style="background:blue;">SMALLER messageTheStudio</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 show-for-large columns">
+                    <h1 style="background:blue;">SMALLER messageTheStudio</h1>
+                </div>
+                <div class="large-8 medium-12 columns">
+                    <h1 style="background:purple;">Description</h1>
                 </div>
             </div>
 

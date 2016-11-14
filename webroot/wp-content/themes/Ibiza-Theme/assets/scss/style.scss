@@ -221,14 +221,13 @@ $offcanvas-left-size: 50%;
     width: 100%;
 }
 
-/* Liams home styles  */
-$body-text-black: #192332;
+/* Liams home styles |L */
 
 /* Basic font */
 html, body{
     font-size: 16px;
     font-family: 'CeraPRO-Regular';
-    color: $body-text-black;
+    color: $body-font-color;
     font-weight: 400;
     line-height: 1.25rem;
 }
@@ -321,7 +320,8 @@ h4{
     }
 }
 
-/* Liams aution/watch styles  */
+/* Liams auction/watch styles |L */
+
 $foundation-padding-large: 0.9375rem;
 .auction-page{
     .row{
@@ -332,6 +332,11 @@ $foundation-padding-large: 0.9375rem;
 .breadcrumb-title{
     background-color: white;
 }
+.auction-buy-panel{
+    background-color: white;
+}
+
+body{background: aliceblue!important;}
 
 
 
@@ -1650,11 +1655,11 @@ footer .menu-item a{
         font-family: 'CeraPRO-Regular';
         font-size: 1rem;
         a{
-            color: $body-text-black;
+            color: $body-font-color;
         }
         &:last-child{
             a{
-                color: darken($body-text-black,30%);
+                color: darken($body-font-color,30%);
             }
         }
     }

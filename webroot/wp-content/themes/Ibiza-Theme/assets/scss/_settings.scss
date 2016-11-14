@@ -75,6 +75,8 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
+$button-green: #01BCB5;
+$button-rasberry: #EA516C;
 
 @include add-foundation-colors;
 
@@ -235,6 +237,16 @@ $breadcrumbs-item-slash: true;
 
 // 11. Button
 // ----------
+
+/*|L*/
+.add-to-basket{
+    background: $button-rasberry;
+    border: none;
+    color: white;
+    font-family: 'CeraPRO-Medium';
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+}
 
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
