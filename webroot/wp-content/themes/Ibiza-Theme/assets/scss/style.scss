@@ -320,6 +320,20 @@ h4{
     }
 }
 
+.large-push-1-xtra {
+    @extend .large-push-1;
+    left:4%;
+}
+
+.large-12-xtra {
+    @extend .large-12;
+    width: 1335px;
+}
+
+
+
+
+
 /* Liams auction/watch styles |L */
 
 $foundation-padding-large: 0.9375rem;
@@ -330,9 +344,6 @@ $foundation-padding-large: 0.9375rem;
     }
 }
 .breadcrumb-title{
-    background-color: white;
-}
-.auction-buy-panel{
     background-color: white;
 }
 
@@ -366,18 +377,91 @@ body{background: aliceblue!important;}
 
 .no-padding{padding: 0;}
 
- 
-
- 
-
-.large-push-1-xtra {
-    @extend .large-push-1;
-    left:4%;
+.auction-page{
+    .auction-buy-panel h2{
+        font-size: 1.5rem;
+    }
+    .white-house{
+        background: white;
+    }
+    .message-the-studio-large, .message-the-studio-small{
+        text-align: center;
+        outline: 1px solid #e1e1e1;
+    }
+    h3{
+        font-size: 1.4rem;
+    }
+    a{
+        color: $brand-color;
+    }
+    .auction-on-next-large{
+        .on-now{
+            background-color: $brand-color;
+            color: white;
+            height: 100%;
+            display: inline-block;
+            font-size: 1rem;
+            line-height: 5rem;
+            text-align: center;
+            position: relative;
+            &:after{
+                content: '';
+                position: absolute;
+                right: -1.19rem;
+                top: 0;
+                width: 0;
+                height: 0;
+                border-top: 2.5rem solid transparent;
+                border-bottom: 2.5rem solid transparent;
+                border-left: 1.2rem solid $brand-color;
+            }
+        & + .columns{padding: 0.5rem 0 0 1.5rem;}
+        }
+    }
 }
-
-.large-12-xtra {
-    @extend .large-12;
-    width: 1335px;
+.tabber-tab{
+    width: auto;
+    display: inline-block;
+    float: left;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    position: relative;
+    &:first-child{
+        border-right: 1px solid black;
+    }
+    &:not(.active){
+        color: $brand-color;
+        cursor: pointer;
+        .down-arrow{
+            display: none;
+        }
+    }
+    .down-arrow{
+        display: initial;
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        margin-left: -12px;
+    }
+    .down-arrow{
+        width: 0; 
+        height: 0; 
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid black;
+    }
+}
+.tabber-content{
+    margin-top: 5px;
+    &.active{
+        display: inline-block;
+    }
+    &:not(.active){
+        display: none;
+    }
 }
 
 
@@ -2435,3 +2519,7 @@ select{
 100%{bottom:0;right:0;left:0;opacity:1;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100)}
 }@keyframes functional-controls-hide{0%{opacity:0;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0)}
 100%{bottom:0;right:0;left:0;opacity:1;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100)}}
+
+
+
+

@@ -17,76 +17,25 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 
+define('WP_HOME','http://localhost/ibiza/ProjectIbiza-Frontend/webroot/');
+define('WP_SITEURL','http://localhost/ibiza/ProjectIbiza-Frontend/webroot/');
+
 define('DB_NAME', 'ibiza');
 
-
-
-
-if( $_SERVER['SERVER_ADDR'] == '192.168.56.101' ){
-
-    /** MySQL database username */
-    define('DB_USER', 'root');
-
-    /** MySQL database password */
-    define('DB_PASSWORD', 'd3v0p5');
-
-    /** MySQL hostname */
-    define('DB_HOST', 'localhost');
-
-    /** Database Charset to use in creating database tables. */
-    define('DB_CHARSET', 'utf8mb4');
     
-    define('API_URL', 'http://ibizaschemas.product');
-    
-    
+/** MySQL database username */
+define('DB_USER', 'root');
 
-}else if( $_SERVER['SERVER_ADDR'] == '172.31.1.0' ){
-    /** MySQL database username */
-    define('DB_USER', 'ibiza');
+/** MySQL database password */
+define('DB_PASSWORD', '');
 
-    /** MySQL database password */
-    define('DB_PASSWORD', 'password_uat');
+/** MySQL hostname */
+define('DB_HOST', '127.0.0.1');
 
-    /** MySQL hostname */
-    define('DB_HOST', 'ibiza-front-end-wordpress-db-uat.cbextfa9fu28.eu-west-1.rds.amazonaws.com');
-                        
-    /** Database Charset to use in creating database tables. */
-    define('DB_CHARSET', 'utf8mb4');
-    
-    define('API_URL', '//ibizaschemas.product.uat');
-    
-}else if ($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
-	/** MySQL database username */
-    define('DB_USER', 'root');
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8mb4');
 
-    /** MySQL database password */
-    define('DB_PASSWORD', '');
-
-    /** MySQL hostname */
-    define('DB_HOST', '127.0.0.1');
-
-    /** Database Charset to use in creating database tables. */
-    define('DB_CHARSET', 'utf8mb4');
-    
-    define('API_URL', 'http://ibizaschemas.product');
-}
-else{
-    
-    /** MySQL database username */
-    define('DB_USER', 'ibiza');
-
-    /** MySQL database password */
-    define('DB_PASSWORD', 'ibizawp!');
-
-    /** MySQL hostname */
-    define('DB_HOST', 'ibiza-front-end-wordpress-db.cbextfa9fu28.eu-west-1.rds.amazonaws.com');
-
-    /** Database Charset to use in creating database tables. */
-    define('DB_CHARSET', 'utf8mb4');    
-    
-    define('API_URL', 'http://ibizaschemas.product');
-    
-}
+define('API_URL', 'http://ibizaschemas.product');
 
 
 
@@ -134,7 +83,7 @@ define('WP_DEBUG', false);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

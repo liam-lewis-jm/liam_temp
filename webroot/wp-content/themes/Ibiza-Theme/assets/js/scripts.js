@@ -21,6 +21,7 @@ var ibizaHubProxy = (function() {
             var self = this;
 
             this.ibizaHubProxy.client.auctionUpdate = function (data) {
+                debugger;
                 getCurrentAuction(1);
             };
                         
@@ -78,6 +79,7 @@ function getCurrentAuction(update) {
         if (window.location.href.indexOf("todays-products") > 1) {
           buildTodaysProductsAuction(data);
         } else {
+            window.data = data;
             if (data[0]) {
                 jQuery("#triangle").addClass("active-product");
                 jQuery("#triangle-outter").addClass("active-product");
