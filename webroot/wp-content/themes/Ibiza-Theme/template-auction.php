@@ -80,9 +80,9 @@
                         </div>
                         <div class="large-2 columns">
                             <ul>
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
+                                <li ng-repeat="pics in productData.data.images">
+                                    <img src="{{pics.url}}" />
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -135,13 +135,28 @@
             <div class="row">
                 <div class="large-8 columns">
                     <h3>Products From Today's Show</h3>
-                    <div ng-repeat="item in todaysProductsData.data">
-                        <div class="large-4 columns">
-                            {{item}}
+                    <div ng-repeat="item in todaysProductsData.data" ng-if="$index % 4 == 0" class="row">
+                        <div class="large-3 columns">
+                            <img src="{{todaysProductsData.data[$index].data.images[0].url}}" />
+                            <h4><a href="#">{{todaysProductsData.data[$index].data.name}}</a></h4>
+                        </div>
+                        <div class="large-3 columns">
+                            <img src="{{todaysProductsData.data[$index + 1].data.images[0].url}}" />
+                            <h4><a href="#">{{todaysProductsData.data[$index + 1].data.name}}</a></h4>
+                        </div>
+                        <div class="large-3 columns">
+                            <img src="{{todaysProductsData.data[$index + 2].data.images[0].url}}" />
+                            <h4><a href="#">{{todaysProductsData.data[$index + 2].data.name}}</a></h4>
+                        </div>
+                        <div class="large-3 columns">
+                            <img src="{{todaysProductsData.data[$index + 3].data.images[0].url}}" />
+                            <h4><a href="#">{{todaysProductsData.data[$index + 3].data.name}}</a></h4>
                         </div>
                     </div>
                 </div>
-                <div class="large-4 columns">hey there</div>
+                <div class="large-4 columns">
+                    <h3>Programme Guide</h3>
+                </div>
             </div>
 
         </main> <!-- end #main -->
