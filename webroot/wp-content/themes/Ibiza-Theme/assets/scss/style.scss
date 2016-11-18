@@ -419,6 +419,24 @@ body{background: aliceblue!important;}
         }
     }
 }
+.product-gallery{
+    .main-photo{
+
+    }
+    .thumb-photos{
+        ul{
+            list-style-type: none;
+            margin: 0;
+            li{
+                div{
+                    width: 100%;
+                    height: 84px;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+}
 .tabber-tab{
     width: auto;
     display: inline-block;

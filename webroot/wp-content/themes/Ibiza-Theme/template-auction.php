@@ -74,14 +74,14 @@
                             <p>or <a href="#">Create an account</a></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="large-10 columns">
+                    <div class="row product-gallery">
+                        <div class="main-photo large-9 columns">
                             <img src="{{productData.data.images[0].url}}" />
                         </div>
-                        <div class="large-2 columns">
+                        <div class="thumb-photos large-3 columns">
                             <ul>
                                 <li ng-repeat="pics in productData.data.images">
-                                    <img src="{{pics.url}}" />
+                                    <div style="background-image: url({{pics.url}})"></div>
                                 </li>
                             </ul>
                         </div>
@@ -139,23 +139,41 @@
                         <div class="large-3 columns">
                             <img src="{{todaysProductsData.data[$index].data.images[0].url}}" />
                             <h4><a href="#">{{todaysProductsData.data[$index].data.name}}</a></h4>
+                            <span class="price">£{{todaysProductsData.data[$index].data.price}}</span>
                         </div>
                         <div class="large-3 columns">
                             <img src="{{todaysProductsData.data[$index + 1].data.images[0].url}}" />
                             <h4><a href="#">{{todaysProductsData.data[$index + 1].data.name}}</a></h4>
+                            <span class="price" ng-if="todaysProductsData.data[$index + 1]">£{{todaysProductsData.data[$index + 1].data.price}}</span>
                         </div>
                         <div class="large-3 columns">
                             <img src="{{todaysProductsData.data[$index + 2].data.images[0].url}}" />
                             <h4><a href="#">{{todaysProductsData.data[$index + 2].data.name}}</a></h4>
+                            <span class="price" ng-if="todaysProductsData.data[$index + 2]">£{{todaysProductsData.data[$index + 2].data.price}}</span>
                         </div>
                         <div class="large-3 columns">
                             <img src="{{todaysProductsData.data[$index + 3].data.images[0].url}}" />
                             <h4><a href="#">{{todaysProductsData.data[$index + 3].data.name}}</a></h4>
+                            <span class="price" ng-if="todaysProductsData.data[$index + 3]">£{{todaysProductsData.data[$index + 3].data.price}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="large-4 columns">
-                    <h3>Programme Guide</h3>
+                    <div class="programme-guide">
+                        <h3>Programme Guide</h3>
+                    </div>
+                    <div class="newsletter">
+                        <p>Sign up to hear about our latest news and special offers</p>
+                        <input type="" style="height: 37px" placeholder="yourname@emailaddress.co.uk" /><button aria-expanded="false" aria-haspopup="true" data-yeti-box="example-dropdown2" data-is-focus="false" aria-controls="example-dropdown2" class="button" type="submit" style="vertical-align: top">Submit</button>
+                        <div class="social">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/Icon_Twitter.png">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/Icon_Facebook.png">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/Icon_GPlus.png">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/Icon_Pinterest.png">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/Icon_Tumblr.png">
+                            <img src="/wp-content/themes/Ibiza-Theme/assets/images/Icon_YouTube.png">
+                        </div>                                                            
+                    </div>
                 </div>
             </div>
 
