@@ -4,7 +4,7 @@ var auctionApp = angular.module('ibiza-auction', []);
 //auctionApp.constant('apiAuction', api_location + '/ProductCatalog.api/api/legacy/auction');
 //auctionApp.constant('apiTodayspProducts', api_location + '/ProductCatalog.api/api/legacy/todaysproducts');
 
-auctionApp.controller('AuctionPage', ['$scope', '$http', 'signalRHubProxy' ,function ($scope, $http, signalRHubProxy) {
+auctionApp.controller('AuctionPage', ['$scope', '$http', 'signalRHubProxy', '$window', function ($scope, $http, signalRHubProxy, $window) {
     //$scope.signalR = api_location + "/ProductCatalog.Api/signalr";
     //jQuery.connection.ibizaHubProxy.connection.url =  api_location + "/ProductCatalog.Api/signalr";
     //jQuery.connection.ibizaHubProxy.connection.start();
@@ -39,6 +39,11 @@ auctionApp.controller('AuctionPage', ['$scope', '$http', 'signalRHubProxy' ,func
 
     auctionClient.start();
 
+    $window.onload = function() {
+        jQuery('.prodThumb').click(function(){
+            jQuery('.main-photo img').attr('src', jQuery(this).data('this-src'));
+        });
+    };
 
 }]);
 

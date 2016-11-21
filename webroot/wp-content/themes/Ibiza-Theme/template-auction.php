@@ -29,10 +29,9 @@
 
             <div class="row">
                 <div class="large-8 columns">
-                    <div style="background: grey; width:100%; padding-top: 50%;"></div>
-                    <!--<div id="dvVideoHolderHome" style="background-color: #000">
+                    <div id="dvVideoHolderHome" style="background-color: #000">
                         <img style="width: 100%" src="/global/img/tv-preview.jpg" />
-                    </div>-->
+                    </div>
                     <div class="show-for-large row no-padding columns auction-on-next-large white-house">
                         <div class="medium-6 no-padding columns">
                             <div class="large-2 columns no-padding on-now">On Now</div>
@@ -81,7 +80,7 @@
                         <div class="thumb-photos large-3 columns">
                             <ul>
                                 <li ng-repeat="pics in productData.data.images">
-                                    <div style="background-image: url({{pics.url}})"></div>
+                                    <div class="prodThumb" data-this-src="{{pics.url}}" style="background-image: url({{pics.url}})"></div>
                                 </li>
                             </ul>
                         </div>
@@ -246,13 +245,18 @@
                window.location = 'https://secure.<?php echo $_SERVER['SERVER_NAME']; ?>/basket.aspx';
 
              });
-        });              
+        });
 
        //hero slider height
         jQuery('.swiper-slide').each(function(){
             resizeSlider();
         });
 
+        jQuery('.main-photo').fancybox({
+            padding: 0,
+            nextEffect: 'none',
+            prevEffect: 'none'
+        });
     });
 
     jQuery(window).resize(function(){
